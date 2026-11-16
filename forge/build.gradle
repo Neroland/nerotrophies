@@ -1,0 +1,227 @@
+// forge: full MinecraftForge userdev via ForgeGradle 7. Shares the common module's
+// source directly (single copy -> no drift).
+
+plugins {
+    id 'net.minecraftforge.gradle'
+    id 'net.minecraftforge.jarjar'
+    id 'eclipse'
+    id 'maven-publish'
+}
+
+// MC version comes from the Stonecutter node (e.g. :forge:26.1.2), not a global property.
+def mc = stonecutter.current.version
+// Upper bound of this cell's Minecraft range: the next minor line (26.1.2 -> 26.2, 26.2 -> 26.3), same
+// expression as Neroland Core, so each cell's jar declares only its own MC line.
+def mcCeiling = project.findProperty("mc_ceiling_${mc}") ?: mc.tokenize('.').with { "${it[0]}.${it[1].toInteger() + 1}" }
+// Lowest Minecraft this jar accepts: the compiled version, or an older hotfix sibling (gradle.properties).
+// 1.21.x cells spell out their [floor, ceiling) range there (mc_floor_<v> / mc_ceiling_<v>).
+def mcFloor = project.findProperty("mc_floor_${mc}") ?: mc
+def forgeVersion = project.findProperty("forge_version_${mc}")
+def nerolandcoreVersion = project.findProperty('nerolandcore_version')
+
+if (!forgeVersion) {
+    throw new GradleException("Missing forge_version_${mc} in gradle.properties")
+}
+
+// This node's projectDir is <loader>/versions/<v>; the authoritative loader source +
+// templates live in the BRANCH root (forge/). Resolve branch-root paths via the parent.
+def branchDir = project.parent.projectDir
+
+def forgeBuild = forgeVersion.toString().split('-', 2)[1]
+def forgeMajor = forgeBuild.split('\\.')[0]
+
+// Distinct, descriptive jar name per cell.
+base { archivesName = "nerotrophies-forge-${mc}" }
+
+// Publish this cell's jar as a Maven artifact so other Nero mods can declare NeroTrophies a dependency:
+// `za.co.neroland.nerotrophies:nerotrophies-forge-<mc>:<version>`. Mirrors Neroland Core's publishing setup.
+// `./gradlew publishToMavenLocal` installs all nine cells locally for dev. Dependency-free POM on purpose.
+publishing {
+    publications {
+        register('mod', MavenPublication) {
+            groupId = rootProject.mod_group_id
+            artifactId = "nerotrophies-forge-${mc}"
+            version = rootProject.mod_version
+            artifact tasks.named('jar')
+        }
+    }
+    // Remote target so a fresh CI runner / clone (empty ~/.m2) can resolve NeroTrophies — GitHub Packages
+    // Maven for the NeroTrophies repo. `publishToMavenLocal` still works for local dev; `publish` (or
+    // publishModPublicationToGitHubPackagesRepository) pushes here. Auth: gradle props gpr.user/gpr.key,
+    // else env GITHUB_ACTOR/GITHUB_TOKEN (both present in GitHub Actions). Lazy getOrNull() means a
+    // build that doesn't touch this repo (e.g. a contributor with no token) won't fail at configuration.
+    // Privacy (POPIA/GDPR): publishes only build artifacts + version strings, no personal data.
+    repositories {
+        maven {
+            name = 'GitHubPackages'
+            url = 'https://maven.pkg.github.com/Neroland/nerotrophies'
+            credentials {
+                username = providers.gradleProperty('gpr.user').orElse(providers.environmentVariable('GITHUB_ACTOR')).getOrNull()
+                password = providers.gradleProperty('gpr.key').orElse(providers.environmentVariable('GITHUB_TOKEN')).getOrNull()
+            }
+        }
+    }
+}
+
+// Enable Forge's Jar-in-Jar task for embedded Sentry, mirroring Fabric include and NeoForge JarJar.
+jarJar.register()
+
+// Pull in the shared common source + resources.
+sourceSets.main.java.srcDir rootProject.ext.commonJava
+sourceSets.main.resources.srcDir rootProject.ext.commonResources
+
+// Forge 26's ModLauncher builds a JPMS layer from the dev runtime classpath. If classes and
+// processed resources are separate entries, the mod's classes can be seen as module "main" while
+// mods.toml names the resources entry "nerotrophies", producing split-package startup failures.
+sourceSets.main.output.resourcesDir = sourceSets.main.java.classesDirectory.get().asFile
+
+minecraft {
+    runs {
+        configureEach {
+            workingDir = layout.projectDirectory.dir('runs/client')
+            systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
+            systemProperty 'forge.enabledGameTestNamespaces', rootProject.mod_id
+
+            if (project.hasProperty('nerotrophiesDebug')) {
+                jvmArgs '-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005'
+            }
+        }
+
+        register('client')
+
+        register('server') {
+            workingDir = layout.projectDirectory.dir('runs/server')
+            args '--nogui'
+        }
+    }
+}
+
+repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
+}
+
+dependencies {
+    implementation minecraft.dependency("net.minecraftforge:forge:${forgeVersion}")
+    // EventBus 7's compile-time validator; Forge before 1.21.6 ships EventBus 6, which it cannot validate.
+    if (stonecutter.eval(mc, '>=1.21.6')) {
+        annotationProcessor 'net.minecraftforge:eventbus-validator:7.0.6'
+    }
+
+    // Neroland Core — REQUIRED shared foundation (config schema). Core ships as its own mod and
+    // loads BEFORE NeroTrophies (see mods.toml, ordering = AFTER); it is never bundled.
+    implementation "za.co.neroland.nerolandcore:nerolandcore-forge-${mc}:${nerolandcoreVersion}"
+
+    implementation 'io.sentry:sentry:8.64.0'
+    jarJar(group: 'io.sentry', name: 'sentry', version: '8.64.0')
+}
+
+// Expand mods.toml from src/main/templates into generated resources.
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def props = [
+        mod_id                    : rootProject.mod_id,
+        mod_version               : rootProject.mod_version,
+        mod_name                  : rootProject.mod_name,
+        mod_authors               : rootProject.mod_authors,
+        mod_license               : rootProject.mod_license,
+        forge_loader_version_range: "[${forgeMajor},)",
+        // Floor the forge dependency at the compiled build: Forge adds API inside a major (1.21.1's
+        // AddGuiOverlayLayersEvent arrived in 52.1.2), so "any 52.x" let 52.1.0 crash at mod construction
+        // (MC-NEROTROPHIES-1). loaderVersion (javafml) stays at the major.
+        forge_version_range       : "[${forgeBuild},)",
+        minecraft_version_range   : "[${mcFloor},${mcCeiling})",
+        // Floor at the compiled Core version — see the NeoForge build script for the reasoning.
+        nerolandcore_version_range: "[${nerolandcoreVersion},2.0)",
+    ]
+    inputs.properties(props)
+    expand(props)
+    from "${branchDir}/src/main/templates"
+    into layout.buildDirectory.dir('generated/sources/modMetadata')
+}
+sourceSets.main.resources.srcDir generateModMetadata
+
+// Bundle the public wiki/*.md pages (plus a generated index.json) under assets/nerotrophies/wiki so the
+// NeroLink module's wiki section can serve them (WIKI CONTRACT v1).
+def generateWikiResources = tasks.register('generateWikiResources', Copy) {
+    def wikiSrcDir = file("${rootProject.projectDir}/wiki")
+    from(wikiSrcDir) {
+        include '*.md'
+        into 'assets/nerotrophies/wiki'
+    }
+    into layout.buildDirectory.dir('generated/sources/wiki')
+    doLast {
+        def outDir = layout.buildDirectory.dir('generated/sources/wiki/assets/nerotrophies/wiki').get().asFile
+        outDir.mkdirs()
+        def entries = []
+        wikiSrcDir.listFiles()?.findAll { it.isFile() && it.name.endsWith('.md') }?.sort { it.name }?.each { f ->
+            def slug = f.name.substring(0, f.name.length() - 3)
+            def title = slug.replace('-', ' ')
+            for (String line : f.readLines('UTF-8')) {
+                def t = line.trim()
+                if (t.startsWith('# ')) { title = t.substring(2).trim(); break }
+                if (!t.isEmpty()) break
+            }
+            entries << [slug: slug, title: title]
+        }
+        def sb = new StringBuilder('{\n  "pages": [\n')
+        entries.eachWithIndex { e, i ->
+            sb.append('    {"slug": ').append(groovy.json.JsonOutput.toJson(e.slug))
+              .append(', "title": ').append(groovy.json.JsonOutput.toJson(e.title)).append('}')
+              .append(i < entries.size() - 1 ? ',' : '').append('\n')
+        }
+        sb.append('  ]\n}\n')
+        new File(outDir, 'index.json').write(sb.toString(), 'UTF-8')
+    }
+}
+sourceSets.main.resources.srcDir generateWikiResources
+
+// Pre-create run directories so VS Code debug-terminal cwd exists before first launch.
+def createForgeRunDirs = tasks.register('createForgeRunDirs') {
+    description = 'Pre-create Forge run directories so the IDE debug-terminal cwd exists before first launch.'
+    doLast {
+        file('runs/client').mkdirs()
+        file('runs/server').mkdirs()
+    }
+}
+tasks.matching { it.name == 'configureLaunch' }.configureEach { dependsOn createForgeRunDirs }
+
+// ecjCheck: run the Eclipse compiler over common + forge main sources, with the same prefs as VS Code.
+configurations {
+    ecj
+}
+dependencies {
+    ecj 'org.eclipse.jdt:ecj:+'
+}
+tasks.register('ecjCheck', JavaExec) {
+    group = 'verification'
+    description = 'Run the Eclipse (IDE) analyzer over common + forge main sources and report its diagnostics.'
+    notCompatibleWithConfigurationCache('assembles the analysis classpath at execution time')
+    dependsOn tasks.named('compileJava')
+    classpath = configurations.ecj
+    mainClass = 'org.eclipse.jdt.internal.compiler.batch.Main'
+    doFirst {
+        def analysisCp = (sourceSets.main.compileClasspath.files + sourceSets.main.output.files)
+                .findAll { it.exists() }
+                .join(File.pathSeparator)
+        // The source FILES, not the source dirs, so any source excludes apply here exactly as in
+        // compileJava. Passed through an @argfile (forward slashes) to keep the Windows command line short.
+        def ecjSources = project.layout.buildDirectory.file('tmp/ecjCheck/sources.txt').get().asFile
+        ecjSources.parentFile.mkdirs()
+        ecjSources.text = sourceSets.main.java.files.collect { it.absolutePath.replace('\\', '/') }.join('\n') + '\n'
+        def srcDirs = ['@' + ecjSources.absolutePath.replace('\\', '/')]
+        args = [
+                '--release', "${project.javaRelease}",
+                '-proc:none',
+                '-d', 'none',
+                '-properties', rootProject.file('tools/ecj.prefs').absolutePath,
+                // No '-warn:' override — tools/ecj.prefs is the single source of truth for severities.
+                // A CLI -warn:+token forces a category ON regardless of the prefs `ignore`, so the
+                // framework-interop nullness categories would re-appear. nullanalysis=enabled in the
+                // prefs already turns annotation-based analysis on for the genuine categories.
+                '-annotationpath', 'CLASSPATH',
+                '-classpath', analysisCp,
+        ] + srcDirs
+    }
+}

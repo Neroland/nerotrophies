@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "Trophies for the Neroland mod family: a cross-mod record of what you have done, shown off as trophies, pedestals and cabinets in your base.",
+  "authors": ["${mod_authors}"],
+  "license": "${mod_license}",
+  "icon": "nerotrophies_logo.png",
+  "accessWidener": "nerotrophies.accesswidener",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["za.co.neroland.nerotrophies.fabric.NeroTrophiesFabric"]
+  },
+  "mixins": [
+    "nerotrophies-common.mixins.json",
+    "nerotrophies.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": ">=${minecraft_version} <${minecraft_version_ceiling}",
+    "java": ">=21",
+    "fabric-api": "*",
+    "nerolandcore": ">=${nerolandcore_version} <2.0.0"
+  }
+}
