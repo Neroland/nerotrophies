@@ -55,7 +55,7 @@ public final class NeroTrophiesTelemetry {
      * it is what keeps a fork or an unconfigured build silent instead of reporting into somebody else's
      * project.
      */
-    private static final String PLACEHOLDER_DSN = "https://REPLACE-ME@sentry.invalid/0";
+    private static final String PLACEHOLDER_DSN = "https://f411108d7adfffc4f8c04a2f61b25113@o4511183823241216.ingest.de.sentry.io/4512447893405776";
 
     /**
      * Sentry DSN for the NeroTrophies project (EU ingest) - a public client key (write-only ingest), safe to
