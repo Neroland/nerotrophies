@@ -24,6 +24,7 @@ public abstract class SingleDisplayBlock extends DisplayBlock {
         }
         if (!level.isClientSide()) {
             display.setItem(0, DisplayContents.normalise(stack));
+            DisplaySounds.play(level, pos, DisplaySounds.PEDESTAL_SET);
             if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
             }

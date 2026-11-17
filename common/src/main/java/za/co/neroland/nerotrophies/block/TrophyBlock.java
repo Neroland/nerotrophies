@@ -81,6 +81,7 @@ public class TrophyBlock extends DisplayBlock {
         super.setPlacedBy(level, pos, state, by, stack);
         if (level instanceof ServerLevel && level.getBlockEntity(pos) instanceof TrophyBlockEntity trophy) {
             trophy.contentsChanged();
+            DisplaySounds.play(level, pos, DisplaySounds.TROPHY_PLACE);
         }
     }
 }

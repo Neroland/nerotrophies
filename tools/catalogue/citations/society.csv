@@ -35,7 +35,7 @@ nerotrophies:nerosecurity/installation_online,silver,false,nero_event,SEC-GATE-0
 nerotrophies:nerosecurity/drill_sergeant,silver,false,nero_event,SEC-GATE-03,re-tiered gold to silver
 nerotrophies:neroevents/first_responder,bronze,false,nero_event,EVT-GATE-01,
 nerotrophies:neroevents/care_package,bronze,false,nero_event,EVT-GATE-02,
-nerotrophies:neroevents/stargazer,bronze,false,item_obtained,EVT-ITEM-01,
+nerotrophies:neroevents/stargazer,bronze,false,stat,EVT-ITEM-01,"mined stat; the ore drops dust, never itself"
 nerotrophies:neroevents/salvage_rights,silver,true,item_obtained,EVT-ITEM-01,hidden; never a collection member
 nerotrophies:neroevents/raid_breaker,silver,false,nero_event,EVT-GATE-03,
 nerotrophies:neroevents/giant_slayer,gold,false,nero_event,EVT-GATE-04,re-tiered nero to gold

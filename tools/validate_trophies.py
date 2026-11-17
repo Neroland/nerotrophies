@@ -17,6 +17,12 @@ Checks, all offline:
   completion trophy exists.
 * Collections: 2 to 24 members, a known trim, no hidden members, ``requires_mod`` consistent with
   the members, completion trophies have no trigger and are not members of their own collection.
+* Sources: an ``item_obtained`` item or ``block_placed`` block that no recipe in its sibling produces
+  and whose block loot table does not drop itself (nor any other loot table name it) is reported as a
+  warning: it may never reach a survival inventory.
+* Citations: every trophy has exactly one row in ``tools/catalogue/citations/*.csv``, every row names
+  an existing trophy, and every row cites a survey row id (a collection's completion trophy may cite
+  the collection instead).
 * Catalogue rules: no nero tier on a bare ``item_obtained`` (or any polled trigger), at most one
   nero trophy per Book category, no two trophies on the same trigger, no repeated-use grind
   (huge counts, idle-time stats), PLAYER-scope gates and milestones only, no NeroQuests reward
@@ -33,6 +39,7 @@ Usage: ``python3 tools/validate_trophies.py [--repo DIR] [--siblings DIR | --no-
 from __future__ import annotations
 
 import argparse
+import csv
 import glob
 import json
 import os
@@ -92,6 +99,8 @@ REPEAT_STAT_TYPES = {"minecraft:used", "minecraft:mined", "minecraft:crafted", "
                      "minecraft:dropped", "minecraft:broken", "minecraft:killed", "minecraft:killed_by"}
 IDLE_STATS = {"minecraft:play_time", "minecraft:play_one_minute", "minecraft:total_world_time",
               "minecraft:time_since_death", "minecraft:time_since_rest", "minecraft:sneak_time"}
+#: A survey row id, e.g. ``SPACE-ADV-03``.
+SURVEY_ROW = re.compile(r"[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+")
 #: Mod id -> sibling repository folder, where they differ.
 REPO_FOR_MOD = {"nerolandcore": "neroland-core"}
 
@@ -446,6 +455,36 @@ class Sibling:
                 except ValueError:
                     pass
 
+    def _data_files(self, directories):
+        for _, root in self.roots():
+            for directory in directories:
+                yield from glob.glob(os.path.join(root, "data", "*", directory, "**", "*.json"), recursive=True)
+
+    def _sources(self):
+        """(recipe results, {loot table file: item names}) across every namespace this checkout ships."""
+        if getattr(self, "_cache", None) is None:
+            results = set()
+            for file in self._data_files(("recipe", "recipes")):
+                data = _load_quiet(file)
+                if data is not None:
+                    _collect_results(data, results)
+            loot = {}
+            for file in self._data_files(("loot_table", "loot_tables")):
+                data = _load_quiet(file)
+                names = set()
+                if data is not None:
+                    _collect_loot_items(data, names)
+                loot[file.replace(os.sep, "/")] = names
+            self._cache = (results, loot)
+        return self._cache
+
+    def obtainable(self, ident: str) -> bool:
+        """A recipe makes it, its block loot table drops it, or another loot table names it."""
+        results, loot = self._sources()
+        if ident in results:
+            return True
+        return any(ident in names for names in loot.values())
+
     def roots(self):
         yield None, self.base
         for overlay in self.overlays:
@@ -477,6 +516,45 @@ class Sibling:
                 except ValueError:
                     return {}
         return None
+
+
+def _load_quiet(file):
+    try:
+        with open(file, encoding="utf-8") as f:
+            return json.load(f)
+    except (ValueError, UnicodeDecodeError, OSError):
+        return None
+
+
+def _collect_results(node, out: set) -> None:
+    """Every recipe result id: ``"result": "<id>"`` or ``"result": {"id"|"item": "<id>"}``, at any depth."""
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key == "result":
+                if isinstance(value, str) and parse_id(value):
+                    out.add(parse_id(value))
+                elif isinstance(value, dict):
+                    for k in ("id", "item"):
+                        if isinstance(value.get(k), str) and parse_id(value[k]):
+                            out.add(parse_id(value[k]))
+            _collect_results(value, out)
+    elif isinstance(node, list):
+        for value in node:
+            _collect_results(value, out)
+
+
+def _collect_loot_items(node, out: set) -> None:
+    """Every ``{"type": "minecraft:item", "name": "<id>"}`` entry in a loot table, at any depth."""
+    if isinstance(node, dict):
+        if node.get("type") in ("minecraft:item", "item") and isinstance(node.get("name"), str):
+            parsed = parse_id(node["name"])
+            if parsed:
+                out.add(parsed)
+        for value in node.values():
+            _collect_loot_items(value, out)
+    elif isinstance(node, list):
+        for value in node:
+            _collect_loot_items(value, out)
 
 
 class Siblings:
@@ -563,12 +641,14 @@ def check_trigger_target(rep, where, trig, vanilla, siblings):
             rep.warn(where, f"material milestone {target} has no data file (built in?)")
         elif str(milestone.get("scope", "player")).lower() != "player":
             rep.error(where, f"material milestone {target} is not PLAYER scope")
-    elif kind == "item_obtained":
-        if not sib.has_item(path):
-            rep.error(where, f"item {target} not found in ../{REPO_FOR_MOD.get(ns, ns)}")
-    elif kind == "block_placed":
-        if not sib.has_block(path):
-            rep.error(where, f"block {target} not found in ../{REPO_FOR_MOD.get(ns, ns)}")
+    elif kind in ("item_obtained", "block_placed"):
+        what = "item" if kind == "item_obtained" else "block"
+        exists = sib.has_item(path) if kind == "item_obtained" else sib.has_block(path)
+        if not exists:
+            rep.error(where, f"{what} {target} not found in ../{REPO_FOR_MOD.get(ns, ns)}")
+        elif not sib.obtainable(target):
+            rep.warn(where, f"{what} {target}: no recipe makes it and no loot table (its block's included) "
+                            "drops it; it may never reach a survival inventory")
     elif kind == "dimension_visited":
         if sib.data_json("dimension", path) is None:
             rep.warn(where, f"dimension {target} has no data file in ../{REPO_FOR_MOD.get(ns, ns)}")
@@ -671,6 +751,44 @@ def check_catalogue(rep, trophies, collections, lang, trims, vanilla, siblings):
                         rep.error(where, f"completion trophy needs '{mod}', which the collection does not")
 
 
+def check_citations(rep, repo: str, trophies: dict, collections: dict) -> int:
+    """Every trophy has one citation row naming a survey row id; every row names a trophy."""
+    files = sorted(glob.glob(os.path.join(repo, "tools/catalogue/citations/*.csv")))
+    if not files:
+        if trophies:
+            rep.error("tools/catalogue/citations", "no citation files: every trophy must cite a survey row")
+        return 0
+    awarded_by = {c["trophy"]: cid.split(":", 1)[1] for cid, c in collections.items() if c["trophy"]}
+    rows = {}
+    for file in files:
+        name = os.path.relpath(file, repo).replace(os.sep, "/")
+        with open(file, encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            if not reader.fieldnames or "id" not in reader.fieldnames or "survey_row" not in reader.fieldnames:
+                rep.error(name, "needs the columns id and survey_row")
+                continue
+            for line, row in enumerate(reader, start=2):
+                tid = (row.get("id") or "").strip()
+                where = f"{name}:{line}"
+                if tid in rows:
+                    rep.error(where, f"second citation row for {tid} (first: {rows[tid][0]})")
+                    continue
+                rows[tid] = (where, (row.get("survey_row") or "").strip())
+                if tid not in trophies:
+                    rep.error(where, f"citation row names no existing trophy: {tid or '(empty id)'}")
+    for tid in sorted(trophies):
+        if tid not in rows:
+            rep.error(tid, "no citation row in tools/catalogue/citations/*.csv")
+            continue
+        where, survey = rows[tid]
+        if SURVEY_ROW.fullmatch(survey):
+            continue
+        if tid in awarded_by and survey == awarded_by[tid]:
+            continue  # a completion trophy cites the collection that awards it
+        rep.error(tid, f"citation at {where} does not cite a survey row id (got {survey or 'nothing'!r})")
+    return len(rows)
+
+
 def check_quest_pack(rep, roots, lang):
     """The quest pack's keys and links (NeroQuests validates the codecs itself)."""
     quests, chapters = {}, {}
@@ -717,6 +835,7 @@ def validate(repo: str, siblings_dir: str | None, jars: list) -> tuple:
     vanilla = Vanilla(jars)
     sibs = Siblings(siblings_dir, "nerotrophies", repo)
     check_catalogue(rep, trophies, collections, lang, load_trims(repo), vanilla, sibs)
+    check_citations(rep, repo, trophies, collections)
     quest_counts = check_quest_pack(rep, roots, lang)
     return rep, trophies, collections, quest_counts, vanilla
 

@@ -38,6 +38,10 @@ def item(iid, count=1):
     return t
 
 
+def stat(stat_type, sid, at_least):
+    return {"type": "stat", "stat_type": stat_type, "stat": sid, "at_least": at_least}
+
+
 def placed(bid, count=1):
     t = {"type": "block_placed", "block": bid}
     if count != 1:
@@ -95,7 +99,7 @@ T = [
      placed("nerofactions:void_altar"), "Voidtouched", "Raise a Void Altar.", "FACT-ITEM-02",
      "hidden; never a collection member"),
     ("nerofactions", "rift_walker", "silver", True, "nerofactions:rift_blade",
-     item("nerofactions:rift_blade"), "Rift Walker", "Hold a Rift Blade.", "FACT-ITEM-01",
+     item("nerofactions:rift_blade"), "Rift Walker", "Get a Rift Blade.", "FACT-ITEM-01",
      "hidden; re-tiered gold to silver; never a collection member"),
     # --- NeroColonies --------------------------------------------------------------------------
     ("nerocolonies", "founder", "bronze", False, "nerocolonies:colony_beacon",
@@ -106,7 +110,7 @@ T = [
      gate("nerocolonies:life_support_online"), "Breathing Room", "Bring a colony's life support online.",
      "COL-GATE-07", ""),
     ("nerocolonies", "first_research", "bronze", False, "nerocolonies:research_station",
-     gate("nerocolonies:first_research"), "First Research", "Unlock a colony research node.",
+     gate("nerocolonies:first_research"), "Lab Notes", "Unlock a colony research node.",
      "COL-GATE-09", ""),
     ("nerocolonies", "thank_you", "bronze", True, "nerocolonies:thank_you_note",
      item("nerocolonies:thank_you_note"), "Thank You!", "Receive a thank-you note from a Neran.",
@@ -123,7 +127,7 @@ T = [
      "COL-GATE-05", "nero: the final colony stage"),
     # --- NeroSecurity --------------------------------------------------------------------------
     ("nerosecurity", "access_granted", "bronze", False, "nerosecurity:keycard",
-     gate("nerosecurity:first_keycard"), "Access Granted", "Program your first keycard.", "SEC-GATE-01", ""),
+     gate("nerosecurity:first_keycard"), "Access Granted", "Program your first Keycard.", "SEC-GATE-01", ""),
     ("nerosecurity", "eyes_everywhere", "bronze", False, "nerosecurity:security_camera",
      placed("nerosecurity:security_camera"), "Eyes Everywhere", "Place a Security Camera.", "SEC-ITEM-01", ""),
     ("nerosecurity", "shields_up", "silver", False, "nerosecurity:force_field_emitter",
@@ -131,7 +135,7 @@ T = [
      "SEC-ITEM-01", ""),
     ("nerosecurity", "encrypted", "silver", True, "nerosecurity:encryption_module",
      item("nerosecurity:encryption_module"), "Encrypted",
-     "Obtain an Encryption Module, the key to cards nobody else can copy.", "SEC-ITEM-02",
+     "Get an Encryption Module, the key to cards nobody else can copy.", "SEC-ITEM-02",
      "hidden; re-pointed to the real item (an encrypted keycard is a component, not an item id); "
      "never a collection member"),
     ("nerosecurity", "installation_online", "silver", False, "nerosecurity:security_hub",
@@ -147,15 +151,15 @@ T = [
     ("neroevents", "care_package", "bronze", False, "neroevents:supply_beacon",
      gate("neroevents:supply_claimed"), "Care Package", "Claim a supply drop.", "EVT-GATE-02", ""),
     ("neroevents", "stargazer", "bronze", False, "neroevents:embedded_meteor_ore",
-     item("neroevents:embedded_meteor_ore"), "Stargazer", "Collect ore from a fallen meteor.",
-     "EVT-ITEM-01", ""),
+     stat("minecraft:mined", "neroevents:embedded_meteor_ore", 1), "Stargazer", "Mine ore from a fallen meteor.",
+     "EVT-ITEM-01", "mined stat; the ore drops dust, never itself"),
     ("neroevents", "salvage_rights", "silver", True, "neroevents:salvage_core_fragment",
-     item("neroevents:salvage_core_fragment"), "Salvage Rights", "Recover a salvage core fragment from a crash.",
+     item("neroevents:salvage_core_fragment"), "Salvage Rights", "Recover a Salvage Core Fragment from a crash.",
      "EVT-ITEM-01", "hidden; never a collection member"),
     ("neroevents", "raid_breaker", "silver", False, "neroevents:war_beacon",
      gate("neroevents:raid_repelled"), "Raid Breaker", "Help repel a raid.", "EVT-GATE-03", ""),
     ("neroevents", "giant_slayer", "gold", False, "neroevents:reward_crate_token",
-     gate("neroevents:boss_contributor"), "Giant Slayer", "Fight hard enough to count against a world boss.",
+     gate("neroevents:boss_contributor"), "Giant Slayer", "Pull your weight in a world boss fight.",
      "EVT-GATE-04", "re-tiered nero to gold"),
     # --- NeroQuests (thin: floor waived) -------------------------------------------------------
     ("neroquests", "bookworm", "bronze", False, "neroquests:quest_book",

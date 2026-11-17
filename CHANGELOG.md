@@ -32,6 +32,11 @@ All notable changes to NeroTrophies are documented here. The format follows
 - Registry ids for the six blocks and the Trophy Book (placeholder behaviour for now), and the `nerotrophies:main`
   payload channel.
 
+### Catalogue scope
+
+- The catalogue aims for at least six trophies per Neroland mod. A few ship fewer for now: NeroLink 0, NeroQuests 3,
+  NeroMaps 4, NeroArcade 5 and NeroNotes 5. More arrive when those mods expose the events.
+
 ## [0.0.1-alpha.1]
 
 ### Added

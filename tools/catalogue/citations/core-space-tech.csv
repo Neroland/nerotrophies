@@ -42,4 +42,4 @@ nerotrophies:nerologistics/bit_bucket,bronze,false,block_placed nerologistics:dr
 nerotrophies:nerologistics/air_mail,silver,false,block_placed nerologistics:drone_hub,LOGI-ITEM-03,
 nerotrophies:nerologistics/all_aboard,silver,false,block_placed nerologistics:train_station,LOGI-ITEM-03,
 nerotrophies:nerologistics/half_a_million,gold,false,item_obtained nerologistics:item_cell_512k,LOGI-ITEM-02,
-nerotrophies:nerologistics/interplanetary_freight,gold,false,nero_event:gate nerologistics:first_shipment,LOGI-GATE-01,offline-capable gate
+nerotrophies:nerologistics/interplanetary_freight,silver,false,nero_event:gate nerologistics:first_shipment,LOGI-GATE-01,offline-capable gate

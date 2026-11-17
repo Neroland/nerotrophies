@@ -3,8 +3,10 @@
   "icon": "neroevents:embedded_meteor_ore",
   "tier": "bronze",
   "trigger": {
-    "type": "item_obtained",
-    "item": "neroevents:embedded_meteor_ore"
+    "type": "stat",
+    "stat_type": "minecraft:mined",
+    "stat": "neroevents:embedded_meteor_ore",
+    "at_least": 1
   },
   "hidden": false,
   "title": "trophy.nerotrophies.neroevents.stargazer.title",

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerotrophies:display_pedestal",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerotrophies:display_pedestal"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerotrophies.on_display.title",
+  "description": "trophy.nerotrophies.nerotrophies.on_display.description",
+  "category": "nerotrophies",
+  "order": 20
+}

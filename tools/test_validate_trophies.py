@@ -35,6 +35,7 @@ class Fixture:
         self.parent = tmp
         self.repo = os.path.join(tmp, "nerotrophies")
         self.lang = {}
+        self.citations = {}
         self.add_trophy("minecraft/a", trophy(trigger=adv("story/a")))
         self.add_trophy("minecraft/b", trophy(trigger=adv("story/b")))
         self.add_collection("pair", {"icon": "minecraft:stone", "trim": "laurel_gold",
@@ -45,6 +46,7 @@ class Fixture:
         ident = "nerotrophies:" + path
         self.lang[v.default_key("trophy", ident, "title")] = "T"
         self.lang[v.default_key("trophy", ident, "desc")] = "D"
+        self.citations[ident] = "TEST-ROW-01"
 
     def add_collection(self, path, data):
         write(self.repo, f"{DATA}/neroland_trophy_collections/{path}.json", data)
@@ -54,6 +56,12 @@ class Fixture:
 
     def run(self, siblings=False):
         write(self.repo, "tools/lang/pending/test.json", self.lang)
+        path = os.path.join(self.repo, "tools/catalogue/citations/test.csv")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            f.write("id,tier,hidden,trigger_type,survey_row,notes\n")
+            for ident, row in self.citations.items():
+                f.write(f"{ident},bronze,false,x,{row},\n")
         rep, *_ = v.validate(self.repo, self.parent if siblings else None, [])
         return rep
 
@@ -186,6 +194,53 @@ class ValidatorTest(unittest.TestCase):
         rep = self.fx.run(siblings=True)
         self.assertErrorContains(rep, "is not an item in ../somemod")
         self.assertTrue(any("only exists on MC >= 26.3" in w for w in rep.warnings))
+
+    def test_unobtainable_block_warns(self):
+        placed = {"type": "block_placed", "block": "somemod:ore"}
+        self.fx.add_trophy("somemod/ore", trophy(icon="somemod:ore", trigger=placed, requires_mod="somemod"))
+        sib = os.path.join(self.fx.parent, "somemod", RES)
+        write(sib, "assets/somemod/lang/en_us.json", {"block.somemod.ore": "Ore"})
+        write(sib, "data/somemod/loot_table/blocks/ore.json", {"pools": [{"entries": [
+            {"type": "minecraft:item", "name": "somemod:dust"}]}]})
+        rep = self.fx.run(siblings=True)
+        self.assertEqual(rep.errors, [])
+        self.assertTrue(any("may never reach a survival inventory" in w for w in rep.warnings), rep.warnings)
+
+        write(sib, "data/somemod/loot_table/blocks/ore.json", {"pools": [{"entries": [{"type": "minecraft:alternatives",
+            "children": [{"type": "minecraft:item", "name": "somemod:ore"}]}]}]})
+        rep = self.fx.run(siblings=True)
+        self.assertFalse(any("survival inventory" in w for w in rep.warnings), rep.warnings)
+
+    def test_recipe_makes_item_obtainable(self):
+        got = {"type": "item_obtained", "item": "somemod:gizmo"}
+        self.fx.add_trophy("somemod/gizmo", trophy(icon="somemod:gizmo", trigger=got, requires_mod="somemod"))
+        sib = os.path.join(self.fx.parent, "somemod", RES)
+        write(sib, "assets/somemod/lang/en_us.json", {"item.somemod.gizmo": "Gizmo"})
+        rep = self.fx.run(siblings=True)
+        self.assertTrue(any("may never reach a survival inventory" in w for w in rep.warnings))
+        write(sib, "data/somemod/recipe/gizmo.json", {"type": "minecraft:crafting_shapeless",
+                                                      "result": {"id": "somemod:gizmo", "count": 1}})
+        rep = self.fx.run(siblings=True)
+        self.assertFalse(any("survival inventory" in w for w in rep.warnings), rep.warnings)
+
+    def test_citation_rows(self):
+        self.fx.add_trophy("minecraft/c", trophy(trigger=adv("story/c")))
+        del self.fx.citations["nerotrophies:minecraft/c"]
+        self.fx.citations["nerotrophies:minecraft/gone"] = "TEST-ROW-02"
+        rep = self.fx.run()
+        self.assertErrorContains(rep, "nerotrophies:minecraft/c: no citation row")
+        self.assertErrorContains(rep, "names no existing trophy: nerotrophies:minecraft/gone")
+
+    def test_citation_cites_a_survey_row(self):
+        self.fx.citations["nerotrophies:minecraft/a"] = "see notes"
+        self.fx.add_trophy("collection/crown", trophy(tier="gold"))
+        self.fx.citations["nerotrophies:collection/crown"] = "crowned"
+        self.fx.add_collection("crowned", {"icon": "minecraft:stone", "trim": "prism",
+                                           "trophy": "nerotrophies:collection/crown",
+                                           "members": ["nerotrophies:minecraft/a", "nerotrophies:minecraft/b"]})
+        rep = self.fx.run()
+        self.assertErrorContains(rep, "does not cite a survey row id (got 'see notes')")
+        self.assertNotIn("collection/crown", " ".join(rep.errors))
 
     def test_quest_pack_keys(self):
         write(self.fx.repo, f"{DATA}/neroquests/chapters/hall.json",

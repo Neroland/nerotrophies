@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerotrophies:trophy_cabinet",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerotrophies:trophy_cabinet"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerotrophies.curator.title",
+  "description": "trophy.nerotrophies.nerotrophies.curator.description",
+  "category": "nerotrophies",
+  "order": 10
+}

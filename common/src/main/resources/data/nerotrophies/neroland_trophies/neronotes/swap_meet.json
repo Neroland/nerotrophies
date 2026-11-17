@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neronotes:disk_exchanger",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neronotes:disk_exchanger"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neronotes.swap_meet.title",
+  "description": "trophy.nerotrophies.neronotes.swap_meet.description",
+  "requires_mod": "neronotes",
+  "order": 50
+}

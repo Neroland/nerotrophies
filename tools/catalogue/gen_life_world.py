@@ -45,7 +45,7 @@ T = [
     ("nerocreatures", "matchmaker", "bronze", False, "nerocreatures:incubator",
      gate("nerocreatures:first_breed"), "Matchmaker", "Breed two creatures.", "CREA-GATE-03", ""),
     ("nerocreatures", "first_deploy", "bronze", False, "nerocreatures:drone_shell",
-     gate("nerocreatures:first_deploy"), "First Deploy", "Deploy a Terraforming Drone.", "CREA-GATE-02", ""),
+     gate("nerocreatures:first_deploy"), "Ground Crew", "Deploy a Terraforming Drone.", "CREA-GATE-02", ""),
     ("nerocreatures", "field_naturalist", "bronze", False, "nerocreatures:field_scanner",
      gate("nerocreatures:bestiary/scanned/mossback"), "Field Naturalist",
      "Scan a Mossback with the Field Scanner.", "CREA-GATE-04", ""),
@@ -57,17 +57,17 @@ T = [
      "Complete the Bestiary study of the Drift Leviathan.", "CREA-GATE-05", ""),
     ("nerocreatures", "cinder_tyrant", "gold", False, "nerocreatures:tyrant_ember",
      gate("nerocreatures:bestiary/studied/cinder_tyrant"), "Tyrant Slayer",
-     "Scan the Cinder Tyrant and fight it to the end.", "CREA-GATE-05",
+     "Scan the Cinder Tyrant, then land the killing blow.", "CREA-GATE-05",
      "re-triggered from the kill stat (credits the last hit only); Boss Hunter member"),
     ("nerocreatures", "rime_matriarch", "gold", False, "nerocreatures:matriarch_frostcore",
      gate("nerocreatures:bestiary/studied/rime_matriarch"), "Thaw the Matriarch",
-     "Scan the Rime Matriarch and fight it to the end.", "CREA-GATE-05", "Boss Hunter member"),
+     "Scan the Rime Matriarch, then land the killing blow.", "CREA-GATE-05", "Boss Hunter member"),
     ("nerocreatures", "bloom_sovereign", "gold", False, "nerocreatures:sovereign_seed",
      gate("nerocreatures:bestiary/studied/bloom_sovereign"), "Uprooted",
-     "Scan the Bloom Sovereign and fight it to the end.", "CREA-GATE-05", "Boss Hunter member"),
+     "Scan the Bloom Sovereign, then land the killing blow.", "CREA-GATE-05", "Boss Hunter member"),
     ("nerocreatures", "facet_colossus", "gold", False, "nerocreatures:colossus_facet",
      gate("nerocreatures:bestiary/studied/facet_colossus"), "Shattered Facets",
-     "Scan the Facet Colossus and fight it to the end.", "CREA-GATE-05", "Boss Hunter member"),
+     "Scan the Facet Colossus, then land the killing blow.", "CREA-GATE-05", "Boss Hunter member"),
 
     # --- NeroAgriculture -----------------------------------------------------------------------
     ("neroagriculture", "first_harvest", "bronze", False, "neroagriculture:resource_seed",
@@ -88,7 +88,7 @@ T = [
      "Produce an Orbite fragment and unlock Transmutation.", "AGRI-GATE-07", ""),
     ("neroagriculture", "void_harvest", "gold", True, "neroagriculture:voidite_fragment",
      item("neroagriculture:voidite_fragment"), "Void Harvest",
-     "Hold a Voidite fragment, the rarest rung of the ladder.", "AGRI-ITEM-01", "hidden; never a collection member"),
+     "Get a Voidite fragment, the tier Ascension unlocks.", "AGRI-ITEM-01", "hidden; never a collection member"),
     ("neroagriculture", "ascension", "nero", False, "neroagriculture:colonite_fragment",
      gate("neroagriculture:ascension"), "Ascension",
      "Produce a Colonite fragment and unlock Ascension, the last gate of the ladder.", "AGRI-GATE-08",
@@ -114,7 +114,7 @@ T = [
      gate("nerocompanion:first_guard"), "On Guard", "Have a Combat Bot down a target while guarding.",
      "COMP-GATE-09", "Working Crew member"),
     ("nerocompanion", "its_alive", "silver", True, "nerocompanion:scrap_egg",
-     gate("nerocompanion:first_hatch"), "It's Alive", "Hatch a Scrap Egg into a Scrapling.", "COMP-GATE-10",
+     gate("nerocompanion:first_hatch"), "It's Alive!", "Hatch a Scrap Egg into a Scrapling.", "COMP-GATE-10",
      "hidden; never a collection member"),
     ("nerocompanion", "best_buddies", "silver", False, "nerocompanion:fetch_ball",
      gate("nerocompanion:bond_three"), "Best Buddies", "Raise a companion's bond to level 3.", "COMP-GATE-11", ""),
@@ -161,8 +161,14 @@ T = [
      killed("neroruins:sentinel_mk3"), "Sentinel Breaker", "Land the final blow on a Mark III Sentinel.",
      "RUIN-STAT-01", "kill stat credits the last hit only"),
     ("neroruins", "heart_of_resonance", "silver", True, "neroruins:resonance_heart",
-     item("neroruins:resonance_heart"), "Heart of Resonance", "Hold the Resonance Heart.", "RUIN-ITEM-01",
+     item("neroruins:resonance_heart"), "Heart of Resonance", "Get the Resonance Heart.", "RUIN-ITEM-01",
      "hidden; never a collection member"),
+]
+
+# Collection-completion trophies are hand-written under neroland_trophies/collection/; cite them here.
+EXTRA_ROWS = [
+    ["nerotrophies:collection/boss_hunter", "nero", "false", "collection", "boss_hunter",
+     "awarded on completing the boss_hunter collection (no trigger)"],
 ]
 
 
@@ -198,6 +204,7 @@ def main():
         w = csv.writer(f, lineterminator="\n")
         w.writerow(["id", "tier", "hidden", "trigger_type", "survey_row", "notes"])
         w.writerows(rows)
+        w.writerows(EXTRA_ROWS)
     print(f"{len(T)} trophies written")
 
 

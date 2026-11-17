@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "icon": "nerospace:nerosteel_ingot",
+  "icon": "nerospace:xertz_soil",
   "tier": "silver",
   "trigger": {
     "type": "advancement",

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "icon": "nerologistics:rocket_cargo_port",
-  "tier": "gold",
+  "tier": "silver",
   "trigger": {
     "type": "nero_event",
     "event": "gate",

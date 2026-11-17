@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import za.co.neroland.nerolandcore.trophy.TrophyApi;
 import za.co.neroland.nerolandcore.trophy.TrophyDefinitions;
 
+import za.co.neroland.nerotrophies.block.DisplaySounds;
 import za.co.neroland.nerotrophies.block.Trims;
 import za.co.neroland.nerotrophies.blockentity.CabinetBlockEntity;
 import za.co.neroland.nerotrophies.data.TrophyState;
@@ -166,14 +167,17 @@ public class CabinetMenu extends AbstractContainerMenu {
                     return false;
                 }
                 this.cabinet.trimPool(next);
+                DisplaySounds.play(level, this.cabinet.getBlockPos(), DisplaySounds.CABINET_LATCH);
                 return true;
             }
             case UNBIND -> {
                 this.cabinet.bindPool(Optional.empty());
+                DisplaySounds.play(level, this.cabinet.getBlockPos(), DisplaySounds.CABINET_LATCH);
                 return true;
             }
             case BIND -> {
                 this.cabinet.bindPool(action.collection());
+                DisplaySounds.play(level, this.cabinet.getBlockPos(), DisplaySounds.CABINET_LATCH);
                 return true;
             }
             case STALE -> {

@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 //? if >=26.1 {
 import net.minecraft.client.renderer.block.BlockModelRenderState;
+import net.minecraft.client.renderer.block.BlockModelResolver;
 import net.minecraft.client.renderer.block.model.BlockDisplayContext;
 //?}
 //? if >=1.21.9 {
@@ -135,7 +136,7 @@ public abstract class DisplayRenderer<T extends DisplayBlockEntity, S extends Di
         BlockPos pos = be.getBlockPos();
         state.distanceSq = camera.distanceToSqr(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D);
         Level level = be.getLevel();
-        state.time = level == null ? 0.0F : (float) (level.getGameTime() % 24000L) + partialTick;
+        state.time = level == null ? 0.0F : (level.getGameTime() % 24000L) + partialTick;
         if (level != null) {
             this.extract(be, state, level);
         }
@@ -345,7 +346,16 @@ public abstract class DisplayRenderer<T extends DisplayBlockEntity, S extends Di
 
         //? if >=26.1 {
         private static final BlockDisplayContext CONTEXT = BlockDisplayContext.create();
+        private static BlockModelResolver resolver;
         final BlockModelRenderState state = new BlockModelRenderState();
+
+        /** Vanilla's resolver over the client's model manager (built once; the getter on Minecraft is NeoForge's). */
+        private static BlockModelResolver resolver() {
+            if (resolver == null) {
+                resolver = new BlockModelResolver(Minecraft.getInstance().getModelManager());
+            }
+            return resolver;
+        }
         //?}
         BlockState blockState;
         boolean ready;
@@ -354,7 +364,7 @@ public abstract class DisplayRenderer<T extends DisplayBlockEntity, S extends Di
             this.blockState = blockState;
             this.ready = true;
             //? if >=26.1 {
-            Minecraft.getInstance().getBlockModelResolver().update(this.state, blockState, CONTEXT);
+            resolver().update(this.state, blockState, CONTEXT);
             //?}
         }
 

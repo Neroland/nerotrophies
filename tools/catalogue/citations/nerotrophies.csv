@@ -1,0 +1,3 @@
+id,tier,hidden,trigger_type,survey_row,notes
+nerotrophies:nerotrophies/curator,bronze,false,block_placed,OWN-BLOCK-01,own block; craftable
+nerotrophies:nerotrophies/on_display,bronze,false,block_placed,OWN-BLOCK-01,own block; craftable

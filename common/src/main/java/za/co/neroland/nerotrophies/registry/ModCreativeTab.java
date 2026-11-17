@@ -8,7 +8,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
 import za.co.neroland.nerolandcore.registry.RegistrationProvider;
@@ -21,8 +20,7 @@ import za.co.neroland.nerotrophies.NeroTrophiesCommon;
  * the vanilla {@code CREATIVE_MODE_TAB} registry. Every Nero mod owns its tab; nothing is added to Core's
  * "Neroland" tab, which lists Core's own items only.
  *
- * <p>0.0.1 registers no items, so the tab is empty (and vanilla hides an empty tab). The icon is the vanilla
- * gold ingot until NeroTrophies has an item of its own.
+ * <p>The icon is the Trophy Book.
  */
 public final class ModCreativeTab {
 
@@ -37,7 +35,7 @@ public final class ModCreativeTab {
     public static final RegistryEntry<CreativeModeTab> NEROTROPHIES = TABS.register("nerotrophies",
             key -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .title(Component.translatable("itemGroup.nerotrophies"))
-                    .icon(() -> new ItemStack(Items.GOLD_INGOT))
+                    .icon(() -> new ItemStack(ModItems.TROPHY_BOOK.get()))
                     .displayItems((params, output) -> CONTENTS.forEach(s -> output.accept(s.get())))
                     .build());
 

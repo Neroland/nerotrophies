@@ -7,10 +7,9 @@ nerotrophies:nerodecor/void_architect,silver,true,block_placed,DECO-BLOCK-04,ner
 nerotrophies:nerodecor/painter,silver,false,stat,DECO-STAT-01,"minecraft:used:nerodecor:paint_gun; PaintGunItem.useOn returns SUCCESS on a paintable block, so vanilla ItemStack.useOn counts minecraft:used"
 nerotrophies:neronotes/pressed_vinyl,bronze,false,item_obtained,NOTE-ITEM-01,neronotes:custom_disk
 nerotrophies:neronotes/composer,silver,false,nero_event,NOTE-GATE-01,neronotes:first_publish; player-scope gate
-nerotrophies:neronotes/on_air,silver,false,nero_event,NOTE-GATE-02,neronotes:first_broadcast; player-scope gate
-nerotrophies:neronotes/into_the_soundforge,gold,true,dimension_visited,NOTE-DIM-01,neronotes:soundforge; not retroactive for past visits
+nerotrophies:neronotes/into_the_soundforge,silver,false,dimension_visited,NOTE-DIM-01,neronotes:soundforge; not retroactive for past visits
 nerotrophies:neronotes/gatekeeper,bronze,false,block_placed,NOTE-BLOCK-01,neronotes:harmonic_gate
-nerotrophies:neronotes/full_band,bronze,false,block_placed,NOTE-BLOCK-01,neronotes:voice_pedestal
+nerotrophies:neronotes/swap_meet,bronze,false,block_placed,NOTE-BLOCK-01,neronotes:disk_exchanger; craftable; replaces a pedestal trophy with no survival source
 nerotrophies:neroarcade/insert_coin,bronze,false,block_placed,ARCA-BLOCK-01,neroarcade:arcade_cabinet
 nerotrophies:neroarcade/game_designer,bronze,false,nero_event,ARCA-GATE-01,neroarcade:first_cartridge; player-scope gate
 nerotrophies:neroarcade/published,silver,false,nero_event,ARCA-GATE-02,neroarcade:first_published; player-scope gate

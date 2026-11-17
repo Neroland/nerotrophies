@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "icon": "neronotes:resonant_block_deep_bass",
-  "tier": "gold",
+  "tier": "silver",
   "trigger": {
     "type": "dimension_visited",
     "dimension": "neronotes:soundforge"
   },
-  "hidden": true,
+  "hidden": false,
   "title": "trophy.nerotrophies.neronotes.into_the_soundforge.title",
   "description": "trophy.nerotrophies.neronotes.into_the_soundforge.description",
   "requires_mod": "neronotes",
-  "order": 40
+  "order": 30
 }

@@ -67,9 +67,9 @@ public final class FabricTrophyClientContent {
         ClientTickEvents.END_CLIENT_TICK.register(mc -> TrophyRenderClient.tick());
     }
 
+    /** Chunk layers for Fabric 1.21.x; 26.x picks each quad's layer from its texture alpha, so nothing is declared. */
     private static void layers() {
         //? if >=26.1 {
-        // 26.x picks each quad's layer from its texture alpha; nothing to declare.
         //?} else if >=1.21.6 {
         /*net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap.putBlocks(
                 net.minecraft.client.renderer.chunk.ChunkSectionLayer.CUTOUT, ModBlocks.TROPHY.get(),

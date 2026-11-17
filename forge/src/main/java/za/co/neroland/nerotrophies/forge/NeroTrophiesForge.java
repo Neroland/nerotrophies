@@ -50,6 +50,11 @@ public final class NeroTrophiesForge {
         // Client-only wiring; never loaded on a dedicated server.
         if (net.minecraftforge.fml.loading.FMLEnvironment.dist == net.minecraftforge.api.distmarker.Dist.CLIENT) {
             za.co.neroland.nerotrophies.forge.network.ForgeTrophyClientEvents.register();
+            //? if >=1.21.6 {
+            ForgeTrophyClientContent.init(context.getModBusGroup());
+            //?} else {
+            /*ForgeTrophyClientContent.init(context.getModEventBus());
+            *///?}
             TrophyClient.init();
         }
     }
