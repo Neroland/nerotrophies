@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:field_recorder",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/mars"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_mars.title",
+  "description": "trophy.nerotrophies.neroruins.codex_mars.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 70
+}

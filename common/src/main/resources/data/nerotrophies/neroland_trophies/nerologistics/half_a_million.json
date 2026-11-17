@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerologistics:item_cell_512k",
+  "tier": "gold",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "nerologistics:item_cell_512k"
+  },
+  "title": "trophy.nerotrophies.nerologistics.half_a_million.title",
+  "description": "trophy.nerotrophies.nerologistics.half_a_million.description",
+  "requires_mod": "nerologistics",
+  "order": 50
+}

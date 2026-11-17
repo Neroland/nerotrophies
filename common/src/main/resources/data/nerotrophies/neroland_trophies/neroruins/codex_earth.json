@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:surveyors_compass",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/earth"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_earth.title",
+  "description": "trophy.nerotrophies.neroruins.codex_earth.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 40
+}

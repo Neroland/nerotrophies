@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:leviathan_barnacle",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocreatures:bestiary/studied/drift_leviathan"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocreatures.leviathan_studied.title",
+  "description": "trophy.nerotrophies.nerocreatures.leviathan_studied.description",
+  "requires_mod": "nerocreatures",
+  "category": "nerocreatures",
+  "order": 60
+}

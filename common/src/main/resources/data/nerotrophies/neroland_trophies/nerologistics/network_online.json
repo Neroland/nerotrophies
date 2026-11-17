@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerologistics:network_controller",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerologistics:network_controller"
+  },
+  "title": "trophy.nerotrophies.nerologistics.network_online.title",
+  "description": "trophy.nerotrophies.nerologistics.network_online.description",
+  "requires_mod": "nerologistics",
+  "order": 10
+}

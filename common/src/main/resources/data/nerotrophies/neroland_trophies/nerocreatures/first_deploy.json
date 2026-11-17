@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:drone_shell",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocreatures:first_deploy"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocreatures.first_deploy.title",
+  "description": "trophy.nerotrophies.nerocreatures.first_deploy.description",
+  "requires_mod": "nerocreatures",
+  "category": "nerocreatures",
+  "order": 30
+}

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerolandcore:item_store",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolandcore:first_colony"
+  },
+  "title": "trophy.nerotrophies.nerolandcore.colonist.title",
+  "description": "trophy.nerotrophies.nerolandcore.colonist.description",
+  "requires_mod": "nerolandcore",
+  "order": 30
+}

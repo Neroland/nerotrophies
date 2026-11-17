@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:greenhouse_controller",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroagriculture:greenhouse_keeper"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.greenhouse_keeper.title",
+  "description": "trophy.nerotrophies.neroagriculture.greenhouse_keeper.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 30
+}

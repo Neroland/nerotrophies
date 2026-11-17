@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "minecraft:obsidian",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "minecraft:story/enter_the_nether"
+  },
+  "title": "trophy.nerotrophies.minecraft.hellwalker.title",
+  "description": "trophy.nerotrophies.minecraft.hellwalker.description",
+  "category": "minecraft",
+  "order": 10
+}

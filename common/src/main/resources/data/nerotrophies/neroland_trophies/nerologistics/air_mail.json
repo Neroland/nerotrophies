@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerologistics:drone_hub",
+  "tier": "silver",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerologistics:drone_hub"
+  },
+  "title": "trophy.nerotrophies.nerologistics.air_mail.title",
+  "description": "trophy.nerotrophies.nerologistics.air_mail.description",
+  "requires_mod": "nerologistics",
+  "order": 30
+}

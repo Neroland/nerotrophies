@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:twilight_prism",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/nyxara"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_nyxara.title",
+  "description": "trophy.nerotrophies.neroruins.codex_nyxara.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 110
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerospace:regolith",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:luna"
+  },
+  "title": "trophy.nerotrophies.nerospace.luna.title",
+  "description": "trophy.nerotrophies.nerospace.luna.description",
+  "requires_mod": "nerospace",
+  "order": 10
+}

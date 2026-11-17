@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerospace:nyx_crystal_cluster",
+  "tier": "silver",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:nyxara"
+  },
+  "title": "trophy.nerotrophies.nerospace.nyxara.title",
+  "description": "trophy.nerotrophies.nerospace.nyxara.description",
+  "requires_mod": "nerospace",
+  "order": 60
+}

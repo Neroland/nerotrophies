@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:blank_chip",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_chip"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.chipped_in.title",
+  "description": "trophy.nerotrophies.nerocompanion.chipped_in.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 20
+}

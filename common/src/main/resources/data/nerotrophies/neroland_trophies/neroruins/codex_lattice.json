@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:resonance_pylon",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/lattice"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_lattice.title",
+  "description": "trophy.nerotrophies.neroruins.codex_lattice.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 120
+}

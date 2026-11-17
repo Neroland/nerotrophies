@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:fetch_ball",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:bond_three"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.best_buddies.title",
+  "description": "trophy.nerotrophies.nerocompanion.best_buddies.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 90
+}

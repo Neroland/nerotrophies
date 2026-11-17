@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "neropower:stirling_generator",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "neropower:stirling_generator"
+  },
+  "title": "trophy.nerotrophies.neropower.heat_engine.title",
+  "description": "trophy.nerotrophies.neropower.heat_engine.description",
+  "requires_mod": "neropower",
+  "order": 30
+}

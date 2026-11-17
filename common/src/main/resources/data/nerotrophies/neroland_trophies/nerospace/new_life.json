@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerospace:meadow_loper_spawn_egg",
+  "tier": "nero",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:guide/new_life"
+  },
+  "title": "trophy.nerotrophies.nerospace.new_life.title",
+  "description": "trophy.nerotrophies.nerospace.new_life.description",
+  "requires_mod": "nerospace",
+  "order": 130
+}

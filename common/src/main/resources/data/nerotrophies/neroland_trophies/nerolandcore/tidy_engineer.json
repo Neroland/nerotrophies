@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerolandcore:trash_can",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerolandcore:trash_can"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerolandcore.tidy_engineer.title",
+  "description": "trophy.nerotrophies.nerolandcore.tidy_engineer.description",
+  "requires_mod": "nerolandcore",
+  "order": 50
+}

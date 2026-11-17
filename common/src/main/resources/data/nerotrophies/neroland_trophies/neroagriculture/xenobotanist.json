@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:alien_seed",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "material_milestone",
+    "milestone": "neroagriculture:alien_seed_researched"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.xenobotanist.title",
+  "description": "trophy.nerotrophies.neroagriculture.xenobotanist.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 50
+}

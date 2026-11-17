@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerolandcore:plasma_glass",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolandcore:reached_orbit"
+  },
+  "title": "trophy.nerotrophies.nerolandcore.escape_velocity.title",
+  "description": "trophy.nerotrophies.nerolandcore.escape_velocity.description",
+  "requires_mod": "nerolandcore",
+  "order": 20
+}

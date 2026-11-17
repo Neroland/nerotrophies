@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "neropower:fission_core",
+  "tier": "gold",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "neropower:fission_core"
+  },
+  "title": "trophy.nerotrophies.neropower.reactor_core.title",
+  "description": "trophy.nerotrophies.neropower.reactor_core.description",
+  "requires_mod": "neropower",
+  "order": 70
+}

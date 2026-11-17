@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerospace:station_charter",
+  "tier": "silver",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:guide/station_charter"
+  },
+  "title": "trophy.nerotrophies.nerospace.station_founder.title",
+  "description": "trophy.nerotrophies.nerospace.station_founder.description",
+  "requires_mod": "nerospace",
+  "order": 80
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerotech:auto_crafter",
+  "tier": "silver",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerotech:auto_crafter"
+  },
+  "title": "trophy.nerotrophies.nerotech.automaton.title",
+  "description": "trophy.nerotrophies.nerotech.automaton.description",
+  "requires_mod": "nerotech",
+  "order": 30
+}

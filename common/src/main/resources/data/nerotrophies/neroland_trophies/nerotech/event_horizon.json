@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerotech:singularity_vault",
+  "tier": "nero",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerotech:singularity_vault"
+  },
+  "title": "trophy.nerotrophies.nerotech.event_horizon.title",
+  "description": "trophy.nerotrophies.nerotech.event_horizon.description",
+  "requires_mod": "nerotech",
+  "order": 70
+}

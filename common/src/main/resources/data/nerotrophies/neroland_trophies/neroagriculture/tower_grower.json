@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:crop_tower_controller",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroagriculture:tower_grower"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.tower_grower.title",
+  "description": "trophy.nerotrophies.neroagriculture.tower_grower.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 40
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerospace:nerosteel_ingot",
+  "tier": "silver",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:greenxertz"
+  },
+  "title": "trophy.nerotrophies.nerospace.greenxertz.title",
+  "description": "trophy.nerotrophies.nerospace.greenxertz.description",
+  "requires_mod": "nerospace",
+  "order": 50
+}

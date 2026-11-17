@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerolandcore:void_crystal",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolandcore:deep_space"
+  },
+  "title": "trophy.nerotrophies.nerolandcore.deep_space_pioneer.title",
+  "description": "trophy.nerotrophies.nerolandcore.deep_space_pioneer.description",
+  "requires_mod": "nerolandcore",
+  "order": 40
+}

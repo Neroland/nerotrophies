@@ -1,0 +1,45 @@
+id,tier,hidden,trigger_type,survey_row,notes
+nerotrophies:nerolandcore/spark_of_industry,bronze,false,nero_event:gate nerolandcore:industrial_power,CORE-GATE-01,arc step 1
+nerotrophies:nerolandcore/escape_velocity,silver,false,nero_event:gate nerolandcore:reached_orbit,CORE-GATE-02,arc step 2
+nerotrophies:nerolandcore/colonist,silver,false,nero_event:gate nerolandcore:first_colony,CORE-GATE-03,arc step 3
+nerotrophies:nerolandcore/deep_space_pioneer,gold,false,nero_event:gate nerolandcore:deep_space,CORE-GATE-04,arc step 4
+nerotrophies:nerolandcore/tidy_engineer,bronze,true,block_placed nerolandcore:trash_can,CORE-ITEM-02,earnable on Core alone
+nerotrophies:minecraft/hellwalker,bronze,false,advancement minecraft:story/enter_the_nether,VAN-ADV-02,re-triggered from dimension to advancement
+nerotrophies:minecraft/withering_heights,silver,false,advancement minecraft:nether/summon_wither,VAN-ADV-05,
+nerotrophies:minecraft/dragonslayer,silver,false,advancement minecraft:end/kill_dragon,VAN-ADV-04,re-tiered gold to silver
+nerotrophies:minecraft/beaconator,gold,false,advancement minecraft:nether/create_full_beacon,VAN-ADV-06,
+nerotrophies:minecraft/seen_it_all,gold,false,advancement minecraft:adventure/adventuring_time,VAN-ADV-07,re-tiered nero to gold
+nerotrophies:minecraft/how_did_we_get_here,nero,false,advancement minecraft:nether/all_effects,VAN-ADV-10,Core and vanilla nero
+nerotrophies:nerospace/luna,bronze,false,advancement nerospace:luna,SPACE-ADV-04,
+nerotrophies:nerospace/mars,bronze,false,advancement nerospace:mars,SPACE-ADV-05,
+nerotrophies:nerospace/cindara,silver,false,advancement nerospace:cindara,SPACE-ADV-06,
+nerotrophies:nerospace/glacira,silver,false,advancement nerospace:glacira,SPACE-ADV-07,
+nerotrophies:nerospace/greenxertz,silver,false,advancement nerospace:greenxertz,SPACE-ADV-08,
+nerotrophies:nerospace/nyxara,silver,false,advancement nerospace:nyxara,SPACE-ADV-09,
+nerotrophies:nerospace/the_big_cheese,bronze,true,advancement nerospace:luna/the_big_cheese,SPACE-ADV-10,re-tiered silver to bronze
+nerotrophies:nerospace/station_founder,silver,false,advancement nerospace:guide/station_charter,SPACE-ADV-12,
+nerotrophies:nerospace/first_freight,silver,false,nero_event:gate nerospace:first_freight,SPACE-GATE-01,offline-capable gate
+nerotrophies:nerospace/xenoarchaeologist,gold,true,advancement nerospace:guide/alien_core,SPACE-ADV-18,
+nerotrophies:nerospace/storm_chaser,gold,false,nero_event:gate nerospace:worlds/nyxara/weather,SPACE-GATE-04,single gate; all-six variant needs a hook
+nerotrophies:nerospace/living_world,gold,false,nero_event:gate nerospace:living_world,SPACE-GATE-02,replaces Worldmaker; not nero
+nerotrophies:nerospace/new_life,nero,false,advancement nerospace:guide/new_life,SPACE-ADV-16,Nerospace nero
+nerotrophies:nerotech/plugged_in,bronze,false,advancement nerotech:nero_generator,TECH-ADV-02,
+nerotrophies:nerotech/clean_hands,bronze,false,advancement nerotech:remediator,TECH-ADV-06,
+nerotrophies:nerotech/automaton,silver,false,advancement nerotech:auto_crafter,TECH-ADV-04,
+nerotrophies:nerotech/stellar_fuel,silver,false,advancement nerotech:stellar_fuel,TECH-ADV-09,re-tiered gold to silver
+nerotrophies:nerotech/star_in_a_jar,gold,false,advancement nerotech:fusion_reactor,TECH-ADV-08,
+nerotrophies:nerotech/antimatter,gold,true,advancement nerotech:antimatter_cell,TECH-ADV-10,
+nerotrophies:nerotech/event_horizon,nero,false,advancement nerotech:singularity_vault,TECH-ADV-10,Nerotech nero
+nerotrophies:neropower/hot_rod,bronze,false,advancement neropower:root,POWER-ADV-01,
+nerotrophies:neropower/slow_burn,bronze,false,advancement neropower:radioisotope_generator,POWER-ADV-05,
+nerotrophies:neropower/heat_engine,bronze,false,advancement neropower:stirling_generator,POWER-ADV-06,
+nerotrophies:neropower/line_of_sight,silver,false,nero_event:gate neropower:beam_linked,POWER-GATE-02,always-on gate (acting player)
+nerotrophies:neropower/fuel_cycle,silver,true,item_obtained neropower:reprocessed_pellet,POWER-ITEM-01,
+nerotrophies:neropower/orbital_power,gold,false,item_obtained neropower:orbital_receiver,POWER-ITEM-01,
+nerotrophies:neropower/reactor_core,gold,false,advancement neropower:fission_core,POWER-ADV-02,renamed from Criticality; nero waits for a hook
+nerotrophies:nerologistics/network_online,bronze,false,block_placed nerologistics:network_controller,LOGI-ITEM-01,
+nerotrophies:nerologistics/bit_bucket,bronze,false,block_placed nerologistics:drive_bay,LOGI-ITEM-01,
+nerotrophies:nerologistics/air_mail,silver,false,block_placed nerologistics:drone_hub,LOGI-ITEM-03,
+nerotrophies:nerologistics/all_aboard,silver,false,block_placed nerologistics:train_station,LOGI-ITEM-03,
+nerotrophies:nerologistics/half_a_million,gold,false,item_obtained nerologistics:item_cell_512k,LOGI-ITEM-02,
+nerotrophies:nerologistics/interplanetary_freight,gold,false,nero_event:gate nerologistics:first_shipment,LOGI-GATE-01,offline-capable gate

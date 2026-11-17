@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:colonite_fragment",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroagriculture:ascension"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.ascension.title",
+  "description": "trophy.nerotrophies.neroagriculture.ascension.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 80
+}

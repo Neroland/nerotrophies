@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerospace:cargo_crate",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerospace:first_freight"
+  },
+  "title": "trophy.nerotrophies.nerospace.first_freight.title",
+  "description": "trophy.nerotrophies.nerospace.first_freight.description",
+  "requires_mod": "nerospace",
+  "order": 90
+}

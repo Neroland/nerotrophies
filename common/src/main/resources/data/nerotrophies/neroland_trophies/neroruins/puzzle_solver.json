@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:glyph_lock",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:puzzle_solver"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.puzzle_solver.title",
+  "description": "trophy.nerotrophies.neroruins.puzzle_solver.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 30
+}

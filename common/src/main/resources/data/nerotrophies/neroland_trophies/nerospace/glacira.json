@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerospace:glacite",
+  "tier": "silver",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:glacira"
+  },
+  "title": "trophy.nerotrophies.nerospace.glacira.title",
+  "description": "trophy.nerotrophies.nerospace.glacira.description",
+  "requires_mod": "nerospace",
+  "order": 40
+}

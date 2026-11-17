@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:ore_filter_chip",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_mine"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.first_mine.title",
+  "description": "trophy.nerotrophies.nerocompanion.first_mine.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 40
+}

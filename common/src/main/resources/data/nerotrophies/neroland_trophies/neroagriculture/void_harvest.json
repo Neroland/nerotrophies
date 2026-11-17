@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:voidite_fragment",
+  "tier": "gold",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neroagriculture:voidite_fragment"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.neroagriculture.void_harvest.title",
+  "description": "trophy.nerotrophies.neroagriculture.void_harvest.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 70
+}

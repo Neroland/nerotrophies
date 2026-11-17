@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:remote",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:full_squad"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.full_squad.title",
+  "description": "trophy.nerotrophies.nerocompanion.full_squad.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 100
+}

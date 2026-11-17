@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:cache_mimic_spawn_egg",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocreatures:bestiary/scanned/cache_mimic"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerocreatures.mimic_unmasked.title",
+  "description": "trophy.nerotrophies.nerocreatures.mimic_unmasked.description",
+  "requires_mod": "nerocreatures",
+  "category": "nerocreatures",
+  "order": 50
+}

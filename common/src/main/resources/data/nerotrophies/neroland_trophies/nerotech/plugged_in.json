@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerotech:nero_generator",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerotech:nero_generator"
+  },
+  "title": "trophy.nerotrophies.nerotech.plugged_in.title",
+  "description": "trophy.nerotrophies.nerotech.plugged_in.description",
+  "requires_mod": "nerotech",
+  "order": 10
+}

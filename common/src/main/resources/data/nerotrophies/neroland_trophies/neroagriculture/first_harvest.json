@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:resource_seed",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroagriculture:first_harvest"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.first_harvest.title",
+  "description": "trophy.nerotrophies.neroagriculture.first_harvest.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 10
+}

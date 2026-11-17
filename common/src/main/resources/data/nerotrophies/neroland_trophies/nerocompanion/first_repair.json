@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:salvage_chip",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_repair"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.first_repair.title",
+  "description": "trophy.nerotrophies.nerocompanion.first_repair.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 60
+}

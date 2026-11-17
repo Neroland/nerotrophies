@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:scrap_egg",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_hatch"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerocompanion.its_alive.title",
+  "description": "trophy.nerotrophies.nerocompanion.its_alive.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 80
+}

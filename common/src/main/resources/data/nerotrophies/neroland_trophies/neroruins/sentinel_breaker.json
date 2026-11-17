@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "neroruins:sentinel_mk3_spawn_egg",
+  "tier": "gold",
+  "trigger": {
+    "type": "stat",
+    "stat_type": "minecraft:killed",
+    "stat": "neroruins:sentinel_mk3",
+    "at_least": 1
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.sentinel_breaker.title",
+  "description": "trophy.nerotrophies.neroruins.sentinel_breaker.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 130
+}

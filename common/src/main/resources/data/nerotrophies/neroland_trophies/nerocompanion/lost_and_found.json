@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:companion_bay",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_recovery"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.lost_and_found.title",
+  "description": "trophy.nerotrophies.nerocompanion.lost_and_found.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 30
+}

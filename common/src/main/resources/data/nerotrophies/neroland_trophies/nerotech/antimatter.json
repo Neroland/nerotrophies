@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerotech:antimatter_cell",
+  "tier": "gold",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerotech:antimatter_cell"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerotech.antimatter.title",
+  "description": "trophy.nerotrophies.nerotech.antimatter.description",
+  "requires_mod": "nerotech",
+  "order": 60
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:matriarch_frostcore",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocreatures:bestiary/studied/rime_matriarch"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocreatures.rime_matriarch.title",
+  "description": "trophy.nerotrophies.nerocreatures.rime_matriarch.description",
+  "requires_mod": "nerocreatures",
+  "category": "nerocreatures",
+  "order": 80
+}

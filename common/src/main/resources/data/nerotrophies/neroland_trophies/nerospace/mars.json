@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerospace:rust_pigment",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:mars"
+  },
+  "title": "trophy.nerotrophies.nerospace.mars.title",
+  "description": "trophy.nerotrophies.nerospace.mars.description",
+  "requires_mod": "nerospace",
+  "order": 20
+}

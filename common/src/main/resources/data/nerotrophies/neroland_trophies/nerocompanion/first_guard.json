@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:guard_protocol_chip",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_guard"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.first_guard.title",
+  "description": "trophy.nerotrophies.nerocompanion.first_guard.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 70
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerotech:remediator",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerotech:remediator"
+  },
+  "title": "trophy.nerotrophies.nerotech.clean_hands.title",
+  "description": "trophy.nerotrophies.nerotech.clean_hands.description",
+  "requires_mod": "nerotech",
+  "order": 20
+}

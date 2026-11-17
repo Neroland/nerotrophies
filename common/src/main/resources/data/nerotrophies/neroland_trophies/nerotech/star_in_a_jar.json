@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerotech:fusion_reactor",
+  "tier": "gold",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerotech:fusion_reactor"
+  },
+  "title": "trophy.nerotrophies.nerotech.star_in_a_jar.title",
+  "description": "trophy.nerotrophies.nerotech.star_in_a_jar.description",
+  "requires_mod": "nerotech",
+  "order": 50
+}

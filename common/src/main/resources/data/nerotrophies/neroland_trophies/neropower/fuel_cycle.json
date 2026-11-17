@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neropower:reprocessed_pellet",
+  "tier": "silver",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neropower:reprocessed_pellet"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.neropower.fuel_cycle.title",
+  "description": "trophy.nerotrophies.neropower.fuel_cycle.description",
+  "requires_mod": "neropower",
+  "order": 50
+}

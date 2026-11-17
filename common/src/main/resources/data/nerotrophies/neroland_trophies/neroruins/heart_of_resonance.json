@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroruins:resonance_heart",
+  "tier": "silver",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neroruins:resonance_heart"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.neroruins.heart_of_resonance.title",
+  "description": "trophy.nerotrophies.neroruins.heart_of_resonance.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 140
+}

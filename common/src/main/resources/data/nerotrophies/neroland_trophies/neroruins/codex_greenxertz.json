@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:rootglass_vessel",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/greenxertz"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_greenxertz.title",
+  "description": "trophy.nerotrophies.neroruins.codex_greenxertz.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 100
+}

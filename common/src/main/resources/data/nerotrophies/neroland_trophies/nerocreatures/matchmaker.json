@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:incubator",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocreatures:first_breed"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocreatures.matchmaker.title",
+  "description": "trophy.nerotrophies.nerocreatures.matchmaker.description",
+  "requires_mod": "nerocreatures",
+  "category": "nerocreatures",
+  "order": 20
+}

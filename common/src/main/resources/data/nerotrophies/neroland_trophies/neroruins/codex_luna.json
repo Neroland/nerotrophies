@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:pale_survey_lens",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/luna"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_luna.title",
+  "description": "trophy.nerotrophies.neroruins.codex_luna.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 50
+}

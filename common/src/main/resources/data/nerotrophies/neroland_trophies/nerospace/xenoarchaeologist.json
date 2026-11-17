@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerospace:alien_core",
+  "tier": "gold",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:guide/alien_core"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerospace.xenoarchaeologist.title",
+  "description": "trophy.nerotrophies.nerospace.xenoarchaeologist.description",
+  "requires_mod": "nerospace",
+  "order": 100
+}

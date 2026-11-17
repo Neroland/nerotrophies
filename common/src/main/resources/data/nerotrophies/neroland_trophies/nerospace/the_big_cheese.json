@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerospace:moon_cheese",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerospace:luna/the_big_cheese"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerospace.the_big_cheese.title",
+  "description": "trophy.nerotrophies.nerospace.the_big_cheese.description",
+  "requires_mod": "nerospace",
+  "order": 70
+}

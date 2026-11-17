@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "neropower:radioisotope_generator",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "neropower:radioisotope_generator"
+  },
+  "title": "trophy.nerotrophies.neropower.slow_burn.title",
+  "description": "trophy.nerotrophies.neropower.slow_burn.description",
+  "requires_mod": "neropower",
+  "order": 20
+}

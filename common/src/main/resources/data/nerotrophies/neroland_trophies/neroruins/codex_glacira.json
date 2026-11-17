@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:reach_thermal_core",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/glacira"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_glacira.title",
+  "description": "trophy.nerotrophies.neroruins.codex_glacira.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 90
+}

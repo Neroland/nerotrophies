@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "minecraft:beacon",
+  "tier": "gold",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "minecraft:nether/create_full_beacon"
+  },
+  "title": "trophy.nerotrophies.minecraft.beaconator.title",
+  "description": "trophy.nerotrophies.minecraft.beaconator.description",
+  "category": "minecraft",
+  "order": 40
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "minecraft:wither_skeleton_skull",
+  "tier": "silver",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "minecraft:nether/summon_wither"
+  },
+  "title": "trophy.nerotrophies.minecraft.withering_heights.title",
+  "description": "trophy.nerotrophies.minecraft.withering_heights.description",
+  "category": "minecraft",
+  "order": 20
+}

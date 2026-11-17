@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:meridian_keystone",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:codex/cindara"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.codex_cindara.title",
+  "description": "trophy.nerotrophies.neroruins.codex_cindara.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 80
+}

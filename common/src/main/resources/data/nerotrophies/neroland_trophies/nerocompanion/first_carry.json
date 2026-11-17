@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:cargo_rack_chip",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_carry"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.first_carry.title",
+  "description": "trophy.nerotrophies.nerocompanion.first_carry.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 50
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerotech:stellar_cell",
+  "tier": "silver",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "nerotech:stellar_fuel"
+  },
+  "title": "trophy.nerotrophies.nerotech.stellar_fuel.title",
+  "description": "trophy.nerotrophies.nerotech.stellar_fuel.description",
+  "requires_mod": "nerotech",
+  "order": 40
+}

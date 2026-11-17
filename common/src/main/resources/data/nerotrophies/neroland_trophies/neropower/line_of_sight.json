@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neropower:beam_transmitter",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neropower:beam_linked"
+  },
+  "title": "trophy.nerotrophies.neropower.line_of_sight.title",
+  "description": "trophy.nerotrophies.neropower.line_of_sight.description",
+  "requires_mod": "neropower",
+  "order": 40
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "minecraft:diamond_boots",
+  "tier": "gold",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "minecraft:adventure/adventuring_time"
+  },
+  "title": "trophy.nerotrophies.minecraft.seen_it_all.title",
+  "description": "trophy.nerotrophies.minecraft.seen_it_all.description",
+  "category": "minecraft",
+  "order": 50
+}

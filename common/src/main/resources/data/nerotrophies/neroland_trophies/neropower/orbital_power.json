@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "neropower:orbital_receiver",
+  "tier": "gold",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neropower:orbital_receiver"
+  },
+  "title": "trophy.nerotrophies.neropower.orbital_power.title",
+  "description": "trophy.nerotrophies.neropower.orbital_power.description",
+  "requires_mod": "neropower",
+  "order": 60
+}

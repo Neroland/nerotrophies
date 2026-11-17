@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerologistics:drive_bay",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerologistics:drive_bay"
+  },
+  "title": "trophy.nerotrophies.nerologistics.bit_bucket.title",
+  "description": "trophy.nerotrophies.nerologistics.bit_bucket.description",
+  "requires_mod": "nerologistics",
+  "order": 20
+}

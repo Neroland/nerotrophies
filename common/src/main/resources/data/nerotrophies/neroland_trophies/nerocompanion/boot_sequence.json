@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:capsule",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:first_deploy"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.boot_sequence.title",
+  "description": "trophy.nerotrophies.nerocompanion.boot_sequence.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 10
+}

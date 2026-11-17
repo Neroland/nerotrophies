@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:seed_research_bench",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroagriculture:first_research"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.seed_scientist.title",
+  "description": "trophy.nerotrophies.neroagriculture.seed_scientist.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 20
+}

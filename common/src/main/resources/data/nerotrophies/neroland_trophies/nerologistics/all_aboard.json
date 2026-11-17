@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "nerologistics:train_station",
+  "tier": "silver",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerologistics:train_station"
+  },
+  "title": "trophy.nerotrophies.nerologistics.all_aboard.title",
+  "description": "trophy.nerotrophies.nerologistics.all_aboard.description",
+  "requires_mod": "nerologistics",
+  "order": 40
+}

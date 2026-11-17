@@ -1,0 +1,43 @@
+id,tier,hidden,trigger_type,survey_row,notes
+nerotrophies:nerocreatures/new_best_friend,bronze,false,nero_event,CREA-GATE-01,
+nerotrophies:nerocreatures/matchmaker,bronze,false,nero_event,CREA-GATE-03,
+nerotrophies:nerocreatures/first_deploy,bronze,false,nero_event,CREA-GATE-02,
+nerotrophies:nerocreatures/field_naturalist,bronze,false,nero_event,CREA-GATE-04,
+nerotrophies:nerocreatures/mimic_unmasked,silver,true,nero_event,CREA-GATE-04,hidden; never a collection member
+nerotrophies:nerocreatures/leviathan_studied,silver,false,nero_event,CREA-GATE-05,
+nerotrophies:nerocreatures/cinder_tyrant,gold,false,nero_event,CREA-GATE-05,re-triggered from the kill stat (credits the last hit only); Boss Hunter member
+nerotrophies:nerocreatures/rime_matriarch,gold,false,nero_event,CREA-GATE-05,Boss Hunter member
+nerotrophies:nerocreatures/bloom_sovereign,gold,false,nero_event,CREA-GATE-05,Boss Hunter member
+nerotrophies:nerocreatures/facet_colossus,gold,false,nero_event,CREA-GATE-05,Boss Hunter member
+nerotrophies:neroagriculture/first_harvest,bronze,false,nero_event,AGRI-GATE-02,
+nerotrophies:neroagriculture/seed_scientist,bronze,false,nero_event,AGRI-GATE-01,
+nerotrophies:neroagriculture/greenhouse_keeper,silver,false,nero_event,AGRI-GATE-03,
+nerotrophies:neroagriculture/tower_grower,silver,false,nero_event,AGRI-GATE-04,
+nerotrophies:neroagriculture/xenobotanist,silver,false,nero_event,AGRI-MILE-03,"player-scope milestone, any material"
+nerotrophies:neroagriculture/transmuter,gold,false,nero_event,AGRI-GATE-07,
+nerotrophies:neroagriculture/void_harvest,gold,true,item_obtained,AGRI-ITEM-01,hidden; never a collection member
+nerotrophies:neroagriculture/ascension,nero,false,nero_event,AGRI-GATE-08,nero confirmed: ascension is the last gate (it guards the Voidite tier); owner tracking is on by default
+nerotrophies:nerocompanion/boot_sequence,bronze,false,nero_event,COMP-GATE-01,
+nerotrophies:nerocompanion/chipped_in,bronze,false,nero_event,COMP-GATE-02,
+nerotrophies:nerocompanion/lost_and_found,bronze,false,nero_event,COMP-GATE-12,
+nerotrophies:nerocompanion/first_mine,bronze,false,nero_event,COMP-GATE-06,Working Crew member
+nerotrophies:nerocompanion/first_carry,bronze,false,nero_event,COMP-GATE-07,Working Crew member
+nerotrophies:nerocompanion/first_repair,bronze,false,nero_event,COMP-GATE-08,Working Crew member
+nerotrophies:nerocompanion/first_guard,bronze,false,nero_event,COMP-GATE-09,Working Crew member
+nerotrophies:nerocompanion/its_alive,silver,true,nero_event,COMP-GATE-10,hidden; never a collection member
+nerotrophies:nerocompanion/best_buddies,silver,false,nero_event,COMP-GATE-11,
+nerotrophies:nerocompanion/full_squad,gold,false,nero_event,COMP-GATE-04,
+nerotrophies:neroruins/archivist,bronze,false,nero_event,RUIN-GATE-01,
+nerotrophies:neroruins/safecracker,bronze,false,nero_event,RUIN-GATE-02,
+nerotrophies:neroruins/puzzle_solver,silver,false,nero_event,RUIN-GATE-03,
+nerotrophies:neroruins/codex_earth,bronze,false,nero_event,RUIN-GATE-04,Codex member
+nerotrophies:neroruins/codex_luna,bronze,false,nero_event,RUIN-GATE-04,Codex member
+nerotrophies:neroruins/codex_ark,gold,false,nero_event,RUIN-GATE-04,Codex member; not hidden
+nerotrophies:neroruins/codex_mars,bronze,false,nero_event,RUIN-GATE-04,Codex member
+nerotrophies:neroruins/codex_cindara,silver,false,nero_event,RUIN-GATE-04,Codex member
+nerotrophies:neroruins/codex_glacira,silver,false,nero_event,RUIN-GATE-04,Codex member
+nerotrophies:neroruins/codex_greenxertz,silver,false,nero_event,RUIN-GATE-04,Codex member
+nerotrophies:neroruins/codex_nyxara,silver,false,nero_event,RUIN-GATE-04,Codex member
+nerotrophies:neroruins/codex_lattice,nero,false,nero_event,RUIN-GATE-04,Codex member; the mod's nero
+nerotrophies:neroruins/sentinel_breaker,gold,false,stat,RUIN-STAT-01,kill stat credits the last hit only
+nerotrophies:neroruins/heart_of_resonance,silver,true,item_obtained,RUIN-ITEM-01,hidden; never a collection member

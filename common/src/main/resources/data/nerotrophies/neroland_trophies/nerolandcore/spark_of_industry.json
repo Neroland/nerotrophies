@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerolandcore:battery",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolandcore:industrial_power"
+  },
+  "title": "trophy.nerotrophies.nerolandcore.spark_of_industry.title",
+  "description": "trophy.nerotrophies.nerolandcore.spark_of_industry.description",
+  "requires_mod": "nerolandcore",
+  "order": 10
+}

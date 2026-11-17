@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "icon": "neropower:control_rod",
+  "tier": "bronze",
+  "trigger": {
+    "type": "advancement",
+    "advancement": "neropower:root"
+  },
+  "title": "trophy.nerotrophies.neropower.hot_rod.title",
+  "description": "trophy.nerotrophies.neropower.hot_rod.description",
+  "requires_mod": "neropower",
+  "order": 10
+}
