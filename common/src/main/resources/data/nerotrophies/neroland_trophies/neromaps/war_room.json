@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neromaps:map_table",
+  "tier": "silver",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neromaps:map_table"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neromaps.war_room.title",
+  "description": "trophy.nerotrophies.neromaps.war_room.description",
+  "requires_mod": "neromaps",
+  "order": 40
+}

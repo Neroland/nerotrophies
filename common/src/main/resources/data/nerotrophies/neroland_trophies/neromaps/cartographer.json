@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neromaps:cartography_desk",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neromaps:cartography_desk"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neromaps.cartographer.title",
+  "description": "trophy.nerotrophies.neromaps.cartographer.description",
+  "requires_mod": "neromaps",
+  "order": 10
+}

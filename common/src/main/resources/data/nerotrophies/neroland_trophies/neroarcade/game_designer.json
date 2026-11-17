@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:cartridge",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroarcade:first_cartridge"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroarcade.game_designer.title",
+  "description": "trophy.nerotrophies.neroarcade.game_designer.description",
+  "requires_mod": "neroarcade",
+  "order": 20
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:paint_gun",
+  "tier": "silver",
+  "trigger": {
+    "type": "stat",
+    "stat_type": "minecraft:used",
+    "stat": "nerodecor:paint_gun",
+    "at_least": 100
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerodecor.painter.title",
+  "description": "trophy.nerotrophies.nerodecor.painter.description",
+  "requires_mod": "nerodecor",
+  "order": 60
+}

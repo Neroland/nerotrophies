@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neronotes:publish_lectern",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neronotes:first_publish"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neronotes.composer.title",
+  "description": "trophy.nerotrophies.neronotes.composer.description",
+  "requires_mod": "neronotes",
+  "order": 20
+}

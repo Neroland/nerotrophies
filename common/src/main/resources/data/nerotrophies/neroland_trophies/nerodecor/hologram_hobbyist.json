@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:holo_projector",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerodecor:holo_projector"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerodecor.hologram_hobbyist.title",
+  "description": "trophy.nerotrophies.nerodecor.hologram_hobbyist.description",
+  "requires_mod": "nerodecor",
+  "order": 20
+}

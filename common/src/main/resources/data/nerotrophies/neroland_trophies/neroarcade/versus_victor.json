@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:link_bus",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroarcade:first_versus_win"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroarcade.versus_victor.title",
+  "description": "trophy.nerotrophies.neroarcade.versus_victor.description",
+  "requires_mod": "neroarcade",
+  "order": 40
+}

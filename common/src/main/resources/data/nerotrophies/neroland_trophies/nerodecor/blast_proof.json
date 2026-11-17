@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:blast_door",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerodecor:blast_door"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerodecor.blast_proof.title",
+  "description": "trophy.nerotrophies.nerodecor.blast_proof.description",
+  "requires_mod": "nerodecor",
+  "order": 30
+}

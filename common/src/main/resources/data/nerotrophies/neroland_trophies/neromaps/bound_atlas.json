@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neromaps:atlas",
+  "tier": "bronze",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neromaps:atlas"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neromaps.bound_atlas.title",
+  "description": "trophy.nerotrophies.neromaps.bound_atlas.description",
+  "requires_mod": "neromaps",
+  "order": 20
+}

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:hull_void_crystal",
+  "tier": "silver",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerodecor:hull_void_crystal"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerodecor.void_architect.title",
+  "description": "trophy.nerotrophies.nerodecor.void_architect.description",
+  "requires_mod": "nerodecor",
+  "order": 50
+}

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:command_console",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerodecor:command_console"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerodecor.command_deck.title",
+  "description": "trophy.nerotrophies.nerodecor.command_deck.description",
+  "requires_mod": "nerodecor",
+  "order": 40
+}

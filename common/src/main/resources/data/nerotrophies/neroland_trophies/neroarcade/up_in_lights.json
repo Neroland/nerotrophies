@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:marquee_screen",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neroarcade:marquee_screen"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroarcade.up_in_lights.title",
+  "description": "trophy.nerotrophies.neroarcade.up_in_lights.description",
+  "requires_mod": "neroarcade",
+  "order": 50
+}

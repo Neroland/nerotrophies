@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neromaps:signpost",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neromaps:signpost"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neromaps.signposted.title",
+  "description": "trophy.nerotrophies.neromaps.signposted.description",
+  "requires_mod": "neromaps",
+  "order": 30
+}

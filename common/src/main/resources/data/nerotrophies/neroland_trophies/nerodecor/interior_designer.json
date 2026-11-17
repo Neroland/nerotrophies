@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:chroma_hub",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerodecor:chroma_hub"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerodecor.interior_designer.title",
+  "description": "trophy.nerotrophies.nerodecor.interior_designer.description",
+  "requires_mod": "nerodecor",
+  "order": 10
+}

@@ -1,0 +1,22 @@
+id,tier,hidden,trigger_type,survey_row,notes
+nerotrophies:nerodecor/interior_designer,bronze,false,block_placed,DECO-BLOCK-01,nerodecor:chroma_hub
+nerotrophies:nerodecor/hologram_hobbyist,bronze,false,block_placed,DECO-BLOCK-02,nerodecor:holo_projector
+nerotrophies:nerodecor/blast_proof,bronze,false,block_placed,DECO-BLOCK-03,nerodecor:blast_door
+nerotrophies:nerodecor/command_deck,bronze,false,block_placed,DECO-BLOCK-03,nerodecor:command_console
+nerotrophies:nerodecor/void_architect,silver,true,block_placed,DECO-BLOCK-04,nerodecor:hull_void_crystal
+nerotrophies:nerodecor/painter,silver,false,stat,DECO-STAT-01,"minecraft:used:nerodecor:paint_gun; PaintGunItem.useOn returns SUCCESS on a paintable block, so vanilla ItemStack.useOn counts minecraft:used"
+nerotrophies:neronotes/pressed_vinyl,bronze,false,item_obtained,NOTE-ITEM-01,neronotes:custom_disk
+nerotrophies:neronotes/composer,silver,false,nero_event,NOTE-GATE-01,neronotes:first_publish; player-scope gate
+nerotrophies:neronotes/on_air,silver,false,nero_event,NOTE-GATE-02,neronotes:first_broadcast; player-scope gate
+nerotrophies:neronotes/into_the_soundforge,gold,true,dimension_visited,NOTE-DIM-01,neronotes:soundforge; not retroactive for past visits
+nerotrophies:neronotes/gatekeeper,bronze,false,block_placed,NOTE-BLOCK-01,neronotes:harmonic_gate
+nerotrophies:neronotes/full_band,bronze,false,block_placed,NOTE-BLOCK-01,neronotes:voice_pedestal
+nerotrophies:neroarcade/insert_coin,bronze,false,block_placed,ARCA-BLOCK-01,neroarcade:arcade_cabinet
+nerotrophies:neroarcade/game_designer,bronze,false,nero_event,ARCA-GATE-01,neroarcade:first_cartridge; player-scope gate
+nerotrophies:neroarcade/published,silver,false,nero_event,ARCA-GATE-02,neroarcade:first_published; player-scope gate
+nerotrophies:neroarcade/versus_victor,silver,false,nero_event,ARCA-GATE-03,neroarcade:first_versus_win; player-scope gate
+nerotrophies:neroarcade/up_in_lights,bronze,false,block_placed,ARCA-BLOCK-01,neroarcade:marquee_screen
+nerotrophies:neromaps/cartographer,bronze,false,block_placed,MAPS-BLOCK-01,neromaps:cartography_desk
+nerotrophies:neromaps/bound_atlas,bronze,false,item_obtained,MAPS-ITEM-01,neromaps:atlas
+nerotrophies:neromaps/signposted,bronze,false,block_placed,MAPS-BLOCK-01,neromaps:signpost
+nerotrophies:neromaps/war_room,silver,false,block_placed,MAPS-BLOCK-01,neromaps:map_table

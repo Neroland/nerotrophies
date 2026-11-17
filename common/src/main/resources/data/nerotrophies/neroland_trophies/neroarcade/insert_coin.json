@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:arcade_cabinet",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neroarcade:arcade_cabinet"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroarcade.insert_coin.title",
+  "description": "trophy.nerotrophies.neroarcade.insert_coin.description",
+  "requires_mod": "neroarcade",
+  "order": 10
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:arcade_exchange",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroarcade:first_published"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroarcade.published.title",
+  "description": "trophy.nerotrophies.neroarcade.published.description",
+  "requires_mod": "neroarcade",
+  "order": 30
+}

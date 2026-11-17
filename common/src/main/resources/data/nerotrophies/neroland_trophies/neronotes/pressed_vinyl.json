@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neronotes:custom_disk",
+  "tier": "bronze",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neronotes:custom_disk"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neronotes.pressed_vinyl.title",
+  "description": "trophy.nerotrophies.neronotes.pressed_vinyl.description",
+  "requires_mod": "neronotes",
+  "order": 10
+}

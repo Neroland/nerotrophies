@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neronotes:harmonic_gate",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neronotes:harmonic_gate"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neronotes.gatekeeper.title",
+  "description": "trophy.nerotrophies.neronotes.gatekeeper.description",
+  "requires_mod": "neronotes",
+  "order": 50
+}
