@@ -13,7 +13,7 @@ import za.co.neroland.nerotrophies.engine.TrophyStatus;
 /**
  * Collection completion for a cabinet pool (decision 003): which members of the bound collection the pool holds as
  * <b>genuine</b> trophies. A replica, a blank (erased / forged / unknown token) or an unstamped copy never counts;
- * each token counts once across the pool; gallery copies count only in a {@code display_only} gallery cabinet; the
+ * each token counts once across the pool (a gallery copy once per trophy); gallery copies count only in a {@code display_only} gallery cabinet; the
  * gallery's nameless copy ({@code -2}) never counts. Pure: the caller supplies the resolver (the server's token check).
  */
 public final class CabinetPools {
@@ -33,9 +33,14 @@ public final class CabinetPools {
     public static long memberMask(List<Identifier> members, Iterable<TrophyStamp> stamps,
             Function<TrophyStamp, TrophyStatus> resolver, boolean displayOnly) {
         long mask = 0L;
-        Set<Long> seen = new HashSet<>();
+        Set<Object> seen = new HashSet<>();
         for (TrophyStamp stamp : stamps) {
-            if (stamp == null || !seen.add(stamp.token())) {
+            // Gallery display copies all share one reserved token, so they count once per trophy instead.
+            if (stamp == null) {
+                continue;
+            }
+            Object key = stamp.token() == TrophyStamp.GALLERY_TOKEN ? stamp.trophy() : (Object) stamp.token();
+            if (!seen.add(key)) {
                 continue;
             }
             if (!counts(stamp, resolver, displayOnly)) {
@@ -47,6 +52,15 @@ public final class CabinetPools {
             }
         }
         return mask;
+    }
+
+    /**
+     * Genuine members only, whatever cabinet holds them: never a display copy. The cabinet's {@link #memberMask} is
+     * display state (pips, completion glow, screen count) and awards nothing; completion is read from the record.
+     */
+    public static long genuineMask(List<Identifier> members, Iterable<TrophyStamp> stamps,
+            Function<TrophyStamp, TrophyStatus> resolver) {
+        return memberMask(members, stamps, resolver, false);
     }
 
     /** Whether one stamp may count toward a collection. */

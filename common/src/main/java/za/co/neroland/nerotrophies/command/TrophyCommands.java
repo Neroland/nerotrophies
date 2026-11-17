@@ -210,7 +210,7 @@ public final class TrophyCommands {
         MinecraftServer server = c.getSource().getServer();
         UUID subject = own ? requester.getUUID() : target.getUUID();
         String json = TrophyExport.toText(TrophyState.get(server), subject, TrophyApi.definitions(server));
-        List<String> parts = TrophyExport.chunks(json, TrophyExport.CHUNK_CHARS);
+        List<String> parts = TrophyExport.chunks(json, TrophyExport.CHUNK_BYTES);
         for (int i = 0; i < parts.size(); i++) {
             String part = parts.get(i);
             MutableComponent line = Component.translatable("nerotrophies.command.export.chunk", i + 1, parts.size())

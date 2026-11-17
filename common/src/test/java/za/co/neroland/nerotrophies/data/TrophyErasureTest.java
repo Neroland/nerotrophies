@@ -98,6 +98,39 @@ class TrophyErasureTest {
     }
 
     @Test
+    void erasureRefreshesTheBackupAndParksEvenWithoutALiveRecord() {
+        // After a corrupt store was replaced by a fresh one, the quarantined copy can still name a player the live
+        // store does not know. The backup refresh is what discards that copy, so it must run for them too.
+        TrophyState s = twoPlayers();
+        UUID unknown = UUID.fromString("00000000-0000-0000-0000-00000000000c");
+        int[] backups = {0};
+        java.util.List<UUID> parked = new java.util.ArrayList<>();
+        TrophyEraser eraser = new TrophyEraser(new TrophyEraser.Store() {
+            @Override
+            public TrophyState state(net.minecraft.server.MinecraftServer server) {
+                return s;
+            }
+
+            @Override
+            public void backup(net.minecraft.server.MinecraftServer server, TrophyState state) {
+                backups[0]++;
+            }
+
+            @Override
+            public void park(UUID player) {
+                parked.add(player);
+            }
+        });
+        eraser.erase(null, unknown);
+        assertEquals(1, backups[0], "the backup (and quarantine clean-up) runs without a live record");
+        assertEquals(java.util.List.of(unknown), parked);
+        assertEquals(2, s.recordCount());
+        eraser.erase(null, A);
+        assertEquals(2, backups[0]);
+        assertFalse(s.hasRecord(A));
+    }
+
+    @Test
     void erasingSomeoneWithoutARecordIsHarmless() {
         TrophyState s = twoPlayers();
         TrophyEraser.forState(s).erase(null, UUID.randomUUID());

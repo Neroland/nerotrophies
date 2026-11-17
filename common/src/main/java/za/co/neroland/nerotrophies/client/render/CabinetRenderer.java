@@ -141,17 +141,20 @@ public class CabinetRenderer extends DisplayRenderer<CabinetBlockEntity, Cabinet
         pose.translate(-0.5F, 0.0F, -0.5F);
     }
 
-    /** A ghost: base and stage as translucent scanline boxes in tier BASE (or GHOST_UNKNOWN), with the pip marker. */
+    /**
+     * A ghost: base and stage from {@code trophy_ghost.json} ({@link GhostModel}) as translucent scanline faces in tier
+     * BASE (or GHOST_UNKNOWN) at 35 %, and the model's marker quad showing the tier's pip cell ("?" when hidden).
+     */
     private static void ghost(PoseStack pose, Out out, @Nullable TrophyTier tier, int light) {
+        GhostModel.Parts parts = GhostModel.parts();
         int colour = TrophyColours.alpha(tier == null ? TrophyColours.GHOST_UNKNOWN : TrophyColours.base(tier), 0.35F);
-        out.geometry(pose, TrophyDraw.translucent(TrophyDraw.GHOST), (p, c) -> {
-            DisplayRenderer.box(c, p, 2F, 0F, 2F, 14F, 4F, 14F, colour, light);
-            DisplayRenderer.box(c, p, 5F, 4F, 5F, 11F, 5F, 11F, colour, light);
-        });
+        out.geometry(pose, TrophyDraw.translucent(TrophyDraw.GHOST), (p, c) -> GhostModel.body(c, p, parts, colour,
+                light));
         int cell = tier == null ? 4 : tier.ordinal();
         int marker = TrophyColours.alpha(tier == null ? TrophyColours.GHOST_UNKNOWN : TrophyColours.ink(tier), 0.6F);
         out.geometry(pose, TrophyDraw.translucent(TrophyDraw.PIPS), (p, c) ->
-                DisplayRenderer.quad(c, p, 4F, 9F, 12F, 13F, 8F, cell / 5F, 0F, (cell + 1) / 5F, 1F, marker, light));
+                DisplayRenderer.quad(c, p, parts.mx0(), parts.my0(), parts.mx1(), parts.my1(), parts.mz(), cell / 5F,
+                        0F, (cell + 1) / 5F, 1F, marker, light));
     }
 
     /** Completion pips along the crown's middle row: lit for a genuine member present, dark for a missing one. */

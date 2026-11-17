@@ -5,11 +5,13 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.LongSupplier;
 
 import net.minecraft.resources.Identifier;
 
+import za.co.neroland.nerolandcore.trophy.AwardSource;
 import za.co.neroland.nerolandcore.trophy.TrophyDefinition;
 
 /**
@@ -19,8 +21,15 @@ import za.co.neroland.nerolandcore.trophy.TrophyDefinition;
  * time is spent. A pass resumes from its cursor next tick. Awards it finds are {@code RETROACTIVE}: no coins, no
  * announcement, no per-trophy toast; one summary at the end.
  *
+ * <p><b>Retroactive first, by construction.</b> While a player is queued or their pass is running, every award a live
+ * trigger finds for them is recorded as {@code RETROACTIVE} ({@link #liveSource}): progress that existed before the
+ * login, reload or definition change can never pay, announce or push. Only once the pass has finished is a live
+ * trigger {@code LIVE}. A player whose record was erased while online is <em>parked</em> ({@link #park}): nothing is
+ * awarded to them until they log out (which cancels the entry) and back in, when a normal pass records what the game
+ * still holds as retroactive.
+ *
  * <p>Pure scheduling: the game is reached only through {@link Checks}, so it is tested without a server. Server
- * thread only. At most one entry per player; re-enqueueing restarts the pass.
+ * thread only. At most one entry per player; re-enqueueing restarts the pass (a parked player stays parked).
  */
 public final class RetroQueue {
 
@@ -53,25 +62,60 @@ public final class RetroQueue {
         }
     }
 
+    /** The due tick of a parked entry: never reached, so the pass never starts. */
+    private static final long PARKED = Long.MAX_VALUE;
+
     private final Map<UUID, Long> waiting = new LinkedHashMap<>();
     private final Map<UUID, Pass> active = new LinkedHashMap<>();
+    private final Map<UUID, Integer> early = new LinkedHashMap<>();
     private int checksLastTick;
 
-    /** Queue (or restart) a player's pass, due at {@code dueTick}. */
+    /** Queue (or restart) a player's pass, due at {@code dueTick}. A parked player stays parked. */
     public void enqueue(UUID player, long dueTick) {
+        if (isParked(player)) {
+            return;
+        }
         active.remove(player);
         waiting.put(player, dueTick);
     }
 
-    /** The player left: forget them. */
+    /**
+     * Hold every award for {@code player} until they log out and back in (their record was just erased while they were
+     * online). Only {@link #cancel} or {@link #clear} lifts it.
+     */
+    public void park(UUID player) {
+        active.remove(player);
+        early.remove(player);
+        waiting.put(player, PARKED);
+    }
+
+    public boolean isParked(UUID player) {
+        Long due = waiting.get(player);
+        return due != null && due == PARKED;
+    }
+
+    /** The player left: forget them (this also lifts a park). */
     public void cancel(UUID player) {
         waiting.remove(player);
         active.remove(player);
+        early.remove(player);
     }
 
     public void clear() {
         waiting.clear();
         active.clear();
+        early.clear();
+    }
+
+    /**
+     * The source a live trigger must use for {@code player} right now: empty while parked (award nothing),
+     * {@code RETROACTIVE} while queued or mid-pass, {@code LIVE} otherwise.
+     */
+    public Optional<AwardSource> liveSource(UUID player) {
+        if (isParked(player)) {
+            return Optional.empty();
+        }
+        return Optional.of(isQueued(player) ? AwardSource.RETROACTIVE : AwardSource.LIVE);
     }
 
     /** A {@code RETROACTIVE} award for {@code player} was recorded (counts toward the summary toast). */
@@ -79,6 +123,8 @@ public final class RetroQueue {
         Pass pass = active.get(player);
         if (pass != null) {
             pass.awarded++;
+        } else if (waiting.containsKey(player) && !isParked(player)) {
+            early.merge(player, 1, Integer::sum);
         }
     }
 
@@ -109,7 +155,10 @@ public final class RetroQueue {
             Map.Entry<UUID, Long> e = it.next();
             if (e.getValue() <= nowTick) {
                 it.remove();
-                active.put(e.getKey(), new Pass(generation));
+                Pass pass = new Pass(generation);
+                Integer before = early.remove(e.getKey());
+                pass.awarded = before == null ? 0 : before;
+                active.put(e.getKey(), pass);
                 started++;
             }
         }

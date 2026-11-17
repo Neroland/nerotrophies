@@ -11,6 +11,7 @@ import za.co.neroland.nerolandcore.data.SavedDataRecovery;
 import za.co.neroland.nerolandcore.trophy.TrophyEvents;
 
 import za.co.neroland.nerotrophies.engine.EngineHooks;
+import za.co.neroland.nerotrophies.engine.EngineServer;
 
 /**
  * NeroTrophies' one {@link PlayerDataEraser}, registered with Core's {@code PlayerDataErasure} at init.
@@ -18,9 +19,12 @@ import za.co.neroland.nerotrophies.engine.EngineHooks;
  * ({@code dataRetentionDays}), so NeroTrophies needs no sweep of its own.
  *
  * <p>Steps, in this order: remove the whole record and drop its tokens from the index; refresh the store's backup
- * ({@code backupNow}) so a restart cannot bring the name back; tell loaded clients to drop the names this tick
- * ({@link NameInvalidation}); fire {@code TrophyEvents.RecordErased}; send an online player their now-empty record.
- * Nothing in the world is searched or rewritten: every trophy the player earned now resolves to blank.
+ * ({@code backupNow}) so a restart cannot bring the name back, which also deletes any quarantined {@code .corrupt}
+ * copy of the store; park an online player so nothing is awarded to them again this session; then, if there was a
+ * record, tell loaded clients to drop the names this tick, fire {@code TrophyEvents.RecordErased} and send an online
+ * player their now-empty record. The backup step runs even when the live store holds no record for the player: a
+ * quarantined copy from before a recovery can still name them. Nothing in the world is searched or rewritten: every
+ * trophy the player earned now resolves to blank.
  */
 public final class TrophyEraser implements PlayerDataEraser {
 
@@ -29,6 +33,10 @@ public final class TrophyEraser implements PlayerDataEraser {
         TrophyState state(MinecraftServer server);
 
         void backup(MinecraftServer server, TrophyState state);
+
+        /** Award nothing more to the player this session (no-op for an offline player and in tests). */
+        default void park(UUID player) {
+        }
     }
 
     /** The live store: the overworld's {@link TrophyState} and Core's recovery backup. */
@@ -42,6 +50,11 @@ public final class TrophyEraser implements PlayerDataEraser {
         public void backup(MinecraftServer server, TrophyState state) {
             // Throws IllegalStateException if the backup cannot be written; Core then reports this eraser failed.
             SavedDataRecovery.backupNow(server.overworld(), TrophyState.type(), state, TrophyState.ID.toString());
+        }
+
+        @Override
+        public void park(UUID player) {
+            EngineServer.park(player);
         }
     };
 
@@ -78,10 +91,12 @@ public final class TrophyEraser implements PlayerDataEraser {
         TrophyState state = store.state(server);
         boolean had = state.hasRecord(player);
         long[] tokens = state.erase(player);
+        // Always: the backup refresh is also what discards a quarantined copy that may still hold this player.
+        store.backup(server, state);
+        store.park(player);
         if (!had) {
             return;
         }
-        store.backup(server, state);
         if (server != null) {
             EngineHooks.names().invalidate(server, tokens);
         }

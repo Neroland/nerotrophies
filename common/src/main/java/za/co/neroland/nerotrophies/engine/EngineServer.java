@@ -3,8 +3,10 @@ package za.co.neroland.nerotrophies.engine;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -32,7 +34,8 @@ public final class EngineServer {
     public static final int LOGIN_DELAY_TICKS = 40;
 
     private static final RetroQueue RETRO = new RetroQueue();
-    private static final Set<UUID> ONLINE = new HashSet<>();
+    /** Online players by id, with the player object seen, so a relog between two ticks is still a new session. */
+    private static final Map<UUID, ServerPlayer> ONLINE = new HashMap<>();
     private static final Set<String> FAILED_ONCE = new HashSet<>();
     private static volatile WeakReference<MinecraftServer> server = new WeakReference<>(null);
     private static long ticks;
@@ -68,7 +71,7 @@ public final class EngineServer {
             triggered = triggered(defs);
             guard("definitionsChanged", () -> EngineHooks.triggers().definitionsChanged(s));
             if (!first) {
-                ONLINE.forEach(p -> RETRO.enqueue(p, ticks));
+                ONLINE.keySet().forEach(p -> RETRO.enqueue(p, ticks));
             }
         }
         presence(s);
@@ -81,7 +84,18 @@ public final class EngineServer {
     public static void reload(MinecraftServer s) {
         TrophyDefinitions.clear();
         TrophyApi.definitions(s);
-        ONLINE.forEach(p -> RETRO.enqueue(p, ticks));
+        ONLINE.keySet().forEach(p -> RETRO.enqueue(p, ticks));
+    }
+
+    /**
+     * The player's record was just erased: if they are online, award them nothing more this session. Their next login
+     * runs a normal retroactive pass, so progress the game still holds comes back as {@code RETROACTIVE} (no coins, no
+     * announcement) and the store does not re-record their gamertag while they are still playing.
+     */
+    public static void park(UUID player) {
+        if (ONLINE.containsKey(player)) {
+            RETRO.park(player);
+        }
     }
 
     /** Server stopped: drop every in-memory reference (the store itself is saved by the game). */
@@ -113,23 +127,31 @@ public final class EngineServer {
         for (ServerPlayer p : players) {
             UUID id = p.getUUID();
             now.add(id);
-            if (!ONLINE.contains(id)) {
-                ONLINE.add(id);
+            ServerPlayer seen = ONLINE.get(id);
+            if (seen != null && seen != p) {
+                left(s, id); // logged out and back in between two ticks: a new session
+            }
+            if (!ONLINE.containsKey(id)) {
+                ONLINE.put(id, p);
                 guard("join", () -> TrophyEngine.INSTANCE.playerJoined(s, p));
                 RETRO.enqueue(id, ticks + LOGIN_DELAY_TICKS);
                 guard("namesJoin", () -> EngineHooks.names().playerJoined(p));
             }
         }
         if (now.size() != ONLINE.size()) {
-            for (UUID gone : new ArrayList<>(ONLINE)) {
+            for (UUID gone : new ArrayList<>(ONLINE.keySet())) {
                 if (!now.contains(gone)) {
-                    ONLINE.remove(gone);
-                    RETRO.cancel(gone);
-                    guard("triggersLeave", () -> EngineHooks.triggers().playerLeft(s, gone));
-                    guard("namesLeave", () -> EngineHooks.names().playerLeft(s, gone));
+                    left(s, gone);
                 }
             }
         }
+    }
+
+    private static void left(MinecraftServer s, UUID gone) {
+        ONLINE.remove(gone);
+        RETRO.cancel(gone);
+        guard("triggersLeave", () -> EngineHooks.triggers().playerLeft(s, gone));
+        guard("namesLeave", () -> EngineHooks.names().playerLeft(s, gone));
     }
 
     private static void retroTick(MinecraftServer s) {

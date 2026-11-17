@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "nerotrophies_compliancetest",
+  "version": "1.0.0",
+  "name": "NeroTrophies privacy compliance (server game test, never shipped)",
+  "description": "Erasure, name-free world data and backup checks on a real game-test server. Test source set only.",
+  "license": "All Rights Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": [
+      "za.co.neroland.nerotrophies.gametest.NeroTrophiesComplianceGameTest",
+      "za.co.neroland.nerotrophies.gametest.NeroTrophiesGalleryGameTest"
+    ]
+  },
+  "depends": {
+    "fabricloader": "*",
+    "fabric-gametest-api-v1": "*",
+    "nerotrophies": "*"
+  }
+}

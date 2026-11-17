@@ -13,5 +13,6 @@ public final class NeroTrophiesFabricClient implements ClientModInitializer {
         za.co.neroland.nerotrophies.fabric.network.FabricTrophyClientEvents.register();
         FabricTrophyClientContent.register();
         TrophyClient.init();
+        FabricTrophyFeedbackClient.register();
     }
 }

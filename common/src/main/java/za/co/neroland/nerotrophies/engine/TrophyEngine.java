@@ -47,9 +47,18 @@ public final class TrophyEngine implements TrophyProvider {
         TrophyEvents.onAwarded(INSTANCE::afterAward);
     }
 
-    /** Live award from a trigger ({@code trigger/} calls this). */
+    /**
+     * Award from a live trigger ({@code trigger/} calls this). The source is {@code LIVE} only once the player's
+     * retroactive pass for this session (login, reload or definition change) has finished; until then it is
+     * {@code RETROACTIVE}, so progress made before the pass can never pay coins, announce or push. A player whose record
+     * was erased while online is awarded nothing until they log in again.
+     */
     public static boolean awardLive(MinecraftServer server, UUID player, Identifier trophy) {
-        return TrophyApi.award(server, player, trophy, AwardSource.LIVE);
+        Optional<AwardSource> source = EngineServer.retro().liveSource(player);
+        if (source.isEmpty()) {
+            return false;
+        }
+        return TrophyApi.award(server, player, trophy, source.get());
     }
 
     // ---- TrophyProvider -------------------------------------------------------------------------------------------

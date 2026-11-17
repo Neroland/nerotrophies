@@ -145,6 +145,11 @@ public final class TrophyRecord {
         return paid.contains(trophy);
     }
 
+    /** Every trophy that has paid its coin reward, including ones revoked since (kept so a reward never pays twice). */
+    public Set<Identifier> paidTrophies() {
+        return Collections.unmodifiableSet(paid);
+    }
+
     /** Whether the record holds anything beyond default toggles (an empty record can be dropped). */
     boolean isEmpty() {
         return earned.isEmpty() && collections.isEmpty() && paid.isEmpty() && announce && showName;

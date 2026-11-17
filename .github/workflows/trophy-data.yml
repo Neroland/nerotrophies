@@ -18,6 +18,8 @@ on:
       - "common/src/main/java/**"
       - "tools/check_assets.py"
       - "tools/test_check_assets.py"
+      - "tools/wiki/**"
+      - "wiki/**"
       - ".github/workflows/trophy-data.yml"
   pull_request:
     paths:
@@ -30,6 +32,8 @@ on:
       - "common/src/main/java/**"
       - "tools/check_assets.py"
       - "tools/test_check_assets.py"
+      - "tools/wiki/**"
+      - "wiki/**"
       - ".github/workflows/trophy-data.yml"
   workflow_dispatch:
 
@@ -59,3 +63,6 @@ jobs:
 
       - name: Check assets
         run: python3 tools/check_assets.py --no-siblings
+
+      - name: Wiki catalogue is in sync with the data
+        run: python3 tools/wiki/gen_wiki_catalogue.py --check

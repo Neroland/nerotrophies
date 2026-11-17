@@ -1,51 +1,60 @@
 # NeroTrophies
 
-NeroTrophies is the cross-mod achievement layer of the Neroland mod family: trophies for milestones across every
-Nero mod, and trophy blocks, pedestals and cabinets to show them off in your base.
+NeroTrophies is the cross-mod achievement layer of the Neroland mod family. It listens for milestones from every Nero
+mod, awards **trophies** defined in JSON, and gives you trophy blocks, pedestals and cabinets so your base becomes a
+record of what you have done across the whole family. Every genuine trophy carries the name of the player who earned
+it.
 
-**Current version: 0.0.1-alpha.1.** This is an early scaffold: the mod loads, adds its (empty) creative tab and
-its config file, and does nothing else yet.
+**Current version: 0.1.0-beta.1.**
 
 ## Requirements
 
-- Minecraft 26.3 (older lines down to 1.21.1 are also built)
-- Fabric (with Fabric API), NeoForge or Forge
-- Neroland Core 1.20.0 or newer
+- Minecraft 26.3 (also built for 26.2, 26.1.2, 1.21.11, 1.21.10, 1.21.8, 1.21.5, 1.21.4 and 1.21.1)
+- NeoForge, Forge or Fabric (Fabric also needs Fabric API)
+- **Neroland Core 1.20.0 or newer** (below 2.0). Core is the only required mod.
+- Optional: any other Nero mod, whose trophies light up when it is installed, and the NeroLink bridge mod for the
+  companion app
 
-## Configuration
+Trophies never gate gameplay. They are a record and a cosmetic: nothing in any mod needs a trophy.
 
-`config/nerotrophies.properties`:
+## Pages
 
-| Key | Default | What it does |
-|-----|---------|--------------|
-| `telemetryEnabled` | `true` | Anonymous NeroTrophies-only crash reports. Set `false` to opt out (takes effect on restart). This build sends nothing. |
-| `announceTiers` | `gold,nero` | Tiers whose live awards are announced in chat. Empty for none. |
-| `reclaimCooldownSeconds` | `600` | Wait between re-claims of the same trophy from the Trophy Book. |
-| `retroPlayersPerTick` | `2` | Retroactive re-check: players started per server tick. |
-| `retroChecksPerTick` | `512` | Retroactive re-check: trophy checks per server tick. |
-| `retroMillisPerTick` | `2` | Retroactive re-check: milliseconds it may use per server tick. |
-| `pollIntervalTicks` | `100` | How often statistic, item, block and dimension trophies are checked per player. |
-| `rewardsEnabled` | `false` | Small coin rewards for live awards. Needs a real currency provider such as NeroEconomy. |
-| `coinsBronze` / `coinsSilver` / `coinsGold` / `coinsNero` | `10` / `25` / `75` / `200` | Coin reward per tier (a trophy file may override it). |
+**Playing**
 
-## Commands
+- [Getting Started](Getting-Started)
+- [Trophy Book](Trophy-Book): your record, claiming and re-claiming, your privacy switches
+- [Tiers](Tiers): bronze, silver, gold and nero
+- [Display Blocks](Display-Blocks): the trophy, pedestal, cabinets, plaque and spotlight
+- [Collections](Collections): sets of trophies that unlock cabinet trims
 
-| Command | Who | What it does |
-|---------|-----|--------------|
-| `/nerotrophies list` | everyone | Your earned trophies. |
-| `/nerotrophies announce on\|off` | everyone | Whether your gold and nero trophies are announced in chat. |
-| `/nerotrophies showname on\|off` | everyone | Whether your name shows on your trophies (and in announcements). |
-| `/nerotrophies export` | everyone | Your whole trophy record, sent to your chat to copy. |
-| `/nerotrophies list <player>` | operators | That player's trophy ids and award times. |
-| `/nerotrophies award <player> <trophy>` | operators | Award a trophy (no coins, no announcement). |
-| `/nerotrophies revoke <player> <trophy>` | operators | Remove a trophy; any copy of it becomes a replica. |
-| `/nerotrophies reload` | operators | Re-read trophy data and re-check online players. |
-| `/nerotrophies export <player>` | admins (level 3) | Export a player's record to the admin who asked. |
+**The catalogue**
 
-## Privacy
+- [Core and Vanilla](Catalogue-Core-and-Vanilla)
+- [Space and Tech](Catalogue-Space-and-Tech): Nerospace, Nerotech, NeroPower, NeroLogistics
+- [Society](Catalogue-Society): NeroEconomy, NeroFactions, NeroColonies, NeroSecurity, NeroEvents, NeroQuests
+- [Life and World](Catalogue-Life-and-World): NeroCreatures, NeroAgriculture, NeroCompanion, NeroRuins
+- [Play and Craft](Catalogue-Play-and-Craft): NeroDecor, NeroNotes, NeroArcade, NeroMaps, NeroLink
+
+**Running a server**
+
+- [Commands](Commands)
+- [Config](Config)
+- [Link Module](Link-Module): what the companion app can read
+- [Privacy](Privacy)
+
+**Making a pack or a mod**
+
+- [Adding Trophies](Adding-Trophies): the JSON format, and awarding trophies from your own mod
+
+## Privacy in one paragraph
 
 NeroTrophies keeps one record per player who has earned a trophy: trophy ids, award times, claim tokens, completed
-collections, the last-known gamertag and two toggles. Trophy items and blocks never hold a name or a UUID. Your
-gamertag shows on your trophies to players who can see them; `/nerotrophies showname off` hides it everywhere at
-once. `/nerotrophies export` shows your data, and Neroland Core's erasure (`/neroland data eraseme`) removes it, after
-which your trophies show no name. Full details are in the mod's `PRIVACY.md`. Trophies never gate gameplay.
+collections, the last-known gamertag and two switches. Trophy items and blocks never hold a name or a UUID. Your
+gamertag shows on your trophies to players who can see them; `/nerotrophies showname off` hides it everywhere at once.
+`/nerotrophies export` shows your data, and Neroland Core's `/neroland data eraseme` removes it, after which every
+trophy you earned shows no name. The full text is on [Privacy](Privacy) and in the mod's `PRIVACY.md`.
+
+## Crash reports
+
+NeroTrophies can send anonymous, NeroTrophies-only crash reports. They carry no IP, name, UUID, position or world
+data. Set `telemetryEnabled=false` in `config/nerotrophies.properties` to opt out (takes effect on restart).

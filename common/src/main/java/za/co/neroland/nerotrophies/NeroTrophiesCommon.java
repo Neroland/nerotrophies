@@ -23,6 +23,7 @@ import za.co.neroland.nerotrophies.registry.ModCreativeTab;
 import za.co.neroland.nerotrophies.registry.ModDataComponents;
 import za.co.neroland.nerotrophies.registry.ModItems;
 import za.co.neroland.nerotrophies.registry.ModMenuTypes;
+import za.co.neroland.nerotrophies.registry.ModParticles;
 import za.co.neroland.nerotrophies.telemetry.NeroTrophiesTelemetry;
 import za.co.neroland.nerotrophies.trigger.TrophyTriggers;
 
@@ -65,6 +66,7 @@ public final class NeroTrophiesCommon {
         ModBlockEntities.init();
         ModItems.init();
         ModMenuTypes.init();
+        ModParticles.init();
         ModCreativeTab.init();
 
         // 4. Player-data erasure (and with it Core's retention sweep) before any store can exist, then the trophy
@@ -88,11 +90,13 @@ public final class NeroTrophiesCommon {
     /** End of every server tick (every loader). */
     public static void onServerTick(MinecraftServer server) {
         EngineServer.tick(server);
+        TrophyGallery.tick(server);
     }
 
     /** The server stopped (every loader). */
     public static void onServerStopped() {
         EngineServer.stopped();
+        za.co.neroland.nerotrophies.link.TrophyLinkModule.events().clear();
     }
 
     /** Command registration (every loader). */

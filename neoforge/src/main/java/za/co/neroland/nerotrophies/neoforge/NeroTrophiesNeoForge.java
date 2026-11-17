@@ -37,6 +37,7 @@ public final class NeroTrophiesNeoForge {
             za.co.neroland.nerotrophies.neoforge.network.NeoForgeTrophyClientEvents.register();
             NeoForgeTrophyClientContent.init(modEventBus);
             TrophyClient.init();
+            NeoForgeTrophyFeedbackClient.init(modEventBus);
         }
     }
 }

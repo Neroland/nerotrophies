@@ -4,9 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import org.junit.jupiter.api.Test;
@@ -58,8 +62,56 @@ class TrophyExportTest {
 
     @Test
     void largeExportsAreChunked() {
-        List<String> parts = TrophyExport.chunks("x".repeat(10), 4);
-        assertEquals(List.of("xxxx", "xxxx", "xx"), parts);
-        assertEquals(1, TrophyExport.chunks("", 4).size());
+        List<String> parts = TrophyExport.chunks("x".repeat(20), 8);
+        assertEquals(List.of("xxxxxxxx", "xxxxxxxx", "xxxx"), parts);
+        assertEquals(1, TrophyExport.chunks("", 8).size());
+    }
+
+    /** Every limit a click-event value meets on the way: UTF-8, NBT's modified UTF-8, and escaped JSON. */
+    private static void assertFitsAClickEvent(String chunk) {
+        int utf8 = chunk.getBytes(StandardCharsets.UTF_8).length;
+        int modified = 0;
+        for (char c : chunk.toCharArray()) {
+            modified += c == 0 ? 2 : c < 0x80 ? 1 : c < 0x800 ? 2 : 3;
+        }
+        int json = new Gson().toJson(chunk).getBytes(StandardCharsets.UTF_8).length;
+        assertTrue(utf8 <= TrophyExport.STRING_LIMIT_BYTES, "UTF-8 bytes " + utf8);
+        assertTrue(modified <= TrophyExport.STRING_LIMIT_BYTES, "modified UTF-8 bytes " + modified);
+        assertTrue(json <= TrophyExport.STRING_LIMIT_BYTES, "escaped JSON bytes " + json);
+        assertTrue(TrophyExport.encodedBytes(chunk) <= TrophyExport.CHUNK_BYTES);
+        assertFalse(!chunk.isEmpty() && Character.isHighSurrogate(chunk.charAt(chunk.length() - 1)),
+                "a chunk never ends inside a surrogate pair");
+    }
+
+    @Test
+    void aFullRecordWithMultibyteTextExportsInChunksThatFitTheClickEventLimit() {
+        TrophyState s = new TrophyState();
+        List<za.co.neroland.nerolandcore.trophy.TrophyDefinition> defs = new ArrayList<>();
+        long token = 1L;
+        for (int i = 0; i < 4096; i++) {
+            String path = String.format(Locale.ROOT, "pack/trophy_%04d", i);
+            s.award(A, TestDefs.id(path), 1_700_000_000_000L + i, ++token);
+            defs.add(TestDefs.trophy(path, TrophyTier.GOLD));
+        }
+        for (int i = 0; i < 512; i++) {
+            s.award(A, TestDefs.id("trim/t" + i), 1_700_000_000_000L + i, 0L);
+        }
+        s.refreshName(A, "\u00c9l\u00e9a\u6f22\u5b57\ud83c\udfc6\"<&>", 2L); // accents, CJK, an emoji, escapes
+        String json = TrophyExport.toText(s, A, TestDefs.snapshot(defs, List.of(), 1L));
+        assertTrue(json.getBytes(StandardCharsets.UTF_8).length > 4 * TrophyExport.STRING_LIMIT_BYTES,
+                "precondition: the export is far larger than one click event can carry");
+
+        List<String> parts = TrophyExport.chunks(json, TrophyExport.CHUNK_BYTES);
+        assertTrue(parts.size() > 4);
+        parts.forEach(TrophyExportTest::assertFitsAClickEvent);
+        assertEquals(json, String.join("", parts), "nothing is lost or reordered");
+    }
+
+    @Test
+    void multibyteAndEscapedTextIsChunkedByBytesNotCharacters() {
+        String text = "\ud83c\udfc6".repeat(30_000) + "\u6f22".repeat(30_000) + "\"\\\n".repeat(20_000);
+        List<String> parts = TrophyExport.chunks(text, TrophyExport.CHUNK_BYTES);
+        parts.forEach(TrophyExportTest::assertFitsAClickEvent);
+        assertEquals(text, String.join("", parts));
     }
 }

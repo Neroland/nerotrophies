@@ -245,3 +245,20 @@ tasks.register('ecjCheck', JavaExec) {
         ] + srcDirs
     }
 }
+
+// Server game test harness (Fabric API fabric-gametest-api-v1) - the 26.3 Fabric cell only (privacy compliance).
+// A separate `gametest` source set (fabric/src/gametest, its own fabric.mod.json) that Loom runs as a second mod in
+// a real dedicated game-test server: real block-entity, item, player and chunk NBT, Core's erasure hook and the
+// SavedDataRecovery backup files on disk. It is never part of sourceSets.main, so nothing here reaches the shipped
+// jar. Run: gradlew :fabric:26.3:runGameTest (same pattern as the sibling client game test harnesses).
+if (mc == '26.3') {
+    // `fabricApi` alone would resolve to the Fabric API version string defined at the top of this script.
+    project.extensions.getByName('fabricApi').with {
+        configureTests {
+            createSourceSet = true
+            modId = 'nerotrophies_compliancetest'
+            enableGameTests = true
+            enableClientGameTests = false
+        }
+    }
+}

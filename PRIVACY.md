@@ -40,7 +40,7 @@ is kept. `/nerotrophies showname on` brings it back. **`/nerotrophies announce o
 ## Seeing your data (export)
 
 Run **`/nerotrophies export`** in game. Your whole record is sent to your own chat as JSON you can click to copy
-(split into parts if it is very large). It contains your record only, never anyone else's, and it is not written to
+(split into parts if it is very large). It holds every field listed under "What NeroTrophies stores" (including your claim tokens, as hex) and nothing about anyone else, and it is not written to
 a file or the server log. Server administrators (permission level 3) can run `/nerotrophies export <player>` to
 answer a request on a player's behalf; the export is sent to the administrator who asked.
 
@@ -51,7 +51,8 @@ with every other Nero mod: `/neroland data eraseme`, or an operator's `/neroland
 
 - deletes your whole record, including your gamertag and every claim token;
 - refreshes the store's backup straight away, so restoring a backup or restarting the server cannot bring it back;
-- tells every connected player to forget your name in the same server tick.
+- tells every connected player to forget your name in the same server tick;
+- removes any quarantined copy of a damaged store file that could still hold your record.
 
 From that moment every trophy you earned, wherever it is (placed, in a chest, a cabinet, another player's ender
 chest, or an unloaded part of the world), shows **no name**. Nothing in the world needs to be found or rewritten,

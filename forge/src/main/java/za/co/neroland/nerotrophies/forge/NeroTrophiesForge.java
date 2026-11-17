@@ -56,6 +56,7 @@ public final class NeroTrophiesForge {
             /*ForgeTrophyClientContent.init(context.getModEventBus());
             *///?}
             TrophyClient.init();
+            ForgeTrophyFeedbackClient.init(context);
         }
     }
 }
