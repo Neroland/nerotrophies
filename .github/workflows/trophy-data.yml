@@ -14,6 +14,10 @@ on:
       - "tools/lang/pending/**"
       - "tools/validate_trophies.py"
       - "tools/test_validate_trophies.py"
+      - "common/src/main/resources/assets/**"
+      - "common/src/main/java/**"
+      - "tools/check_assets.py"
+      - "tools/test_check_assets.py"
       - ".github/workflows/trophy-data.yml"
   pull_request:
     paths:
@@ -22,6 +26,10 @@ on:
       - "tools/lang/pending/**"
       - "tools/validate_trophies.py"
       - "tools/test_validate_trophies.py"
+      - "common/src/main/resources/assets/**"
+      - "common/src/main/java/**"
+      - "tools/check_assets.py"
+      - "tools/test_check_assets.py"
       - ".github/workflows/trophy-data.yml"
   workflow_dispatch:
 
@@ -44,3 +52,10 @@ jobs:
 
       - name: Validate catalogue
         run: python3 tools/validate_trophies.py --no-siblings
+
+      - name: Asset checker tests
+        working-directory: tools
+        run: python3 -m unittest test_check_assets -v
+
+      - name: Check assets
+        run: python3 tools/check_assets.py --no-siblings
