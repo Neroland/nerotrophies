@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:merchant_stall",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroeconomy:first_sale"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroeconomy.open_for_business.title",
+  "description": "trophy.nerotrophies.neroeconomy.open_for_business.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 10
+}

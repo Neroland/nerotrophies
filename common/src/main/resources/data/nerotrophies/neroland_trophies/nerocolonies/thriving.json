@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:farm_station",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocolonies:stage_thriving"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocolonies.thriving.title",
+  "description": "trophy.nerotrophies.nerocolonies.thriving.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 60
+}

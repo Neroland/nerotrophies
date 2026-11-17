@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:faction_registry",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:sworn_in"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.sworn_in.title",
+  "description": "trophy.nerotrophies.nerofactions.sworn_in.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 10
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroevents:salvage_core_fragment",
+  "tier": "silver",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neroevents:salvage_core_fragment"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.neroevents.salvage_rights.title",
+  "description": "trophy.nerotrophies.neroevents.salvage_rights.description",
+  "requires_mod": "neroevents",
+  "category": "neroevents",
+  "order": 40
+}

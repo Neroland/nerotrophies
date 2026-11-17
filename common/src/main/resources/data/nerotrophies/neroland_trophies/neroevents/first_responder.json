@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroevents:event_console",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroevents:first_participation"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroevents.first_responder.title",
+  "description": "trophy.nerotrophies.neroevents.first_responder.description",
+  "requires_mod": "neroevents",
+  "category": "neroevents",
+  "order": 10
+}

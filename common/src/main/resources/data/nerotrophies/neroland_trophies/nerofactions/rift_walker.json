@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:rift_blade",
+  "tier": "silver",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "nerofactions:rift_blade"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerofactions.rift_walker.title",
+  "description": "trophy.nerotrophies.nerofactions.rift_walker.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 110
+}

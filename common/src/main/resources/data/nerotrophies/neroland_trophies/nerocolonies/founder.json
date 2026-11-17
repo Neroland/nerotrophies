@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:colony_beacon",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocolonies:established"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocolonies.founder.title",
+  "description": "trophy.nerotrophies.nerocolonies.founder.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 10
+}

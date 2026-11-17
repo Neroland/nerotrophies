@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerosecurity:force_field_emitter",
+  "tier": "silver",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerosecurity:force_field_emitter"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerosecurity.shields_up.title",
+  "description": "trophy.nerotrophies.nerosecurity.shields_up.description",
+  "requires_mod": "nerosecurity",
+  "category": "nerosecurity",
+  "order": 30
+}

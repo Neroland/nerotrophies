@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:companion_bay",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:hook/skin/aurora"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroquests.companion_keeper.title",
+  "description": "trophy.nerotrophies.neroquests.companion_keeper.description",
+  "requires_mod": [
+    "neroquests",
+    "nerocompanion"
+  ],
+  "category": "neroquests",
+  "order": 30
+}

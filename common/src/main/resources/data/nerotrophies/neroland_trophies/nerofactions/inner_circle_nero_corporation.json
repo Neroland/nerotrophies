@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:nero_corporation_armor_trim_smithing_template",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "reputation",
+    "faction": "nerofactions:nero_corporation",
+    "at_least": 2500
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.inner_circle_nero_corporation.title",
+  "description": "trophy.nerotrophies.nerofactions.inner_circle_nero_corporation.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 50
+}

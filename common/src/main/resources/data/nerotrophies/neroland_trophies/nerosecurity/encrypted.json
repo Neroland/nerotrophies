@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerosecurity:encryption_module",
+  "tier": "silver",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "nerosecurity:encryption_module"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerosecurity.encrypted.title",
+  "description": "trophy.nerotrophies.nerosecurity.encrypted.description",
+  "requires_mod": "nerosecurity",
+  "category": "nerosecurity",
+  "order": 40
+}

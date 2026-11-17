@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:credit_chip",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "currency",
+    "currency": "nerolandcore:credits",
+    "at_least": 10000
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroeconomy.five_figures.title",
+  "description": "trophy.nerotrophies.neroeconomy.five_figures.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 60
+}

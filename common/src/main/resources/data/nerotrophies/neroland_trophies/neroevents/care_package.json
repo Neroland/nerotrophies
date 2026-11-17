@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroevents:supply_beacon",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroevents:supply_claimed"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroevents.care_package.title",
+  "description": "trophy.nerotrophies.neroevents.care_package.description",
+  "requires_mod": "neroevents",
+  "category": "neroevents",
+  "order": 20
+}

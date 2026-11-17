@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroquests:quest_book",
+  "tier": "bronze",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neroquests:quest_book"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroquests.bookworm.title",
+  "description": "trophy.nerotrophies.neroquests.bookworm.description",
+  "requires_mod": "neroquests",
+  "category": "neroquests",
+  "order": 10
+}

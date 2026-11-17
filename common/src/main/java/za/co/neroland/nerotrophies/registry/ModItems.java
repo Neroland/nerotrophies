@@ -12,11 +12,13 @@ import za.co.neroland.nerolandcore.registry.RegistrationProvider;
 import za.co.neroland.nerolandcore.registry.RegistrationProvider.RegistryEntry;
 
 import za.co.neroland.nerotrophies.NeroTrophiesCommon;
+import za.co.neroland.nerotrophies.block.TrophyBookItem;
+import za.co.neroland.nerotrophies.block.TrophyItem;
 
 /**
  * NeroTrophies' items: one trophy item for every trophy (the {@code nerotrophies:trophy} component says which), the
- * five display-block items and the Trophy Book. <b>Stage 2A placeholders</b>: plain items; the blocks and UI work
- * packages swap in their own item classes (tooltip, book screen) and own this file from then on.
+ * five display-block items and the Trophy Book. Display-block items keep their finish through
+ * {@code nerotrophies:finish} (copied by their loot tables).
  */
 public final class ModItems {
 
@@ -25,7 +27,7 @@ public final class ModItems {
 
     /** The one trophy item. Claimed from the Book, never crafted; stacks to one so each copy keeps its token. */
     public static final RegistryEntry<Item> TROPHY = ITEMS.register(TrophyIds.TROPHY,
-            key -> new BlockItem(ModBlocks.TROPHY.get(), PropertiesCompat.item(key).stacksTo(1)
+            key -> new TrophyItem(ModBlocks.TROPHY.get(), PropertiesCompat.item(key).stacksTo(1)
                     .useBlockDescriptionPrefix()));
     public static final RegistryEntry<Item> DISPLAY_PEDESTAL = block(TrophyIds.DISPLAY_PEDESTAL, ModBlocks.DISPLAY_PEDESTAL);
     public static final RegistryEntry<Item> TROPHY_CABINET = block(TrophyIds.TROPHY_CABINET, ModBlocks.TROPHY_CABINET);
@@ -33,7 +35,7 @@ public final class ModItems {
     public static final RegistryEntry<Item> TROPHY_PLAQUE = block(TrophyIds.TROPHY_PLAQUE, ModBlocks.TROPHY_PLAQUE);
     public static final RegistryEntry<Item> TROPHY_SPOTLIGHT = block(TrophyIds.TROPHY_SPOTLIGHT, ModBlocks.TROPHY_SPOTLIGHT);
     public static final RegistryEntry<Item> TROPHY_BOOK = ITEMS.register(TrophyIds.TROPHY_BOOK,
-            key -> new Item(PropertiesCompat.item(key).stacksTo(1)));
+            key -> new TrophyBookItem(PropertiesCompat.item(key).stacksTo(1)));
 
     private ModItems() {
     }

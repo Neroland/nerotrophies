@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:market_board",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroeconomy:first_purchase"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroeconomy.first_purchase.title",
+  "description": "trophy.nerotrophies.neroeconomy.first_purchase.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 20
+}

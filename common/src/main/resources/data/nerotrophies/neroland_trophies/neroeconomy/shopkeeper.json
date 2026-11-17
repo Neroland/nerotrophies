@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:player_shop",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "neroeconomy:player_shop"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroeconomy.shopkeeper.title",
+  "description": "trophy.nerotrophies.neroeconomy.shopkeeper.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 30
+}

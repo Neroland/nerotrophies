@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:habitat_pod",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocolonies:stage_settled"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocolonies.settled.title",
+  "description": "trophy.nerotrophies.nerocolonies.settled.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 20
+}

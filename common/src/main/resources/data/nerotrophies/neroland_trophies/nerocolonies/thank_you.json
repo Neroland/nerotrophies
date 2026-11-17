@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:thank_you_note",
+  "tier": "bronze",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "nerocolonies:thank_you_note"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerocolonies.thank_you.title",
+  "description": "trophy.nerotrophies.nerocolonies.thank_you.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 50
+}

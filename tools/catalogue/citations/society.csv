@@ -1,0 +1,44 @@
+id,tier,hidden,trigger_type,survey_row,notes
+nerotrophies:neroeconomy/open_for_business,bronze,false,nero_event,ECON-GATE-01,
+nerotrophies:neroeconomy/first_purchase,bronze,false,nero_event,ECON-GATE-02,
+nerotrophies:neroeconomy/shopkeeper,bronze,false,block_placed,ECON-ITEM-01,
+nerotrophies:neroeconomy/shareholder,silver,false,nero_event,ECON-GATE-06,
+nerotrophies:neroeconomy/gavel,silver,true,nero_event,ECON-GATE-08,hidden; never a collection member
+nerotrophies:neroeconomy/five_figures,silver,false,nero_event,ECON-CUR-01,threshold set from the default money supply: 100 starting balance; Reserve 250000 plus 5000 a day
+nerotrophies:neroeconomy/seasoned_trader,gold,false,nero_event,ECON-GATE-03,
+nerotrophies:neroeconomy/tycoon,gold,false,nero_event,ECON-CUR-01,gold not nero: 40 percent of the default starting money supply; a balance can be gifted
+nerotrophies:nerofactions/sworn_in,bronze,false,nero_event,FACT-GATE-01,
+nerotrophies:nerofactions/terminal_customer,bronze,false,nero_event,FACT-GATE-04,
+nerotrophies:nerofactions/inner_circle_free_colonists,gold,false,nero_event,FACT-REP-01,Seven Banners member
+nerotrophies:nerofactions/inner_circle_miner_union,gold,false,nero_event,FACT-REP-01,Seven Banners member
+nerotrophies:nerofactions/inner_circle_nero_corporation,gold,false,nero_event,FACT-REP-01,Seven Banners member
+nerotrophies:nerofactions/inner_circle_salvagers,gold,false,nero_event,FACT-REP-01,Seven Banners member
+nerotrophies:nerofactions/inner_circle_space_guild,gold,false,nero_event,FACT-REP-01,Seven Banners member
+nerotrophies:nerofactions/inner_circle_terraforming_authority,gold,false,nero_event,FACT-REP-01,Seven Banners member
+nerotrophies:nerofactions/inner_circle_void_cult,gold,false,nero_event,FACT-REP-01,Seven Banners member
+nerotrophies:nerofactions/voidtouched,silver,true,block_placed,FACT-ITEM-02,hidden; never a collection member
+nerotrophies:nerofactions/rift_walker,silver,true,item_obtained,FACT-ITEM-01,hidden; re-tiered gold to silver; never a collection member
+nerotrophies:nerocolonies/founder,bronze,false,nero_event,COL-GATE-01,
+nerotrophies:nerocolonies/settled,bronze,false,nero_event,COL-GATE-02,
+nerotrophies:nerocolonies/breathing_room,bronze,false,nero_event,COL-GATE-07,
+nerotrophies:nerocolonies/first_research,bronze,false,nero_event,COL-GATE-09,
+nerotrophies:nerocolonies/thank_you,bronze,true,item_obtained,COL-ITEM-02,hidden; never a collection member
+nerotrophies:nerocolonies/thriving,silver,false,nero_event,COL-GATE-04,
+nerotrophies:nerocolonies/frontier,silver,false,nero_event,COL-GATE-11,
+nerotrophies:nerocolonies/self_sufficient,gold,false,nero_event,COL-GATE-06,
+nerotrophies:nerocolonies/metropolis,nero,false,nero_event,COL-GATE-05,nero: the final colony stage
+nerotrophies:nerosecurity/access_granted,bronze,false,nero_event,SEC-GATE-01,
+nerotrophies:nerosecurity/eyes_everywhere,bronze,false,block_placed,SEC-ITEM-01,
+nerotrophies:nerosecurity/shields_up,silver,false,block_placed,SEC-ITEM-01,
+nerotrophies:nerosecurity/encrypted,silver,true,item_obtained,SEC-ITEM-02,"hidden; re-pointed to the real item (an encrypted keycard is a component, not an item id); never a collection member"
+nerotrophies:nerosecurity/installation_online,silver,false,nero_event,SEC-GATE-02,
+nerotrophies:nerosecurity/drill_sergeant,silver,false,nero_event,SEC-GATE-03,re-tiered gold to silver
+nerotrophies:neroevents/first_responder,bronze,false,nero_event,EVT-GATE-01,
+nerotrophies:neroevents/care_package,bronze,false,nero_event,EVT-GATE-02,
+nerotrophies:neroevents/stargazer,bronze,false,item_obtained,EVT-ITEM-01,
+nerotrophies:neroevents/salvage_rights,silver,true,item_obtained,EVT-ITEM-01,hidden; never a collection member
+nerotrophies:neroevents/raid_breaker,silver,false,nero_event,EVT-GATE-03,
+nerotrophies:neroevents/giant_slayer,gold,false,nero_event,EVT-GATE-04,re-tiered nero to gold
+nerotrophies:neroquests/bookworm,bronze,false,item_obtained,QUEST-ITEM-01,
+nerotrophies:neroquests/arcade_apprentice,bronze,false,nero_event,ARCA-GATE-04,allow-listed hook gate; Quests tab; needs NeroArcade; live only (the gate closes on delivery)
+nerotrophies:neroquests/companion_keeper,silver,false,nero_event,COMP-GATE-13,allow-listed hook gate; Quests tab; needs NeroCompanion; re-tiered gold to silver

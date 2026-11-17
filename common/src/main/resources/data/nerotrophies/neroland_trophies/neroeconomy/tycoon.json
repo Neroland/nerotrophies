@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:bank_terminal",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "currency",
+    "currency": "nerolandcore:credits",
+    "at_least": 100000
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroeconomy.tycoon.title",
+  "description": "trophy.nerotrophies.neroeconomy.tycoon.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 80
+}

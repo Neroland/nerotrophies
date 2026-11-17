@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:terraforming_authority_armor_trim_smithing_template",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "reputation",
+    "faction": "nerofactions:terraforming_authority",
+    "at_least": 2500
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.inner_circle_terraforming_authority.title",
+  "description": "trophy.nerotrophies.nerofactions.inner_circle_terraforming_authority.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 80
+}

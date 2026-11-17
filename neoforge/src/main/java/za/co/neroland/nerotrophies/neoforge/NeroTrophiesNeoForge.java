@@ -34,6 +34,7 @@ public final class NeroTrophiesNeoForge {
         //?} else {
         /*if (net.neoforged.fml.loading.FMLEnvironment.dist == net.neoforged.api.distmarker.Dist.CLIENT) {
         *///?}
+            za.co.neroland.nerotrophies.neoforge.network.NeoForgeTrophyClientEvents.register();
             TrophyClient.init();
         }
     }

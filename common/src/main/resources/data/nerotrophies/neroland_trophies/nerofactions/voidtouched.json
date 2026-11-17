@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:void_altar",
+  "tier": "silver",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerofactions:void_altar"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerofactions.voidtouched.title",
+  "description": "trophy.nerotrophies.nerofactions.voidtouched.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 100
+}

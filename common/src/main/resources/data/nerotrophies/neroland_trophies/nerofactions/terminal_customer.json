@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:trade_terminal",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:first_terminal_trade"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.terminal_customer.title",
+  "description": "trophy.nerotrophies.nerofactions.terminal_customer.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 20
+}

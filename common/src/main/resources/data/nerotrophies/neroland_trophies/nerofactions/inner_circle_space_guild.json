@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:space_guild_armor_trim_smithing_template",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "reputation",
+    "faction": "nerofactions:space_guild",
+    "at_least": 2500
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.inner_circle_space_guild.title",
+  "description": "trophy.nerotrophies.nerofactions.inner_circle_space_guild.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 70
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroevents:embedded_meteor_ore",
+  "tier": "bronze",
+  "trigger": {
+    "type": "item_obtained",
+    "item": "neroevents:embedded_meteor_ore"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroevents.stargazer.title",
+  "description": "trophy.nerotrophies.neroevents.stargazer.description",
+  "requires_mod": "neroevents",
+  "category": "neroevents",
+  "order": 30
+}

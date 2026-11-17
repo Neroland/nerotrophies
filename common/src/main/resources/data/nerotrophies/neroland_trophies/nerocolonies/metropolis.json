@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:colony_planner",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocolonies:stage_metropolis"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocolonies.metropolis.title",
+  "description": "trophy.nerotrophies.nerocolonies.metropolis.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 90
+}

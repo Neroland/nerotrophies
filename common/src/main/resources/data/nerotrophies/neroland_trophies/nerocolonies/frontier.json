@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:outpost_beacon",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocolonies:first_outpost"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocolonies.frontier.title",
+  "description": "trophy.nerotrophies.nerocolonies.frontier.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 70
+}

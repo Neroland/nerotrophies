@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:trading_terminal",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroeconomy:first_auction_win"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.neroeconomy.gavel.title",
+  "description": "trophy.nerotrophies.neroeconomy.gavel.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 50
+}

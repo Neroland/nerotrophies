@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroevents:war_beacon",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroevents:raid_repelled"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroevents.raid_breaker.title",
+  "description": "trophy.nerotrophies.neroevents.raid_breaker.description",
+  "requires_mod": "neroevents",
+  "category": "neroevents",
+  "order": 50
+}

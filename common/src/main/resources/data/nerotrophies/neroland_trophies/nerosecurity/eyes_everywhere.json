@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerosecurity:security_camera",
+  "tier": "bronze",
+  "trigger": {
+    "type": "block_placed",
+    "block": "nerosecurity:security_camera"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerosecurity.eyes_everywhere.title",
+  "description": "trophy.nerotrophies.nerosecurity.eyes_everywhere.description",
+  "requires_mod": "nerosecurity",
+  "category": "nerosecurity",
+  "order": 20
+}
