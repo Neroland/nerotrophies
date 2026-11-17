@@ -47,12 +47,21 @@ Administrators (permission level 3) can run `/nerotrophies export <player>` to a
 
 NeroTrophies is part of Neroland Core's erasure: `/neroland data eraseme` removes you from every Nero mod at once (an
 operator can do it for you). Erasure deletes your whole record, including your gamertag and every claim token,
-refreshes the store's backup straight away so a restore or restart cannot bring it back, and tells every connected
-player to forget your name in the same tick.
+refreshes the store's backup straight away so a restore or restart cannot bring it back (and deletes any quarantined
+copy of a damaged store file, even if the live store no longer has your record), tells every connected player to
+forget your name in the same tick, and records nothing more for you until you next log in.
 
 From that moment every trophy you earned, wherever it is (placed, in a chest or cabinet, in another player's ender
 chest, or in a part of the world nobody has loaded), shows **no name**. Nothing in the world has to be found and
 rewritten, because the trophies never held your name.
+
+What erasure does not change:
+
+- Trophies that follow from progress the game still keeps (advancements, statistics, progression gates) are recorded
+  again at your next login, silently and without coins or an announcement.
+- An announcement put your gamertag into other players' chat and their own client logs, which no server can reach.
+  `/nerotrophies announce off` stops announcements; `/nerotrophies showname off` hides your name.
+- The trophy gallery keeps a snapshot (`gallery.dat`) of the blocks it replaced until `/nerotrophies gallery clear`.
 
 ## How long it is kept
 

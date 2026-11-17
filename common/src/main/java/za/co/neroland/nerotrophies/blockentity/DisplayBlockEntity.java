@@ -94,7 +94,7 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     /** Whether {@code stack} may go into {@code slot} (trophies everywhere; a pedestal also takes displayables). */
     public abstract boolean accepts(int slot, ItemStack stack);
 
-    /** Whether a finish can be set on this block (decision 006: pedestal, both cabinets, plaque). */
+    /** Whether a finish can be set on this block. */
     public boolean tintable() {
         return true;
     }
@@ -182,7 +182,7 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     }
 
     // ============================================================================================
-    // Finish (decision 006)
+    // Finish
     // ============================================================================================
 
     public Optional<Identifier> finish() {
@@ -454,7 +454,7 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     }
 
     // ============================================================================================
-    // Item components: a broken display keeps its finish (decision 006)
+    // Item components: a broken display keeps its finish
     // ============================================================================================
 
     @Override

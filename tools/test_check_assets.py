@@ -4,6 +4,7 @@ import contextlib
 import io
 import json
 import os
+import shutil
 import struct
 import tempfile
 import unittest
@@ -136,8 +137,8 @@ class Fixture:
     def write_lang(self):
         self.json(A + "/lang/en_us.json", self.lang)
 
-    def run(self, siblings=False):
-        return c.Checker(self.repo, siblings=siblings, checklist=self.checklist).run()
+    def run(self, siblings=False, app_dir=None):
+        return c.Checker(self.repo, siblings=siblings, checklist=self.checklist, app_dir=app_dir).run()
 
 
 class CheckAssetsTest(unittest.TestCase):
@@ -250,10 +251,17 @@ class CheckAssetsTest(unittest.TestCase):
         self.fx.raw(A + "/sounds/block/click.ogg", ogg(2, 44100))
         self.assertError(self.fx.run(), "checklist wants mono 32 kHz")
 
-    def test_app_copy_checked_only_with_siblings(self):
+    def test_app_copy_checked_only_with_an_app_dir(self):
         self.fx.checklist.append(("APP/assets/trophies/book.png", (16, 16)))
-        self.assertEqual(self.fx.run(siblings=False).errors, [])
-        self.assertError(self.fx.run(siblings=True), "../nerolink-app/assets/trophies/book.png")
+        app = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, app, True)
+        self.assertEqual(self.fx.run(siblings=False, app_dir=app).errors, [])
+        self.assertEqual(self.fx.run(siblings=True).errors, [], "no app dir given: the app check is skipped")
+        self.assertError(self.fx.run(siblings=True, app_dir=app), "<app>/assets/trophies/book.png")
+        os.makedirs(os.path.join(app, "assets", "trophies"))
+        with open(os.path.join(app, "assets", "trophies", "book.png"), "wb") as f:
+            f.write(png(16, 16))
+        self.assertEqual(self.fx.run(siblings=True, app_dir=app).errors, [])
 
     def test_orphans_warn(self):
         self.fx.raw(A + "/textures/block/unused.png", png(16, 16))

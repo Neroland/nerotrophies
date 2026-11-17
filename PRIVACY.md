@@ -52,11 +52,25 @@ with every other Nero mod: `/neroland data eraseme`, or an operator's `/neroland
 - deletes your whole record, including your gamertag and every claim token;
 - refreshes the store's backup straight away, so restoring a backup or restarting the server cannot bring it back;
 - tells every connected player to forget your name in the same server tick;
-- removes any quarantined copy of a damaged store file that could still hold your record.
+- removes any quarantined copy of a damaged store file that could still hold your record, even when the live
+  store no longer has a record for you;
+- if you are online, records nothing more for you until you next log in.
 
 From that moment every trophy you earned, wherever it is (placed, in a chest, a cabinet, another player's ender
 chest, or an unloaded part of the world), shows **no name**. Nothing in the world needs to be found or rewritten,
 because the trophies never held your name.
+
+What erasure does not change:
+
+- Trophies that follow from progress the game itself still keeps (advancements, statistics, progression gates) are
+  recorded again at your next login, silently, without coins or an announcement, because that progress is still
+  yours. Erase the game's own data too (or ask the server operator) if you want a fresh start.
+- An announcement of a trophy you earned put your gamertag into other players' chat, and so into their own client
+  logs, which no server can reach. Turn announcements off with `/nerotrophies announce off`, or hide your name with
+  `/nerotrophies showname off`.
+- `/nerotrophies gallery` keeps a snapshot (`gallery.dat`) of the blocks the hall replaced until
+  `/nerotrophies gallery clear`. It holds blocks and their block-entity data from that area, which could include
+  another mod's data stored in those blocks, and nothing NeroTrophies records about players.
 
 ## How long it is kept
 

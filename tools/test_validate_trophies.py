@@ -134,6 +134,15 @@ class ValidatorTest(unittest.TestCase):
         self.assertErrorContains(rep, "nero tier on a polled 'item_obtained' trigger")
         self.assertErrorContains(rep, "second nero trophy in category 'nerotrophies'")
 
+    def test_item_obtained_is_silver_at_most(self):
+        self.fx.add_trophy("minecraft/handed", trophy(tier="gold", trigger={"type": "item_obtained",
+                                                                           "item": "minecraft:nether_star"}))
+        self.fx.add_trophy("minecraft/held", trophy(tier="silver", trigger={"type": "item_obtained",
+                                                                           "item": "minecraft:beacon"}))
+        rep = self.fx.run()
+        self.assertErrorContains(rep, "gold tier on an item_obtained trigger")
+        self.assertFalse([e for e in rep.errors if "minecraft/held" in str(e) and "item_obtained" in str(e)])
+
     def test_duplicate_trigger_and_grind(self):
         self.fx.add_trophy("minecraft/a_again", trophy(trigger=adv("story/a")))
         self.fx.add_trophy("minecraft/grind", trophy(trigger={"type": "block_placed", "block": "minecraft:stone",

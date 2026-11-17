@@ -76,7 +76,7 @@ import za.co.neroland.nerotrophies.engine.TrophyTokens;
 import za.co.neroland.nerotrophies.registry.ModBlocks;
 
 /**
- * Stage 6 privacy compliance on a real game-test server (Fabric 26.3 only, never shipped). Every check runs against
+ * Privacy compliance on a real game-test server (Fabric 26.3 only, never shipped). Every check runs against
  * real serialised world data: block entities, item stacks, a player's save (inventory and ender chest), a chunk as it
  * is written to the region file, and the NeroTrophies store files on disk (primary, Core's recovery backup and any
  * quarantined or temporary copy). Earners are fixed test identities that never join, so any hit is a real leak.

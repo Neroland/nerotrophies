@@ -24,7 +24,7 @@ Tables are generated from the trophy files the mod ships, so they always match t
 
 ## NeroAgriculture
 
-8 trophies: 2 bronze, 3 silver, 2 gold, 1 nero (1 hidden).
+8 trophies: 2 bronze, 4 silver, 1 gold, 1 nero (1 hidden).
 
 | Trophy | Tier | How to earn it | How | Notes |
 |--------|------|----------------|-----|-------|

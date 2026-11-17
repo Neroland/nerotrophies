@@ -21,7 +21,7 @@ import za.co.neroland.nerolandcore.registry.BlockCodecs;
 
 /**
  * The Trophy Spotlight: a ceiling lamp or wall arm, light 14, a fixed neutral cone. No block entity, so it is not
- * tintable (decision 006).
+ * tintable.
  */
 public class TrophySpotlightBlock extends Block {
 

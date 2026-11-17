@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "icon": "neroagriculture:voidite_fragment",
-  "tier": "gold",
+  "tier": "silver",
   "trigger": {
     "type": "item_obtained",
     "item": "neroagriculture:voidite_fragment"

@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * The cabinet ghost's geometry, read from {@code models/block/trophy_ghost.json} (ART-PLAN section 2.6) so the model
+ * The cabinet ghost's geometry, read from {@code models/block/trophy_ghost.json} so the model
  * file is the one source of its boxes and UVs: base and stage are drawn face by face with the model's own UVs on the
  * scanline texture, and the {@code marker} element's quad carries the tier pip cell. The model is parsed, not baked:
  * a ghost needs a per-slot tier tint at 35 % alpha, which no MC line's baked-block submission can carry (1.21.1-1.21.4

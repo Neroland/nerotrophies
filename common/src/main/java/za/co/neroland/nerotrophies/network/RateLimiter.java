@@ -6,7 +6,7 @@ import java.util.UUID;
 import java.util.function.LongSupplier;
 
 /**
- * Per-player C2S budget (decision 009): {@value #PER_SECOND} payloads per second, excess dropped silently, plus a
+ * Per-player C2S budget: {@value #PER_SECOND} payloads per second, excess dropped silently, plus a
  * separate {@code book_refresh} interval. Keyed by the sender's UUID in memory only, forgotten on logout.
  * Server thread.
  */

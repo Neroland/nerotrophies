@@ -29,7 +29,7 @@ import za.co.neroland.nerotrophies.registry.ModItems;
 /**
  * Trophy Cabinet (six slots) and Wall Cabinet (two). Bound to a collection, a cabinet shows completion from the
  * genuine trophies inside it and its pool: up to four adjacent cabinets of the same kind, facing the same way, with the
- * same binding (decision 003). It reads what is inside and stores no identity: a collection id, a trim string and the
+ * same binding. It reads what is inside and stores no identity: a collection id, a trim string and the
  * gallery-only {@code display_only} flag. Completion is resolved here on the server, on content change and every 100
  * ticks, and sent to clients as a member bitmask only.
  */
@@ -88,7 +88,7 @@ public class CabinetBlockEntity extends DisplayBlockEntity {
         return this.displayOnly;
     }
 
-    /** Gallery only (Stage 8): a display-only cabinet also counts gallery copies. */
+    /** Gallery only: a display-only cabinet also counts gallery copies. */
     public void setDisplayOnly(boolean displayOnly) {
         this.displayOnly = displayOnly;
         this.setChanged();

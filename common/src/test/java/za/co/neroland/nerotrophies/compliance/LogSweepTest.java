@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 /**
- * Stage 6 log sweep over the source: no logger call at INFO or above, and no telemetry breadcrumb or handled-exception
- * report, takes a player, a UUID, a gamertag, a token, a position or free text. (Decision 007 "Logging rule".)
+ * Log sweep over the source: no logger call at INFO or above, and no telemetry breadcrumb or handled-exception
+ * report, takes a player, a UUID, a gamertag, a token, a position or free text.
  */
 class LogSweepTest {
 

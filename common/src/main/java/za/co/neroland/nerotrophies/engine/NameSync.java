@@ -15,7 +15,7 @@ import za.co.neroland.nerotrophies.data.NameInvalidation;
  */
 public interface NameSync extends NameInvalidation {
 
-    /** Nothing is synced (the Stage 2A default). */
+    /** Nothing is synced (the default until the network layer installs itself). */
     NameSync NONE = new NameSync() {
         @Override
         public void invalidate(MinecraftServer server, long[] tokens) {

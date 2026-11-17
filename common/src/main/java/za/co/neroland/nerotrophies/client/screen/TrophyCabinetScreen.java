@@ -30,7 +30,7 @@ import za.co.neroland.nerotrophies.network.RecordPayload;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * The cabinet screen (ART-PLAN §7.11), 176 x 186 at every GUI scale: the cabinet's slots (a genuine trophy's well
+ * The cabinet screen, 176 x 186 at every GUI scale: the cabinet's slots (a genuine trophy's well
  * gets its tier border; empty slots of a bound cabinet show the missing members' ghosts), the collection field and
  * its list, the trim stepper and the player's inventory. Both controls ride vanilla menu buttons through
  * {@link ClientTrophyNet}; the server checks the trim and the row. Nothing here shows a name. Client only.

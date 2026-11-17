@@ -26,7 +26,7 @@ import za.co.neroland.nerotrophies.gallery.GalleryPiece.Spotlight;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * Lays out the trophy hall (ART-PLAN section 9): a lobby (demo plates, tier row, plate states) behind the entrance,
+ * Lays out the trophy hall: a lobby (demo plates, tier row, plate states) behind the entrance,
  * then three aisles sharing walls. Aisles 1 and 2 hold one bay per Book category, each next bay in the shortest of the
  * four bay rows; aisle 3 holds the collections wall, every finish and trim, and the specimens. Pure.
  */
@@ -35,7 +35,7 @@ public final class GalleryLayout {
     /** Widest hall allowed (the hall is always {@link GalleryFrame#WIDTH} wide). */
     public static final int MAX_WIDTH = 64;
     /**
-     * Longest hall allowed. ART-PLAN 9.5 asks for 64, sized for about 120 trophies; the 152-trophy catalogue with every
+     * Longest hall allowed. A 64-block hall fits about 120 trophies; the 152-trophy catalogue with every
      * Nero mod loaded needs about 70 (the bay aisles lengthen first), so the cap allows that with room to spare.
      */
     public static final int MAX_LENGTH = 96;

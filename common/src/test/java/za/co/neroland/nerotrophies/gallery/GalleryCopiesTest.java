@@ -25,7 +25,7 @@ import za.co.neroland.nerotrophies.engine.TokenResolver;
 import za.co.neroland.nerotrophies.engine.TrophyStatus;
 
 /**
- * Gallery trophies are tagged display copies (decisions 003, 010): reserved tokens only, so they are never indexed,
+ * Gallery trophies are tagged display copies: reserved tokens only, so they are never indexed,
  * awarded, counted by an ordinary cabinet, resolved to a name, or written to the store the link module reads; and
  * building a hall changes nothing in that store.
  */

@@ -12,7 +12,7 @@ import za.co.neroland.nerolandcore.registry.RegistrationProvider.RegistryEntry;
 import za.co.neroland.nerotrophies.NeroTrophiesCommon;
 
 /**
- * NeroTrophies' five award particles (ART-PLAN section 5): sprites from {@code particles/<id>.json}, greyscale and
+ * NeroTrophies' five award particles: sprites from {@code particles/<id>.json}, greyscale and
  * tinted in code per tier. They are only ever spawned client-side (the award burst is the earner's own, the idle and
  * placement effects are local), so nothing about a particle crosses the network. Each loader registers the client
  * providers through {@code client.particle.TrophyParticles}.

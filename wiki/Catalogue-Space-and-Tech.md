@@ -48,7 +48,7 @@ Tables are generated from the trophy files the mod ships, so they always match t
 | Slow Burn | Bronze | Build a Radioisotope Generator. | Advancement |  |
 | Heat Engine | Bronze | Build a Stirling Generator. | Advancement |  |
 | Line of Sight | Silver | Link a Beam Transmitter to send power through the air. | Milestone |  |
-| Orbital Power | Gold | Build an Orbital Receiver. | Have the item |  |
+| Orbital Power | Gold | Build an Orbital Receiver. | Statistic |  |
 | Reactor Core | Gold | Build a Fission Core. | Advancement |  |
 | ??? | ??? | Hidden until earned. | ??? | |
 
@@ -63,6 +63,6 @@ Tables are generated from the trophy files the mod ships, so they always match t
 | Air Mail | Silver | Place a Drone Hub. | Place the block |  |
 | All Aboard | Silver | Place a Train Station. | Place the block |  |
 | Interplanetary Freight | Silver | Launch your first shipment from a Rocket Cargo Port. | Milestone |  |
-| Half a Million | Gold | Get a 512k Item Cell. | Have the item |  |
+| Half a Million | Gold | Craft a 512k Item Cell. | Statistic |  |
 
 Trophies are never awarded for work that NeroTrophies cannot see, and they never gate gameplay. Most trophies are also awarded **retroactively**: when you log in, or after a reload, work you already did counts (advancements, statistics, milestones and items you hold). Trophies marked "Not awarded retroactively" are the exceptions.

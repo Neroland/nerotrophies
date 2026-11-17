@@ -28,7 +28,7 @@ import za.co.neroland.nerotrophies.platform.Services;
  */
 public final class ClientTrophyNet {
 
-    /** Vanilla menu button ids for the cabinet screen (decision 010 section 1); Stage 3's menu owns their meaning. */
+    /** Vanilla menu button ids for the cabinet screen; the cabinet menu owns their meaning. */
     public static final int BUTTON_TRIM_PREVIOUS = 0;
     public static final int BUTTON_TRIM_NEXT = 1;
     public static final int BUTTON_FIRST_ROW = 2;
@@ -40,7 +40,7 @@ public final class ClientTrophyNet {
 
     // ---- C2S helpers ----------------------------------------------------------------------------------------------
 
-    /** Claim, or re-claim, one of the player's own trophies (the server decides which; decision 003). */
+    /** Claim, or re-claim, one of the player's own trophies (the server decides which). */
     public static void claim(Identifier trophy) {
         send(new ClaimPayload(trophy));
     }

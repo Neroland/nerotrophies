@@ -99,4 +99,39 @@ class RecordBuilderTest {
         assertEquals(601_000L, p.entry(TestDefs.id("one")).canReclaimAt());
         assertEquals(List.of("gilded"), p.trims());
     }
+    @Test
+    void aPackAtCoresLimitsStaysUnderTheClientboundPayloadLimit() {
+        java.util.List<TrophyDefinition> trophies = new java.util.ArrayList<>();
+        Identifier[] members = new Identifier[256];
+        for (int i = 0; i < 4096; i++) {
+            TrophyDefinition d = TestDefs.trophy(String.format(java.util.Locale.ROOT, "a_rather_long_pack/trophy_%04d", i),
+                    TrophyTier.BRONZE);
+            trophies.add(d);
+            if (i < members.length) {
+                members[i] = d.id();
+            }
+        }
+        java.util.List<za.co.neroland.nerolandcore.trophy.TrophyCollection> collections = new java.util.ArrayList<>();
+        for (int i = 0; i < 512; i++) {
+            collections.add(TestDefs.collection("set_" + i, "standard", members));
+        }
+        TrophyDefinitions.Snapshot defs = TestDefs.snapshot(trophies, collections, 1L);
+        TrophyState s = new TrophyState();
+        s.award(A, trophies.get(0).id(), 1L, 77L);
+
+        RecordPayload p = RecordBuilder.build(s, A, defs, RecordBuilder.ProgressSource.NONE, 5_000L, 600_000L);
+        io.netty.buffer.ByteBuf raw = io.netty.buffer.Unpooled.buffer();
+        RecordPayload.CODEC.encode(new net.minecraft.network.RegistryFriendlyByteBuf(raw,
+                net.minecraft.core.RegistryAccess.EMPTY), p);
+        assertTrue(raw.writerIndex() <= RecordBuilder.RECORD_BUDGET_BYTES, raw.writerIndex() + " bytes");
+        assertTrue(raw.writerIndex() < 1_048_576, "under the 1 MiB clientbound custom payload limit");
+        assertTrue(p.collections().size() < 512, "collections are truncated by bytes");
+        assertFalse(p.trophies().isEmpty());
+        assertEquals(p.trophies().size(), PayloadCodecs.roundTrip(RecordPayload.CODEC, p).trophies().size());
+        long delta = 0;
+        for (RecordPayload.CollectionView c : RecordBuilder.collections(null, defs)) {
+            delta += RecordBuilder.size(c);
+        }
+        assertTrue(delta <= RecordBuilder.COLLECTIONS_BUDGET_BYTES, "a record_delta's collection list is bounded too");
+    }
 }

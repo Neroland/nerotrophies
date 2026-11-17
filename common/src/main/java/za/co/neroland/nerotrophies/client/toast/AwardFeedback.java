@@ -10,7 +10,7 @@ import za.co.neroland.nerotrophies.network.AwardToastPayload;
 /**
  * Award feedback, shared by every loader: subscribes to the {@code award_toast} hook (contract 2C section 4) and, for
  * each payload the server sent this earner, shows the toast, plays the tier or collection sound and spawns the burst.
- * The retroactive summary shows its toast only: no per-trophy sound and no burst (decisions 005, 007). Each loader's
+ * The retroactive summary shows its toast only: no per-trophy sound and no burst. Each loader's
  * feedback glue calls {@link #init} once on the physical client and {@link #tick} at the end of every client tick.
  */
 public final class AwardFeedback {

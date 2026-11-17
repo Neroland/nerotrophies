@@ -22,9 +22,8 @@ import za.co.neroland.nerotrophies.network.RecordPayload;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * The award toast (ART-PLAN section 4, constants section 8): the vanilla 160x32 footprint, drawn in code so the frame
- * can animate, with the medallions, pip cells and sheen mask from {@code trophy_toast.png}. Three kinds (decision 010
- * section 3): a trophy earned (per tier), a collection completed, and the retroactive summary (no sound, no sheen).
+ * The award toast: the vanilla 160x32 footprint, drawn in code so the frame
+ * can animate, with the medallions, pip cells and sheen mask from {@code trophy_toast.png}. Three kinds: a trophy earned (per tier), a collection completed, and the retroactive summary (no sound, no sheen).
  * The title and icon are looked up at draw time from the player's own record, which arrives just after the toast, so
  * a hidden trophy's real title only ever reaches its earner. Client only.
  */

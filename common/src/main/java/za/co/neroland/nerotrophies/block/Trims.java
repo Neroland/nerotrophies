@@ -5,7 +5,7 @@ import java.util.List;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * The twelve cabinet trims (art direction §9): a trim id, the frame style it draws and its accent colour (tint index
+ * The twelve cabinet trims: a trim id, the frame style it draws and its accent colour (tint index
  * 2). The order is the order the cabinet screen steps through. An unknown id (a pack removed it) draws as
  * {@code standard} and is never rewritten.
  */

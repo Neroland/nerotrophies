@@ -17,7 +17,7 @@ import net.minecraft.world.level.ChunkPos;
 import za.co.neroland.nerotrophies.component.TrophyStamp;
 
 /**
- * The server-side index of loaded trophy-bearing display blocks (decision 009, "LoadedDisplays"): per level, chunk to
+ * The server-side index of loaded trophy-bearing display blocks: per level, chunk to
  * the positions of display block entities in it, maintained by the block entities as they are loaded and removed.
  * Name sync reads it to work out which tokens a player can see, and listens for content changes to push in the same
  * tick. Server thread only. Holds positions and nothing about players.
@@ -46,6 +46,13 @@ public final class DisplayIndex {
         Map<ChunkPos, Set<BlockPos>> copy = new HashMap<>(byChunk.size());
         byChunk.forEach((chunk, set) -> copy.put(chunk, Collections.unmodifiableSet(new HashSet<>(set))));
         return Collections.unmodifiableMap(copy);
+    }
+
+    /** The loaded display positions in one chunk of {@code level} (a copy of one small set; empty if none). */
+    public static synchronized Set<BlockPos> inChunk(ServerLevel level, ChunkPos chunk) {
+        Map<ChunkPos, Set<BlockPos>> byChunk = LOADED.get(level);
+        Set<BlockPos> set = byChunk == null ? null : byChunk.get(chunk);
+        return set == null || set.isEmpty() ? Set.of() : Set.copyOf(set);
     }
 
     /** Tokens of the stamps in the display at {@code pos}, reserved tokens excluded; empty if there is none. */

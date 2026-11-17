@@ -8,7 +8,7 @@ import net.minecraft.resources.Identifier;
 
 import org.junit.jupiter.api.Test;
 
-/** Decision 006: dyes set accent finishes, four Core materials set material finishes, nothing else sets one. */
+/** Dyes set accent finishes, four Core materials set material finishes, nothing else sets one. */
 class FinishRulesTest {
 
     @Test

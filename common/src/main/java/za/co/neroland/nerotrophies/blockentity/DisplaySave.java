@@ -11,7 +11,7 @@ import net.minecraft.resources.Identifier;
 import za.co.neroland.nerotrophies.component.TrophyStamp;
 
 /**
- * Everything a display block entity writes to the world, as one codec (decision 003 "names never written down"):
+ * Everything a display block entity writes to the world, as one codec:
  * the stamps it holds (trophy id + token, per slot), its palette finish, and for a cabinet the bound collection, the
  * trim and the gallery-only {@code display_only} flag. No name, no UUID, no award time can be expressed here; an
  * anvil name or any other component on a trophy stack is deliberately not kept (a free-text name could name a

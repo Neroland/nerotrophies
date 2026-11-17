@@ -35,8 +35,8 @@ import za.co.neroland.nerotrophies.registry.ModMenuTypes;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * The Trophy Cabinet / Wall Cabinet menu (ART-PLAN §7.11): the cabinet's slots (trophies only), the player's
- * inventory, and two controls through vanilla {@code clickMenuButton} (decision 010 §1, ids in {@link CabinetRows}):
+ * The Trophy Cabinet / Wall Cabinet menu: the cabinet's slots (trophies only), the player's
+ * inventory, and two controls through vanilla {@code clickMenuButton}:
  * trim steps (the server checks the clicker's earned trims with {@link TrimRules}) and collection rows (bound against
  * the list captured at open; a click after a reload changed it is refused and the screen closes). Synced numbers only:
  * the bound row, the trim, and the pool's genuine-member mask. No name, no token, no identity.

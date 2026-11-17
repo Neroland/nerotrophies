@@ -18,9 +18,8 @@ import za.co.neroland.nerotrophies.engine.TriggerEvaluator;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * Builds the {@code record} payload for <b>one</b> player from that player's record only (decision 009: a client never
- * receives another player's record). Pure: no server, no player object. Stat progress is computed here at build time
- * and never stored (010 section 4).
+ * Builds the {@code record} payload for <b>one</b> player from that player's record only. Pure: no server, no player object. Stat progress is computed here at build time
+ * and never stored.
  */
 public final class RecordBuilder {
 
@@ -32,6 +31,14 @@ public final class RecordBuilder {
         Optional<TriggerEvaluator.Progress> progress(TrophyDefinition definition);
     }
 
+    /**
+     * Worst-case wire budget of one {@code record} payload, well under the 1 MiB a clientbound custom payload may carry.
+     * A pack at Core's definition limits gets a truncated Book instead of a multi-megabyte packet.
+     */
+    public static final int RECORD_BUDGET_BYTES = 768 * 1024;
+    /** Worst-case budget of the collection list (it is also sent with every {@code record_delta}). */
+    public static final int COLLECTIONS_BUDGET_BYTES = 192 * 1024;
+
     private static final Comparator<TrophyDefinition> ORDER = Comparator.comparing(d -> d.id().toString());
 
     private RecordBuilder() {
@@ -42,14 +49,23 @@ public final class RecordBuilder {
         TrophyRecord record = state.record(player).orElse(null);
         List<TrophyDefinition> sorted = new ArrayList<>(defs.trophies().values());
         sorted.sort(ORDER);
+        List<RecordPayload.CollectionView> collections = collections(record, defs);
+        long budget = RECORD_BUDGET_BYTES;
+        for (RecordPayload.CollectionView c : collections) {
+            budget -= size(c);
+        }
         List<RecordPayload.Entry> entries = new ArrayList<>(Math.min(sorted.size(), RecordPayload.MAX_TROPHIES));
         for (TrophyDefinition d : sorted) {
             if (entries.size() >= RecordPayload.MAX_TROPHIES) {
                 break;
             }
-            entries.add(entry(record, d, progress, cooldownMillis));
+            RecordPayload.Entry entry = entry(record, d, progress, cooldownMillis);
+            budget -= size(entry);
+            if (budget < 0) {
+                break;
+            }
+            entries.add(entry);
         }
-        List<RecordPayload.CollectionView> collections = collections(record, defs);
         if (record == null) {
             return RecordPayload.empty(entries, collections, now);
         }
@@ -89,6 +105,7 @@ public final class RecordBuilder {
         List<TrophyCollection> sorted = new ArrayList<>(defs.collections().values());
         sorted.sort(Comparator.comparing(c -> c.id().toString()));
         List<RecordPayload.CollectionView> out = new ArrayList<>(Math.min(sorted.size(), RecordPayload.MAX_COLLECTIONS));
+        long budget = COLLECTIONS_BUDGET_BYTES;
         for (TrophyCollection c : sorted) {
             if (out.size() >= RecordPayload.MAX_COLLECTIONS) {
                 break;
@@ -96,10 +113,34 @@ public final class RecordBuilder {
             List<Identifier> members = c.members().size() > RecordPayload.MAX_MEMBERS
                     ? c.members().subList(0, RecordPayload.MAX_MEMBERS) : c.members();
             boolean done = record != null && record.completedCollections().contains(c.id());
-            out.add(new RecordPayload.CollectionView(c.id(), clip(c.title()), clip(c.description()), c.icon(),
-                    c.trim().length() > RecordPayload.MAX_TRIM ? TrophyIds.STANDARD_TRIM : c.trim(), members, done));
+            RecordPayload.CollectionView view = new RecordPayload.CollectionView(c.id(), clip(c.title()),
+                    clip(c.description()), c.icon(),
+                    c.trim().length() > RecordPayload.MAX_TRIM ? TrophyIds.STANDARD_TRIM : c.trim(), members, done);
+            budget -= size(view);
+            if (budget < 0) {
+                break;
+            }
+            out.add(view);
         }
         return out;
+    }
+
+    /** Worst-case encoded size of one entry (strings at three bytes a character, plus fixed fields). */
+    static long size(RecordPayload.Entry e) {
+        return size(e.id()) + size(e.category()) + size(e.icon()) + size(e.title()) + size(e.description()) + 64;
+    }
+
+    /** Worst-case encoded size of one collection view, members included. */
+    static long size(RecordPayload.CollectionView c) {
+        long n = size(c.id()) + size(c.title()) + size(c.description()) + size(c.icon()) + size(c.trim()) + 16;
+        for (Identifier m : c.members()) {
+            n += size(m);
+        }
+        return n;
+    }
+
+    private static long size(Object value) {
+        return value == null ? 1 : 5L + 3L * value.toString().length();
     }
 
     /** The earned trim names ({@code standard} is implicit and never listed). */

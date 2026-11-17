@@ -31,8 +31,8 @@ import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
  * Draws one trophy's live parts (the icon miniature, the nameplate, the nero ring) in a trophy-local unit cube facing
- * north, and optionally its tier model too (for a trophy held by a pedestal or a cabinet). Nameplate rules (008 §6,
- * constants §4): text only for a resolved name, the lit ornament for every nameless genuine state (byte-identical
+ * north, and optionally its tier model too (for a trophy held by a pedestal or a cabinet). Nameplate rules:
+ * text only for a resolved name, the lit ornament for every nameless genuine state (byte-identical
  * whatever the cause), the pewter cover for a replica, nothing at all beyond the draw distance. Client only.
  */
 public final class TrophyDraw {
@@ -46,7 +46,7 @@ public final class TrophyDraw {
     public static final Identifier GHOST = TrophyIds.id("textures/block/trophy_ghost.png");
     public static final Identifier WHITE = Identifier.withDefaultNamespace("textures/misc/white.png");
 
-    /** Nameplate draw distance for a placed trophy (constants §4). */
+    /** Nameplate draw distance for a placed trophy. */
     public static final double PLATE_RANGE = 12.0D;
 
     private TrophyDraw() {
@@ -101,7 +101,7 @@ public final class TrophyDraw {
         return item.map(ItemStack::new).orElse(ItemStack.EMPTY);
     }
 
-    /** The y (pixels) the miniature stands on, per tier (constants §3). */
+    /** The y (pixels) the miniature stands on, per tier. */
     public static float stageY(TrophyTier tier) {
         return switch (tier) {
             case BRONZE -> 5.0F;

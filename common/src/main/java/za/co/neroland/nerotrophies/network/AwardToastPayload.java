@@ -10,7 +10,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyTier;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * S2C {@code nerotrophies:award_toast} (decision 010 section 3), earner only. {@link #KIND_TROPHY}: {@code id} is the trophy,
+ * S2C {@code nerotrophies:award_toast}, earner only. {@link #KIND_TROPHY}: {@code id} is the trophy,
  * {@code tier} set; {@link #KIND_COLLECTION}: {@code id} is the collection; {@link #KIND_RETRO_SUMMARY}: {@code count}
  * trophies recorded by a retroactive pass.
  */

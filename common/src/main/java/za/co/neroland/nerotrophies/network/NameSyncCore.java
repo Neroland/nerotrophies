@@ -21,7 +21,7 @@ import za.co.neroland.nerotrophies.engine.TokenResolver;
 import za.co.neroland.nerotrophies.engine.TrophyStatus;
 
 /**
- * The bookkeeping of decision 009, free of Minecraft's server so it is testable on a plain JVM. For each viewer it
+ * The name-sync bookkeeping, free of Minecraft's server so it is testable on a plain JVM. For each viewer it
  * keeps the tokens (and trophy views) that viewer's client currently holds and turns a visible set into upserts and
  * drops. A viewer only ever receives names for stamps in its own visible set: there is no path from a token the client
  * names to a lookup. Never logs. Server thread.
@@ -200,7 +200,7 @@ public final class NameSyncCore {
         if (r.status() == TrophyStatus.GENUINE && r.name().isPresent()) {
             return new NamesUpdatePayload.Entry(token, trophy, NamesUpdatePayload.NAMED, r.name().get());
         }
-        // Blank and "genuine, name hidden" look identical on purpose (008 section 6).
+        // Blank and "genuine, name hidden" look identical on purpose.
         return new NamesUpdatePayload.Entry(token, trophy, NamesUpdatePayload.BLANK, null);
     }
 }

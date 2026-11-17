@@ -33,7 +33,7 @@ import za.co.neroland.nerotrophies.blockentity.DisplayBlockEntity;
 
 /**
  * The shared behaviour of NeroTrophies' block-entity blocks: horizontal facing, a server ticker that re-checks
- * stamps slowly, finishes from dyes and Core materials (decision 006), and "breaking returns everything inside"
+ * stamps slowly, finishes from dyes and Core materials, and "breaking returns everything inside"
  * on every MC line. Interactions return a {@link Use} that is mapped to each line's result type here.
  *
  * <p>Finish rule as wired: <b>use</b> with a dye or Core material sets it (not consumed); <b>sneak-use with an empty

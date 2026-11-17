@@ -31,7 +31,7 @@ import za.co.neroland.nerotrophies.blockentity.SlotView;
 import za.co.neroland.nerotrophies.registry.ModBlocks;
 
 /**
- * Block tints of the four tintable display blocks (decision 006; art tint indices): {@code 0} the palette finish
+ * Block tints of the four tintable display blocks: {@code 0} the palette finish
  * (default graphite {@code #4A525C}), {@code 1} the tier colour of what the block holds (pedestal ring, plaque
  * medallion), {@code 2} the cabinet trim's accent. Read from the block entity at the position; never a name. With
  * NeroDecor present its Chroma hub drives the same faces (it re-meshes them), so nothing here depends on NeroDecor.

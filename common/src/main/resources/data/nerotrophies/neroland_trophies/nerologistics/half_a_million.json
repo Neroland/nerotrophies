@@ -3,8 +3,10 @@
   "icon": "nerologistics:item_cell_512k",
   "tier": "gold",
   "trigger": {
-    "type": "item_obtained",
-    "item": "nerologistics:item_cell_512k"
+    "type": "stat",
+    "stat_type": "minecraft:crafted",
+    "stat": "nerologistics:item_cell_512k",
+    "at_least": 1
   },
   "title": "trophy.nerotrophies.nerologistics.half_a_million.title",
   "description": "trophy.nerotrophies.nerologistics.half_a_million.description",

@@ -18,7 +18,7 @@ public sealed interface GalleryPiece {
     /** A direction in the hall's frame: towards the entrance, away from it, the player's left or right, or down. */
     enum Face { TO_ENTRANCE, AWAY, LEFT, RIGHT, DOWN }
 
-    /** The plain vanilla blocks of the shell (ART-PLAN section 9.1). */
+    /** The plain vanilla blocks of the shell. */
     enum Mat { AIR, FLOOR, RUNNER, WALL, CEILING, BAND, BASE }
 
     /** The six demo plates, in lobby order. */
@@ -96,7 +96,7 @@ public sealed interface GalleryPiece {
 
     /**
      * A Trophy Cabinet ({@code wall} false, six slots) or Wall Cabinet (two slots). {@code displayOnly} is the flag that
-     * lets a gallery cabinet count gallery copies (decision 003); only the gallery ever sets it.
+     * lets a gallery cabinet count gallery copies; only the gallery ever sets it.
      */
     record Cabinet(Face face, boolean wall, Optional<Identifier> collection, String trim, Optional<Identifier> finish,
             boolean displayOnly, List<TrophyStamp> contents) implements GalleryPiece {

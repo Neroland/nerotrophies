@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 
 /**
- * The hall's local frame (ART-PLAN section 9.1): {@code l} runs away from the entrance wall ({@code l} = 0) along
+ * The hall's local frame: {@code l} runs away from the entrance wall ({@code l} = 0) along
  * {@link #forward}, {@code w} runs across (negative on the builder's left), {@code y} is height above the floor. Cells
  * are indexed as in {@link GalleryPlan#index}, the order the snapshot is stored in.
  */

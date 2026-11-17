@@ -11,7 +11,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyTier;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * The five award sounds (ART-PLAN section 6). Like {@code block.DisplaySounds} they are direct sound events from
+ * The five award sounds. Like {@code block.DisplaySounds} they are direct sound events from
  * {@code sounds.json} (no registry entry is needed to play a client-side sound). Played non-positionally on the
  * earner's own client with the toast, so no other player ever hears them; the volume is in {@code sounds.json}.
  * Client only.

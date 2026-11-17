@@ -13,7 +13,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyTier;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * S2C {@code nerotrophies:record}: the receiving player's <b>own</b> record for the Trophy Book (decisions 009, 010 section 4).
+ * S2C {@code nerotrophies:record}: the receiving player's <b>own</b> record for the Trophy Book.
  * Every loaded trophy appears once; a hidden unearned one is {@link Entry#masked() masked} (id and category only).
  * Every loaded collection appears, sorted by id. Carries no token, no name and no UUID.
  */

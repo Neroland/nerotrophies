@@ -3,8 +3,10 @@
   "icon": "neropower:orbital_receiver",
   "tier": "gold",
   "trigger": {
-    "type": "item_obtained",
-    "item": "neropower:orbital_receiver"
+    "type": "stat",
+    "stat_type": "minecraft:crafted",
+    "stat": "neropower:orbital_receiver",
+    "at_least": 1
   },
   "title": "trophy.nerotrophies.neropower.orbital_power.title",
   "description": "trophy.nerotrophies.neropower.orbital_power.description",

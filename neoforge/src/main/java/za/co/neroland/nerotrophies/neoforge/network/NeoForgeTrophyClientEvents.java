@@ -5,7 +5,7 @@ import net.neoforged.neoforge.common.NeoForge;
 
 import za.co.neroland.nerotrophies.client.net.ClientTrophyNet;
 
-/** NeoForge client glue for name sync: the in-memory name cache and own record are dropped on disconnect (009). */
+/** NeoForge client glue for name sync: the in-memory name cache and own record are dropped on disconnect. */
 public final class NeoForgeTrophyClientEvents {
 
     private NeoForgeTrophyClientEvents() {

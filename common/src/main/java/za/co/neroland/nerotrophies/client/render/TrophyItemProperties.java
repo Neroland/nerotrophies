@@ -15,7 +15,7 @@ import za.co.neroland.nerotrophies.registry.TrophyIds;
  * {@code <tier>_replica} from what this client knows of the stack's token (name sync, else the player's own record),
  * empty when unknown (the "unknown" sprite). From 1.21.4 a {@code select} property for {@code items/trophy.json}; on
  * 1.21.1 a clamped float for the {@code models/item/trophy.json} overrides (0.1-0.4 tiers, 0.5-0.8 replicas). The trophy
- * item is in no highlight tag (decision 006): its sprite carries the tier. Client only.
+ * item is in no highlight tag: its sprite carries the tier. Client only.
  */
 public final class TrophyItemProperties {
 

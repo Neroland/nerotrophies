@@ -22,7 +22,7 @@ First feature release. Requires **Neroland Core 1.20.0** (the release that adds 
   per-tick budget, so trophies added later are awarded for work already done (silently, without coins).
 - **Four tiers** — bronze, silver, gold and nero — each with its own model, toast, sound and particles.
 - **Starter catalogue:** 152 trophies across Neroland Core, vanilla Minecraft and every Neroland mod (bronze 63,
-  silver 51, gold 31, nero 7; 16 hidden until earned) and 20 collections, including cross-mod ones. Each lights
+  silver 52, gold 30, nero 7; 16 hidden until earned) and 20 collections, including cross-mod ones. Each lights
   up only when its mod is installed.
 - **One trophy item and block** that renders any trophy: a tier base, a miniature of the trophy's icon and a
   nameplate engraved with the earner's gamertag. The item stores only the trophy id and its claim token.
@@ -51,8 +51,33 @@ First feature release. Requires **Neroland Core 1.20.0** (the release that adds 
 - Tools: a trophy-data validator, an asset checker and a wiki catalogue generator, all run in CI; generators for
   textures, models, sounds and particles.
 
+### Fixed (pre-release review)
+
+- **Old progress never pays or announces.** Until a player's retroactive pass for the session has finished (after
+  login, a datapack reload, a definition change or `/nerotrophies reload`), every trophy a live trigger finds for them
+  is recorded as retroactive: no coins, no announcement, no push, counted in the login summary. Previously a
+  dimension check or periodic statistics visit inside the 40-tick login delay could award old progress as live.
+- **Erase and rejoin cannot farm coins.** A player whose record is erased while online is awarded nothing more that
+  session; at their next login the progress the game still holds comes back as retroactive, without coins.
+- **Erasure always cleans the quarantine.** The store's backup is refreshed, and any quarantined `.corrupt` copy of a
+  damaged store deleted, even when the live store has no record for the player.
+- **Large exports work.** `/nerotrophies export` splits the JSON into chunks of at most 32 KiB measured as the text
+  travels (UTF-8, NBT's modified UTF-8 and escaped JSON), safely below the 65,535-byte limit of a click-to-copy
+  value; multibyte names and very large records no longer break the export.
+- **Gold trophies can't be handed over.** *Half a Million* and *Orbital Power* now need the item crafted, not just
+  held, and *Void Harvest* is silver. The validator rejects `item_obtained` above silver.
+- **Bounded record packets.** The Book's `record` payload stays under 768 KiB and the collection list sent with every
+  award under 192 KiB, so a pack at Core's definition limits gets a truncated Book instead of a multi-megabyte packet.
+- **Cheaper name sync.** Each player's visible-set pass looks only at the chunks within view instead of every loaded
+  display on the server.
+
 ### Known limitations
 
+- With `rewardsEnabled` on, a trophy that can be triggered live again (re-entering a dimension, re-crossing a currency
+  or reputation value, re-opening an erased player gate) pays again after the player erases their record, because
+  erasure removes the record of what was paid.
+- `/nerotrophies revoke` does not stick while the player still meets the trophy's trigger: it can be awarded again.
+- Creative mode can copy a trophy with its stamp; the copy shows the same earner.
 - Trophies for milestones that a mod doesn't report per player yet are not shipped (see "Catalogue scope").
   Threshold events and progression gates that only open for a recorded machine owner are not used.
 - Dyeing a pedestal or cabinet works on a plain right-click (vanilla skips sneak-use while an item is held).

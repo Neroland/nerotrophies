@@ -6,7 +6,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
-/** C2S {@code nerotrophies:set_toggle}: the sender's own {@code announce} / {@code show_name} toggle (decision 007). */
+/** C2S {@code nerotrophies:set_toggle}: the sender's own {@code announce} / {@code show_name} toggle. */
 public record SetTogglePayload(byte toggle, boolean value) implements CustomPacketPayload {
 
     public static final byte ANNOUNCE = 0;

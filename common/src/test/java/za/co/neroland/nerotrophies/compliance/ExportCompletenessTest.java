@@ -25,7 +25,7 @@ import za.co.neroland.nerotrophies.data.TrophyExport;
 import za.co.neroland.nerotrophies.data.TrophyState;
 
 /**
- * Stage 6, two players: {@code /nerotrophies export} returns every stored field of the requester's record (checked
+ * Two players: {@code /nerotrophies export} returns every stored field of the requester's record (checked
  * against the store's own serialised form) and nothing of anyone else.
  */
 class ExportCompletenessTest {
@@ -45,7 +45,7 @@ class ExportCompletenessTest {
         s.award(A, TRIM, 3_500L, 0L);
         s.markClaimed(A, ONE, 4_000L);
         s.markPaid(A, GONE);
-        s.revoke(A, GONE); // paid survives revoke (decision 010 §7) and must still be exported
+        s.revoke(A, GONE); // paid survives revoke and must still be exported
         s.completeCollection(A, TestDefs.id("a_set"));
         s.refreshName(A, "ExportAlice", 5_000L);
         s.setAnnounce(A, false);

@@ -12,7 +12,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyTier;
  */
 public interface ClientNotifier {
 
-    /** Nothing is sent (the Stage 2A default). */
+    /** Nothing is sent (the default until the network layer installs itself). */
     ClientNotifier NONE = new ClientNotifier() {
     };
 

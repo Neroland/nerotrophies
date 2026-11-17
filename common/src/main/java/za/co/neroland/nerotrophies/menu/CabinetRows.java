@@ -8,7 +8,7 @@ import java.util.Optional;
 import net.minecraft.resources.Identifier;
 
 /**
- * The cabinet screen's button ids (decision 010 §1, via vanilla {@code clickMenuButton}): {@code 0} previous trim,
+ * The cabinet screen's button ids: {@code 0} previous trim,
  * {@code 1} next trim, {@code 2} unbind ("None"), {@code 2 + k} (k &ge; 1) bind the k-th collection of the list
  * captured when the menu opened (every loaded collection, sorted by id). The list and the definition generation are
  * captured at open; a click after a datapack reload changed the generation is refused as {@link Kind#STALE}, so a

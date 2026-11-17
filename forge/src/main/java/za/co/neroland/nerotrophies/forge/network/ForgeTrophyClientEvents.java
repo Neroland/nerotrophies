@@ -4,7 +4,7 @@ import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 
 import za.co.neroland.nerotrophies.client.net.ClientTrophyNet;
 
-/** Forge client glue for name sync: the in-memory name cache and own record are dropped on disconnect (009). */
+/** Forge client glue for name sync: the in-memory name cache and own record are dropped on disconnect. */
 public final class ForgeTrophyClientEvents {
 
     private ForgeTrophyClientEvents() {

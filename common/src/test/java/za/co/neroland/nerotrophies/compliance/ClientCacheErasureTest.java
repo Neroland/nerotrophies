@@ -31,7 +31,7 @@ import za.co.neroland.nerotrophies.network.NamesDropPayload;
 import za.co.neroland.nerotrophies.network.NamesUpdatePayload;
 
 /**
- * Stage 6, end to end on a plain JVM: the server's name sync feeds a real client cache. Erasure, {@code showname off}
+ * End to end on a plain JVM: the server's name sync feeds a real client cache. Erasure, {@code showname off}
  * and a rename change what the client holds in the same call, and the backup is refreshed after the record is gone.
  * ({@code RecordErased}, which Core fires only with a real provider bound, is checked by the server game test.)
  */

@@ -16,7 +16,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyApi;
 import za.co.neroland.nerotrophies.command.TrophyCommands;
 
 /**
- * {@code /nerotrophies gallery} and {@code /nerotrophies gallery clear} (Stage 8, ART-PLAN section 9): a walkable
+ * {@code /nerotrophies gallery} and {@code /nerotrophies gallery clear} : a walkable
  * trophy hall built in front of the player that shows every loaded trophy, collection, finish, trim and display block,
  * and its exact removal. Operators only, players only, creative only. One hall per server at a time; building and
  * clearing run a budgeted slice per tick ({@link GalleryService}).

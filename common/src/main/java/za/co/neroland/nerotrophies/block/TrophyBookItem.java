@@ -29,7 +29,7 @@ import za.co.neroland.nerotrophies.registry.ModDataComponents;
 
 /**
  * The Trophy Book: use it to open the book screen (client); sneak-use it on a cabinet to bind that cabinet's pool to
- * the collection selected in the book (ART-PLAN §7.10). The selection is a collection id on the stack
+ * the collection selected in the book. The selection is a collection id on the stack
  * ({@code nerotrophies:book_selection}), nothing more.
  */
 public class TrophyBookItem extends Item {

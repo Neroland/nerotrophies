@@ -32,7 +32,7 @@ public final class DisplayProps {
     *///?}
     public static final EnumProperty<TrophyTier> TIER = EnumProperty.create("tier", TrophyTier.class);
     public static final BooleanProperty REPLICA = BooleanProperty.create("replica");
-    /** Light level of an emissive finish (decision 006); 0 otherwise. */
+    /** Light level of an emissive finish; 0 otherwise. */
     public static final IntegerProperty GLOW = IntegerProperty.create("glow", 0, 15);
     /** A cabinet joins its neighbour on that side (same block, same facing, same binding). */
     public static final BooleanProperty LEFT = BooleanProperty.create("left");

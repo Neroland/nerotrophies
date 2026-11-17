@@ -98,7 +98,7 @@ public final class Gui {
         *///?}
     }
 
-    /** One of the 24 16x16 mod emblems (ART-PLAN §7.9). */
+    /** One of the 24 16x16 mod emblems. */
     public static void emblem(GuiGraphicsExtractor g, int cell, int x, int y) {
         int c = Math.max(0, Math.min(23, cell));
         blit(g, EMBLEMS, x, y, (c % 8) * 16, (c / 8) * 16, 16, 16, 128, 48, 0xFFFFFFFF);

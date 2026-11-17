@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Nullable;
 import za.co.neroland.nerolandcore.trophy.TrophyTier;
 
 /**
- * NeroTrophies' client palette (ARGB), mirroring the art constants sheet byte for byte. Tier colours are never the
+ * NeroTrophies' client palette (ARGB); the texture tools use the same values byte for byte. Tier colours are never the
  * only tier signal: pips, silhouettes and labels always carry it too. Client only.
  */
 public final class TrophyColours {
@@ -32,7 +32,7 @@ public final class TrophyColours {
     public static final int REPLICA_DK = 0xFF3F444B;
     public static final int REPLICA_TEXT = 0xFF8A919A;
     public static final int GHOST_UNKNOWN = 0xFF97A6BC;
-    /** The finish colour of a display block with none set (decision 006): lands the tint layer on graphite. */
+    /** The finish colour of a display block with none set: lands the tint layer on graphite. */
     public static final int DEFAULT_FINISH = 0xFF4A525C;
 
     private TrophyColours() {

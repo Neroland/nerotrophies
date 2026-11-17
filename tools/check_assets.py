@@ -21,7 +21,8 @@ Checks:
 * Sounds: every file ``sounds.json`` names exists; every sound event Java creates is defined there.
 * Particles: every particle definition's textures exist; registered types need a definition.
 * The asset checklist: every listed file exists, PNGs at the listed size and Ogg files mono 32 kHz;
-  the app's emblem atlas copy is byte-identical (skipped with ``--no-siblings``).
+  the NeroLink app's emblem atlas copy is byte-identical (only with ``--app-dir <app checkout>``; never with
+  ``--no-siblings``).
 * Orphans (warnings): textures, models, blockstates and item definitions nothing references.
 
 Exit status 1 when any error is found (or any warning with ``--strict``).
@@ -42,11 +43,10 @@ JAVA_ROOTS = ("common/src/main/java", "fabric/src/main/java", "forge/src/main/ja
 REGISTRY = "common/src/main/java/za/co/neroland/nerotrophies/registry"
 TRIMS = "common/src/main/java/za/co/neroland/nerotrophies/block/Trims.java"
 LOADERS = ("fabric", "forge", "neoforge")
-APP_SIBLING = "nerolink-app"
 
-# The asset checklist from the art plan: (path, expected) where expected is (width, height) for a PNG,
+# The asset checklist: (path, expected) where expected is (width, height) for a PNG,
 # "ogg" for a mono 32 kHz Ogg Vorbis file, or None for "must exist". "A/" is the mod's asset folder,
-# "R/" the repository root and "APP/" the NeroLink app repository next to it.
+# "R/" the repository root and "APP/" the NeroLink app checkout given with --app-dir.
 CHECKLIST = [
     ("A/textures/block/trophy_bronze.png", (32, 32)),
     ("A/textures/block/trophy_silver.png", (32, 32)),
@@ -294,8 +294,9 @@ def strip_comments(src):
 
 
 class Checker:
-    def __init__(self, repo, siblings=True, checklist=None):
+    def __init__(self, repo, siblings=True, checklist=None, app_dir=None):
         self.repo = os.path.abspath(repo)
+        self.app_dir = os.path.abspath(app_dir) if app_dir else None
         self.assets = os.path.join(self.repo, ASSETS)
         self.siblings = siblings
         self.checklist = CHECKLIST if checklist is None else checklist
@@ -722,10 +723,10 @@ class Checker:
     def check_checklist(self):
         for path, expected in self.checklist:
             if path.startswith("APP/"):
-                if not self.siblings:
+                if not self.siblings or self.app_dir is None:
                     continue
-                full = os.path.join(os.path.dirname(self.repo), APP_SIBLING, path[4:])
-                shown = f"../{APP_SIBLING}/{path[4:]}"
+                full = os.path.join(self.app_dir, path[4:])
+                shown = f"<app>/{path[4:]}"
             elif path.startswith("A/"):
                 full = os.path.join(self.assets, path[2:])
                 shown = f"{ASSETS}/{path[2:]}"
@@ -823,9 +824,11 @@ def main(argv=None):
     ap.add_argument("--repo", default=os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                     help="repository root (default: the folder above tools/)")
     ap.add_argument("--no-siblings", action="store_true", help="skip checks that need sibling repositories")
+    ap.add_argument("--app-dir", default=None,
+                    help="NeroLink app checkout whose emblem atlas copy is checked (default: skip that check)")
     ap.add_argument("--strict", action="store_true", help="treat warnings as errors")
     args = ap.parse_args(argv)
-    checker = Checker(args.repo, siblings=not args.no_siblings)
+    checker = Checker(args.repo, siblings=not args.no_siblings, app_dir=args.app_dir)
     rep = checker.run()
     for w in rep.warnings:
         print("WARNING " + w)

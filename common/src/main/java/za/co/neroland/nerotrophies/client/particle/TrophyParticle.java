@@ -14,7 +14,7 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
 
 /**
- * The five award particles (ART-PLAN section 5), one class tuned per {@link Kind}. Sprites are greyscale; the spawner
+ * The five award particles, one class tuned per {@link Kind}. Sprites are greyscale; the spawner
  * tints each particle after creation ({@link #tint} for a tier colour, {@link #prism} for nero's age lerp). All are
  * full-bright and translucent. The spawner passes the initial velocity. Client only.
  */

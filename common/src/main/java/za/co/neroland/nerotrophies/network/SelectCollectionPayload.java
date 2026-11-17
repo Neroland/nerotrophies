@@ -10,7 +10,7 @@ import net.minecraft.resources.Identifier;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * C2S {@code nerotrophies:select_collection} (decision 010 section 2): set or clear the collection on the Trophy Book in the
+ * C2S {@code nerotrophies:select_collection}: set or clear the collection on the Trophy Book in the
  * sender's main hand, else off hand.
  */
 public record SelectCollectionPayload(Optional<Identifier> collection) implements CustomPacketPayload {

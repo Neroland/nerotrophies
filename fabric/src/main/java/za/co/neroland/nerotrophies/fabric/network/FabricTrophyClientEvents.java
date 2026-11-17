@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 
 import za.co.neroland.nerotrophies.client.net.ClientTrophyNet;
 
-/** Fabric client glue for name sync: the in-memory name cache and own record are dropped on disconnect (009). */
+/** Fabric client glue for name sync: the in-memory name cache and own record are dropped on disconnect. */
 public final class FabricTrophyClientEvents {
 
     private FabricTrophyClientEvents() {

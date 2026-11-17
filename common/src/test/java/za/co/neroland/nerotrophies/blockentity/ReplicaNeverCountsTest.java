@@ -20,7 +20,7 @@ import za.co.neroland.nerotrophies.engine.TokenResolver;
 import za.co.neroland.nerotrophies.engine.TrophyStatus;
 
 /**
- * Decision 003: a replica (re-claimed, edited or unstamped copy) is never counted by a cabinet and never shows a
+ * A replica (re-claimed, edited or unstamped copy) is never counted by a cabinet and never shows a
  * name; a blank (erased / forged) copy counts for nothing either; each token counts once; gallery copies count only
  * in a display-only cabinet.
  */

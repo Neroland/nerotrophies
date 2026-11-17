@@ -28,7 +28,7 @@ import za.co.neroland.nerotrophies.gallery.GalleryPiece.Pedestal;
 import za.co.neroland.nerotrophies.gallery.GalleryPiece.Sign;
 import za.co.neroland.nerotrophies.gallery.GalleryPiece.Solid;
 
-/** ART-PLAN section 9: the hall shows every loaded trophy, collection, finish, trim and display block, and fits. */
+/** The hall shows every loaded trophy, collection, finish, trim and display block, and fits. */
 class GalleryLayoutTest {
 
     @Test

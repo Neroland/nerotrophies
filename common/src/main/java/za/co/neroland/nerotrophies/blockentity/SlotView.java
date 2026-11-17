@@ -10,7 +10,7 @@ import net.minecraft.resources.Identifier;
 import za.co.neroland.nerolandcore.trophy.TrophyTier;
 
 /**
- * What a client may know about one occupied display slot (009 amendment: a physical trophy reveals its tier and icon
+ * What a client may know about one occupied display slot (a physical trophy reveals its tier and icon
  * to whoever can see it): tier, icon item, and whether the server resolved it as a replica. Sent in the block
  * entity's update tag only, never saved, never trusted by the server; no token, no name.
  */

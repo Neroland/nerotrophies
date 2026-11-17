@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Nullable;
 import za.co.neroland.nerotrophies.component.TrophyStamp;
 
 /**
- * The three nameplate states a renderer may draw (008 §6-7), plus the gallery placeholder. Decided from the stamp's
+ * The three nameplate states a renderer may draw, plus the gallery placeholder. Decided from the stamp's
  * token and what name sync told this client; a replica never carries a name, whatever else is known.
  */
 public enum PlateState {

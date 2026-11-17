@@ -18,7 +18,7 @@ here writes a name, UUID or token to the server log.
 |---------|--------------|
 | `/nerotrophies list <player>` | That player's earned trophy ids and award times, shown to you only. |
 | `/nerotrophies award <player> <trophy>` | Award a trophy. Pays no coins and makes no announcement. Tab-completes loaded trophy ids. |
-| `/nerotrophies revoke <player> <trophy>` | Remove a trophy from a player's record. Any copy of it becomes a replica. |
+| `/nerotrophies revoke <player> <trophy>` | Remove a trophy from a player's record. Any copy of it becomes a replica. If the player still meets the trophy's trigger, it can be awarded again (no second coin reward). |
 | `/nerotrophies reload` | Re-read trophy data, report how many trophies and collections loaded, and re-check online players. |
 
 ## For administrators (permission level 3)

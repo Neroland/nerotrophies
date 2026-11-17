@@ -25,7 +25,7 @@ import za.co.neroland.nerotrophies.data.TrophyState;
 import za.co.neroland.nerotrophies.engine.TrophyTokens;
 
 /**
- * Decision 003 "names never written down": everything a display block entity saves to the chunk ({@link DisplaySave})
+ * Names are never written down: everything a display block entity saves to the chunk ({@link DisplaySave})
  * and everything it sends in its update tag ({@link SlotView}s, the pool bitmask) holds no UUID (string, hex or
  * int-array form) and no gamertag, even when the earner's record holds both.
  */

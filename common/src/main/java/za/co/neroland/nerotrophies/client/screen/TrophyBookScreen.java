@@ -38,7 +38,7 @@ import za.co.neroland.nerotrophies.registry.ModDataComponents;
 import za.co.neroland.nerotrophies.registry.ModItems;
 
 /**
- * The Trophy Book (ART-PLAN §7): one responsive hull; a header with overall progress and four tier chips that are
+ * The Trophy Book: one responsive hull; a header with overall progress and four tier chips that are
  * both counters and filters; a rail of mod tabs (only categories with a loaded trophy) and a pinned Collections row;
  * a grid of cards (hidden unearned ones as "???", never their tier); a detail strip with Claim / Re-claim (re-claim
  * needs a second click within 3 s); the Collections view with "Use on cabinets"; and the two privacy checkboxes. It
@@ -49,7 +49,7 @@ public class TrophyBookScreen extends Screen {
     private static final DateTimeFormatter DATE = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             .withZone(ZoneId.systemDefault());
     private static final long ARM_MILLIS = 3000L;
-    /** Emblem cells (ART-PLAN §7.9) by category. */
+    /** Emblem cells by category. */
     private static final Map<String, Integer> EMBLEMS = Map.ofEntries(Map.entry("nerolandcore", 2),
             Map.entry("minecraft", 2), Map.entry("nerospace", 3), Map.entry("nerotech", 4), Map.entry("neropower", 5),
             Map.entry("nerologistics", 6), Map.entry("neroeconomy", 7), Map.entry("nerofactions", 8),

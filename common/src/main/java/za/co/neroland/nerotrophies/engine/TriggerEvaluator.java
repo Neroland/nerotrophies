@@ -19,7 +19,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyDefinition;
  */
 public interface TriggerEvaluator {
 
-    /** Evaluates nothing (the Stage 2A default). */
+    /** Evaluates nothing (the default until the trigger layer installs itself). */
     TriggerEvaluator NONE = new TriggerEvaluator() {
         @Override
         public boolean retroactive(ServerPlayer player, TrophyDefinition definition) {

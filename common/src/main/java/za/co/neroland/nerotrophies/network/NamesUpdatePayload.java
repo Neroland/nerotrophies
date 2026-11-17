@@ -12,8 +12,8 @@ import za.co.neroland.nerotrophies.data.TrophyRecord;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * S2C {@code nerotrophies:names_update}: what the server resolved for tokens the client can currently see
- * (decision 009), plus the tier and icon of trophies it can see (009 amendment). Never a UUID; a name only with
+ * S2C {@code nerotrophies:names_update}: what the server resolved for tokens the client can currently see,
+ * plus the tier and icon of trophies it can see (a physical trophy reveals both). Never a UUID; a name only with
  * {@link #NAMED}. At most {@value #MAX_ENTRIES} of each list.
  */
 public record NamesUpdatePayload(List<Entry> names, List<View> views) implements CustomPacketPayload {

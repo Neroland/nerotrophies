@@ -43,7 +43,7 @@ import za.co.neroland.nerotrophies.gallery.GalleryPlan;
 import za.co.neroland.nerotrophies.gallery.GalleryStore;
 
 /**
- * Stage 8 gallery on a real game-test server (Fabric 26.3 only, never shipped): building the hall over real blocks
+ * The gallery on a real game-test server (Fabric 26.3 only, never shipped): building the hall over real blocks
  * (a full chest included) and clearing it leaves every block state and block entity exactly as it was, with no item
  * dropped; the hall's trophies are display copies that never resolve to a player or reach name sync; and the command
  * refuses a console and a survival player.

@@ -23,7 +23,8 @@ Checks, all offline:
 * Citations: every trophy has exactly one row in ``tools/catalogue/citations/*.csv``, every row names
   an existing trophy, and every row cites a survey row id (a collection's completion trophy may cite
   the collection instead).
-* Catalogue rules: no nero tier on a bare ``item_obtained`` (or any polled trigger), at most one
+* Catalogue rules: no nero tier on a bare ``item_obtained`` (or any polled trigger), no
+  ``item_obtained`` above silver (holding an item can be handed round a server), at most one
   nero trophy per Book category, no two trophies on the same trigger, no repeated-use grind
   (huge counts, idle-time stats), PLAYER-scope gates and milestones only, no NeroQuests reward
   hook gates outside the allow-list, and advancement ids that exist on every MC line (an id
@@ -690,6 +691,9 @@ def check_catalogue(rep, trophies, collections, lang, trims, vanilla, siblings):
                     rep.error(tid, f"at_least {at_least} is repeated-use grind (max {MAX_REPEAT_STAT})")
         elif tid not in completion:
             rep.warn(tid, "no trigger and no collection awards it: needs a TrophyApi.award call site")
+        if trig is not None and trig["type"] == "item_obtained" and t["tier"] in ("gold", "nero"):
+            rep.error(tid, f"{t['tier']} tier on an item_obtained trigger; an item can be handed to the player "
+                           "(use a crafted stat, or silver at most)")
         if t["tier"] == "nero":
             if trig is not None and trig["type"] in NO_NERO_TRIGGERS:
                 rep.error(tid, f"nero tier on a polled '{trig['type']}' trigger; nero needs a real hardest milestone")

@@ -11,16 +11,16 @@ import za.co.neroland.nerotrophies.component.TrophyStamp;
 import za.co.neroland.nerotrophies.engine.TrophyStatus;
 
 /**
- * Collection completion for a cabinet pool (decision 003): which members of the bound collection the pool holds as
+ * Collection completion for a cabinet pool: which members of the bound collection the pool holds as
  * <b>genuine</b> trophies. A replica, a blank (erased / forged / unknown token) or an unstamped copy never counts;
  * each token counts once across the pool (a gallery copy once per trophy); gallery copies count only in a {@code display_only} gallery cabinet; the
  * gallery's nameless copy ({@code -2}) never counts. Pure: the caller supplies the resolver (the server's token check).
  */
 public final class CabinetPools {
 
-    /** Most members a pool tracks in its bitmask (decision 010: catalogue collections are capped at 24). */
+    /** Most members a pool tracks in its bitmask. */
     public static final int MAX_MEMBERS = 63;
-    /** Most cabinets in one pool (003). */
+    /** Most cabinets in one pool. */
     public static final int MAX_POOL = 4;
 
     private CabinetPools() {

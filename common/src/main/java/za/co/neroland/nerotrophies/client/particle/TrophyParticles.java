@@ -34,7 +34,7 @@ import za.co.neroland.nerotrophies.component.TrophyStamp;
 import za.co.neroland.nerotrophies.registry.ModParticles;
 
 /**
- * Award feedback particles (ART-PLAN section 5, constants section 10): provider wiring for every loader, the award
+ * Award feedback particles: provider wiring for every loader, the award
  * burst at the earner's chest (spawned on the earner's own client only), the placement burst when a genuine trophy
  * appears in a loaded chunk, the completion burst when a bound cabinet pool fills, and the idle gold glint / nero mote
  * on a placed genuine trophy within 8 blocks. "Decreased" halves every count (rounded up), "Minimal" draws nothing.

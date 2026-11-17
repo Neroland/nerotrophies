@@ -17,7 +17,7 @@ import za.co.neroland.nerotrophies.network.NamesDropPayload;
 import za.co.neroland.nerotrophies.network.NamesUpdatePayload;
 
 /**
- * The client's name cache (decision 009): <b>memory only</b>, never written to disk, never logged. Filled only by the
+ * The client's name cache: <b>memory only</b>, never written to disk, never logged. Filled only by the
  * server's {@code names_update} for trophies this client can currently see; emptied entry-wise by {@code names_drop},
  * wholly by {@code names_reset} and on disconnect. Client thread only.
  *

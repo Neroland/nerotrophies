@@ -23,7 +23,7 @@ import za.co.neroland.nerotrophies.component.TrophyStamp;
 import za.co.neroland.nerotrophies.data.TrophyState;
 import za.co.neroland.nerotrophies.engine.TokenResolver;
 
-/** Decision 009 on a plain JVM: who receives which names, and how they are withdrawn. */
+/** Name sync on a plain JVM: who receives which names, and how they are withdrawn. */
 class NameSyncCoreTest {
 
     private static final UUID A = UUID.fromString("00000000-0000-0000-0000-00000000000a");

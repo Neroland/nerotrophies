@@ -6,8 +6,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyTier;
 
 /**
  * What a client may draw for a trophy it can see: the name state (and name, only when {@link NameState#NAMED}), plus
- * the trophy's tier and icon item id (decision 009 amendment: a physical trophy reveals its tier and icon even when
- * hidden). {@code tier} and {@code icon} are null only when the server has no loaded definition for the trophy.
+ * the trophy's tier and icon item id. {@code tier} and {@code icon} are null only when the server has no loaded definition for the trophy.
  */
 public record TrophyView(NameState state, String name, TrophyTier tier, Identifier icon) {
 

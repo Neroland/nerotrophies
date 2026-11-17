@@ -32,7 +32,7 @@ import za.co.neroland.nerotrophies.platform.Services;
 import za.co.neroland.nerotrophies.registry.ModDataComponents;
 
 /**
- * The live {@link NameSync} (decision 009), installed from {@link TrophyPayloads}. Each online player's visible set is
+ * The live {@link NameSync}, installed from {@link TrophyPayloads}. Each online player's visible set is
  * their own inventory, carried stack and open menu's slots, plus stamps in loaded display blocks that sit in a chunk the
  * player tracks and within {@value #VIEW_DISTANCE} blocks. Every {@value #PASS_INTERVAL} ticks (staggered per player)
  * the visible set is diffed against what the client holds; erasure, {@code showname} and re-claims push the same tick.
@@ -47,7 +47,7 @@ public final class ServerNameSync implements NameSync {
     /** Stamps considered per pass (inventory + menu + displays). */
     public static final int MAX_VISIBLE = 4096;
 
-    /** Where loaded display blocks are and what they hold. Installed by the blocks package (Stage 3). */
+    /** Where loaded display blocks are and what they hold. Installed by the blocks package. */
     public interface DisplayLookup {
         DisplayLookup NONE = new DisplayLookup() {
             @Override
@@ -66,7 +66,15 @@ public final class ServerNameSync implements NameSync {
 
         /** Every stamp in the display at {@code pos}, reserved tokens included. */
         List<TrophyStamp> stampsAt(ServerLevel level, BlockPos pos);
+
+        /** The loaded display positions in one chunk (only the chunks near a player are looked up). */
+        default Set<BlockPos> inChunk(ServerLevel level, ChunkPos chunk) {
+            return loaded(level).getOrDefault(chunk, Set.of());
+        }
     }
+
+    /** Chunks either side of the player's chunk that can hold a display within {@link #VIEW_DISTANCE}. */
+    static final int VIEW_CHUNKS = (VIEW_DISTANCE >> 4) + 1;
 
     private static volatile DisplayLookup displays = DisplayLookup.NONE;
 
@@ -79,13 +87,13 @@ public final class ServerNameSync implements NameSync {
     private ServerNameSync() {
     }
 
-    /** Stage 3 installs its display index here. */
+    /** The blocks package installs its display index here. */
     public static void setDisplayLookup(DisplayLookup lookup) {
         displays = lookup == null ? DisplayLookup.NONE : lookup;
     }
 
     /**
-     * A display's contents changed (Stage 3 calls this the same tick): every player tracking it within view gets a
+     * A display's contents changed (the block entity calls this the same tick): every player tracking it within view gets a
      * pass now.
      */
     public static void displayChanged(ServerLevel level, BlockPos pos) {
@@ -163,7 +171,7 @@ public final class ServerNameSync implements NameSync {
         core.pass(p.getUUID(), visible(p), resolver(s), sink(s));
     }
 
-    /** The stamps {@code player} can see right now (009 "visible set"). */
+    /** The stamps {@code player} can see right now (the visible set). */
     static List<TrophyStamp> visible(ServerPlayer player) {
         List<TrophyStamp> out = new ArrayList<>();
         Inventory inv = player.getInventory();
@@ -182,31 +190,42 @@ public final class ServerNameSync implements NameSync {
         }
         ServerLevel level = player.level();
         DisplayLookup lookup = displays;
-        for (Map.Entry<ChunkPos, Set<BlockPos>> e : lookup.loaded(level).entrySet()) {
-            if (out.size() >= MAX_VISIBLE) {
-                break;
-            }
-            boolean tracked = false;
-            boolean checked = false;
-            for (BlockPos pos : e.getValue()) {
-                if (!withinView(player, pos)) {
-                    continue;
-                }
-                if (!checked) {
-                    tracked = tracks(level, player, e.getKey());
-                    checked = true;
-                }
-                if (!tracked) {
-                    break;
-                }
-                for (TrophyStamp stamp : lookup.stampsAt(level, pos)) {
-                    if (out.size() < MAX_VISIBLE) {
-                        out.add(stamp);
-                    }
+        // Only the chunks around the player: the cost no longer grows with every display loaded on the server.
+        int pcx = player.getBlockX() >> 4;
+        int pcz = player.getBlockZ() >> 4;
+        for (int cx = pcx - VIEW_CHUNKS; cx <= pcx + VIEW_CHUNKS && out.size() < MAX_VISIBLE; cx++) {
+            for (int cz = pcz - VIEW_CHUNKS; cz <= pcz + VIEW_CHUNKS && out.size() < MAX_VISIBLE; cz++) {
+                ChunkPos chunk = new ChunkPos(cx, cz);
+                Set<BlockPos> positions = lookup.inChunk(level, chunk);
+                if (!positions.isEmpty()) {
+                    addChunk(out, level, player, lookup, chunk, positions);
                 }
             }
         }
         return out;
+    }
+
+    private static void addChunk(List<TrophyStamp> out, ServerLevel level, ServerPlayer player, DisplayLookup lookup,
+            ChunkPos chunk, Set<BlockPos> positions) {
+        boolean tracked = false;
+        boolean checked = false;
+        for (BlockPos pos : positions) {
+            if (!withinView(player, pos)) {
+                continue;
+            }
+            if (!checked) {
+                tracked = tracks(level, player, chunk);
+                checked = true;
+            }
+            if (!tracked) {
+                return;
+            }
+            for (TrophyStamp stamp : lookup.stampsAt(level, pos)) {
+                if (out.size() < MAX_VISIBLE) {
+                    out.add(stamp);
+                }
+            }
+        }
     }
 
     private static void add(List<TrophyStamp> out, ItemStack stack) {

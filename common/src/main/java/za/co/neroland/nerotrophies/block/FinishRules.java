@@ -9,7 +9,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * Setting a finish without NeroDecor (decision 006): a vanilla dye sets {@code neroland:accent/<colour>}, one of four
+ * Setting a finish without NeroDecor: a vanilla dye sets {@code neroland:accent/<colour>}, one of four
  * Core materials sets the matching material finish. The table is explicit (never a material tag) and item ids are
  * matched as strings, so a missing item costs nothing. The item is not consumed.
  */

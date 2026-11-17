@@ -72,3 +72,9 @@ The Display Pedestal, both cabinets and the Trophy Plaque take a colour finish. 
 - With **NeroDecor** installed, its Chroma tools recolour these blocks too.
 
 The trophy itself and the Trophy Spotlight cannot be recoloured: a trophy's colour is its tier.
+
+## Creative mode
+
+In creative mode a trophy can be copied like any item (pick block, middle-click). A copy carries the same stamp, so it
+shows the same earner and looks genuine. Survival play cannot copy a trophy: the only way to get another genuine copy
+is re-claiming from the Trophy Book, which turns every older copy into a replica.
