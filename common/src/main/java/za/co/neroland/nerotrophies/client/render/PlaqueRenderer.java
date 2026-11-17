@@ -3,6 +3,7 @@ package za.co.neroland.nerotrophies.client.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import za.co.neroland.nerolandcore.trophy.TrophyTier;
@@ -14,8 +15,9 @@ import za.co.neroland.nerotrophies.component.TrophyStamp;
 
 /**
  * The Trophy Plaque: the icon in the medallion, the tier pips under it, the trophy title on the upper strip and the
- * earner on the lower strip (ornament when nameless, the pewter cover for a replica). Draws within 24 blocks, text
- * within 20. Client only.
+ * earner on the lower strip (ornament when nameless, the pewter cover for a replica). Any other item sits in the
+ * medallion with its own display name as the title and nothing on the earner strip (no ornament, no cover: it is not
+ * a trophy, so it has no earner to hide). Draws within 24 blocks, text within 20. Client only.
  */
 public class PlaqueRenderer extends DisplayRenderer<PlaqueBlockEntity, PlaqueRenderer.S> {
 
@@ -23,6 +25,7 @@ public class PlaqueRenderer extends DisplayRenderer<PlaqueBlockEntity, PlaqueRen
 
     public static final class S extends DisplayRenderer.State {
         final TrophyDraw.Captured trophy = new TrophyDraw.Captured();
+        final Miniature other = new Miniature();
         String title = "";
     }
 
@@ -43,15 +46,26 @@ public class PlaqueRenderer extends DisplayRenderer<PlaqueBlockEntity, PlaqueRen
 
     @Override
     protected void extract(PlaqueBlockEntity be, S state, Level level) {
-        TrophyStamp stamp = DisplayBlockEntity.stampOf(be.getItem(0));
-        state.trophy.capture(stamp, be.view(0), level, (int) be.getBlockPos().asLong(), false);
-        state.title = stamp == null ? "" : Component.translatable(TrophyLook.titleKey(stamp.trophy())).getString();
+        ItemStack stack = be.getItem(0);
+        TrophyStamp stamp = DisplayBlockEntity.stampOf(stack);
+        int seed = (int) be.getBlockPos().asLong();
+        state.trophy.capture(stamp, be.view(0), level, seed, false);
+        if (stamp == null && !stack.isEmpty()) {
+            state.other.update(stack, level, seed);
+            state.title = stack.getHoverName().getString();
+        } else {
+            state.other.clear();
+            state.title = stamp == null ? "" : Component.translatable(TrophyLook.titleKey(stamp.trophy())).getString();
+        }
     }
 
     @Override
     protected void draw(S state, PoseStack pose, Out out) {
         TrophyLook.Look look = state.trophy.look;
         if (look == null) {
+            if (state.other.ready()) {
+                this.plainItem(state, pose, out);
+            }
             return;
         }
         TrophyTier tier = look.tierOrBronze();
@@ -88,5 +102,19 @@ public class PlaqueRenderer extends DisplayRenderer<PlaqueBlockEntity, PlaqueRen
             out.geometry(pose, TrophyDraw.translucent(TrophyDraw.COVER_PLAQUE), (p, c) ->
                     DisplayRenderer.quad(c, p, 1F, 0F, 15F, 2F, z, 0F, 0F, 1F, 1F, 0xFFFFFFFF, world));
         }
+    }
+
+    /** A plain item: its model in the medallion, its display name as the title, and a bare earner strip. */
+    private void plainItem(S state, PoseStack pose, Out out) {
+        int light = withBlockFloor(state.lightCoords, 9);
+        pose.pushPose();
+        pose.translate(0.5F, 12.0F / 16.0F, 13.9F / 16.0F);
+        pose.scale(0.375F, 0.375F, 0.02F);
+        out.item(pose, state.other, light);
+        pose.popPose();
+        if (state.distanceSq > TEXT_RANGE * TEXT_RANGE || state.title.isEmpty()) {
+            return;
+        }
+        TrophyDraw.text(pose, out, state.title, 8.0F, 4.0F, 14.0F - 0.16F, 0.75F, 1.0F / 96.0F, TrophyColours.TEXT);
     }
 }

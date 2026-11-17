@@ -28,8 +28,11 @@ First feature release. Requires **Neroland Core 1.20.0** (the release that adds 
   nameplate engraved with the earner's gamertag. The item stores only the trophy id and its claim token.
 - **Display blocks:** Display Pedestal (slow turntable, comparator output by tier), Trophy Cabinet and Wall
   Cabinet (join side by side, bind to a collection, show ghost outlines for missing trophies and the collection's
-  trim), Trophy Plaque (title and earner) and Trophy Spotlight. Pedestals and cabinets take a colour finish from
-  dyes or Core materials, and from NeroDecor's colour tools when NeroDecor is installed.
+  trim), Trophy Plaque (title and earner) and Trophy Spotlight. The pedestal, cabinets and plaque hold **any
+  item**, one per slot, kept whole with all its components (only genuine trophies count toward a collection; a
+  plain item gives comparator output 1; very large items reach other clients as their plain item). Pedestals and
+  cabinets take a colour finish from dyes or Core materials, and from NeroDecor's colour tools when NeroDecor is
+  installed.
 - **Trophy Book:** a tab per mod, progress bars, tier filters, collections, hidden trophies shown as "???", and
   re-claim. Opens from the item or a keybind.
 - **Re-claim:** mints a new token so a lost copy becomes a dull replica (no name, never counted by a cabinet);

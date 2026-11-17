@@ -76,8 +76,11 @@ public sealed interface GalleryPiece {
         }
     }
 
-    /** A Display Pedestal with an optional finish, holding a trophy, the first displayable item, or nothing. */
-    record Pedestal(Face face, Optional<Identifier> finish, Optional<TrophyStamp> stamp, boolean displayable)
+    /**
+     * A Display Pedestal with an optional finish, holding a trophy, the gallery's showpiece (an ordinary item, to show
+     * that a display takes any item), or nothing.
+     */
+    record Pedestal(Face face, Optional<Identifier> finish, Optional<TrophyStamp> stamp, boolean showpiece)
             implements GalleryPiece {
         public Pedestal {
             stamp.ifPresent(GalleryPiece::requireGallery);

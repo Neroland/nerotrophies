@@ -131,7 +131,7 @@ class GalleryLayoutTest {
         Set<String> trims = new HashSet<>();
         int emptyPedestals = 0;
         for (GalleryPiece piece : plan.cells()) {
-            if (piece instanceof Pedestal p && p.stamp().isEmpty() && !p.displayable()) {
+            if (piece instanceof Pedestal p && p.stamp().isEmpty() && !p.showpiece()) {
                 finishes.add(p.finish());
                 emptyPedestals++;
             }
@@ -144,7 +144,7 @@ class GalleryLayoutTest {
         assertEquals(Trims.ALL.stream().map(Trims.Trim::id).collect(java.util.stream.Collectors.toSet()), trims);
         assertTrue(java.util.Arrays.stream(plan.cells()).anyMatch(p -> p instanceof GalleryPiece.Plaque));
         assertTrue(java.util.Arrays.stream(plan.cells()).anyMatch(p -> p instanceof Cabinet c && c.wall()));
-        assertTrue(java.util.Arrays.stream(plan.cells()).anyMatch(p -> p instanceof Pedestal d && d.displayable()));
+        assertTrue(java.util.Arrays.stream(plan.cells()).anyMatch(p -> p instanceof Pedestal d && d.showpiece()));
         assertTrue(java.util.Arrays.stream(plan.cells()).anyMatch(p -> p instanceof GalleryPiece.Spotlight));
     }
 

@@ -24,6 +24,7 @@ import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.UUIDUtil;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -39,6 +40,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.chunk.storage.SerializableChunkData;
 import net.minecraft.world.level.storage.LevelResource;
@@ -62,6 +64,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyApi;
 import za.co.neroland.nerolandcore.trophy.TrophyEvents;
 
 import za.co.neroland.nerotrophies.blockentity.DisplayBlockEntity;
+import za.co.neroland.nerotrophies.blockentity.DisplaySave;
 import za.co.neroland.nerotrophies.component.TrophyStamp;
 import za.co.neroland.nerotrophies.data.TrophyExport;
 import za.co.neroland.nerotrophies.data.TrophyState;
@@ -258,10 +261,18 @@ public class NeroTrophiesComplianceGameTest {
         long token = award(state, earner, T1, name);
         ItemStack stack = ClaimService.stamped(T1, token);
 
+        // Displays take any item: a plain item sits beside the trophy in the cabinet and alone on a plaque. It is the
+        // player's own item (stored whole, like a chest's contents); NeroTrophies' own data must still hold no identity.
+        ItemStack plain = new ItemStack(Items.DIAMOND_SWORD);
+        plain.set(DataComponents.CUSTOM_NAME, Component.literal("Plain Showpiece"));
         List<DisplayBlockEntity> displays = List.of(
                 place(h, new BlockPos(0, 1, 1), ModBlocks.TROPHY.get(), stack),
                 place(h, new BlockPos(2, 1, 1), ModBlocks.DISPLAY_PEDESTAL.get(), stack),
-                place(h, new BlockPos(4, 1, 1), ModBlocks.TROPHY_CABINET.get(), stack));
+                place(h, new BlockPos(4, 1, 1), ModBlocks.TROPHY_CABINET.get(), stack),
+                place(h, new BlockPos(6, 1, 1), ModBlocks.TROPHY_PLAQUE.get(), plain));
+        displays.get(2).setItem(1, plain.copy());
+        check(h, displays.get(3).stamps().isEmpty() && displays.get(2).stamps().size() == 1,
+                "a plain item was read as a trophy stamp");
         ServerPlayer holder = h.makeMockServerPlayerInLevel();
         holder.getInventory().add(stack.copy());
         holder.getEnderChestInventory().setItem(0, stack.copy());
@@ -271,6 +282,11 @@ public class NeroTrophiesComplianceGameTest {
         for (DisplayBlockEntity be : displays) {
             scan(h, be.getType() + " saved data", be.saveWithFullMetadata(level.registryAccess()), earner, name);
             scan(h, be.getType() + " update tag", be.getUpdateTag(level.registryAccess()), earner, name);
+            CompoundTag own = (CompoundTag) DisplaySave.CODEC.encodeStart(
+                    level.registryAccess().createSerializationContext(NbtOps.INSTANCE), be.toSave()).getOrThrow();
+            check(h, !own.toString().contains("Plain Showpiece"),
+                    be.getType() + ": a plain item leaked into the stamp record");
+            scan(h, be.getType() + " stamp record", own, earner, name);
         }
         CompoundTag item = itemTag(level, stack);
         check(h, item.toString().contains(Long.toString(token)), "precondition: the item tag holds the token");
@@ -286,6 +302,13 @@ public class NeroTrophiesComplianceGameTest {
 
         // Breaking any display returns everything inside it (and the trophy block drops itself, stamped).
         StringBuilder lost = new StringBuilder();
+        BlockPos plaqueAt = new BlockPos(6, 1, 1);
+        BlockPos plaqueAbs = h.absolutePos(plaqueAt);
+        level.destroyBlock(plaqueAbs, true);
+        List<ItemEntity> plaqueDrops = level.getEntitiesOfClass(ItemEntity.class, new AABB(plaqueAbs).inflate(0.9D));
+        check(h, plaqueDrops.stream().anyMatch(e -> ItemStack.matches(e.getItem(), plain)),
+                "breaking the plaque did not return its plain item intact");
+        plaqueDrops.forEach(ItemEntity::discard);
         for (BlockPos rel : List.of(new BlockPos(0, 1, 1), new BlockPos(2, 1, 1), new BlockPos(4, 1, 1))) {
             BlockPos abs = h.absolutePos(rel);
             String what = level.getBlockState(abs).getBlock().toString();
@@ -297,6 +320,10 @@ public class NeroTrophiesComplianceGameTest {
                 return st != null && st.token() == token;
             }).mapToLong(ItemStack::getCount).sum();
             List<String> seen = drops.stream().map(e -> e.getItem().toString()).toList();
+            boolean plainBack = drops.stream().anyMatch(e -> ItemStack.matches(e.getItem(), plain));
+            if (rel.getX() == 4 && !plainBack) {
+                lost.append(what).append(" did not return its plain item ").append(seen).append("; ");
+            }
             drops.forEach(ItemEntity::discard);
             if (stamped != 1) {
                 lost.append(what).append(" dropped ").append(stamped).append(" stamped ").append(seen).append("; ");

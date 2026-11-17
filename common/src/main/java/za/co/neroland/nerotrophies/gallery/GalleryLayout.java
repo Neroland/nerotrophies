@@ -395,8 +395,8 @@ public final class GalleryLayout {
         this.put(g0 + 5, wallW[1], 1, wallSign(Face.LEFT, key("specimen.wall_cabinets")));
         int last = lf + FINISHES.size();
         this.put(last, centre, 1, new Pedestal(Face.TO_ENTRANCE, Optional.empty(), Optional.empty(), true));
-        this.put(last, centre, 3, wallSign(Face.TO_ENTRANCE, key("specimen.displayable.1"),
-                key("specimen.displayable.2")));
+        this.put(last, centre, 3, wallSign(Face.TO_ENTRANCE, key("specimen.any_item.1"),
+                key("specimen.any_item.2")));
         this.put(last, centre, 4, new Spotlight(Face.TO_ENTRANCE));
         this.put(last, centre, 6, new Spotlight(Face.DOWN));
         String[] emissive = {"void_crystal", "plasma_glass"};

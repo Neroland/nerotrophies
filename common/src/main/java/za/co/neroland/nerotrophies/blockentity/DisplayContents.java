@@ -42,7 +42,10 @@ public final class DisplayContents {
         return stack;
     }
 
-    /** One item of {@code stack} with only its stamp kept (an anvil name or other component is not stored). */
+    /**
+     * One item of {@code stack} as a display stores it: a trophy keeps only its stamp (an anvil name or other component
+     * is not stored); any other item is kept whole, every component included.
+     */
     public static ItemStack normalise(ItemStack stack) {
         TrophyStamp stamp = DisplayBlockEntity.stampOf(stack);
         if (stamp != null) {

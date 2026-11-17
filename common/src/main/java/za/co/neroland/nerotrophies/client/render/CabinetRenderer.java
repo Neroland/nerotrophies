@@ -7,6 +7,8 @@ import java.util.Optional;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import org.jetbrains.annotations.Nullable;
@@ -16,11 +18,12 @@ import za.co.neroland.nerolandcore.trophy.TrophyTier;
 import za.co.neroland.nerotrophies.blockentity.CabinetBlockEntity;
 import za.co.neroland.nerotrophies.blockentity.DisplayBlockEntity;
 import za.co.neroland.nerotrophies.client.net.ClientTrophyRecord;
+import za.co.neroland.nerotrophies.component.TrophyStamp;
 import za.co.neroland.nerotrophies.network.RecordPayload;
 
 /**
  * Trophy Cabinet and Wall Cabinet: each held trophy at slot scale (its tier model and live parts, names within 6
- * blocks), a ghost outline in empty slots for the bound collection's missing members, and the completion pips on the
+ * blocks), any other held item as its normal item model standing in its slot (it never counts), a ghost outline in empty slots for the bound collection's missing members, and the completion pips on the
  * crown, spread over the pool (seven per crown). Pips come from the server's member bitmask only; a ghost shows a
  * hidden member as "?" with no tier or icon. Draws within 32 blocks. Client only.
  */
@@ -39,6 +42,9 @@ public class CabinetRenderer extends DisplayRenderer<CabinetBlockEntity, Cabinet
     public static final class S extends DisplayRenderer.State {
         boolean wall;
         final List<TrophyDraw.Captured> slots = new ArrayList<>();
+        /** Plain (non-trophy) items per slot, and whether each is drawn flat (not a block item). */
+        final List<Miniature> others = new ArrayList<>();
+        final List<Boolean> othersFlat = new ArrayList<>();
         final List<Ghost> ghosts = new ArrayList<>();
         long mask;
         int members;
@@ -65,10 +71,20 @@ public class CabinetRenderer extends DisplayRenderer<CabinetBlockEntity, Cabinet
         state.wall = be.isWall();
         while (state.slots.size() < be.size()) {
             state.slots.add(new TrophyDraw.Captured());
+            state.others.add(new Miniature());
+            state.othersFlat.add(Boolean.TRUE);
         }
         int seed = (int) be.getBlockPos().asLong();
         for (int i = 0; i < be.size(); i++) {
-            state.slots.get(i).capture(DisplayBlockEntity.stampOf(be.getItem(i)), be.view(i), level, seed + i, true);
+            ItemStack stack = be.getItem(i);
+            TrophyStamp stamp = DisplayBlockEntity.stampOf(stack);
+            state.slots.get(i).capture(stamp, be.view(i), level, seed + i, true);
+            if (stamp == null && !stack.isEmpty()) {
+                state.others.get(i).update(stack, level, seed + i);
+                state.othersFlat.set(i, !(stack.getItem() instanceof BlockItem));
+            } else {
+                state.others.get(i).clear();
+            }
         }
         state.mask = be.mask();
         state.members = be.memberCount();
@@ -118,6 +134,19 @@ public class CabinetRenderer extends DisplayRenderer<CabinetBlockEntity, Cabinet
             slotOrigin(pose, state.wall, i, scale);
             TrophyDraw.full(pose, out, slot, state.time, state.lightCoords, state.distanceSq / (scale * scale),
                     NAME_RANGE / scale);
+            pose.popPose();
+        }
+        for (int i = 0; i < state.others.size(); i++) {
+            Miniature other = state.others.get(i);
+            if (!other.ready()) {
+                continue;
+            }
+            float size = state.othersFlat.get(i) ? 0.7F : 0.55F;
+            pose.pushPose();
+            slotOrigin(pose, state.wall, i, scale);
+            pose.translate(0.5F, size / 2.0F, 0.5F);
+            pose.scale(size, size, size);
+            out.item(pose, other, state.lightCoords);
             pose.popPose();
         }
         for (Ghost ghost : state.ghosts) {

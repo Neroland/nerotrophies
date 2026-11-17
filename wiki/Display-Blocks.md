@@ -1,15 +1,16 @@
 # Display Blocks
 
-NeroTrophies adds one trophy block and five display blocks. Breaking any of them gives back the block and everything
-inside it.
+NeroTrophies adds one trophy block and five display blocks. The Display Pedestal, both cabinets and the Trophy Plaque
+hold **any item**, one per slot: a trophy, or anything else you want to show off. Breaking any of them gives back the
+block and everything inside it, exactly as it went in (enchantments, names, damage, contents and all).
 
 | Block | How you get it | What it does |
 |-------|----------------|--------------|
 | Trophy | Claimed from the [Trophy Book](Trophy-Book) | Any trophy, placed in the world |
-| Display Pedestal | Crafted | Holds one trophy (or a displayable item) on a slow turntable; comparator output by tier |
-| Trophy Cabinet | Crafted | A floor vitrine with six slots; binds to a collection |
-| Wall Cabinet | Crafted (makes 2) | A wall-hung case with two slots; binds to a collection |
-| Trophy Plaque | Crafted (makes 2) | A wall plaque showing one trophy's medallion, title and earner |
+| Display Pedestal | Crafted | Holds one item on a slow turntable; comparator output by trophy tier |
+| Trophy Cabinet | Crafted | A floor vitrine with six slots for any items; binds to a collection |
+| Wall Cabinet | Crafted (makes 2) | A wall-hung case with two slots for any items; binds to a collection |
+| Trophy Plaque | Crafted (makes 2) | A wall plaque showing one trophy's medallion, title and earner, or any item and its name |
 | Trophy Spotlight | Crafted (makes 2) | A ceiling lamp or wall arm that lights your display (light level 14) |
 
 ## Recipes
@@ -37,24 +38,40 @@ and sends it only to players who can see the trophy.
 
 ## Display Pedestal
 
-Use a trophy on it to set it on the turntable; use it with an empty hand to take the trophy back. It also accepts any
-item in the item tag `nerotrophies:displayable` (empty by default, so a pack can add its own showpieces).
+Use any item on it to set it on the turntable; use it with an empty hand to take it back. A trophy shows its tier
+model and nameplate; any other item turns on the turntable as its normal model.
 
 Comparator output: 4 bronze, 8 silver, 12 gold, 15 nero, 1 for a replica or any other item, 0 when empty.
 
 ## Trophy Plaque
 
-Hangs on a wall and shows one trophy's medallion, title and earner. Use a trophy on it to mount it; use it with an
-empty hand to take it back. Plaques hold trophies only.
+Hangs on a wall and shows one trophy's medallion, title and earner. Use any item on it to mount it; use it with an
+empty hand to take it back. Any other item sits in the medallion with its own name as the title and a plain earner
+strip (only a trophy has an earner).
+
+## Putting things on display
+
+- One item goes in each slot. Hold an item and use the pedestal or plaque; open a cabinet and move items into its
+  slots.
+- **Dyes and the four finish materials** (Nero Alloy Ingot, Starsteel Ingot, Void Crystal, Plasma Glass) recolour a
+  pedestal or plaque instead of going on it (see [Finishes](#finishes-colour)). Put them in a cabinet through its
+  screen if you want to show them.
+- **Sneak** to place a block against a display instead of putting it in.
+- Items are kept whole: enchantments, custom names, damage, a shulker box's contents. A very large item (a full
+  shulker box of written books, for example) is still kept whole on the server, but other players' screens draw it
+  as its plain item, so one display cannot flood the game with data.
+- Only **genuine trophies** count toward a cabinet's collection. Other items never count, and they are not part of
+  anyone's trophy record (see [Privacy](Privacy)).
 
 ## Trophy Cabinet and Wall Cabinet
 
-Use a cabinet with an empty hand to open it. The screen has the trophy slots, the collection the cabinet is bound to,
-and its trim.
+Use a cabinet with an empty hand to open it. The screen has the slots (one item of any kind each), the collection the
+cabinet is bound to, and its trim.
 
 - **Binding to a collection.** In the Trophy Book, open a collection and press **Use on cabinets**, then sneak and use
   the book on the cabinet. A bound cabinet shows completion from the **genuine** trophies inside it, with ghost
-  outlines for the members that are missing. Replicas are never counted.
+  outlines for the members that are missing. Replicas and other items are never counted; an item in a slot just sits
+  there.
 - **Joining cabinets.** Up to four cabinets of the same kind, side by side, facing the same way and bound to the same
   collection count together as one display. A big collection fits in a row of cabinets.
 - **Trims.** Completing a collection unlocks its cabinet trim. Pick a trim in the cabinet screen with the previous and

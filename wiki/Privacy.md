@@ -23,6 +23,12 @@ and nothing about one player inside another's record.
 token up to decide whose name to show, and sends it only to players who can see that trophy right now. Clients keep
 those names in memory only.
 
+**Other items on display are not your trophy record.** The Display Pedestal, cabinets and Trophy Plaque hold any item,
+exactly like a chest: the item is saved with the block, whole, and anyone who can see the block sees it. An item can
+carry player data of its own (a player head, a signed book's author, a custom name). That belongs to the item, not to
+NeroTrophies: it is never added to your record, shown in the Trophy Book or the app, exported or counted, and erasure
+does not edit items in the world (as it does not edit a chest). Take the item out to remove it.
+
 ## Your name on your trophies
 
 Every genuine trophy shows the gamertag of the player who earned it, on its nameplate, in its tooltip, and on

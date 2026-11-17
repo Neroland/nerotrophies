@@ -9,7 +9,8 @@
   "entrypoints": {
     "fabric-gametest": [
       "za.co.neroland.nerotrophies.gametest.NeroTrophiesComplianceGameTest",
-      "za.co.neroland.nerotrophies.gametest.NeroTrophiesGalleryGameTest"
+      "za.co.neroland.nerotrophies.gametest.NeroTrophiesGalleryGameTest",
+      "za.co.neroland.nerotrophies.gametest.NeroTrophiesAnyItemGameTest"
     ]
   },
   "depends": {

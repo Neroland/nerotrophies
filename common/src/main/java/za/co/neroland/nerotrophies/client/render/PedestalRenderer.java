@@ -14,7 +14,7 @@ import za.co.neroland.nerotrophies.blockentity.PlateState;
 import za.co.neroland.nerotrophies.component.TrophyStamp;
 
 /**
- * The Display Pedestal: a trophy at 0.75 (its tier model and live parts) or a displayable item, turning once in
+ * The Display Pedestal: a trophy at 0.75 (its tier model and live parts) or any other item, turning once in
  * 16 s on the turntable, and the larger plaque on the shaft (name, ornament, or the pewter cover). Draws within
  * 32 blocks, the plaque within 16. Client only.
  */

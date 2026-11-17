@@ -7,7 +7,10 @@ import net.minecraft.world.item.ItemStack;
 import za.co.neroland.nerotrophies.blockentity.CabinetBlockEntity;
 import za.co.neroland.nerotrophies.blockentity.DisplayContents;
 
-/** The server-side view of a cabinet's slots for its menu: one trophy per slot, stored with its stamp only. */
+/**
+ * The server-side view of a cabinet's slots for its menu: one item per slot. A trophy is stored with its stamp only;
+ * any other item is stored whole, with every component.
+ */
 final class CabinetContainer implements Container {
 
     private final CabinetBlockEntity cabinet;

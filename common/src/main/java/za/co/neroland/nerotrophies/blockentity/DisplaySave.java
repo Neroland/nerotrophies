@@ -15,7 +15,8 @@ import za.co.neroland.nerotrophies.component.TrophyStamp;
  * the stamps it holds (trophy id + token, per slot), its palette finish, and for a cabinet the bound collection, the
  * trim and the gallery-only {@code display_only} flag. No name, no UUID, no award time can be expressed here; an
  * anvil name or any other component on a trophy stack is deliberately not kept (a free-text name could name a
- * person). A pedestal's non-trophy item is the one ordinary {@code ItemStack} a display stores, beside this record.
+ * person). Any non-trophy item a pedestal, cabinet or plaque holds is stored beside this record as an ordinary,
+ * complete {@code ItemStack} (like a chest's contents): it is the player's own item, not NeroTrophies' data.
  */
 public record DisplaySave(List<SlotStamp> stamps, Optional<Identifier> finish, Optional<Identifier> collection,
         String trim, boolean displayOnly) {

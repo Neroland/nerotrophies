@@ -27,6 +27,14 @@ vanilla statistics and never stored), and nothing about one player inside anothe
 The server looks the token up in the store to decide whose name to show, and sends that name only to players who
 can see that trophy right now. Clients keep those names in memory only and never write them to disk.
 
+**Other items on display are not NeroTrophies' record.** The Display Pedestal, Trophy Cabinet, Wall Cabinet and
+Trophy Plaque hold any item a player puts in, exactly like a chest: the item is saved with the block, whole, with
+everything the item itself carries, and is shown to anyone who can see the block. Some items carry player data of
+their own (a player head, a signed book's author, a custom name someone typed). That data belongs to the item and to
+the game, not to NeroTrophies: it is not added to your trophy record, never shown in the Trophy Book or the companion
+app, never exported or counted, and Neroland's erasure does not edit items in the world, just as it does not edit a
+chest's contents. Take the item out (or break the block) to remove it.
+
 ## Your name on your trophies
 
 Every genuine trophy shows the gamertag of the player who earned it: on its nameplate, in its tooltip, and on

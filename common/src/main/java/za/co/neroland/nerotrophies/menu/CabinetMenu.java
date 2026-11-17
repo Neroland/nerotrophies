@@ -30,12 +30,11 @@ import za.co.neroland.nerotrophies.block.Trims;
 import za.co.neroland.nerotrophies.blockentity.CabinetBlockEntity;
 import za.co.neroland.nerotrophies.data.TrophyState;
 import za.co.neroland.nerotrophies.engine.TrimRules;
-import za.co.neroland.nerotrophies.registry.ModItems;
 import za.co.neroland.nerotrophies.registry.ModMenuTypes;
 import za.co.neroland.nerotrophies.registry.TrophyIds;
 
 /**
- * The Trophy Cabinet / Wall Cabinet menu: the cabinet's slots (trophies only), the player's
+ * The Trophy Cabinet / Wall Cabinet menu: the cabinet's slots (one item of any kind each), the player's
  * inventory, and two controls through vanilla {@code clickMenuButton}:
  * trim steps (the server checks the clicker's earned trims with {@link TrimRules}) and collection rows (bound against
  * the list captured at open; a click after a reload changed it is refused and the screen closes). Synced numbers only:
@@ -80,14 +79,14 @@ public class CabinetMenu extends AbstractContainerMenu {
         this.cabinet = cabinet;
         this.rows = rows;
         if (wall) {
-            this.addSlot(new TrophySlot(container, 0, 18, 30));
-            this.addSlot(new TrophySlot(container, 1, 36, 30));
+            this.addSlot(new DisplaySlot(container, 0, 18, 30));
+            this.addSlot(new DisplaySlot(container, 1, 36, 30));
         } else {
             for (int i = 0; i < 3; i++) {
-                this.addSlot(new TrophySlot(container, i, 9 + 18 * i, 39));
+                this.addSlot(new DisplaySlot(container, i, 9 + 18 * i, 39));
             }
             for (int i = 0; i < 3; i++) {
-                this.addSlot(new TrophySlot(container, 3 + i, 9 + 18 * i, 21));
+                this.addSlot(new DisplaySlot(container, 3 + i, 9 + 18 * i, 21));
             }
         }
         for (int row = 0; row < 3; row++) {
@@ -217,7 +216,7 @@ public class CabinetMenu extends AbstractContainerMenu {
             if (!this.moveItemStackTo(stack, size, this.slots.size(), true)) {
                 return ItemStack.EMPTY;
             }
-        } else if (!stack.is(ModItems.TROPHY.get()) || !this.moveItemStackTo(stack, 0, size, false)) {
+        } else if (!this.moveItemStackTo(stack, 0, size, false)) {
             return ItemStack.EMPTY;
         }
         if (stack.isEmpty()) {
@@ -233,15 +232,15 @@ public class CabinetMenu extends AbstractContainerMenu {
         return this.container.stillValid(player);
     }
 
-    /** A cabinet slot: one trophy. */
-    static final class TrophySlot extends Slot {
-        TrophySlot(Container container, int index, int x, int y) {
+    /** A cabinet slot: one item of any kind (only genuine trophies count toward the collection). */
+    static final class DisplaySlot extends Slot {
+        DisplaySlot(Container container, int index, int x, int y) {
             super(container, index, x, y);
         }
 
         @Override
         public boolean mayPlace(ItemStack stack) {
-            return stack.is(ModItems.TROPHY.get());
+            return !stack.isEmpty();
         }
 
         @Override

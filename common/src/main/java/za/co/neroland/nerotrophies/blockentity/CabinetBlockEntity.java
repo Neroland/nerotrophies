@@ -24,11 +24,10 @@ import za.co.neroland.nerotrophies.component.TrophyStamp;
 import za.co.neroland.nerotrophies.data.TrophyState;
 import za.co.neroland.nerotrophies.engine.TrimRules;
 import za.co.neroland.nerotrophies.registry.ModBlockEntities;
-import za.co.neroland.nerotrophies.registry.ModItems;
 
 /**
- * Trophy Cabinet (six slots) and Wall Cabinet (two). Bound to a collection, a cabinet shows completion from the
- * genuine trophies inside it and its pool: up to four adjacent cabinets of the same kind, facing the same way, with the
+ * Trophy Cabinet (six slots) and Wall Cabinet (two). Each slot holds one item of any kind; only genuine trophies
+ * ever count. Bound to a collection, a cabinet shows completion from the genuine trophies inside it and its pool: up to four adjacent cabinets of the same kind, facing the same way, with the
  * same binding. It reads what is inside and stores no identity: a collection id, a trim string and the
  * gallery-only {@code display_only} flag. Completion is resolved here on the server, on content change and every 100
  * ticks, and sent to clients as a member bitmask only.
@@ -68,7 +67,7 @@ public class CabinetBlockEntity extends DisplayBlockEntity {
 
     @Override
     public boolean accepts(int slot, ItemStack stack) {
-        return stack.is(ModItems.TROPHY.get());
+        return anyItem(stack);
     }
 
     @Override

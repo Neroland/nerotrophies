@@ -26,7 +26,7 @@ import za.co.neroland.nerotrophies.blockentity.DisplayBlockEntity;
 import za.co.neroland.nerotrophies.blockentity.PedestalBlockEntity;
 import za.co.neroland.nerotrophies.registry.ModBlockEntities;
 
-/** The Display Pedestal: one trophy or displayable item on a slow turntable; comparator output by tier. */
+/** The Display Pedestal: any one item on a slow turntable; comparator output by trophy tier, 1 for a plain item. */
 public class DisplayPedestalBlock extends SingleDisplayBlock {
 
     public static final MapCodec<DisplayPedestalBlock> CODEC = BlockCodecs.simple(DisplayPedestalBlock::new);

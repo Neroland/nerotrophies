@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.DynamicOps;
+import com.mojang.serialization.ListBuilder;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.BlockPos;
@@ -15,7 +19,9 @@ import net.minecraft.core.component.DataComponentGetter;
 //?}
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtOps;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
@@ -47,9 +53,12 @@ import za.co.neroland.nerotrophies.registry.ModItems;
 
 /**
  * The shared block entity of every trophy-bearing display (trophy, pedestal, both cabinets, plaque). It holds item
- * stacks in memory, but writes only {@link DisplaySave}: stamps (trophy id + token) per slot, a palette finish and,
- * for a cabinet, its binding and trim. A pedestal's non-trophy item is the one plain stack it saves. Never a name,
- * never a UUID.
+ * stacks in memory. For trophies it writes only {@link DisplaySave}: stamps (trophy id + token) per slot, a palette
+ * finish and, for a cabinet, its binding and trim - never a name, never a UUID. The pedestal, cabinets and plaque
+ * also take <b>any other item</b> (one per slot), which is saved and synced like a chest's contents: the whole
+ * {@link ItemStack} with every component, through the registry-aware item codec. Those items are the player's own
+ * things, not NeroTrophies' record; they never count toward a collection and never reach name sync, the link module
+ * or {@link DisplayIndex}'s token lists ({@link #stampOf} returns null for them).
  *
  * <p>The server re-resolves every stamp on load and then every {@link #refreshPeriod()} ticks (and at once on any
  * content change), and sends clients a {@link SlotView} per slot - tier, icon, replica - so they can draw the right
@@ -61,11 +70,35 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     private static final String OTHERS_KEY = "items";
     private static final String VIEWS_KEY = "views";
 
-    /** A non-trophy stack in a slot (pedestal only). */
+    /** A non-trophy stack in a slot, kept whole (every component). */
     record OtherItem(int slot, ItemStack stack) {
         static final Codec<OtherItem> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Codec.intRange(0, 63).fieldOf("slot").forGetter(OtherItem::slot),
                 ItemStack.CODEC.fieldOf("item").forGetter(OtherItem::stack)).apply(i, OtherItem::new));
+
+        /**
+         * A list that reads and writes entry by entry: one entry that cannot be read (an item whose mod was removed)
+         * is skipped, like a vanilla chest skips it, instead of failing the list and losing every other item.
+         */
+        static final Codec<List<OtherItem>> LIST_CODEC = new Codec<>() {
+            @Override
+            public <T> DataResult<Pair<List<OtherItem>, T>> decode(DynamicOps<T> ops, T input) {
+                return ops.getList(input).map(entries -> {
+                    List<OtherItem> out = new ArrayList<>();
+                    entries.accept(entry -> CODEC.parse(ops, entry).result().ifPresent(out::add));
+                    return Pair.of(out, ops.empty());
+                });
+            }
+
+            @Override
+            public <T> DataResult<T> encode(List<OtherItem> input, DynamicOps<T> ops, T prefix) {
+                ListBuilder<T> builder = ops.listBuilder();
+                for (OtherItem item : input) {
+                    CODEC.encodeStart(ops, item).result().ifPresent(builder::add);
+                }
+                return builder.build(prefix);
+            }
+        };
     }
 
     protected final NonNullList<ItemStack> items;
@@ -91,8 +124,16 @@ public abstract class DisplayBlockEntity extends BlockEntity {
         return slot >= 0 && slot < this.items.size() ? this.items.get(slot) : ItemStack.EMPTY;
     }
 
-    /** Whether {@code stack} may go into {@code slot} (trophies everywhere; a pedestal also takes displayables). */
+    /**
+     * Whether {@code stack} may go into {@code slot}: any non-empty item for the pedestal, cabinets and plaque; only a
+     * trophy for the trophy block, which is the trophy itself.
+     */
     public abstract boolean accepts(int slot, ItemStack stack);
+
+    /** The pedestal / cabinet / plaque rule: any item at all, one per slot. */
+    protected static boolean anyItem(ItemStack stack) {
+        return stack != null && !stack.isEmpty();
+    }
 
     /** Whether a finish can be set on this block. */
     public boolean tintable() {
@@ -400,7 +441,7 @@ public abstract class DisplayBlockEntity extends BlockEntity {
         output.store(SAVE_KEY, DisplaySave.CODEC, this.toSave());
         List<OtherItem> others = this.others();
         if (!others.isEmpty()) {
-            output.store(OTHERS_KEY, OtherItem.CODEC.listOf(), others);
+            output.store(OTHERS_KEY, OtherItem.LIST_CODEC, others);
         }
     }
 
@@ -415,7 +456,7 @@ public abstract class DisplayBlockEntity extends BlockEntity {
         ValueInput input = ValueInput.of(tag, registries);
     *///?}
         DisplaySave save = input.read(SAVE_KEY, DisplaySave.CODEC).orElse(DisplaySave.empty());
-        List<OtherItem> others = input.read(OTHERS_KEY, OtherItem.CODEC.listOf()).orElse(List.of());
+        List<OtherItem> others = input.read(OTHERS_KEY, OtherItem.LIST_CODEC).orElse(List.of());
         this.apply(save, others);
         input.read(VIEWS_KEY, SlotView.CODEC.listOf()).ifPresent(list -> this.views = List.copyOf(list));
         this.loadClientExtra(input);
@@ -441,11 +482,36 @@ public abstract class DisplayBlockEntity extends BlockEntity {
         DisplaySave.CODEC.encodeStart(ops, this.toSave()).result().ifPresent(t -> tag.put(SAVE_KEY, t));
         List<OtherItem> others = this.others();
         if (!others.isEmpty()) {
-            OtherItem.CODEC.listOf().encodeStart(ops, others).result().ifPresent(t -> tag.put(OTHERS_KEY, t));
+            tag.put(OTHERS_KEY, syncTag(others, ops));
         }
         SlotView.CODEC.listOf().encodeStart(ops, this.views).result().ifPresent(t -> tag.put(VIEWS_KEY, t));
         this.writeClientExtra(tag, registries);
         return tag;
+    }
+
+    /**
+     * The non-trophy items as clients receive them, within {@link DisplaySync}'s byte budget: an item too large to
+     * send whole goes by item id only (the client draws its plain model; the server keeps the full stack).
+     */
+    static ListTag syncTag(List<OtherItem> others, DynamicOps<Tag> ops) {
+        List<Tag> full = new ArrayList<>(others.size());
+        int[] sizes = new int[others.size()];
+        for (int i = 0; i < others.size(); i++) {
+            Tag encoded = OtherItem.CODEC.encodeStart(ops, others.get(i)).result().orElse(null);
+            full.add(encoded);
+            sizes[i] = encoded == null ? -1 : encoded.sizeInBytes();
+        }
+        boolean[] plan = DisplaySync.plan(sizes);
+        ListTag list = new ListTag();
+        for (int i = 0; i < others.size(); i++) {
+            OtherItem other = others.get(i);
+            OtherItem idOnly = new OtherItem(other.slot(), new ItemStack(other.stack().getItem()));
+            Tag sent = plan[i] ? full.get(i) : OtherItem.CODEC.encodeStart(ops, idOnly).result().orElse(null);
+            if (sent != null) {
+                list.add(sent);
+            }
+        }
+        return list;
     }
 
     @Override

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
@@ -14,8 +13,8 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -58,7 +57,6 @@ public final class GalleryLevel implements GalleryWorld {
     *///?}
 
     private final ServerLevel level;
-    private ItemStack displayable;
 
     public GalleryLevel(ServerLevel level) {
         this.level = level;
@@ -193,11 +191,8 @@ public final class GalleryLevel implements GalleryWorld {
                     display.setFinish(known(pedestal.finish()));
                     if (pedestal.stamp().isPresent()) {
                         display.setItem(0, DisplayContents.stack(pedestal.stamp().get()));
-                    } else if (pedestal.displayable()) {
-                        ItemStack item = this.displayable();
-                        if (!item.isEmpty()) {
-                            display.setItem(0, item.copy());
-                        }
+                    } else if (pedestal.showpiece()) {
+                        display.setItem(0, showpiece());
                     }
                 }
             }
@@ -226,19 +221,9 @@ public final class GalleryLevel implements GalleryWorld {
         return finish.filter(PaletteRegistry::contains);
     }
 
-    /** The first item of {@code #nerotrophies:displayable}, or empty when the tag is empty. */
-    private ItemStack displayable() {
-        if (this.displayable == null) {
-            this.displayable = ItemStack.EMPTY;
-            for (Item item : BuiltInRegistries.ITEM) {
-                ItemStack stack = new ItemStack(item);
-                if (!stack.isEmpty() && stack.is(PedestalBlockEntity.DISPLAYABLE)) {
-                    this.displayable = stack;
-                    break;
-                }
-            }
-        }
-        return this.displayable;
+    /** The gallery's showpiece: an ordinary vanilla item, showing that a display takes any item. */
+    static ItemStack showpiece() {
+        return new ItemStack(Items.NETHER_STAR);
     }
 
     static Component component(GalleryText text) {
