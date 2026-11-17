@@ -41,3 +41,4 @@ nerotrophies:neroruins/codex_nyxara,silver,false,nero_event,RUIN-GATE-04,Codex m
 nerotrophies:neroruins/codex_lattice,nero,false,nero_event,RUIN-GATE-04,Codex member; the mod's nero
 nerotrophies:neroruins/sentinel_breaker,gold,false,stat,RUIN-STAT-01,kill stat credits the last hit only
 nerotrophies:neroruins/heart_of_resonance,silver,true,item_obtained,RUIN-ITEM-01,hidden; never a collection member
+nerotrophies:collection/boss_hunter,nero,false,collection,boss_hunter,awarded on completing the boss_hunter collection (no trigger)

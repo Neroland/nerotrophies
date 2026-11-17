@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neropower:fission_core",
+  "title": "collection.nerotrophies.power_plant.title",
+  "description": "collection.nerotrophies.power_plant.description",
+  "trim": "orbital_amber",
+  "members": [
+    "nerotrophies:neropower/hot_rod",
+    "nerotrophies:neropower/slow_burn",
+    "nerotrophies:neropower/heat_engine",
+    "nerotrophies:neropower/line_of_sight",
+    "nerotrophies:neropower/orbital_power",
+    "nerotrophies:neropower/reactor_core"
+  ],
+  "requires_mod": "neropower"
+}

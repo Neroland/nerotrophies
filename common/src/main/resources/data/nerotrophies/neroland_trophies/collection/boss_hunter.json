@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:apex_altar",
+  "tier": "nero",
+  "hidden": false,
+  "title": "trophy.nerotrophies.collection.boss_hunter.title",
+  "description": "trophy.nerotrophies.collection.boss_hunter.description",
+  "requires_mod": "nerocreatures",
+  "category": "nerocreatures",
+  "order": 200
+}

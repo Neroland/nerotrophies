@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:resource_seed",
+  "title": "collection.nerotrophies.green_thumb.title",
+  "description": "collection.nerotrophies.green_thumb.description",
+  "trim": "wild_green",
+  "members": [
+    "nerotrophies:neroagriculture/first_harvest",
+    "nerotrophies:neroagriculture/seed_scientist",
+    "nerotrophies:neroagriculture/greenhouse_keeper",
+    "nerotrophies:neroagriculture/tower_grower",
+    "nerotrophies:neroagriculture/transmuter",
+    "nerotrophies:neroagriculture/ascension"
+  ],
+  "requires_mod": "neroagriculture"
+}

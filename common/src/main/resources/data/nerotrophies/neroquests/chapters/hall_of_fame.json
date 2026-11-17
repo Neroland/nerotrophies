@@ -1,0 +1,41 @@
+{
+  "title": "chapter.nerotrophies.hall_of_fame.title",
+  "icon": "nerotrophies:trophy_book",
+  "quests": [
+    {
+      "quest": "nerotrophies:hall_of_fame/trophy_book",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "quest": "nerotrophies:hall_of_fame/first_trophy",
+      "x": 2,
+      "y": 0
+    },
+    {
+      "quest": "nerotrophies:hall_of_fame/on_display",
+      "x": 4,
+      "y": -1
+    },
+    {
+      "quest": "nerotrophies:hall_of_fame/cabinet_maker",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "quest": "nerotrophies:hall_of_fame/wall_of_fame",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "quest": "nerotrophies:hall_of_fame/engraved",
+      "x": 6,
+      "y": -2
+    },
+    {
+      "quest": "nerotrophies:hall_of_fame/in_the_spotlight",
+      "x": 6,
+      "y": 0
+    }
+  ]
+}

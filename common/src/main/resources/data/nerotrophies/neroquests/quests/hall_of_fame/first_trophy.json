@@ -1,0 +1,22 @@
+{
+  "title": "quest.nerotrophies.hall_of_fame.first_trophy.title",
+  "description": "quest.nerotrophies.hall_of_fame.first_trophy.desc",
+  "icon": "nerotrophies:trophy",
+  "prerequisites": [
+    "nerotrophies:hall_of_fame/trophy_book"
+  ],
+  "objectives": [
+    {
+      "type": "neroquests:collect_item",
+      "item": "nerotrophies:trophy",
+      "count": 1
+    }
+  ],
+  "rewards": [
+    {
+      "type": "neroquests:xp",
+      "amount": 50
+    }
+  ],
+  "scope": "player"
+}

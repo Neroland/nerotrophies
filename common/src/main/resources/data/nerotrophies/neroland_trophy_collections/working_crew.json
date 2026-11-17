@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:blank_chip",
+  "title": "collection.nerotrophies.working_crew.title",
+  "description": "collection.nerotrophies.working_crew.description",
+  "trim": "wild_teal",
+  "members": [
+    "nerotrophies:nerocompanion/first_mine",
+    "nerotrophies:nerocompanion/first_carry",
+    "nerotrophies:nerocompanion/first_repair",
+    "nerotrophies:nerocompanion/first_guard"
+  ],
+  "requires_mod": "nerocompanion"
+}

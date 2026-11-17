@@ -261,6 +261,13 @@ public class CabinetBlockEntity extends DisplayBlockEntity {
         return changed;
     }
 
+    @Override
+    public void contentsChanged() {
+        super.contentsChanged();
+        // Every cabinet of the pool shows the pool's completion: refresh the row, not just this block.
+        this.refreshRow();
+    }
+
     /** Genuine members present in the pool. */
     public int presentCount() {
         return Long.bitCount(this.mask);

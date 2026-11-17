@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerospace:station_charter",
+  "title": "collection.nerotrophies.mission_log.title",
+  "description": "collection.nerotrophies.mission_log.description",
+  "trim": "orbital_plasma",
+  "members": [
+    "nerotrophies:nerospace/station_founder",
+    "nerotrophies:nerospace/first_freight",
+    "nerotrophies:nerospace/storm_chaser",
+    "nerotrophies:nerospace/living_world",
+    "nerotrophies:nerospace/new_life"
+  ],
+  "requires_mod": "nerospace"
+}

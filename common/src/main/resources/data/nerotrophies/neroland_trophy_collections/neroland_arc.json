@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerolandcore:void_crystal",
+  "title": "collection.nerotrophies.neroland_arc.title",
+  "description": "collection.nerotrophies.neroland_arc.description",
+  "trim": "prism",
+  "members": [
+    "nerotrophies:nerolandcore/spark_of_industry",
+    "nerotrophies:nerolandcore/escape_velocity",
+    "nerotrophies:nerolandcore/colonist",
+    "nerotrophies:nerolandcore/deep_space_pioneer"
+  ],
+  "requires_mod": "nerolandcore"
+}

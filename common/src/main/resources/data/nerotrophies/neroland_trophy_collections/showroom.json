@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:holo_projector",
+  "title": "collection.nerotrophies.showroom.title",
+  "description": "collection.nerotrophies.showroom.description",
+  "trim": "neon_rose",
+  "members": [
+    "nerotrophies:nerodecor/interior_designer",
+    "nerotrophies:nerodecor/hologram_hobbyist",
+    "nerotrophies:nerodecor/blast_proof",
+    "nerotrophies:nerodecor/command_deck"
+  ],
+  "requires_mod": "nerodecor"
+}

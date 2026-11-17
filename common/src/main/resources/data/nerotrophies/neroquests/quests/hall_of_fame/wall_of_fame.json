@@ -1,0 +1,22 @@
+{
+  "title": "quest.nerotrophies.hall_of_fame.wall_of_fame.title",
+  "description": "quest.nerotrophies.hall_of_fame.wall_of_fame.desc",
+  "icon": "nerotrophies:wall_cabinet",
+  "prerequisites": [
+    "nerotrophies:hall_of_fame/cabinet_maker"
+  ],
+  "objectives": [
+    {
+      "type": "neroquests:collect_item",
+      "item": "nerotrophies:wall_cabinet",
+      "count": 1
+    }
+  ],
+  "rewards": [
+    {
+      "type": "neroquests:xp",
+      "amount": 40
+    }
+  ],
+  "scope": "player"
+}

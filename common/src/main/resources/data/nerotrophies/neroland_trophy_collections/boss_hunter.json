@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:apex_altar",
+  "title": "collection.nerotrophies.boss_hunter.title",
+  "description": "collection.nerotrophies.boss_hunter.description",
+  "trim": "wild_green",
+  "members": [
+    "nerotrophies:nerocreatures/cinder_tyrant",
+    "nerotrophies:nerocreatures/rime_matriarch",
+    "nerotrophies:nerocreatures/bloom_sovereign",
+    "nerotrophies:nerocreatures/facet_colossus"
+  ],
+  "requires_mod": "nerocreatures",
+  "trophy": "nerotrophies:collection/boss_hunter"
+}

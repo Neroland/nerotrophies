@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:book",
+    "minecraft:gold_ingot",
+    "minecraft:purple_dye"
+  ],
+  "result": {
+    "id": "nerotrophies:trophy_book",
+    "count": 1
+  }
+}

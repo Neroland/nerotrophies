@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:arcade_cabinet",
+  "title": "collection.nerotrophies.night_out.title",
+  "description": "collection.nerotrophies.night_out.description",
+  "trim": "neon_pink",
+  "members": [
+    "nerotrophies:neronotes/pressed_vinyl",
+    "nerotrophies:neronotes/composer",
+    "nerotrophies:neronotes/on_air",
+    "nerotrophies:neroarcade/insert_coin",
+    "nerotrophies:neroarcade/game_designer",
+    "nerotrophies:neroarcade/published",
+    "nerotrophies:neroarcade/versus_victor"
+  ]
+}

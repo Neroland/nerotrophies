@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:colony_beacon",
+  "title": "collection.nerotrophies.city_planner.title",
+  "description": "collection.nerotrophies.city_planner.description",
+  "trim": "laurel_copper",
+  "members": [
+    "nerotrophies:nerocolonies/founder",
+    "nerotrophies:nerocolonies/settled",
+    "nerotrophies:nerocolonies/thriving",
+    "nerotrophies:nerocolonies/self_sufficient",
+    "nerotrophies:nerocolonies/metropolis"
+  ],
+  "requires_mod": "nerocolonies"
+}

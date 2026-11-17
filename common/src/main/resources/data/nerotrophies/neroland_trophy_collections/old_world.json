@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "minecraft:dragon_head",
+  "title": "collection.nerotrophies.old_world.title",
+  "description": "collection.nerotrophies.old_world.description",
+  "trim": "laurel_gold",
+  "members": [
+    "nerotrophies:minecraft/hellwalker",
+    "nerotrophies:minecraft/withering_heights",
+    "nerotrophies:minecraft/dragonslayer",
+    "nerotrophies:minecraft/beaconator",
+    "nerotrophies:minecraft/seen_it_all"
+  ]
+}

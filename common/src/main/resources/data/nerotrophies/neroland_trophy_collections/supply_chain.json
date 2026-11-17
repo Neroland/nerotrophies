@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "nerologistics:rocket_cargo_port",
+  "title": "collection.nerotrophies.supply_chain.title",
+  "description": "collection.nerotrophies.supply_chain.description",
+  "trim": "orbital_amber",
+  "members": [
+    "nerotrophies:nerospace/first_freight",
+    "nerotrophies:nerologistics/interplanetary_freight",
+    "nerotrophies:nerologistics/air_mail",
+    "nerotrophies:nerologistics/all_aboard",
+    "nerotrophies:nerologistics/network_online"
+  ]
+}

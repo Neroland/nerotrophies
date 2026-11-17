@@ -1,0 +1,22 @@
+{
+  "title": "quest.nerotrophies.hall_of_fame.on_display.title",
+  "description": "quest.nerotrophies.hall_of_fame.on_display.desc",
+  "icon": "nerotrophies:display_pedestal",
+  "prerequisites": [
+    "nerotrophies:hall_of_fame/first_trophy"
+  ],
+  "objectives": [
+    {
+      "type": "neroquests:collect_item",
+      "item": "nerotrophies:display_pedestal",
+      "count": 1
+    }
+  ],
+  "rewards": [
+    {
+      "type": "neroquests:xp",
+      "amount": 40
+    }
+  ],
+  "scope": "player"
+}

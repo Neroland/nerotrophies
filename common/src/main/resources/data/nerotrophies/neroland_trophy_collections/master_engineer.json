@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerotech:fusion_reactor",
+  "title": "collection.nerotrophies.master_engineer.title",
+  "description": "collection.nerotrophies.master_engineer.description",
+  "trim": "orbital_amber",
+  "members": [
+    "nerotrophies:nerotech/plugged_in",
+    "nerotrophies:nerotech/clean_hands",
+    "nerotrophies:nerotech/automaton",
+    "nerotrophies:nerotech/star_in_a_jar",
+    "nerotrophies:nerotech/stellar_fuel",
+    "nerotrophies:nerotech/event_horizon"
+  ],
+  "requires_mod": "nerotech"
+}

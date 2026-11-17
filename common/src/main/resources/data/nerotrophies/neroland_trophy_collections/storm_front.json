@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "icon": "neroevents:event_console",
+  "title": "collection.nerotrophies.storm_front.title",
+  "description": "collection.nerotrophies.storm_front.description",
+  "trim": "laurel_crimson",
+  "members": [
+    "nerotrophies:neroevents/first_responder",
+    "nerotrophies:neroevents/care_package",
+    "nerotrophies:neroevents/raid_breaker",
+    "nerotrophies:neroevents/giant_slayer"
+  ],
+  "requires_mod": "neroevents"
+}

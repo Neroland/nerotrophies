@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "GWG",
+    "III"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:glass",
+    "W": "minecraft:purple_wool"
+  },
+  "result": {
+    "id": "nerotrophies:trophy_cabinet",
+    "count": 1
+  }
+}

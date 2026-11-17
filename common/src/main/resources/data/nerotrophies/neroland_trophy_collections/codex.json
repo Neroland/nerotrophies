@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "icon": "neroruins:data_shard",
+  "title": "collection.nerotrophies.codex.title",
+  "description": "collection.nerotrophies.codex.description",
+  "trim": "wild_sand",
+  "members": [
+    "nerotrophies:neroruins/codex_earth",
+    "nerotrophies:neroruins/codex_luna",
+    "nerotrophies:neroruins/codex_mars",
+    "nerotrophies:neroruins/codex_cindara",
+    "nerotrophies:neroruins/codex_glacira",
+    "nerotrophies:neroruins/codex_greenxertz",
+    "nerotrophies:neroruins/codex_nyxara",
+    "nerotrophies:neroruins/codex_ark",
+    "nerotrophies:neroruins/codex_lattice"
+  ],
+  "requires_mod": "neroruins"
+}

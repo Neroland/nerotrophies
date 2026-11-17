@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerosecurity:security_hub",
+  "title": "collection.nerotrophies.lockdown.title",
+  "description": "collection.nerotrophies.lockdown.description",
+  "trim": "laurel_crimson",
+  "members": [
+    "nerotrophies:nerosecurity/access_granted",
+    "nerotrophies:nerosecurity/eyes_everywhere",
+    "nerotrophies:nerosecurity/shields_up",
+    "nerotrophies:nerosecurity/installation_online",
+    "nerotrophies:nerosecurity/drill_sergeant"
+  ],
+  "requires_mod": "nerosecurity"
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "nerotrophies:display_pedestal",
+      "required": false
+    },
+    {
+      "id": "nerotrophies:trophy_cabinet",
+      "required": false
+    },
+    {
+      "id": "nerotrophies:wall_cabinet",
+      "required": false
+    },
+    {
+      "id": "nerotrophies:trophy_plaque",
+      "required": false
+    }
+  ]
+}

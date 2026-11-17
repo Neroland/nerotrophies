@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerolandcore:void_crystal",
+  "title": "collection.nerotrophies.nero_standard.title",
+  "description": "collection.nerotrophies.nero_standard.description",
+  "trim": "prism",
+  "members": [
+    "nerotrophies:minecraft/how_did_we_get_here",
+    "nerotrophies:nerospace/new_life",
+    "nerotrophies:nerotech/event_horizon",
+    "nerotrophies:nerocolonies/metropolis",
+    "nerotrophies:neroagriculture/ascension",
+    "nerotrophies:neroruins/codex_lattice",
+    "nerotrophies:collection/boss_hunter"
+  ]
+}

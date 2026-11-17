@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerospace:regolith",
+  "title": "collection.nerotrophies.astronaut.title",
+  "description": "collection.nerotrophies.astronaut.description",
+  "trim": "orbital_plasma",
+  "members": [
+    "nerotrophies:nerospace/luna",
+    "nerotrophies:nerospace/mars",
+    "nerotrophies:nerospace/cindara",
+    "nerotrophies:nerospace/glacira",
+    "nerotrophies:nerospace/greenxertz",
+    "nerotrophies:nerospace/nyxara"
+  ],
+  "requires_mod": "nerospace"
+}

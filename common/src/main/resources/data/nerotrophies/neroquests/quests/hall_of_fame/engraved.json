@@ -1,0 +1,22 @@
+{
+  "title": "quest.nerotrophies.hall_of_fame.engraved.title",
+  "description": "quest.nerotrophies.hall_of_fame.engraved.desc",
+  "icon": "nerotrophies:trophy_plaque",
+  "prerequisites": [
+    "nerotrophies:hall_of_fame/on_display"
+  ],
+  "objectives": [
+    {
+      "type": "neroquests:collect_item",
+      "item": "nerotrophies:trophy_plaque",
+      "count": 1
+    }
+  ],
+  "rewards": [
+    {
+      "type": "neroquests:xp",
+      "amount": 40
+    }
+  ],
+  "scope": "player"
+}

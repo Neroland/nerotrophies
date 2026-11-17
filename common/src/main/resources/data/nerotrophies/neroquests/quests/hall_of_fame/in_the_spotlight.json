@@ -1,0 +1,22 @@
+{
+  "title": "quest.nerotrophies.hall_of_fame.in_the_spotlight.title",
+  "description": "quest.nerotrophies.hall_of_fame.in_the_spotlight.desc",
+  "icon": "nerotrophies:trophy_spotlight",
+  "prerequisites": [
+    "nerotrophies:hall_of_fame/on_display"
+  ],
+  "objectives": [
+    {
+      "type": "neroquests:collect_item",
+      "item": "nerotrophies:trophy_spotlight",
+      "count": 1
+    }
+  ],
+  "rewards": [
+    {
+      "type": "neroquests:xp",
+      "amount": 40
+    }
+  ],
+  "scope": "player"
+}

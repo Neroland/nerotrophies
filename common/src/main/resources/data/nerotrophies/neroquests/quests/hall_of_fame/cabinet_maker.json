@@ -1,0 +1,22 @@
+{
+  "title": "quest.nerotrophies.hall_of_fame.cabinet_maker.title",
+  "description": "quest.nerotrophies.hall_of_fame.cabinet_maker.desc",
+  "icon": "nerotrophies:trophy_cabinet",
+  "prerequisites": [
+    "nerotrophies:hall_of_fame/first_trophy"
+  ],
+  "objectives": [
+    {
+      "type": "neroquests:collect_item",
+      "item": "nerotrophies:trophy_cabinet",
+      "count": 1
+    }
+  ],
+  "rewards": [
+    {
+      "type": "neroquests:xp",
+      "amount": 40
+    }
+  ],
+  "scope": "player"
+}

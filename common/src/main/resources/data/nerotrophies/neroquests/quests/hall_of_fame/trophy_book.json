@@ -1,0 +1,20 @@
+{
+  "title": "quest.nerotrophies.hall_of_fame.trophy_book.title",
+  "description": "quest.nerotrophies.hall_of_fame.trophy_book.desc",
+  "icon": "nerotrophies:trophy_book",
+  "prerequisites": [],
+  "objectives": [
+    {
+      "type": "neroquests:collect_item",
+      "item": "nerotrophies:trophy_book",
+      "count": 1
+    }
+  ],
+  "rewards": [
+    {
+      "type": "neroquests:xp",
+      "amount": 30
+    }
+  ],
+  "scope": "player"
+}

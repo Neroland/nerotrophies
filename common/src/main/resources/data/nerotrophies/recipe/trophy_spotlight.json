@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " N ",
+    "IGI"
+  ],
+  "key": {
+    "N": "minecraft:iron_nugget",
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:glowstone"
+  },
+  "result": {
+    "id": "nerotrophies:trophy_spotlight",
+    "count": 2
+  }
+}

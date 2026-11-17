@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:faction_registry",
+  "title": "collection.nerotrophies.seven_banners.title",
+  "description": "collection.nerotrophies.seven_banners.description",
+  "trim": "laurel_crimson",
+  "members": [
+    "nerotrophies:nerofactions/inner_circle_free_colonists",
+    "nerotrophies:nerofactions/inner_circle_miner_union",
+    "nerotrophies:nerofactions/inner_circle_nero_corporation",
+    "nerotrophies:nerofactions/inner_circle_salvagers",
+    "nerotrophies:nerofactions/inner_circle_space_guild",
+    "nerotrophies:nerofactions/inner_circle_terraforming_authority",
+    "nerotrophies:nerofactions/inner_circle_void_cult"
+  ],
+  "requires_mod": "nerofactions"
+}

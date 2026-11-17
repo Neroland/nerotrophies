@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:field_scanner",
+  "title": "collection.nerotrophies.field_notes.title",
+  "description": "collection.nerotrophies.field_notes.description",
+  "trim": "wild_green",
+  "members": [
+    "nerotrophies:nerocreatures/new_best_friend",
+    "nerotrophies:nerocreatures/matchmaker",
+    "nerotrophies:nerocreatures/first_deploy",
+    "nerotrophies:nerocreatures/field_naturalist",
+    "nerotrophies:nerocreatures/leviathan_studied"
+  ],
+  "requires_mod": "nerocreatures"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "GWG"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:glass_pane",
+    "W": "minecraft:purple_wool"
+  },
+  "result": {
+    "id": "nerotrophies:wall_cabinet",
+    "count": 2
+  }
+}

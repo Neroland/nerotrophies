@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:traders_handbook",
+  "title": "collection.nerotrophies.merchant_prince.title",
+  "description": "collection.nerotrophies.merchant_prince.description",
+  "trim": "laurel_gold",
+  "members": [
+    "nerotrophies:neroeconomy/open_for_business",
+    "nerotrophies:neroeconomy/first_purchase",
+    "nerotrophies:neroeconomy/shopkeeper",
+    "nerotrophies:neroeconomy/shareholder",
+    "nerotrophies:neroeconomy/seasoned_trader"
+  ],
+  "requires_mod": "neroeconomy"
+}

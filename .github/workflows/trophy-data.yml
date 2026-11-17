@@ -1,0 +1,46 @@
+name: Trophy data
+
+# Validates the trophy catalogue, collections and quest pack on every change to them, offline and
+# without sibling repositories (sibling-dependent checks are skipped on CI; run
+# `python3 tools/validate_trophies.py` locally with the siblings checked out for the full set).
+# Privacy (POPIA/GDPR): reads data files only; logs file ids and rule messages, no personal data.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "common/src/main/resources/data/**"
+      - "common/src/main/resources/assets/nerotrophies/lang/**"
+      - "tools/lang/pending/**"
+      - "tools/validate_trophies.py"
+      - "tools/test_validate_trophies.py"
+      - ".github/workflows/trophy-data.yml"
+  pull_request:
+    paths:
+      - "common/src/main/resources/data/**"
+      - "common/src/main/resources/assets/nerotrophies/lang/**"
+      - "tools/lang/pending/**"
+      - "tools/validate_trophies.py"
+      - "tools/test_validate_trophies.py"
+      - ".github/workflows/trophy-data.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate trophy data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
+        with:
+          fetch-depth: 1
+
+      - name: Validator tests
+        working-directory: tools
+        run: python3 -m unittest test_validate_trophies -v
+
+      - name: Validate catalogue
+        run: python3 tools/validate_trophies.py --no-siblings

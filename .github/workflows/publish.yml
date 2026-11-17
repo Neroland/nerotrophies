@@ -98,6 +98,10 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a # v4
 
+      # Trophy data must validate before anything is built or uploaded (offline; sibling checks skip on CI).
+      - name: Validate trophy data
+        run: python3 tools/validate_trophies.py --no-siblings --quiet
+
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
 

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "NIN",
+    "IWI",
+    "NIN"
+  ],
+  "key": {
+    "N": "minecraft:iron_nugget",
+    "I": "minecraft:iron_ingot",
+    "W": "minecraft:purple_wool"
+  },
+  "result": {
+    "id": "nerotrophies:trophy_plaque",
+    "count": 2
+  }
+}
