@@ -1,0 +1,320 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "nerotrophies:block/wall_cabinet_outer",
+    "outer": "nerotrophies:block/wall_cabinet_outer",
+    "tint": "nerotrophies:block/wall_cabinet_outer_tint",
+    "velvet": "nerotrophies:block/trophy_cabinet_velvet",
+    "shelf": "nerotrophies:block/trophy_cabinet_shelf",
+    "glass": "nerotrophies:block/trophy_cabinet_glass"
+  },
+  "elements": [
+    {
+      "name": "back",
+      "from": [
+        0,
+        2,
+        15
+      ],
+      "to": [
+        16,
+        14,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#velvet",
+          "uv": [
+            0,
+            2,
+            16,
+            14
+          ]
+        },
+        "south": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            4,
+            16,
+            16
+          ],
+          "cullface": "south"
+        },
+        "up": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            5,
+            16,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            5,
+            16,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#outer",
+          "uv": [
+            15,
+            4,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#outer",
+          "uv": [
+            15,
+            4,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "floor",
+      "from": [
+        0,
+        2,
+        10
+      ],
+      "to": [
+        16,
+        3,
+        15
+      ],
+      "faces": {
+        "down": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            0,
+            16,
+            5
+          ]
+        },
+        "up": {
+          "texture": "#velvet",
+          "uv": [
+            0,
+            10,
+            16,
+            15
+          ]
+        },
+        "north": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            4,
+            16,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            4,
+            5,
+            5
+          ]
+        },
+        "west": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            4,
+            5,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "name": "floor finish",
+      "from": [
+        0,
+        1.99,
+        10
+      ],
+      "to": [
+        16,
+        2.5,
+        15
+      ],
+      "faces": {
+        "down": {
+          "texture": "#tint",
+          "uv": [
+            0,
+            0,
+            16,
+            5
+          ],
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "roof",
+      "from": [
+        0,
+        13,
+        10
+      ],
+      "to": [
+        16,
+        14,
+        15
+      ],
+      "faces": {
+        "up": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            0,
+            16,
+            5
+          ]
+        },
+        "down": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            5,
+            16,
+            10
+          ]
+        },
+        "north": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            0,
+            5,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            0,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "roof finish",
+      "from": [
+        0,
+        13.5,
+        10
+      ],
+      "to": [
+        16,
+        14.01,
+        15
+      ],
+      "faces": {
+        "up": {
+          "texture": "#tint",
+          "uv": [
+            0,
+            0,
+            16,
+            5
+          ],
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "shelf lip",
+      "from": [
+        0,
+        3,
+        10
+      ],
+      "to": [
+        16,
+        4,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#shelf",
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#shelf",
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#shelf",
+          "uv": [
+            0,
+            1,
+            16,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "front glass",
+      "from": [
+        0,
+        4,
+        10
+      ],
+      "to": [
+        16,
+        13,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#glass",
+          "uv": [
+            0,
+            4,
+            16,
+            13
+          ]
+        }
+      }
+    }
+  ]
+}

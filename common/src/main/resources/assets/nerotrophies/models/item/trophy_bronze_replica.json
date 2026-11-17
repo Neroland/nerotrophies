@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "nerotrophies:item/trophy_bronze_replica"
+  }
+}

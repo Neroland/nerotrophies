@@ -14,7 +14,7 @@ becomes a record of what you have done across the whole family.
 - Minecraft 26.3 (also built for 26.2, 26.1.2 and 1.21.1 / 1.21.4 / 1.21.5 / 1.21.7-1.21.8 / 1.21.9-1.21.10 /
   1.21.11)
 - Fabric (with Fabric API), NeoForge or Forge
-- [Neroland Core](https://github.com/Neroland/neroland-core) 1.19.0 or newer (below 2.0)
+- [Neroland Core](https://github.com/Neroland/neroland-core) 1.20.0 or newer (below 2.0)
 
 NeroTrophies depends on Neroland Core and nothing else. Trophies never gate gameplay: they are a record and a
 cosmetic.

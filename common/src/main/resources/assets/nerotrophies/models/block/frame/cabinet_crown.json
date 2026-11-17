@@ -1,0 +1,113 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "#trim"
+  },
+  "elements": [
+    {
+      "name": "crown",
+      "from": [
+        1,
+        14,
+        -0.25
+      ],
+      "to": [
+        15,
+        18,
+        1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            2,
+            16,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#trim",
+          "uv": [
+            16,
+            2,
+            2,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            2,
+            16,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            5,
+            16,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            2,
+            3,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#trim",
+          "uv": [
+            15,
+            2,
+            16,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "crown accent",
+      "from": [
+        0.99,
+        13.99,
+        -0.26
+      ],
+      "to": [
+        15.01,
+        18.01,
+        1.01
+      ],
+      "faces": {
+        "north": {
+          "texture": "#accent",
+          "uv": [
+            2,
+            2,
+            16,
+            6
+          ],
+          "tintindex": 2
+        },
+        "south": {
+          "texture": "#accent",
+          "uv": [
+            16,
+            2,
+            2,
+            6
+          ],
+          "tintindex": 2
+        }
+      }
+    }
+  ]
+}

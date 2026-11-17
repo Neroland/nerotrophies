@@ -5,7 +5,7 @@ NeroTrophies only through Core's APIs and event buses.
 
 ## Version pin and floor
 
-`nerolandcore_version` in `gradle.properties` (currently **1.19.0**) is the Core version NeroTrophies compiles
+`nerolandcore_version` in `gradle.properties` (currently **1.20.0**) is the Core version NeroTrophies compiles
 against. Every manifest derives its floor from it, so the loader refuses a Core older than the one NeroTrophies
 was built against:
 

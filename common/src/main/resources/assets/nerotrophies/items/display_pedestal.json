@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "nerotrophies:item/display_pedestal",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 4870748
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 4344406
+      }
+    ]
+  }
+}

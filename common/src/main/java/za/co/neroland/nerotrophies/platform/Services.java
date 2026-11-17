@@ -14,6 +14,7 @@ import za.co.neroland.nerotrophies.NeroTrophiesCommon;
 public final class Services {
 
     public static final PlatformInfo PLATFORM = load(PlatformInfo.class);
+    public static final NetworkPlatform NETWORK = load(NetworkPlatform.class);
 
     private Services() {
     }

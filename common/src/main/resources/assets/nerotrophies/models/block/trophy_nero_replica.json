@@ -1,0 +1,491 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "nerotrophies:block/trophy_nero_replica",
+    "sheet": "nerotrophies:block/trophy_nero_replica"
+  },
+  "elements": [
+    {
+      "name": "foot",
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        1,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            0.0,
+            7.5,
+            6.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            0.0,
+            9.5,
+            6.0,
+            10.0
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            7.5,
+            12.0,
+            8.0
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            12.0,
+            7.5,
+            6.0,
+            8.0
+          ]
+        },
+        "down": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            0.0,
+            12.0,
+            6.0
+          ],
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "name block",
+      "from": [
+        2,
+        1,
+        2
+      ],
+      "to": [
+        14,
+        4,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            0.0,
+            6.0,
+            6.0,
+            7.5
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            0.0,
+            8.0,
+            6.0,
+            9.5
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            6.0,
+            12.0,
+            7.5
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            12.0,
+            6.0,
+            6.0,
+            7.5
+          ]
+        },
+        "up": {
+          "texture": "#sheet",
+          "uv": [
+            0.0,
+            0.0,
+            6.0,
+            6.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "hex plate a",
+      "from": [
+        4,
+        4,
+        6
+      ],
+      "to": [
+        12,
+        5,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            10.0,
+            8.5
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            10.0,
+            8.5
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            8.0,
+            8.5
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            8.0,
+            8.5
+          ]
+        },
+        "up": {
+          "texture": "#sheet",
+          "uv": [
+            0.0,
+            11.0,
+            4.0,
+            13.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "hex plate b",
+      "from": [
+        5,
+        4,
+        5
+      ],
+      "to": [
+        11,
+        5,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            9.0,
+            8.5
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            9.0,
+            8.5
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            9.0,
+            8.5
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            9.0,
+            8.5
+          ]
+        },
+        "up": {
+          "texture": "#sheet",
+          "uv": [
+            0.5,
+            10.5,
+            3.5,
+            13.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "hex plate c",
+      "from": [
+        6,
+        4,
+        4
+      ],
+      "to": [
+        10,
+        5,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            8.0,
+            8.5
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            8.0,
+            8.5
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            10.0,
+            8.5
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            6.0,
+            8.0,
+            10.0,
+            8.5
+          ]
+        },
+        "up": {
+          "texture": "#sheet",
+          "uv": [
+            1.0,
+            10.0,
+            3.0,
+            14.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "emitter node",
+      "from": [
+        7,
+        5,
+        4
+      ],
+      "to": [
+        9,
+        6,
+        5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "up": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "emitter node",
+      "from": [
+        4,
+        5,
+        9
+      ],
+      "to": [
+        5,
+        6,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "up": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "emitter node",
+      "from": [
+        11,
+        5,
+        9
+      ],
+      "to": [
+        12,
+        6,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "south": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "east": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "west": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        },
+        "up": {
+          "texture": "#sheet",
+          "uv": [
+            4.0,
+            10.0,
+            4.5,
+            10.5
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "nerotrophies:block/trim_neon",
+    "trim": "nerotrophies:block/trim_neon",
+    "accent": "nerotrophies:block/trim_neon_accent"
+  },
+  "elements": [
+    {
+      "name": "crown",
+      "from": [
+        1,
+        12,
+        8.75
+      ],
+      "to": [
+        15,
+        16,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            2,
+            16,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#trim",
+          "uv": [
+            16,
+            2,
+            2,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            2,
+            16,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            5,
+            16,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            2,
+            3,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#trim",
+          "uv": [
+            15,
+            2,
+            16,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "crown accent",
+      "from": [
+        0.99,
+        11.99,
+        8.74
+      ],
+      "to": [
+        15.01,
+        16.01,
+        10.01
+      ],
+      "shade": false,
+      "light_emission": 15,
+      "faces": {
+        "north": {
+          "texture": "#accent",
+          "uv": [
+            2,
+            2,
+            16,
+            6
+          ],
+          "tintindex": 2
+        },
+        "south": {
+          "texture": "#accent",
+          "uv": [
+            16,
+            2,
+            2,
+            6
+          ],
+          "tintindex": 2
+        }
+      }
+    }
+  ]
+}

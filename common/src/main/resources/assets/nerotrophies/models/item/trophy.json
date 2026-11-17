@@ -1,0 +1,56 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "nerotrophies:item/trophy_unknown"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.1
+      },
+      "model": "nerotrophies:item/trophy_bronze"
+    },
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.2
+      },
+      "model": "nerotrophies:item/trophy_silver"
+    },
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.3
+      },
+      "model": "nerotrophies:item/trophy_gold"
+    },
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.4
+      },
+      "model": "nerotrophies:item/trophy_nero"
+    },
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.5
+      },
+      "model": "nerotrophies:item/trophy_bronze_replica"
+    },
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.6
+      },
+      "model": "nerotrophies:item/trophy_silver_replica"
+    },
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.7
+      },
+      "model": "nerotrophies:item/trophy_gold_replica"
+    },
+    {
+      "predicate": {
+        "nerotrophies:trophy_tier": 0.8
+      },
+      "model": "nerotrophies:item/trophy_nero_replica"
+    }
+  ]
+}

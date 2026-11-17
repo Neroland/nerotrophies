@@ -1,0 +1,366 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "nerotrophies:block/trophy_spotlight",
+    "housing": "nerotrophies:block/trophy_spotlight",
+    "lens": "nerotrophies:block/trophy_spotlight_lens_glow",
+    "cone": "nerotrophies:block/trophy_spotlight_cone"
+  },
+  "elements": [
+    {
+      "name": "mount",
+      "from": [
+        6,
+        6,
+        15
+      ],
+      "to": [
+        10,
+        10,
+        16
+      ],
+      "faces": {
+        "south": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "cullface": "south"
+        },
+        "north": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            4,
+            16,
+            5
+          ]
+        },
+        "down": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            4,
+            16,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            0,
+            13,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            0,
+            13,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "arm",
+      "from": [
+        7,
+        7,
+        10
+      ],
+      "to": [
+        9,
+        9,
+        15
+      ],
+      "faces": {
+        "east": {
+          "texture": "#housing",
+          "uv": [
+            6,
+            8,
+            11,
+            10
+          ]
+        },
+        "west": {
+          "texture": "#housing",
+          "uv": [
+            6,
+            8,
+            11,
+            10
+          ]
+        },
+        "up": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            6,
+            14,
+            11
+          ]
+        },
+        "down": {
+          "texture": "#housing",
+          "uv": [
+            12,
+            6,
+            14,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "housing",
+      "from": [
+        5,
+        5,
+        4
+      ],
+      "to": [
+        11,
+        9,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#housing",
+          "uv": [
+            0,
+            0,
+            6,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#housing",
+          "uv": [
+            0,
+            0,
+            6,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#housing",
+          "uv": [
+            0,
+            0,
+            6,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#housing",
+          "uv": [
+            0,
+            0,
+            6,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#housing",
+          "uv": [
+            6,
+            0,
+            12,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#housing",
+          "uv": [
+            0,
+            6,
+            6,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "name": "lens",
+      "from": [
+        6,
+        4,
+        5
+      ],
+      "to": [
+        10,
+        5,
+        9
+      ],
+      "shade": false,
+      "light_emission": 15,
+      "faces": {
+        "down": {
+          "texture": "#lens",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "north": {
+          "texture": "#lens",
+          "uv": [
+            0,
+            4,
+            4,
+            5
+          ]
+        },
+        "south": {
+          "texture": "#lens",
+          "uv": [
+            0,
+            4,
+            4,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#lens",
+          "uv": [
+            0,
+            4,
+            4,
+            5
+          ]
+        },
+        "west": {
+          "texture": "#lens",
+          "uv": [
+            0,
+            4,
+            4,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "name": "cone a",
+      "from": [
+        0,
+        0,
+        7
+      ],
+      "to": [
+        16,
+        4,
+        7
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#cone",
+          "uv": [
+            0,
+            7,
+            16,
+            11
+          ]
+        },
+        "south": {
+          "texture": "#cone",
+          "uv": [
+            0,
+            7,
+            16,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "cone b",
+      "from": [
+        8,
+        0,
+        -1
+      ],
+      "to": [
+        8,
+        4,
+        15
+      ],
+      "shade": false,
+      "faces": {
+        "east": {
+          "texture": "#cone",
+          "uv": [
+            0,
+            7,
+            16,
+            11
+          ]
+        },
+        "west": {
+          "texture": "#cone",
+          "uv": [
+            0,
+            7,
+            16,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "halo cap",
+      "from": [
+        5,
+        3.9,
+        4.5
+      ],
+      "to": [
+        11,
+        3.9,
+        9.5
+      ],
+      "shade": false,
+      "faces": {
+        "down": {
+          "texture": "#cone",
+          "uv": [
+            0,
+            11,
+            6,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#cone",
+          "uv": [
+            0,
+            11,
+            6,
+            16
+          ]
+        }
+      }
+    }
+  ]
+}

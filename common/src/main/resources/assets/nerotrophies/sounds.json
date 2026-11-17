@@ -1,0 +1,127 @@
+{
+  "award.bronze": {
+    "subtitle": "subtitles.nerotrophies.award.bronze",
+    "sounds": [
+      {
+        "name": "nerotrophies:award/bronze",
+        "volume": 0.8,
+        "stream": false
+      }
+    ]
+  },
+  "award.collection": {
+    "subtitle": "subtitles.nerotrophies.award.collection",
+    "sounds": [
+      {
+        "name": "nerotrophies:award/collection",
+        "volume": 0.8,
+        "stream": false
+      }
+    ]
+  },
+  "award.gold": {
+    "subtitle": "subtitles.nerotrophies.award.gold",
+    "sounds": [
+      {
+        "name": "nerotrophies:award/gold",
+        "volume": 0.8,
+        "stream": false
+      }
+    ]
+  },
+  "award.nero": {
+    "subtitle": "subtitles.nerotrophies.award.nero",
+    "sounds": [
+      {
+        "name": "nerotrophies:award/nero",
+        "volume": 0.8,
+        "stream": false
+      }
+    ]
+  },
+  "award.silver": {
+    "subtitle": "subtitles.nerotrophies.award.silver",
+    "sounds": [
+      {
+        "name": "nerotrophies:award/silver",
+        "volume": 0.8,
+        "stream": false
+      }
+    ]
+  },
+  "block.cabinet.latch": {
+    "subtitle": "subtitles.nerotrophies.block.cabinet.latch",
+    "sounds": [
+      {
+        "name": "nerotrophies:block/cabinet_latch1",
+        "volume": 0.7,
+        "stream": false
+      },
+      {
+        "name": "nerotrophies:block/cabinet_latch2",
+        "volume": 0.7,
+        "stream": false
+      }
+    ]
+  },
+  "block.pedestal.set": {
+    "subtitle": "subtitles.nerotrophies.block.pedestal.set",
+    "sounds": [
+      {
+        "name": "nerotrophies:block/pedestal_set",
+        "volume": 0.7,
+        "stream": false
+      }
+    ]
+  },
+  "block.trophy.place": {
+    "subtitle": "subtitles.nerotrophies.block.trophy.place",
+    "sounds": [
+      {
+        "name": "nerotrophies:block/trophy_place",
+        "volume": 0.7,
+        "stream": false
+      }
+    ]
+  },
+  "book.open": {
+    "subtitle": "subtitles.nerotrophies.book.open",
+    "sounds": [
+      {
+        "name": "nerotrophies:book/open",
+        "volume": 0.5,
+        "stream": false
+      }
+    ]
+  },
+  "book.page": {
+    "subtitle": "subtitles.nerotrophies.book.page",
+    "sounds": [
+      {
+        "name": "nerotrophies:book/page1",
+        "volume": 0.5,
+        "stream": false
+      },
+      {
+        "name": "nerotrophies:book/page2",
+        "volume": 0.5,
+        "stream": false
+      },
+      {
+        "name": "nerotrophies:book/page3",
+        "volume": 0.5,
+        "stream": false
+      }
+    ]
+  },
+  "book.reclaim": {
+    "subtitle": "subtitles.nerotrophies.book.reclaim",
+    "sounds": [
+      {
+        "name": "nerotrophies:book/reclaim",
+        "volume": 0.5,
+        "stream": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "nerotrophies:block/trophy_ghost",
+    "ghost": "nerotrophies:block/trophy_ghost"
+  },
+  "elements": [
+    {
+      "name": "base",
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        4,
+        14
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            12,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            12,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            12,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            12,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "name": "stage",
+      "from": [
+        5,
+        4,
+        5
+      ],
+      "to": [
+        11,
+        5,
+        11
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            4,
+            6,
+            5
+          ]
+        },
+        "south": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            4,
+            6,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            4,
+            6,
+            5
+          ]
+        },
+        "west": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            4,
+            6,
+            5
+          ]
+        },
+        "up": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "marker",
+      "from": [
+        4,
+        9,
+        8
+      ],
+      "to": [
+        12,
+        13,
+        8
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#ghost",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        }
+      }
+    }
+  ]
+}

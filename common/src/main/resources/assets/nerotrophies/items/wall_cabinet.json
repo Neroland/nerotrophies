@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "nerotrophies:item/wall_cabinet",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 4870748
+      }
+    ]
+  }
+}

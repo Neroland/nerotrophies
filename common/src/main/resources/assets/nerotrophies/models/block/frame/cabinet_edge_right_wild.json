@@ -1,0 +1,8 @@
+{
+  "parent": "nerotrophies:block/frame/cabinet_edge_right",
+  "textures": {
+    "particle": "nerotrophies:block/trim_wild",
+    "trim": "nerotrophies:block/trim_wild",
+    "accent": "nerotrophies:block/trim_wild_accent"
+  }
+}

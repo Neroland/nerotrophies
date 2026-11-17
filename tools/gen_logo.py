@@ -4,9 +4,9 @@ Generate the NEROTROPHIES mod logo (square), in the shared Neroland family style
 starfield with two nebula glows and the family faceted hexagonal core-prism with a glowing centre
 node + specular sparkle.
 
-NeroTrophies is the cross-mod trophies mod, so the family core-prism is set into the face of a
-gold (#e8b84a) trophy cup with two handles, a stem and a stepped plinth, haloed by a ring of
-award stars, all standing on the family perspective grid. The wordmark and tagline are drawn in a built-in 5x7 pixel font (no system font needed, so
+NeroTrophies is the cross-mod trophies mod, so the family core-prism stands as the exhibit on a
+three-step plinth inside a violet (#a77bff) laurel ring, with four tier studs on the plinth, all
+standing on the family perspective grid. The wordmark and tagline are drawn in a built-in 5x7 pixel font (no system font needed, so
 the output is identical on every OS). Renders supersampled, then downsamples.
 
 Outputs:
@@ -20,14 +20,16 @@ SEED = 61
 MOD = 'nerotrophies'
 NAME = 'NEROTROPHIES'
 TAG = 'EARN · DISPLAY · REMEMBER'
-ACCENT = (232, 184, 74)          # family colour #e8b84a (trophy gold)
-ACCENT_BRIGHT = (255, 222, 140)
-BRIGHT = (255, 248, 230)
-NEBULA = (110, 72, 20)
-STAR_TINT = (255, 236, 200)
-TAG_COL = (255, 230, 180)
-GOLD = (255, 214, 90)
-GOLD_DARK = (150, 100, 30)
+ACCENT = (167, 123, 255)         # family colour #a77bff (trophy violet)
+ACCENT_BRIGHT = (211, 190, 255)
+BRIGHT = (244, 238, 255)
+NEBULA = (74, 56, 120)
+STAR_TINT = (226, 214, 255)
+TAG_COL = (226, 214, 255)
+METAL_LT = (142, 152, 164)       # plinth metal, light and dark
+METAL_DK = (44, 49, 55)
+GLASS = (11, 17, 25)             # nameplate glass
+TIER_STUDS = [(208, 138, 82), (201, 211, 223), (255, 213, 74), ((47, 230, 200), (155, 107, 255))]
 
 import math, os, random
 import numpy as np
@@ -108,7 +110,7 @@ def background():
 
     glow(R * 0.22, R * 0.26, R * 0.55, (20, 80, 84), 0.42)   # family teal nebula
     glow(R * 0.80, R * 0.40, R * 0.55, NEBULA, 0.50)         # mod accent nebula
-    glow(R * 0.5, R * 0.36, R * 0.40, (90, 60, 16), 0.30)    # glow behind the trophy
+    glow(R * 0.5, R * 0.36, R * 0.40, (52, 38, 92), 0.30)    # glow behind the exhibit
 
     d = np.sqrt((X - R / 2) ** 2 + (Y - R / 2) ** 2) / (R * 0.72)
     vig = np.clip(1 - (d ** 2) * 0.85, 0.25, 1)
@@ -206,21 +208,37 @@ def pixels(d, cells, ox, oy, px, fill, inset=0.12):
         d.rectangle([x + g, y + g, x + px - g, y + px - g], fill=fill)
 
 
-# ---- the trophy ----------------------------------------------------------------------------------
-def trophy(base):
-    cx, top = R / 2, R * 0.12
-    bw = R * 0.19                      # bowl half-width at the rim
-    bowl_bot = R * 0.40
-    # halo + award stars
+# ---- the exhibit ---------------------------------------------------------------------------------
+def exhibit(base):
+    cx = R / 2
+    pcy, prad = R * 0.30, int(R * 0.115)       # the prism: centre and radius
+    # halo
     base.alpha_composite(soft(lambda dr: dr.ellipse([cx - R * 0.30, R * 0.06, cx + R * 0.30, R * 0.62],
                                                      fill=ACCENT + (120,)), 50 * SS))
-    for k in range(9):
-        a = math.radians(-90 + (k - 4) * 22)
-        sx, sy = cx + math.cos(a) * R * 0.33, R * 0.36 + math.sin(a) * R * 0.30
-        s = R * (0.016 if k % 2 == 0 else 0.010)
-        star = [(sx + math.cos(math.radians(36 * n - 90)) * (s if n % 2 == 0 else s * 0.45),
-                 sy + math.sin(math.radians(36 * n - 90)) * (s if n % 2 == 0 else s * 0.45)) for n in range(10)]
-        neon(base, lambda dr, star=star: dr.polygon(star, fill=ACCENT_BRIGHT + (255,)), 8)
+
+    # laurel ring: stepped leaf marks on a circle about the prism, open at the bottom where the plinth stands
+    ring, gap, leaves = R * 0.21, 70.0, 14
+    for k in range(leaves):
+        side = -1 if k < leaves // 2 else 1                     # left arm, then right arm
+        n = k if side < 0 else leaves - 1 - k                    # 0 at the bottom of each arm, rising
+        sweep = (180.0 - gap / 2) * (n + 0.5) / (leaves // 2)    # degrees up from the gap edge
+        a = math.radians(90 + side * (gap / 2 + sweep))
+        lx, ly = cx + math.cos(a) * ring, pcy + math.sin(a) * ring
+        length = R * (0.040 if n % 2 == 0 else 0.030)
+        width = R * (0.015 if n % 2 == 0 else 0.011)
+        # the leaf's long axis: the tangent pointing up the arm, turned 32 degrees outward, so the marks
+        # splay like a wreath instead of chaining into a dashed circle
+        tx, ty = -math.sin(a) * side, math.cos(a) * side
+        rx, ry = math.cos(a), math.sin(a)
+        turn = math.radians(32)
+        ax, ay = tx * math.cos(turn) + rx * math.sin(turn), ty * math.cos(turn) + ry * math.sin(turn)
+        bx, by = rx * math.cos(turn) - tx * math.sin(turn), ry * math.cos(turn) - ty * math.sin(turn)
+        skew = width * 0.9                                      # a parallelogram, raked along its axis
+        leaf = [(lx - ax * length / 2 - bx * width / 2, ly - ay * length / 2 - by * width / 2),
+                (lx + ax * length / 2 - bx * width / 2, ly + ay * length / 2 - by * width / 2),
+                (lx + ax * (length / 2 + skew) + bx * width / 2, ly + ay * (length / 2 + skew) + by * width / 2),
+                (lx - ax * (length / 2 - skew) + bx * width / 2, ly - ay * (length / 2 - skew) + by * width / 2)]
+        neon(base, lambda dr, leaf=leaf: dr.polygon(leaf, fill=ACCENT_BRIGHT + (255,)), 8)
 
     def shaded_polygon(pts, light, dark):
         """A polygon with a left-to-right metallic gradient."""
@@ -235,50 +253,40 @@ def trophy(base):
         out = Image.fromarray(np.dstack([np.clip(rgb, 0, 255), a]).astype(np.uint8), "RGBA")
         base.alpha_composite(out)
 
-    # handles (behind the bowl)
-    hd = Image.new("RGBA", (R, R), (0, 0, 0, 0))
-    hdr = ImageDraw.Draw(hd)
-    for sgn in (-1, 1):
-        hx = cx + sgn * bw * 1.02
-        box = [hx - bw * 0.42, top + R * 0.04, hx + bw * 0.42, top + R * 0.20]
-        hdr.arc(box, 270 if sgn > 0 else 90, 90 if sgn > 0 else 270, fill=GOLD_DARK + (255,), width=int(R * 0.022))
-        hdr.arc(box, 270 if sgn > 0 else 90, 90 if sgn > 0 else 270, fill=ACCENT + (255,), width=int(R * 0.012))
-    base.alpha_composite(soft(lambda dr: dr.bitmap((0, 0), hd.split()[3], fill=ACCENT + (160,)), 10 * SS))
-    base.alpha_composite(hd)
-
-    # bowl: rim to a rounded bottom
-    bowl = [(cx - bw, top)]
-    for n in range(0, 21):
-        a = math.pi * n / 20
-        bowl.append((cx - bw * math.cos(a) * (0.98 - 0.25 * math.sin(a) * 0),
-                     top + R * 0.10 + (bowl_bot - top - R * 0.10) * math.sin(a)))
-    bowl.append((cx + bw, top))
-    shaded_polygon(bowl, ACCENT_BRIGHT, GOLD_DARK)
-    # rim
-    neon(base, lambda dr: dr.ellipse([cx - bw, top - R * 0.018, cx + bw, top + R * 0.018],
-                                     fill=(120, 80, 20, 255), outline=ACCENT_BRIGHT + (255,), width=SS * 4), 10)
-    # stem + knot
-    stem = [(cx - R * 0.022, bowl_bot - R * 0.01), (cx + R * 0.022, bowl_bot - R * 0.01),
-            (cx + R * 0.030, R * 0.48), (cx - R * 0.030, R * 0.48)]
-    shaded_polygon(stem, ACCENT_BRIGHT, GOLD_DARK)
-    shaded_polygon([(cx - R * 0.05, R * 0.43), (cx + R * 0.05, R * 0.43), (cx + R * 0.04, R * 0.455),
-                    (cx - R * 0.04, R * 0.455)], ACCENT_BRIGHT, GOLD_DARK)
-    # stepped plinth
-    shaded_polygon([(cx - R * 0.10, R * 0.48), (cx + R * 0.10, R * 0.48), (cx + R * 0.12, R * 0.52),
-                    (cx - R * 0.12, R * 0.52)], ACCENT_BRIGHT, GOLD_DARK)
+    # three-step plinth, narrowing upward: (half-width, top, bottom)
     d = ImageDraw.Draw(base)
-    d.rectangle([cx - R * 0.15, R * 0.52, cx + R * 0.15, R * 0.585], fill=(34, 30, 40, 255))
-    d.rectangle([cx - R * 0.15, R * 0.52, cx + R * 0.15, R * 0.528], fill=ACCENT + (255,))
-    # name plate on the plinth
+    edge = R * 0.008
+    steps = [(R * 0.15, R * 0.52, R * 0.585), (R * 0.12, R * 0.48, R * 0.52), (R * 0.09, R * 0.445, R * 0.48)]
+    for i, (hw, y0, y1) in enumerate(steps):
+        shaded_polygon([(cx - hw, y0), (cx + hw, y0), (cx + hw, y1), (cx - hw, y1)], METAL_LT, METAL_DK)
+        if i == 0:                                                # the lowest step keeps the dark front face
+            d.rectangle([cx - hw, y0 + edge, cx + hw, y1], fill=(34, 30, 40, 255))
+        d.rectangle([cx - hw, y0, cx + hw, y0 + edge], fill=ACCENT_BRIGHT + (255,))
+
+    # four tier studs on the middle step: bronze, silver, gold, prism (split teal / violet)
+    s, pitch, sy = R * 0.014, R * 0.035, R * 0.504
+    for i, col in enumerate(TIER_STUDS):
+        x0 = cx + (i - 1.5) * pitch - s / 2
+        box = [x0, sy - s / 2, x0 + s, sy + s / 2]
+        if isinstance(col[0], tuple):
+            d.polygon([(box[0], box[1]), (box[2], box[1]), (box[0], box[3])], fill=col[0] + (255,))
+            d.polygon([(box[2], box[1]), (box[2], box[3]), (box[0], box[3])], fill=col[1] + (255,))
+        else:
+            d.rectangle(box, fill=col + (255,))
+
+    # name plate on the lowest step: dark glass with the blank ornament (the logo names nobody)
     neon(base, lambda dr: dr.rectangle([cx - R * 0.08, R * 0.540, cx + R * 0.08, R * 0.568],
-                                       fill=(60, 44, 20, 255), outline=ACCENT_BRIGHT + (255,), width=SS * 2), 6)
-    # specular streak on the bowl
-    base.alpha_composite(soft(lambda dr: dr.polygon([(cx - bw * 0.62, top + R * 0.03), (cx - bw * 0.48, top + R * 0.03),
-                                                     (cx - bw * 0.30, bowl_bot - R * 0.07),
-                                                     (cx - bw * 0.40, bowl_bot - R * 0.07)],
-                                                    fill=(255, 255, 255, 150)), 6 * SS))
-    # the family core-prism set into the cup face
-    draw_core_prism(base, cx, top + R * 0.15, int(R * 0.062))
+                                       fill=GLASS + (255,), outline=ACCENT_BRIGHT + (255,), width=SS * 2), 6)
+    py, ph = R * 0.554, R * 0.0025
+    d.rectangle([cx - R * 0.040, py - ph, cx - R * 0.014, py + ph], fill=ACCENT_BRIGHT + (255,))
+    d.rectangle([cx + R * 0.014, py - ph, cx + R * 0.040, py + ph], fill=ACCENT_BRIGHT + (255,))
+    d.rectangle([cx - R * 0.005, py - R * 0.005, cx + R * 0.005, py + R * 0.005], fill=ACCENT_BRIGHT + (255,))
+
+    # the mount pin that carries the prism on the top step
+    shaded_polygon([(cx - R * 0.012, pcy + prad - R * 0.004), (cx + R * 0.012, pcy + prad - R * 0.004),
+                    (cx + R * 0.020, R * 0.445), (cx - R * 0.020, R * 0.445)], METAL_LT, METAL_DK)
+    # the family core-prism, standing on the top step as the exhibit
+    draw_core_prism(base, cx, pcy, prad)
     # floor glow under the plinth
     base.alpha_composite(soft(lambda dr: dr.ellipse([cx - R * 0.24, R * 0.585, cx + R * 0.24, R * 0.635],
                                                      fill=ACCENT + (150,)), 14 * SS))
@@ -327,7 +335,7 @@ def main():
     img = add_stars(img)
     horizon = R * 0.60
     grid_floor(img, horizon)
-    trophy(img)
+    exhibit(img)
     # dark band behind the wordmark so it reads over the grid
     img.alpha_composite(soft(lambda dr: dr.rectangle([0, R * 0.665, R, R * 0.935], fill=(6, 8, 14, 205)), 30 * SS))
     pixel_text(img, NAME, R * 0.755, R * 0.90, R * 0.016, BRIGHT, ACCENT, ACCENT, extrude=0.55)
@@ -360,7 +368,7 @@ def generate_gif(source=None, output=None):
         phase = 2 * math.pi * t
         overlay = Image.new("RGBA", (w, h), (0, 0, 0, 0))
         draw = ImageDraw.Draw(overlay)
-        # a glint sweeping across the trophy
+        # a glint sweeping across the exhibit
         x = w * (0.25 + 0.5 * t)
         draw.line((x, h * 0.12, x + w * 0.06, h * 0.40), fill=color + (110 + int(60 * math.sin(phase) ** 2),),
                   width=max(1, w // 120))

@@ -1,0 +1,106 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "nerotrophies:block/trim_prism",
+    "trim": "nerotrophies:block/trim_prism",
+    "accent": "nerotrophies:block/trim_prism_accent"
+  },
+  "elements": [
+    {
+      "name": "corner_bl",
+      "from": [
+        0,
+        2,
+        8.5
+      ],
+      "to": [
+        4,
+        6,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim",
+          "uv": [
+            16,
+            16,
+            12,
+            12
+          ]
+        },
+        "south": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            16,
+            16,
+            12
+          ]
+        },
+        "up": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            12,
+            16,
+            13
+          ]
+        },
+        "down": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            15,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            12,
+            13,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#trim",
+          "uv": [
+            15,
+            12,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "corner_bl accent",
+      "from": [
+        -0.01,
+        1.99,
+        8.49
+      ],
+      "to": [
+        4.01,
+        6.01,
+        10.01
+      ],
+      "shade": false,
+      "light_emission": 15,
+      "faces": {
+        "north": {
+          "texture": "#accent",
+          "uv": [
+            16,
+            16,
+            12,
+            12
+          ]
+        }
+      }
+    }
+  ]
+}

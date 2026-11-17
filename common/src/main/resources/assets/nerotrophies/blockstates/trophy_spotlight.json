@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "nerotrophies:block/trophy_spotlight_ceiling"
+    },
+    "facing=north": {
+      "model": "nerotrophies:block/trophy_spotlight_wall"
+    },
+    "facing=east": {
+      "model": "nerotrophies:block/trophy_spotlight_wall",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "nerotrophies:block/trophy_spotlight_wall",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "nerotrophies:block/trophy_spotlight_wall",
+      "y": 270
+    }
+  }
+}

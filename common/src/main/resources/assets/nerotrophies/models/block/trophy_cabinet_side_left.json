@@ -1,0 +1,124 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "nerotrophies:block/trophy_cabinet_outer",
+    "outer": "nerotrophies:block/trophy_cabinet_outer",
+    "tint": "nerotrophies:block/trophy_cabinet_outer_tint",
+    "velvet": "nerotrophies:block/trophy_cabinet_velvet",
+    "shelf": "nerotrophies:block/trophy_cabinet_shelf",
+    "glass": "nerotrophies:block/trophy_cabinet_glass"
+  },
+  "elements": [
+    {
+      "name": "dado",
+      "from": [
+        0,
+        1,
+        1
+      ],
+      "to": [
+        1,
+        4,
+        15
+      ],
+      "faces": {
+        "west": {
+          "texture": "#outer",
+          "uv": [
+            1,
+            12,
+            15,
+            15
+          ],
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#outer",
+          "uv": [
+            1,
+            12,
+            15,
+            15
+          ]
+        },
+        "up": {
+          "texture": "#outer",
+          "uv": [
+            1,
+            0,
+            15,
+            1
+          ]
+        },
+        "north": {
+          "texture": "#outer",
+          "uv": [
+            0,
+            12,
+            1,
+            15
+          ]
+        }
+      }
+    },
+    {
+      "name": "dado finish",
+      "from": [
+        -0.01,
+        1,
+        1
+      ],
+      "to": [
+        0.5,
+        4,
+        15
+      ],
+      "faces": {
+        "west": {
+          "texture": "#tint",
+          "uv": [
+            1,
+            10,
+            15,
+            13
+          ],
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "side glass",
+      "from": [
+        0.05,
+        4,
+        1
+      ],
+      "to": [
+        0.05,
+        15,
+        15
+      ],
+      "faces": {
+        "west": {
+          "texture": "#glass",
+          "uv": [
+            1,
+            1,
+            15,
+            12
+          ]
+        },
+        "east": {
+          "texture": "#glass",
+          "uv": [
+            1,
+            1,
+            15,
+            12
+          ]
+        }
+      }
+    }
+  ]
+}

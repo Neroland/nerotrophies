@@ -1,0 +1,80 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "nerotrophies:block/trim_neon",
+    "trim": "nerotrophies:block/trim_neon",
+    "accent": "nerotrophies:block/trim_neon_accent"
+  },
+  "elements": [
+    {
+      "name": "edge_right",
+      "from": [
+        14,
+        2,
+        0
+      ],
+      "to": [
+        16,
+        14,
+        1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim",
+          "uv": [
+            0,
+            3,
+            2,
+            15
+          ]
+        },
+        "east": {
+          "texture": "#trim",
+          "uv": [
+            0,
+            3,
+            1,
+            15
+          ]
+        },
+        "west": {
+          "texture": "#trim",
+          "uv": [
+            0,
+            3,
+            1,
+            15
+          ]
+        }
+      }
+    },
+    {
+      "name": "edge_right accent",
+      "from": [
+        13.99,
+        1.99,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        14.01,
+        1.01
+      ],
+      "shade": false,
+      "light_emission": 15,
+      "faces": {
+        "north": {
+          "texture": "#accent",
+          "uv": [
+            0,
+            3,
+            2,
+            15
+          ],
+          "tintindex": 2
+        }
+      }
+    }
+  ]
+}

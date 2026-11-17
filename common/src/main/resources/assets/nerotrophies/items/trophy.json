@@ -1,0 +1,68 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "nerotrophies:trophy_tier",
+    "cases": [
+      {
+        "when": "bronze",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_bronze"
+        }
+      },
+      {
+        "when": "silver",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_silver"
+        }
+      },
+      {
+        "when": "gold",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_gold"
+        }
+      },
+      {
+        "when": "nero",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_nero"
+        }
+      },
+      {
+        "when": "bronze_replica",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_bronze_replica"
+        }
+      },
+      {
+        "when": "silver_replica",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_silver_replica"
+        }
+      },
+      {
+        "when": "gold_replica",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_gold_replica"
+        }
+      },
+      {
+        "when": "nero_replica",
+        "model": {
+          "type": "minecraft:model",
+          "model": "nerotrophies:item/trophy_nero_replica"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "nerotrophies:item/trophy_unknown"
+    }
+  }
+}

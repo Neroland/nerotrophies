@@ -10,7 +10,8 @@
   "accessWidener": "nerotrophies.accesswidener",
   "environment": "*",
   "entrypoints": {
-    "main": ["za.co.neroland.nerotrophies.fabric.NeroTrophiesFabric"]
+    "main": ["za.co.neroland.nerotrophies.fabric.NeroTrophiesFabric"],
+    "client": ["za.co.neroland.nerotrophies.fabric.NeroTrophiesFabricClient"]
   },
   "mixins": [
     "nerotrophies-common.mixins.json",

@@ -1,0 +1,103 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "#trim"
+  },
+  "elements": [
+    {
+      "name": "corner_tr",
+      "from": [
+        12,
+        10,
+        8.5
+      ],
+      "to": [
+        16,
+        14,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#trim",
+          "uv": [
+            16,
+            12,
+            12,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            12,
+            16,
+            13
+          ]
+        },
+        "down": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            15,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#trim",
+          "uv": [
+            12,
+            12,
+            13,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#trim",
+          "uv": [
+            15,
+            12,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "corner_tr accent",
+      "from": [
+        11.99,
+        9.99,
+        8.49
+      ],
+      "to": [
+        16.01,
+        14.01,
+        10.01
+      ],
+      "faces": {
+        "north": {
+          "texture": "#accent",
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "tintindex": 2
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2367 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_left"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_right"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_plate"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_orbital"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_laurel"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_wild"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_neon"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_prism"
+      }
+    },
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_left",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_right",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_orbital",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_laurel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_wild",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_neon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_prism",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_left",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_right",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_orbital",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_laurel",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_wild",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_neon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_prism",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_left",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/wall_cabinet_side_right",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "plate",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_plate",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "orbital",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_orbital",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "laurel",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_laurel",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "wild",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_wild",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "neon",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_neon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_top_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_bottom_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_crown_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_left_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tl_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism",
+        "left": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_bl_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_edge_right_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_tr_prism",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "trim": "prism",
+        "right": "false"
+      },
+      "apply": {
+        "model": "nerotrophies:block/frame/wall_cabinet_corner_br_prism",
+        "y": 270
+      }
+    }
+  ]
+}

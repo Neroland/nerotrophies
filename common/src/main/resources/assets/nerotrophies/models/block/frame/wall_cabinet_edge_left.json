@@ -1,0 +1,76 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "#trim"
+  },
+  "elements": [
+    {
+      "name": "edge_left",
+      "from": [
+        0,
+        4,
+        9
+      ],
+      "to": [
+        2,
+        12,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim",
+          "uv": [
+            2,
+            4,
+            0,
+            12
+          ]
+        },
+        "east": {
+          "texture": "#trim",
+          "uv": [
+            0,
+            4,
+            1,
+            12
+          ]
+        },
+        "west": {
+          "texture": "#trim",
+          "uv": [
+            0,
+            4,
+            1,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "name": "edge_left accent",
+      "from": [
+        -0.01,
+        3.99,
+        8.99
+      ],
+      "to": [
+        2.01,
+        12.01,
+        10.01
+      ],
+      "faces": {
+        "north": {
+          "texture": "#accent",
+          "uv": [
+            2,
+            4,
+            0,
+            12
+          ],
+          "tintindex": 2
+        }
+      }
+    }
+  ]
+}
