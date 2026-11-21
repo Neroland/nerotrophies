@@ -8,9 +8,9 @@ All notable changes to NeroTrophies are documented here. The format follows
 
 ## [0.1.0] — 2026-11-21
 
-- Hovering a gauge now shows what it is, how much, and the rate.
-
 ### Changed
+
+- Hovering a gauge now shows what it is, how much, and the rate.
 
 - Transitioning to stable versions: the alpha/beta label is dropped from the version number, so this release is **0.1.0** (previously 0.1.0-beta.1). Nothing else changes with the version label.
 
