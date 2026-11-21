@@ -600,5 +600,13 @@
   "nerotrophies.gallery.finish.nero_alloy": "Nero Alloy",
   "nerotrophies.gallery.finish.starsteel": "Starsteel",
   "nerotrophies.gallery.finish.void_crystal": "Void Crystal",
-  "nerotrophies.gallery.finish.plasma_glass": "Plasma Glass"
+  "nerotrophies.gallery.finish.plasma_glass": "Plasma Glass",
+  "nerotrophies.gui.gauge.collections": "Collections: %s of %s complete",
+  "nerotrophies.gui.gauge.collection": "%s of %s trophies earned",
+  "nerotrophies.gui.gauge.count.percent": "%s%% complete",
+  "nerotrophies.gui.gauge.count.left": "%s to go",
+  "nerotrophies.gui.gauge.count.done": "All done",
+  "nerotrophies.gui.gauge.count.none": "Nothing here yet",
+  "nerotrophies.gui.gauge.progress.amount": "Progress: %s / %s (%s%%)",
+  "nerotrophies.gui.gauge.progress.left": "%s more to earn it"
 }

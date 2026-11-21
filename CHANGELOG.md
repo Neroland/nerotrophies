@@ -4,6 +4,16 @@ All notable changes to NeroTrophies are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+## [0.1.0] — 2026-11-21
+
+- Hovering a gauge now shows what it is, how much, and the rate.
+
+### Changed
+
+- Transitioning to stable versions: the alpha/beta label is dropped from the version number, so this release is **0.1.0** (previously 0.1.0-beta.1). Nothing else changes with the version label.
+
 ## [0.1.0-beta.1] — 2026-11-17
 
 First feature release. Requires **Neroland Core 1.20.0** (the release that adds Core's trophy API).

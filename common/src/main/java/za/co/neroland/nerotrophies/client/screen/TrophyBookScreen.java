@@ -29,6 +29,7 @@ import za.co.neroland.nerolandcore.trophy.TrophyTier;
 
 import za.co.neroland.nerotrophies.block.DisplaySounds;
 import za.co.neroland.nerotrophies.block.Trims;
+import za.co.neroland.nerotrophies.client.GaugeTooltips;
 import za.co.neroland.nerotrophies.client.net.ClientTrophyNet;
 import za.co.neroland.nerotrophies.client.net.ClientTrophyRecord;
 import za.co.neroland.nerotrophies.client.render.TrophyColours;
@@ -199,6 +200,7 @@ public class TrophyBookScreen extends Screen {
         if (Gui.inside(mx, my, barX, this.hy + 6, barW, 10)) {
             this.tooltip.add(Component.translatable("screen.nerotrophies.book.overall.tooltip", all.earned(),
                     all.total()));
+            GaugeTooltips.count(this.tooltip, all.earned(), all.total());
         }
         int cx = this.hx + this.hw - 198;
         for (TrophyTier tier : TrophyTier.values()) {
@@ -253,14 +255,20 @@ public class TrophyBookScreen extends Screen {
             if (hot) {
                 this.tooltip.add(Component.translatable("screen.nerotrophies.book.tab.tooltip",
                         this.categoryName(t.category()), t.earned(), t.total()));
+                GaugeTooltips.count(this.tooltip, t.earned(), t.total());
             }
         }
         g.fill(x, this.hy + this.hh - 38, x + this.railW, this.hy + this.hh - 37, TrophyColours.PANEL_EDGE);
         List<RecordPayload.CollectionView> cols = model.collections();
         int done = (int) cols.stream().filter(RecordPayload.CollectionView::completed).count();
         int cy = this.hy + this.hh - 36;
+        boolean colsHot = Gui.inside(mx, my, x, cy, this.railW, 20);
         this.railRow(g, x, cy, 1, Component.translatable("screen.nerotrophies.book.collections").getString(), done,
-                cols.size(), this.collectionsView, Gui.inside(mx, my, x, cy, this.railW, 20));
+                cols.size(), this.collectionsView, colsHot);
+        if (colsHot) {
+            this.tooltip.add(Component.translatable("nerotrophies.gui.gauge.collections", done, cols.size()));
+            GaugeTooltips.count(this.tooltip, done, cols.size());
+        }
     }
 
     private void railRow(GuiGraphicsExtractor g, int x, int y, int emblem, String name, int earned, int total,
@@ -397,6 +405,9 @@ public class TrophyBookScreen extends Screen {
                 }
                 if (e.description() != null) {
                     this.tooltip.add(Component.translatable(e.description()));
+                }
+                if (!e.earned() && e.target() > 0) {
+                    GaugeTooltips.progress(this.tooltip, e.progress(), e.target());
                 }
             }
         }
@@ -548,6 +559,11 @@ public class TrophyBookScreen extends Screen {
                 view.completed() ? TrophyColours.ACCENT_BRIGHT : TrophyColours.TEXT_2);
         g.fill(x + 32, y + 15, x + w - 8, y + 19, TrophyColours.TRACK);
         g.fill(x + 32, y + 15, x + 32 + (size == 0 ? 0 : (w - 40) * earned / size), y + 19, TrophyColours.ACCENT);
+        if (Gui.inside(mx, my, x + 32, y + 13, w - 40, 8)) {
+            this.tooltip.add(Component.translatable(view.title()));
+            this.tooltip.add(Component.translatable("nerotrophies.gui.gauge.collection", earned, size));
+            GaugeTooltips.count(this.tooltip, earned, size);
+        }
         int ix = x + 32;
         int max = Math.max(1, (w - 40) / 18);
         for (int k = 0; k < view.members().size(); k++) {
