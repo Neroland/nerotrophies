@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:marquee_screen",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroarcade:first_record"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroarcade.high_score.title",
+  "description": "trophy.nerotrophies.neroarcade.high_score.description",
+  "requires_mod": "neroarcade",
+  "category": "neroarcade",
+  "order": 60
+}

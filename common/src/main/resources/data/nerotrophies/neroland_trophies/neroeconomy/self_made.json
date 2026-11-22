@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:credit_chip",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroeconomy:earned_100k"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroeconomy.self_made.title",
+  "description": "trophy.nerotrophies.neroeconomy.self_made.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 90
+}

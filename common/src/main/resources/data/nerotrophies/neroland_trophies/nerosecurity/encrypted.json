@@ -3,8 +3,9 @@
   "icon": "nerosecurity:encryption_module",
   "tier": "silver",
   "trigger": {
-    "type": "item_obtained",
-    "item": "nerosecurity:encryption_module"
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerosecurity:first_encrypted_keycard"
   },
   "hidden": true,
   "title": "trophy.nerotrophies.nerosecurity.encrypted.title",

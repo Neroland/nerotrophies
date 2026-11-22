@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "neroarcade:arcade_cabinet",
+  "tier": "gold",
+  "trigger": {
+    "type": "stat",
+    "stat_type": "minecraft:custom",
+    "stat": "neroarcade:matches_won",
+    "at_least": 100
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroarcade.arcade_legend.title",
+  "description": "trophy.nerotrophies.neroarcade.arcade_legend.description",
+  "requires_mod": "neroarcade",
+  "category": "neroarcade",
+  "order": 70
+}

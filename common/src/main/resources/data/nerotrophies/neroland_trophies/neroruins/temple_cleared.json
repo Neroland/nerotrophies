@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:resonance_pylon",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:temple_cleared"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.temple_cleared.title",
+  "description": "trophy.nerotrophies.neroruins.temple_cleared.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 150
+}

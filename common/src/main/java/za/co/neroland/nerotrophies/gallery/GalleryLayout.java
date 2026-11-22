@@ -35,8 +35,8 @@ public final class GalleryLayout {
     /** Widest hall allowed (the hall is always {@link GalleryFrame#WIDTH} wide). */
     public static final int MAX_WIDTH = 64;
     /**
-     * Longest hall allowed. A 64-block hall fits about 120 trophies; the 152-trophy catalogue with every
-     * Nero mod loaded needs about 70 (the bay aisles lengthen first), so the cap allows that with room to spare.
+     * Longest hall allowed. A 64-block hall fits about 120 trophies; the shipped catalogue (214 trophies) with
+     * every Nero mod loaded stays inside the cap (the bay aisles lengthen first; GalleryLayoutTest checks it).
      */
     public static final int MAX_LENGTH = 96;
 

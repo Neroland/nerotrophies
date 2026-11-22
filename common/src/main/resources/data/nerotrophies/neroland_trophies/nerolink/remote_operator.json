@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:lever",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolink:first_action"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerolink.remote_operator.title",
+  "description": "trophy.nerotrophies.nerolink.remote_operator.description",
+  "requires_mod": "nerolink",
+  "category": "nerolink",
+  "order": 30
+}

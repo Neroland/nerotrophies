@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:colony_beacon",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocolonies:population_25"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocolonies.population_25.title",
+  "description": "trophy.nerotrophies.nerocolonies.population_25.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 110
+}

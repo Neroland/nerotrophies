@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:resource_seed",
+  "tier": "silver",
+  "trigger": {
+    "type": "stat",
+    "stat_type": "minecraft:custom",
+    "stat": "neroagriculture:crops_harvested",
+    "at_least": 100
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.bumper_crop.title",
+  "description": "trophy.nerotrophies.neroagriculture.bumper_crop.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 90
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neronotes:resonator",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neronotes:listeners/10"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neronotes.on_the_charts.title",
+  "description": "trophy.nerotrophies.neronotes.on_the_charts.description",
+  "requires_mod": "neronotes",
+  "category": "neronotes",
+  "order": 60
+}

@@ -43,7 +43,7 @@ class GalleryLayoutTest {
 
     @Test
     void theFullCatalogueFitsAndEveryTrophyHasOnePedestalAndSign() {
-        GalleryCatalogue catalogue = GalleryFixtures.catalogue_0_1_0();
+        GalleryCatalogue catalogue = GalleryFixtures.shippedCatalogue();
         GalleryPlan plan = GalleryFixtures.plan(catalogue);
         assertTrue(plan.length() <= GalleryLayout.MAX_LENGTH, "length " + plan.length());
         assertTrue(GalleryFrame.WIDTH <= GalleryLayout.MAX_WIDTH);
@@ -66,12 +66,12 @@ class GalleryLayoutTest {
         assertEquals(catalogue.trophyCount(), onPedestals.size(), "every loaded trophy is on a pedestal");
         onPedestals.values().forEach(n -> assertEquals(1, n, "each exactly once"));
         assertEquals(catalogue.trophyCount(), trophySigns, "each with a sign");
-        assertEquals(152, catalogue.trophyCount());
+        assertEquals(214, catalogue.trophyCount());
     }
 
     @Test
     void theLobbyHasSixPlatesFourTiersAndThreePlateStates() {
-        GalleryCatalogue catalogue = GalleryFixtures.catalogue_0_1_0();
+        GalleryCatalogue catalogue = GalleryFixtures.shippedCatalogue();
         GalleryPlan plan = GalleryFixtures.plan(catalogue);
         assertEquals(6, plan.plates().size());
         assertEquals(List.of(GalleryPiece.Demo.values()), plan.plates().stream().map(GalleryPlan.PlateSpot::demo).toList());
@@ -94,7 +94,7 @@ class GalleryLayoutTest {
 
     @Test
     void everyCollectionStandsEmptyPartialAndComplete() {
-        GalleryCatalogue catalogue = GalleryFixtures.catalogue_0_1_0();
+        GalleryCatalogue catalogue = GalleryFixtures.shippedCatalogue();
         GalleryPlan plan = GalleryFixtures.plan(catalogue);
         for (TrophyCollection collection : catalogue.collections()) {
             List<Cabinet> bound = new ArrayList<>();
@@ -126,7 +126,7 @@ class GalleryLayoutTest {
 
     @Test
     void everyFinishAndTrimIsShown() {
-        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.catalogue_0_1_0());
+        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.shippedCatalogue());
         Set<Optional<Identifier>> finishes = new HashSet<>();
         Set<String> trims = new HashSet<>();
         int emptyPedestals = 0;
@@ -150,7 +150,7 @@ class GalleryLayoutTest {
 
     @Test
     void theShellIsClosedExceptTheEntrance() {
-        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.catalogue_0_1_0());
+        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.shippedCatalogue());
         for (int i = 0; i < plan.cells().length; i++) {
             GalleryFrame.Local c = GalleryPlan.local(i);
             boolean boundary = c.y() == 0 || c.y() == GalleryFrame.HEIGHT - 1 || c.l() == 0
@@ -170,7 +170,7 @@ class GalleryLayoutTest {
 
     @Test
     void signsCarryLangKeysOnly() {
-        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.catalogue_0_1_0());
+        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.shippedCatalogue());
         for (GalleryPiece piece : plan.cells()) {
             if (piece instanceof Sign s) {
                 assertFalse(s.lines().isEmpty());

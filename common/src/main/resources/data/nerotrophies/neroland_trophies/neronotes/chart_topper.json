@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neronotes:voice_pedestal",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neronotes:listeners/25"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neronotes.chart_topper.title",
+  "description": "trophy.nerotrophies.neronotes.chart_topper.description",
+  "requires_mod": "neronotes",
+  "category": "neronotes",
+  "order": 70
+}

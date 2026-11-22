@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:security_keycard",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:discovered/bunker"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.discovered_bunker.title",
+  "description": "trophy.nerotrophies.neroruins.discovered_bunker.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 160
+}

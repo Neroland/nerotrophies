@@ -5,7 +5,7 @@
   "trigger": {
     "type": "nero_event",
     "event": "gate",
-    "gate": "neroarcade:hook/blank_cartridges"
+    "gate": "neroarcade:insert_coin_complete"
   },
   "hidden": false,
   "title": "trophy.nerotrophies.neroquests.arcade_apprentice.title",

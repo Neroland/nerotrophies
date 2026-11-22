@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:chroma_linker",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerodecor:hub_linked/16"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerodecor.wired_up.title",
+  "description": "trophy.nerotrophies.nerodecor.wired_up.description",
+  "requires_mod": "nerodecor",
+  "category": "nerodecor",
+  "order": 80
+}

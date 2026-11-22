@@ -6,6 +6,33 @@ All notable changes to NeroTrophies are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-11-26
+
+### Added
+
+- **62 trophies on the record gates and stats the sibling mods now open** (each lights up from that mod's next release):
+  NeroPower Criticality (nero) and Deep Reserves; NeroSecurity Fortress (nero); NeroRuins Temple Cleared and six ruin
+  discoveries; Nerospace Liftoff, Crewed Launch, Rover Driver and Station Builder; NeroFactions Outpost Finder,
+  Contractor and seven faction Regalia; NeroCreatures Tamer, Beastmaster and Complete Bestiary; NeroAgriculture Bumper
+  Crop, Breadbasket and Worldshaper; NeroArcade High Score and Arcade Legend; NeroColonies First Export, Bustling and
+  Boomtown; NeroCompanion Soulbound (nero); NeroDecor Light Show, Wired Up and Master Electrician; NeroEvents Storm
+  Survivor and War Victor; a NeroLink category (Linked Up, Second Screen, Remote Operator, Always Connected and the
+  hidden Read the Manual); NeroMaps Shared Bearings, Surveyor, Explorer and World Charted (nero); NeroNotes On the
+  Charts, Chart Topper (nero), Prolific and Hit Factory; NeroEconomy Self-Made (nero) and Read the Fine Print; and
+  NeroQuests Daily Grind, Groundwork Done, Industrialist, Space Racer, Quest Veteran, Quest Master and The Whole Book
+  (nero).
+- **Ruin Survey** collection: set foot in every family of ruin.
+
+### Changed
+
+- The catalogue is now 214 trophies (bronze 79, silver 77, gold 44, nero 14; 17 hidden) and 21 collections.
+- **Nero Standard** now includes the seven new nero trophies.
+- Retargeted to the new record gates: Event Horizon (store items in a Singularity Vault), Storm Chaser (every
+  world's weather, Europa included), Air Mail (send your first drone), Network Online (a storage network comes
+  online), Into the Soundforge (also credited to players already inside), Encrypted (write an encrypted keycard) and
+  Arcade Apprentice (NeroArcade's Insert Coin chapter).
+- The four boss trophies now say what actually earns them: scan the boss and help bring it down in a summoned fight.
+
 ## [0.1.0] — 2026-11-21
 
 ### Changed

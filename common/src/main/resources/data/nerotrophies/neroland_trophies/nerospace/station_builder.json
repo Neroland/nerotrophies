@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerospace:station_compass",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerospace:station_module"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerospace.station_builder.title",
+  "description": "trophy.nerotrophies.nerospace.station_builder.description",
+  "requires_mod": "nerospace",
+  "category": "nerospace",
+  "order": 170
+}

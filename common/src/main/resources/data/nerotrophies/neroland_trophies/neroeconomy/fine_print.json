@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroeconomy:traders_handbook",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroeconomy:handbook_read"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroeconomy.fine_print.title",
+  "description": "trophy.nerotrophies.neroeconomy.fine_print.description",
+  "requires_mod": "neroeconomy",
+  "category": "neroeconomy",
+  "order": 100
+}

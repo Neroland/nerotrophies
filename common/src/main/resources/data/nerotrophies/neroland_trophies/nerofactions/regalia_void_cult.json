@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:void_vestments_helmet",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:full_set_void_cult"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.regalia_void_cult.title",
+  "description": "trophy.nerotrophies.nerofactions.regalia_void_cult.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 200
+}

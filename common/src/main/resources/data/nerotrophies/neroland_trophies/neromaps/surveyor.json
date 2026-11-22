@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neromaps:survey_kit",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neromaps:explored/1000"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neromaps.surveyor.title",
+  "description": "trophy.nerotrophies.neromaps.surveyor.description",
+  "requires_mod": "neromaps",
+  "category": "neromaps",
+  "order": 60
+}

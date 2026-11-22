@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerospace:rocket_tier_1",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerospace:first_launch"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerospace.liftoff.title",
+  "description": "trophy.nerotrophies.nerospace.liftoff.description",
+  "requires_mod": "nerospace",
+  "category": "nerospace",
+  "order": 140
+}

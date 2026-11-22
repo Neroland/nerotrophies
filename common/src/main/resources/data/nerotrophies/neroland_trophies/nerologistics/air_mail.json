@@ -3,8 +3,9 @@
   "icon": "nerologistics:drone_hub",
   "tier": "silver",
   "trigger": {
-    "type": "block_placed",
-    "block": "nerologistics:drone_hub"
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerologistics:first_drone_dispatch"
   },
   "title": "trophy.nerotrophies.nerologistics.air_mail.title",
   "description": "trophy.nerotrophies.nerologistics.air_mail.description",

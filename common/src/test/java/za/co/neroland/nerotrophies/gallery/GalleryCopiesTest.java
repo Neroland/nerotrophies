@@ -35,7 +35,7 @@ class GalleryCopiesTest {
 
     @Test
     void everyTrophyInTheHallCarriesAReservedToken() {
-        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.catalogue_0_1_0());
+        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.shippedCatalogue());
         Set<Long> tokens = new HashSet<>();
         List<TrophyStamp> stamps = plan.stamps();
         assertFalse(stamps.isEmpty());
@@ -61,7 +61,7 @@ class GalleryCopiesTest {
 
     @Test
     void galleryCopiesNeverResolveToAPlayerOrCount() {
-        GalleryCatalogue catalogue = GalleryFixtures.catalogue_0_1_0();
+        GalleryCatalogue catalogue = GalleryFixtures.shippedCatalogue();
         GalleryPlan plan = GalleryFixtures.plan(catalogue);
         // A real earner of every trophy the hall shows, with a name and show-name on.
         TrophyState state = new TrophyState();
@@ -93,7 +93,7 @@ class GalleryCopiesTest {
     void displayCopiesFillTheVisualMaskButNeverTheGenuineOne() {
         TrophyState state = new TrophyState();
         Function<TrophyStamp, TrophyStatus> resolver = s -> TokenResolver.resolve(state, s.trophy(), s.token()).status();
-        TrophyCollection first = GalleryFixtures.catalogue_0_1_0().collections().get(0);
+        TrophyCollection first = GalleryFixtures.shippedCatalogue().collections().get(0);
         List<Identifier> members = first.members();
         List<TrophyStamp> all = members.stream().map(m -> new TrophyStamp(m, TrophyStamp.GALLERY_TOKEN)).toList();
         long full = (1L << members.size()) - 1;
@@ -111,7 +111,7 @@ class GalleryCopiesTest {
     @Test
     void buildingAndClearingTheHallLeavesTheTrophyStoreUntouched() {
         TrophyState state = new TrophyState();
-        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.catalogue_0_1_0());
+        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.shippedCatalogue());
         GalleryFrame frame = GalleryFrame.inFrontOf(BlockPos.ZERO, Direction.NORTH, plan.length());
         FakeGalleryWorld world = new FakeGalleryWorld();
         GalleryJob build = GalleryJob.build(Identifier.withDefaultNamespace("overworld"), frame, plan);

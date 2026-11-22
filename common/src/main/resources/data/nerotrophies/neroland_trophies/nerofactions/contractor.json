@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:contract_board",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:contract_completed_10"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.contractor.title",
+  "description": "trophy.nerotrophies.nerofactions.contractor.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 130
+}

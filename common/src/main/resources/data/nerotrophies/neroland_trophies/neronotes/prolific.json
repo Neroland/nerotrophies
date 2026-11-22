@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neronotes:disk_press",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neronotes:published/10"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neronotes.prolific.title",
+  "description": "trophy.nerotrophies.neronotes.prolific.description",
+  "requires_mod": "neronotes",
+  "category": "neronotes",
+  "order": 80
+}

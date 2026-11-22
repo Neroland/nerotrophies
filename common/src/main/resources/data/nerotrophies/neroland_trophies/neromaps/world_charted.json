@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neromaps:atlas_upgrade_pages",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neromaps:explored/50000"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neromaps.world_charted.title",
+  "description": "trophy.nerotrophies.neromaps.world_charted.description",
+  "requires_mod": "neromaps",
+  "category": "neromaps",
+  "order": 80
+}

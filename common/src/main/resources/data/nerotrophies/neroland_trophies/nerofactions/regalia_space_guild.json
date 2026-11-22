@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:guild_flight_suit_helmet",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:full_set_space_guild"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.regalia_space_guild.title",
+  "description": "trophy.nerotrophies.nerofactions.regalia_space_guild.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 180
+}

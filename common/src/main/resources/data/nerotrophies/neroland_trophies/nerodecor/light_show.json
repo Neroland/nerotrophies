@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerodecor:scene_chip",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerodecor:scene_authored"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerodecor.light_show.title",
+  "description": "trophy.nerotrophies.nerodecor.light_show.description",
+  "requires_mod": "nerodecor",
+  "category": "nerodecor",
+  "order": 70
+}

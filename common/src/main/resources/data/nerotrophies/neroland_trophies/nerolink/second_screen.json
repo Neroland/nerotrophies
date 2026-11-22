@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:spyglass",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolink:two_devices"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerolink.second_screen.title",
+  "description": "trophy.nerotrophies.nerolink.second_screen.description",
+  "requires_mod": "nerolink",
+  "category": "nerolink",
+  "order": 20
+}

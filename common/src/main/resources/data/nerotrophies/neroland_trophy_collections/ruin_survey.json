@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:surveyors_compass",
+  "title": "collection.nerotrophies.ruin_survey.title",
+  "description": "collection.nerotrophies.ruin_survey.description",
+  "trim": "wild_sand",
+  "members": [
+    "nerotrophies:neroruins/discovered_bunker",
+    "nerotrophies:neroruins/discovered_survey_lab",
+    "nerotrophies:neroruins/discovered_crash_site",
+    "nerotrophies:neroruins/discovered_colony_field",
+    "nerotrophies:neroruins/discovered_lattice_temple",
+    "nerotrophies:neroruins/discovered_halcyon_ark"
+  ],
+  "requires_mod": "neroruins"
+}

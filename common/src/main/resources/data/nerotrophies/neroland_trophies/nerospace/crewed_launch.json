@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerospace:rocket_tier_2",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerospace:crew_launch"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerospace.crewed_launch.title",
+  "description": "trophy.nerotrophies.nerospace.crewed_launch.description",
+  "requires_mod": "nerospace",
+  "category": "nerospace",
+  "order": 150
+}

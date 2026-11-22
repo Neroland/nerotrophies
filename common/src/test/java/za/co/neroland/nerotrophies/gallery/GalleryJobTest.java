@@ -55,7 +55,7 @@ class GalleryJobTest {
 
     @Test
     void clearLeavesTheAreaIdentical() {
-        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.catalogue_0_1_0());
+        GalleryPlan plan = GalleryFixtures.plan(GalleryFixtures.shippedCatalogue());
         GalleryFrame frame = GalleryFrame.inFrontOf(new BlockPos(100, 64, -40), Direction.EAST, plan.length());
         FakeGalleryWorld world = new FakeGalleryWorld();
         seed(world, frame);

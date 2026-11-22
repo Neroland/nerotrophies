@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:salvager_patchwork_helmet",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:full_set_salvagers"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.regalia_salvagers.title",
+  "description": "trophy.nerotrophies.nerofactions.regalia_salvagers.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 170
+}

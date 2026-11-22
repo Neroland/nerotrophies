@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocolonies:colony_planner",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocolonies:first_export"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocolonies.first_export.title",
+  "description": "trophy.nerotrophies.nerocolonies.first_export.description",
+  "requires_mod": "nerocolonies",
+  "category": "nerocolonies",
+  "order": 100
+}

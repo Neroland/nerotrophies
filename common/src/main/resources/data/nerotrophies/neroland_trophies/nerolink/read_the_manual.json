@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:writable_book",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolink:wiki_reader"
+  },
+  "hidden": true,
+  "title": "trophy.nerotrophies.nerolink.read_the_manual.title",
+  "description": "trophy.nerotrophies.nerolink.read_the_manual.description",
+  "requires_mod": "nerolink",
+  "category": "nerolink",
+  "order": 40
+}

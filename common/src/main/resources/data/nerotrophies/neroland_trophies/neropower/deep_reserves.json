@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neropower:battery_bank_controller",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neropower:bank_capacity"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neropower.deep_reserves.title",
+  "description": "trophy.nerotrophies.neropower.deep_reserves.description",
+  "requires_mod": "neropower",
+  "category": "neropower",
+  "order": 90
+}

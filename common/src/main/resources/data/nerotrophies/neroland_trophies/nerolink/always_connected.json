@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:bell",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolink:alerts_enabled"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerolink.always_connected.title",
+  "description": "trophy.nerotrophies.nerolink.always_connected.description",
+  "requires_mod": "nerolink",
+  "category": "nerolink",
+  "order": 50
+}

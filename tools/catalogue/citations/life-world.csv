@@ -5,7 +5,7 @@ nerotrophies:nerocreatures/first_deploy,bronze,false,nero_event,CREA-GATE-02,
 nerotrophies:nerocreatures/field_naturalist,bronze,false,nero_event,CREA-GATE-04,
 nerotrophies:nerocreatures/mimic_unmasked,silver,true,nero_event,CREA-GATE-04,hidden; never a collection member
 nerotrophies:nerocreatures/leviathan_studied,silver,false,nero_event,CREA-GATE-05,
-nerotrophies:nerocreatures/cinder_tyrant,gold,false,nero_event,CREA-GATE-05,re-triggered from the kill stat (credits the last hit only); Boss Hunter member
+nerotrophies:nerocreatures/cinder_tyrant,gold,false,nero_event,CREA-GATE-05,every scanned participant with a damage share; Boss Hunter member
 nerotrophies:nerocreatures/rime_matriarch,gold,false,nero_event,CREA-GATE-05,Boss Hunter member
 nerotrophies:nerocreatures/bloom_sovereign,gold,false,nero_event,CREA-GATE-05,Boss Hunter member
 nerotrophies:nerocreatures/facet_colossus,gold,false,nero_event,CREA-GATE-05,Boss Hunter member

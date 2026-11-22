@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:colonist_field_gear_helmet",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:full_set_free_colonists"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.regalia_free_colonists.title",
+  "description": "trophy.nerotrophies.nerofactions.regalia_free_colonists.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 140
+}

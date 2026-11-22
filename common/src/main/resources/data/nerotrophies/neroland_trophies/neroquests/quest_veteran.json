@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:writable_book",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroquests:completed/25"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroquests.quest_veteran.title",
+  "description": "trophy.nerotrophies.neroquests.quest_veteran.description",
+  "requires_mod": "neroquests",
+  "category": "neroquests",
+  "order": 80
+}

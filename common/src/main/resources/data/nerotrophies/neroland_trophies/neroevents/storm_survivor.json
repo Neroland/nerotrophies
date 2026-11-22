@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroevents:event_console",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroevents:storm_survived"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroevents.storm_survivor.title",
+  "description": "trophy.nerotrophies.neroevents.storm_survivor.description",
+  "requires_mod": "neroevents",
+  "category": "neroevents",
+  "order": 70
+}

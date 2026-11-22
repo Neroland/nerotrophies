@@ -11,6 +11,13 @@
     "nerotrophies:nerocolonies/metropolis",
     "nerotrophies:neroagriculture/ascension",
     "nerotrophies:neroruins/codex_lattice",
-    "nerotrophies:collection/boss_hunter"
+    "nerotrophies:collection/boss_hunter",
+    "nerotrophies:neropower/criticality",
+    "nerotrophies:nerosecurity/fortress",
+    "nerotrophies:nerocompanion/soulbound",
+    "nerotrophies:neromaps/world_charted",
+    "nerotrophies:neronotes/chart_topper",
+    "nerotrophies:neroeconomy/self_made",
+    "nerotrophies:neroquests/the_whole_book"
   ]
 }

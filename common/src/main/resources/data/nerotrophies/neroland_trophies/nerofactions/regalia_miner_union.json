@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:union_exosuit_helmet",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:full_set_miner_union"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.regalia_miner_union.title",
+  "description": "trophy.nerotrophies.nerofactions.regalia_miner_union.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 150
+}

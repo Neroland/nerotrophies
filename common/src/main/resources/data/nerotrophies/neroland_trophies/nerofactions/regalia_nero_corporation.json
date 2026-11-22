@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:corporate_power_suit_helmet",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:full_set_nero_corporation"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.regalia_nero_corporation.title",
+  "description": "trophy.nerotrophies.nerofactions.regalia_nero_corporation.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 160
+}

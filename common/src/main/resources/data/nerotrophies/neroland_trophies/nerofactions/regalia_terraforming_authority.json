@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:authority_environment_suit_helmet",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:full_set_terraforming_authority"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.regalia_terraforming_authority.title",
+  "description": "trophy.nerotrophies.nerofactions.regalia_terraforming_authority.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 190
+}

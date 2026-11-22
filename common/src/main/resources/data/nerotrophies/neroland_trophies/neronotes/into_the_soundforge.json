@@ -3,8 +3,9 @@
   "icon": "neronotes:resonant_block_deep_bass",
   "tier": "silver",
   "trigger": {
-    "type": "dimension_visited",
-    "dimension": "neronotes:soundforge"
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neronotes:entered_soundforge"
   },
   "hidden": false,
   "title": "trophy.nerotrophies.neronotes.into_the_soundforge.title",

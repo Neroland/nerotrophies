@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerofactions:faction_registry",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerofactions:outpost_found"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerofactions.outpost_finder.title",
+  "description": "trophy.nerotrophies.nerofactions.outpost_finder.description",
+  "requires_mod": "nerofactions",
+  "category": "nerofactions",
+  "order": 120
+}

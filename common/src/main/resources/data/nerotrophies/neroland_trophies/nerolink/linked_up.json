@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:recovery_compass",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerolink:first_paired"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerolink.linked_up.title",
+  "description": "trophy.nerotrophies.nerolink.linked_up.description",
+  "requires_mod": "nerolink",
+  "category": "nerolink",
+  "order": 10
+}

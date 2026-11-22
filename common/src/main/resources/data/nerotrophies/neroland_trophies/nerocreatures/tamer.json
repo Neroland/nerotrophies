@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocreatures:creature_saddle",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocreatures:tamed/10"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocreatures.tamer.title",
+  "description": "trophy.nerotrophies.nerocreatures.tamer.description",
+  "requires_mod": "nerocreatures",
+  "category": "nerocreatures",
+  "order": 110
+}

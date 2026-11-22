@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:enchanted_book",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroquests:completed/100"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroquests.quest_master.title",
+  "description": "trophy.nerotrophies.neroquests.quest_master.description",
+  "requires_mod": "neroquests",
+  "category": "neroquests",
+  "order": 90
+}

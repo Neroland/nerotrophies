@@ -14,7 +14,7 @@ becomes a record of what you have done across the whole family.
   advancements, Neroland Core events (progression gates, material milestones, reputation, credits), vanilla
   statistics, items obtained, blocks placed or dimensions visited. Four tiers (bronze, silver, gold, nero), hidden
   trophies, and awards that are idempotent and retroactive within a per-tick budget.
-- **A starter catalogue for the whole family:** 152 trophies and 20 collections, each lighting up only when its mod is
+- **A starter catalogue for the whole family:** 214 trophies and 21 collections, each lighting up only when its mod is
   installed. A Core-only server still has vanilla and NeroTrophies trophies to earn.
 - **Your name on your trophies.** Every genuine trophy shows the gamertag of the player who earned it. Items and blocks
   hold only a trophy id and a claim token; re-claim a lost trophy and the old copy becomes a nameless replica.

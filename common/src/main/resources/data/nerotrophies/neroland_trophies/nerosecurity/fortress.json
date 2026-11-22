@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerosecurity:security_hub",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerosecurity:fortress"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerosecurity.fortress.title",
+  "description": "trophy.nerotrophies.nerosecurity.fortress.description",
+  "requires_mod": "nerosecurity",
+  "category": "nerosecurity",
+  "order": 70
+}

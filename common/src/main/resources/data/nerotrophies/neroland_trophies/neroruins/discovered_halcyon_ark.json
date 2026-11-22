@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neroruins:meridian_keystone",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroruins:discovered/halcyon_ark"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroruins.discovered_halcyon_ark.title",
+  "description": "trophy.nerotrophies.neroruins.discovered_halcyon_ark.description",
+  "requires_mod": "neroruins",
+  "category": "neroruins",
+  "order": 210
+}

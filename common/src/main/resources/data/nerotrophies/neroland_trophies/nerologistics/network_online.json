@@ -3,8 +3,9 @@
   "icon": "nerologistics:network_controller",
   "tier": "bronze",
   "trigger": {
-    "type": "block_placed",
-    "block": "nerologistics:network_controller"
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerologistics:storage_network_online"
   },
   "title": "trophy.nerotrophies.nerologistics.network_online.title",
   "description": "trophy.nerotrophies.nerologistics.network_online.description",

@@ -6,7 +6,7 @@ Tables are generated from the trophy files the mod ships, so they always match t
 
 ## NeroCreatures
 
-11 trophies: 4 bronze, 2 silver, 4 gold, 1 nero (1 hidden).
+14 trophies: 4 bronze, 3 silver, 6 gold, 1 nero (1 hidden).
 
 | Trophy | Tier | How to earn it | How | Notes |
 |--------|------|----------------|-----|-------|
@@ -15,16 +15,19 @@ Tables are generated from the trophy files the mod ships, so they always match t
 | Ground Crew | Bronze | Deploy a Terraforming Drone. | Milestone |  |
 | Field Naturalist | Bronze | Scan a Mossback with the Field Scanner. | Milestone |  |
 | Leviathan Studied | Silver | Complete the Bestiary study of the Drift Leviathan. | Milestone |  |
-| Tyrant Slayer | Gold | Scan the Cinder Tyrant, then land the killing blow. | Milestone | Only the player who lands the killing blow earns it. |
-| Thaw the Matriarch | Gold | Scan the Rime Matriarch, then land the killing blow. | Milestone | Only the player who lands the killing blow earns it. |
-| Uprooted | Gold | Scan the Bloom Sovereign, then land the killing blow. | Milestone | Only the player who lands the killing blow earns it. |
-| Shattered Facets | Gold | Scan the Facet Colossus, then land the killing blow. | Milestone | Only the player who lands the killing blow earns it. |
+| Tamer | Silver | Tame 10 creatures by hand. | Milestone |  |
+| Tyrant Slayer | Gold | Scan the Cinder Tyrant and help bring it down in a summoned fight. | Milestone | Only the player who lands the killing blow earns it. |
+| Thaw the Matriarch | Gold | Scan the Rime Matriarch and help bring it down in a summoned fight. | Milestone | Only the player who lands the killing blow earns it. |
+| Uprooted | Gold | Scan the Bloom Sovereign and help bring it down in a summoned fight. | Milestone | Only the player who lands the killing blow earns it. |
+| Shattered Facets | Gold | Scan the Facet Colossus and help bring it down in a summoned fight. | Milestone | Only the player who lands the killing blow earns it. |
+| Beastmaster | Gold | Tame 25 creatures by hand. | Milestone |  |
+| Complete Bestiary | Gold | Study every species in the Bestiary. | Milestone |  |
 | Four Crowns | Nero | Study the Cinder Tyrant, Rime Matriarch, Bloom Sovereign and Facet Colossus. | Complete a collection | Awarded for completing the Boss Hunter collection. |
 | ??? | ??? | Hidden until earned. | ??? | |
 
 ## NeroAgriculture
 
-8 trophies: 2 bronze, 4 silver, 1 gold, 1 nero (1 hidden).
+11 trophies: 2 bronze, 5 silver, 3 gold, 1 nero (1 hidden).
 
 | Trophy | Tier | How to earn it | How | Notes |
 |--------|------|----------------|-----|-------|
@@ -33,13 +36,16 @@ Tables are generated from the trophy files the mod ships, so they always match t
 | Greenhouse Keeper | Silver | Open a formed, running Greenhouse. | Milestone |  |
 | Tower Grower | Silver | Open a formed Crop Tower. | Milestone |  |
 | Xenobotanist | Silver | Research an alien seed. | Material milestone |  |
+| Bumper Crop | Silver | Harvest 100 Nero crops. | Statistic |  |
 | Transmuter | Gold | Produce an Orbite fragment and unlock Transmutation. | Milestone |  |
+| Breadbasket | Gold | Harvest 1,000 Nero crops. | Statistic |  |
+| Worldshaper | Gold | Complete a terraforming project. | Milestone |  |
 | Ascension | Nero | Produce a Colonite fragment and unlock Ascension, the last gate of the ladder. | Milestone |  |
 | ??? | ??? | Hidden until earned. | ??? | |
 
 ## NeroCompanion
 
-10 trophies: 7 bronze, 2 silver, 1 gold, 0 nero (1 hidden).
+11 trophies: 7 bronze, 2 silver, 1 gold, 1 nero (1 hidden).
 
 | Trophy | Tier | How to earn it | How | Notes |
 |--------|------|----------------|-----|-------|
@@ -52,11 +58,12 @@ Tables are generated from the trophy files the mod ships, so they always match t
 | On Guard | Bronze | Have a Combat Bot down a target while guarding. | Milestone |  |
 | Best Buddies | Silver | Raise a companion's bond to level 3. | Milestone |  |
 | Full Squad | Gold | Have a full squad of companions active at once. | Milestone |  |
+| Soulbound | Nero | Raise a companion's bond to the highest level. | Milestone |  |
 | ??? | ??? | Hidden until earned. | ??? | |
 
 ## NeroRuins
 
-14 trophies: 5 bronze, 6 silver, 2 gold, 1 nero (1 hidden).
+21 trophies: 9 bronze, 8 silver, 3 gold, 1 nero (1 hidden).
 
 | Trophy | Tier | How to earn it | How | Notes |
 |--------|------|----------------|-----|-------|
@@ -65,13 +72,20 @@ Tables are generated from the trophy files the mod ships, so they always match t
 | Earth Codex | Bronze | Archive every log of the Earth chapter. | Milestone |  |
 | Luna Codex | Bronze | Archive every log of the Luna chapter. | Milestone |  |
 | Mars Codex | Bronze | Archive every log of the Mars chapter. | Milestone |  |
+| Bunker Delver | Bronze | Step inside a sealed bunker. | Milestone |  |
+| Lab Visitor | Bronze | Step inside an abandoned survey lab. | Milestone |  |
+| Wreck Diver | Bronze | Step inside a crash site. | Milestone |  |
+| Lost Colony | Bronze | Walk the ruins of a failed colony field. | Milestone |  |
 | Puzzle Solver | Silver | Solve a puzzle door. | Milestone |  |
 | Cindara Codex | Silver | Archive every log of the Cindara chapter. | Milestone |  |
 | Glacira Codex | Silver | Archive every log of the Glacira chapter. | Milestone |  |
 | Greenxertz Codex | Silver | Archive every log of the Greenxertz chapter. | Milestone |  |
 | Nyxara Codex | Silver | Archive every log of the Nyxara chapter. | Milestone |  |
+| Temple Threshold | Silver | Step inside a Lattice Temple. | Milestone |  |
+| Ark Boarder | Silver | Step aboard the Halcyon Ark. | Milestone |  |
 | The Ark Remembers | Gold | Archive every log of the Ark chapter. | Milestone |  |
 | Sentinel Breaker | Gold | Land the final blow on a Mark III Sentinel. | Statistic |  |
+| Temple Cleared | Gold | Clear a Lattice Temple: every spawner dormant and its last Sentinel down. | Milestone |  |
 | Lattice Codex | Nero | Archive every log of the Lattice chapter, the last of the Codex. | Milestone |  |
 | ??? | ??? | Hidden until earned. | ??? | |
 

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerospace:rover",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerospace:rover_driven"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerospace.rover_driver.title",
+  "description": "trophy.nerotrophies.nerospace.rover_driver.description",
+  "requires_mod": "nerospace",
+  "category": "nerospace",
+  "order": 160
+}

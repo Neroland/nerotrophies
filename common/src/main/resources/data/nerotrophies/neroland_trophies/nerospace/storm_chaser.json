@@ -5,7 +5,7 @@
   "trigger": {
     "type": "nero_event",
     "event": "gate",
-    "gate": "nerospace:worlds/nyxara/weather"
+    "gate": "nerospace:worlds/weathered_all"
   },
   "title": "trophy.nerotrophies.nerospace.storm_chaser.title",
   "description": "trophy.nerotrophies.nerospace.storm_chaser.description",

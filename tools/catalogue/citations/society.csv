@@ -30,7 +30,7 @@ nerotrophies:nerocolonies/metropolis,nero,false,nero_event,COL-GATE-05,nero: the
 nerotrophies:nerosecurity/access_granted,bronze,false,nero_event,SEC-GATE-01,
 nerotrophies:nerosecurity/eyes_everywhere,bronze,false,block_placed,SEC-ITEM-01,
 nerotrophies:nerosecurity/shields_up,silver,false,block_placed,SEC-ITEM-01,
-nerotrophies:nerosecurity/encrypted,silver,true,item_obtained,SEC-ITEM-02,"hidden; re-pointed to the real item (an encrypted keycard is a component, not an item id); never a collection member"
+nerotrophies:nerosecurity/encrypted,silver,true,nero_event,SEC-ITEM-02,hidden; first_encrypted_keycard gate (clones do not count); never a collection member
 nerotrophies:nerosecurity/installation_online,silver,false,nero_event,SEC-GATE-02,
 nerotrophies:nerosecurity/drill_sergeant,silver,false,nero_event,SEC-GATE-03,re-tiered gold to silver
 nerotrophies:neroevents/first_responder,bronze,false,nero_event,EVT-GATE-01,
@@ -40,5 +40,5 @@ nerotrophies:neroevents/salvage_rights,silver,true,item_obtained,EVT-ITEM-01,hid
 nerotrophies:neroevents/raid_breaker,silver,false,nero_event,EVT-GATE-03,
 nerotrophies:neroevents/giant_slayer,gold,false,nero_event,EVT-GATE-04,re-tiered nero to gold
 nerotrophies:neroquests/bookworm,bronze,false,item_obtained,QUEST-ITEM-01,
-nerotrophies:neroquests/arcade_apprentice,bronze,false,nero_event,ARCA-GATE-04,allow-listed hook gate; Quests tab; needs NeroArcade; live only (the gate closes on delivery)
+nerotrophies:neroquests/arcade_apprentice,bronze,false,nero_event,ARCA-GATE-04,insert_coin_complete record gate; Quests tab; needs NeroArcade
 nerotrophies:neroquests/companion_keeper,silver,false,nero_event,COMP-GATE-13,allow-listed hook gate; Quests tab; needs NeroCompanion; re-tiered gold to silver

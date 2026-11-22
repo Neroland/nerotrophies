@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "icon": "neroagriculture:crop_tower_controller",
+  "tier": "gold",
+  "trigger": {
+    "type": "stat",
+    "stat_type": "minecraft:custom",
+    "stat": "neroagriculture:crops_harvested",
+    "at_least": 1000
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroagriculture.breadbasket.title",
+  "description": "trophy.nerotrophies.neroagriculture.breadbasket.description",
+  "requires_mod": "neroagriculture",
+  "category": "neroagriculture",
+  "order": 100
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:crafting_table",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroquests:chapter/neroquests/groundwork"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroquests.groundwork_done.title",
+  "description": "trophy.nerotrophies.neroquests.groundwork_done.description",
+  "requires_mod": "neroquests",
+  "category": "neroquests",
+  "order": 50
+}

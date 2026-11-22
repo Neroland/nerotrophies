@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "minecraft:paper",
+  "tier": "bronze",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neroquests:first_contract"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neroquests.daily_grind.title",
+  "description": "trophy.nerotrophies.neroquests.daily_grind.description",
+  "requires_mod": "neroquests",
+  "category": "neroquests",
+  "order": 40
+}

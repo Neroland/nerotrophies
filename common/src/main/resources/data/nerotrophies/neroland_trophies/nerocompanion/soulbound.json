@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "nerocompanion:capsule",
+  "tier": "nero",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "nerocompanion:bond_max"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.nerocompanion.soulbound.title",
+  "description": "trophy.nerotrophies.nerocompanion.soulbound.description",
+  "requires_mod": "nerocompanion",
+  "category": "nerocompanion",
+  "order": 110
+}

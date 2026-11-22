@@ -1,0 +1,63 @@
+id,tier,hidden,trigger_type,survey_row,notes
+nerotrophies:neropower/criticality,nero,false,nero_event,POWR-GATE-02,operator credited in the moment; owner record kept
+nerotrophies:neropower/deep_reserves,silver,false,nero_event,POWR-GATE-03,operator credited in the moment; owner record kept
+nerotrophies:nerosecurity/fortress,nero,false,nero_event,SECU-GATE-04,pure predicate SecurityMilestones.isFortress
+nerotrophies:neroruins/temple_cleared,gold,false,nero_event,RUIN-GATE-05,killer plus survival/adventure players inside the temple
+nerotrophies:neroruins/discovered_bunker,bronze,false,nero_event,RUIN-GATE-06,Ruin Survey member; retroactive on next visit
+nerotrophies:neroruins/discovered_survey_lab,bronze,false,nero_event,RUIN-GATE-06,Ruin Survey member; retroactive on next visit
+nerotrophies:neroruins/discovered_crash_site,bronze,false,nero_event,RUIN-GATE-06,Ruin Survey member; retroactive on next visit
+nerotrophies:neroruins/discovered_colony_field,bronze,false,nero_event,RUIN-GATE-06,Ruin Survey member; retroactive on next visit
+nerotrophies:neroruins/discovered_lattice_temple,silver,false,nero_event,RUIN-GATE-06,Ruin Survey member; retroactive on next visit
+nerotrophies:neroruins/discovered_halcyon_ark,silver,false,nero_event,RUIN-GATE-06,Ruin Survey member; retroactive on next visit
+nerotrophies:nerospace/liftoff,bronze,false,nero_event,SPACE-GATE-03,pilot only
+nerotrophies:nerospace/crewed_launch,silver,false,nero_event,SPACE-GATE-04,everyone seated
+nerotrophies:nerospace/rover_driver,bronze,false,nero_event,SPACE-GATE-05,
+nerotrophies:nerospace/station_builder,silver,false,nero_event,SPACE-GATE-06,
+nerotrophies:nerofactions/outpost_finder,silver,false,nero_event,FACT-GATE-03,retroactive on the next visit
+nerotrophies:nerofactions/contractor,silver,false,nero_event,FACT-GATE-04,from the existing per-player contract count
+nerotrophies:nerofactions/regalia_free_colonists,silver,false,nero_event,FACT-GATE-05,opens for whoever wears the set
+nerotrophies:nerofactions/regalia_miner_union,silver,false,nero_event,FACT-GATE-05,opens for whoever wears the set
+nerotrophies:nerofactions/regalia_nero_corporation,silver,false,nero_event,FACT-GATE-05,opens for whoever wears the set
+nerotrophies:nerofactions/regalia_salvagers,silver,false,nero_event,FACT-GATE-05,opens for whoever wears the set
+nerotrophies:nerofactions/regalia_space_guild,silver,false,nero_event,FACT-GATE-05,opens for whoever wears the set
+nerotrophies:nerofactions/regalia_terraforming_authority,silver,false,nero_event,FACT-GATE-05,opens for whoever wears the set
+nerotrophies:nerofactions/regalia_void_cult,silver,false,nero_event,FACT-GATE-05,opens for whoever wears the set
+nerotrophies:nerocreatures/tamer,silver,false,nero_event,CREA-GATE-06,"lifetime tame count, capped at 25, erasable"
+nerotrophies:nerocreatures/beastmaster,gold,false,nero_event,CREA-GATE-06,"lifetime tame count, capped at 25, erasable"
+nerotrophies:nerocreatures/complete_bestiary,gold,false,nero_event,CREA-GATE-07,gold: Boss Hunter already holds the category's nero slot
+nerotrophies:neroagriculture/bumper_crop,silver,false,stat,AGRI-STAT-01,"vanilla custom stat, no mod store"
+nerotrophies:neroagriculture/breadbasket,gold,false,stat,AGRI-STAT-01,"vanilla custom stat, no mod store"
+nerotrophies:neroagriculture/worldshaper,gold,false,nero_event,AGRI-GATE-07,"stored controller owner, offline-capable"
+nerotrophies:neroarcade/high_score,gold,false,nero_event,ARCD-GATE-04,ties credit nobody; never hot-seat
+nerotrophies:neroarcade/arcade_legend,gold,false,stat,ARCD-STAT-01,gold: a stat trigger cannot carry nero
+nerotrophies:nerocolonies/first_export,bronze,false,nero_event,COLO-GATE-09,
+nerotrophies:nerocolonies/population_25,silver,false,nero_event,COLO-GATE-10,credited to the colony owner
+nerotrophies:nerocolonies/population_50,gold,false,nero_event,COLO-GATE-10,credited to the colony owner
+nerotrophies:nerocompanion/soulbound,nero,false,nero_event,COMP-GATE-04,
+nerotrophies:nerodecor/light_show,bronze,false,nero_event,DECO-GATE-01,
+nerotrophies:nerodecor/wired_up,silver,false,nero_event,DECO-GATE-02,credited to the network owner
+nerotrophies:nerodecor/master_electrician,gold,false,nero_event,DECO-GATE-02,credited to the network owner
+nerotrophies:neroevents/storm_survivor,bronze,false,nero_event,EVNT-GATE-05,only storms that ran their course
+nerotrophies:neroevents/war_victor,gold,false,nero_event,EVNT-GATE-06,a draw credits nobody
+nerotrophies:nerolink/linked_up,bronze,false,nero_event,LINK-GATE-01,"UUID only, no device data"
+nerotrophies:nerolink/second_screen,silver,false,nero_event,LINK-GATE-02,counted from stored device rows
+nerotrophies:nerolink/remote_operator,silver,false,nero_event,LINK-GATE-03,
+nerotrophies:nerolink/read_the_manual,bronze,true,nero_event,LINK-GATE-04,
+nerotrophies:nerolink/always_connected,bronze,false,nero_event,LINK-GATE-05,
+nerotrophies:neromaps/shared_bearings,bronze,false,nero_event,MAPS-GATE-02,credits the sharer
+nerotrophies:neromaps/surveyor,silver,false,nero_event,MAPS-GATE-01,counted from the explored bitsets
+nerotrophies:neromaps/explorer,gold,false,nero_event,MAPS-GATE-01,counted from the explored bitsets
+nerotrophies:neromaps/world_charted,nero,false,nero_event,MAPS-GATE-01,counted from the explored bitsets
+nerotrophies:neronotes/on_the_charts,silver,false,nero_event,NOTE-GATE-02,live subscriber set
+nerotrophies:neronotes/chart_topper,nero,false,nero_event,NOTE-GATE-02,live subscriber set
+nerotrophies:neronotes/prolific,silver,false,nero_event,NOTE-GATE-03,counted from visible library rows
+nerotrophies:neronotes/hit_factory,gold,false,nero_event,NOTE-GATE-03,25 is the default per-player quota
+nerotrophies:neroeconomy/self_made,nero,false,nero_event,ECON-GATE-09,"lifetime earnings, not balance; Tycoon stays on balance"
+nerotrophies:neroeconomy/fine_print,bronze,false,nero_event,ECON-GATE-10,
+nerotrophies:neroquests/daily_grind,bronze,false,nero_event,QUES-GATE-01,
+nerotrophies:neroquests/groundwork_done,bronze,false,nero_event,QUES-GATE-02,
+nerotrophies:neroquests/industrialist,silver,false,nero_event,QUES-GATE-02,
+nerotrophies:neroquests/space_racer,gold,false,nero_event,QUES-GATE-02,
+nerotrophies:neroquests/quest_veteran,silver,false,nero_event,QUES-GATE-03,from NeroQuests' own stored progress
+nerotrophies:neroquests/quest_master,gold,false,nero_event,QUES-GATE-03,from NeroQuests' own stored progress
+nerotrophies:neroquests/the_whole_book,nero,false,nero_event,QUES-GATE-04,
