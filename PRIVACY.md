@@ -52,6 +52,12 @@ Run **`/nerotrophies export`** in game. Your whole record is sent to your own ch
 a file or the server log. Server administrators (permission level 3) can run `/nerotrophies export <player>` to
 answer a request on a player's behalf; the export is sent to the administrator who asked.
 
+Neroland Core's **`/neroland data exportme`** (Core 1.20.1 or later) includes the same record under `nerotrophies`,
+with two differences: it leaves out your UUID (Core's export is already yours alone), and it never shows a claim
+token itself, only whether each trophy has one (`has_claim_token`), because that export is a copy you may pass
+on. It works whether you are online or not, is sent to you only, and is never logged or written to disk. A player
+with no record gets nothing from NeroTrophies in it.
+
 ## Erasing your data
 
 NeroTrophies registers with Neroland Core's data-erasure hook. One request removes you from NeroTrophies along
@@ -103,6 +109,8 @@ reporting project is configured, so **nothing is sent**. When reporting is switc
   the ids and versions of your other installed mods.
 - It never holds your IP address, username, UUID, position, world data or chat. File paths are scrubbed of your
   account name. Only errors from NeroTrophies code are sent, at most ten per session.
+- NeroTrophies reports through its own Sentry client, separate from every other mod's, so no other mod can
+  silence it or receive its reports.
 
 ## Contact
 

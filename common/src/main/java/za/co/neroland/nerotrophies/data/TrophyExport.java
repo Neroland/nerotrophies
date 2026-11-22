@@ -80,6 +80,29 @@ public final class TrophyExport {
         return out;
     }
 
+    /**
+     * The player's record for Neroland Core's {@code /neroland data exportme}, or {@code null} when NeroTrophies holds
+     * nothing for them. The same document as {@code /nerotrophies export} minus two fields: the UUID (Core keys the
+     * whole export by player) and each trophy's raw claim token, a value that authenticates a placed trophy and is
+     * never handed out where the player cannot see it; {@code has_claim_token} says whether one exists. Never logged
+     * or written to disk. Reads the saved store, so it works for offline players.
+     */
+    @org.jetbrains.annotations.Nullable
+    public static JsonObject coreExport(TrophyState state, UUID player, TrophyDefinitions.Snapshot defs) {
+        JsonObject out = toJson(state, player, defs);
+        if (!out.get("has_record").getAsBoolean()) {
+            return null;
+        }
+        out.remove("player");
+        if (out.has("earned")) {
+            for (com.google.gson.JsonElement row : out.getAsJsonArray("earned")) {
+                JsonObject earned = row.getAsJsonObject();
+                earned.addProperty("has_claim_token", earned.remove("token") != null);
+            }
+        }
+        return out;
+    }
+
     /** Pretty JSON text of {@link #toJson}. */
     public static String toText(TrophyState state, UUID player, TrophyDefinitions.Snapshot defs) {
         return new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()

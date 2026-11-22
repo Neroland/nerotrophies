@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neropower:vitrified_waste",
+  "tier": "silver",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neropower:first_vitrified"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neropower.glass_tomb.title",
+  "description": "trophy.nerotrophies.neropower.glass_tomb.description",
+  "requires_mod": "neropower",
+  "category": "neropower",
+  "order": 130
+}

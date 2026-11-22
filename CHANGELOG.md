@@ -6,6 +6,25 @@ All notable changes to NeroTrophies are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-11-22
+
+### Added
+
+- Four NeroPower trophies on its record gates: **Breeder** (silver, `neropower:first_breed`), **Spin-Up** (bronze,
+  `neropower:turbine_spinup`), **Full Ring** (gold, `neropower:smes_charged`) and **Glass Tomb** (silver,
+  `neropower:first_vitrified`). The catalogue is now 218 trophies (80 bronze, 79 silver, 45 gold, 14 nero).
+- Your trophy record now appears in Neroland Core's `/neroland data exportme` (Core 1.20.1): the
+  `/nerotrophies export` document without your UUID and without raw claim tokens (`has_claim_token` instead).
+
+### Changed
+
+- Builds against Neroland Core 1.20.1 (was 1.20.0), so Core 1.20.1 or later is required.
+
+### Fixed
+
+- Crash reports no longer go silent when another mod starts Sentry: NeroTrophies now reports through its own
+  isolated Sentry client instead of the shared global one. Same opt-out, filtering and scrubbing; no new data.
+
 ## [0.1.1] — 2026-11-26
 
 ### Added

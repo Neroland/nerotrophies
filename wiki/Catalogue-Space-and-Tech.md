@@ -44,17 +44,21 @@ Tables are generated from the trophy files the mod ships, so they always match t
 
 ## NeroPower
 
-9 trophies: 3 bronze, 3 silver, 2 gold, 1 nero (1 hidden).
+13 trophies: 4 bronze, 5 silver, 3 gold, 1 nero (1 hidden).
 
 | Trophy | Tier | How to earn it | How | Notes |
 |--------|------|----------------|-----|-------|
 | Hot Rod | Bronze | Make your first Control Rod. | Advancement |  |
 | Slow Burn | Bronze | Build a Radioisotope Generator. | Advancement |  |
 | Heat Engine | Bronze | Build a Stirling Generator. | Advancement |  |
+| Spin-Up | Bronze | Bring a Steam Turbine up to rated speed and deliver power. | Milestone |  |
 | Line of Sight | Silver | Link a Beam Transmitter to send power through the air. | Milestone |  |
 | Deep Reserves | Silver | Grow a battery bank to its milestone capacity. | Milestone |  |
+| Breeder | Silver | Have a reactor's Breeder Blankets kindle their first pellet. | Milestone |  |
+| Glass Tomb | Silver | Finish your first Vitrified Waste log in a Vitrifier. | Milestone |  |
 | Orbital Power | Gold | Build an Orbital Receiver. | Statistic |  |
 | Reactor Core | Gold | Build a Fission Core. | Advancement |  |
+| Full Ring | Gold | Charge a formed Storage Ring all the way to full. | Milestone |  |
 | Criticality | Nero | Bring a formed fission core to criticality: a reactor actually burning fuel. | Milestone |  |
 | ??? | ??? | Hidden until earned. | ??? | |
 

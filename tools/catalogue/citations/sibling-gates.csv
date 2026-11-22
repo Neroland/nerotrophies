@@ -1,6 +1,10 @@
 id,tier,hidden,trigger_type,survey_row,notes
 nerotrophies:neropower/criticality,nero,false,nero_event,POWR-GATE-02,operator credited in the moment; owner record kept
 nerotrophies:neropower/deep_reserves,silver,false,nero_event,POWR-GATE-03,operator credited in the moment; owner record kept
+nerotrophies:neropower/breeder,silver,false,nero_event,POWR-GATE-04,operator credited in the moment; nothing persisted by NeroPower
+nerotrophies:neropower/spin_up,bronze,false,nero_event,POWR-GATE-05,operator credited in the moment; nothing persisted by NeroPower
+nerotrophies:neropower/full_ring,gold,false,nero_event,POWR-GATE-06,operator credited in the moment; nothing persisted by NeroPower
+nerotrophies:neropower/glass_tomb,silver,false,nero_event,POWR-GATE-07,set through BackEndHooks.setVitrified; nothing persisted by NeroPower
 nerotrophies:nerosecurity/fortress,nero,false,nero_event,SECU-GATE-04,pure predicate SecurityMilestones.isFortress
 nerotrophies:neroruins/temple_cleared,gold,false,nero_event,RUIN-GATE-05,killer plus survival/adventure players inside the temple
 nerotrophies:neroruins/discovered_bunker,bronze,false,nero_event,RUIN-GATE-06,Ruin Survey member; retroactive on next visit

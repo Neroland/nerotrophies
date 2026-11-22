@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "icon": "neropower:smes_controller",
+  "tier": "gold",
+  "trigger": {
+    "type": "nero_event",
+    "event": "gate",
+    "gate": "neropower:smes_charged"
+  },
+  "hidden": false,
+  "title": "trophy.nerotrophies.neropower.full_ring.title",
+  "description": "trophy.nerotrophies.neropower.full_ring.description",
+  "requires_mod": "neropower",
+  "category": "neropower",
+  "order": 120
+}

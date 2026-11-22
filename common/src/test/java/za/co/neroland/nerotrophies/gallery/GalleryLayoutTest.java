@@ -66,7 +66,7 @@ class GalleryLayoutTest {
         assertEquals(catalogue.trophyCount(), onPedestals.size(), "every loaded trophy is on a pedestal");
         onPedestals.values().forEach(n -> assertEquals(1, n, "each exactly once"));
         assertEquals(catalogue.trophyCount(), trophySigns, "each with a sign");
-        assertEquals(214, catalogue.trophyCount());
+        assertEquals(218, catalogue.trophyCount());
     }
 
     @Test

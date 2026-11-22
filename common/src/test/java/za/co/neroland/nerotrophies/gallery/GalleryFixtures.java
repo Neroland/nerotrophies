@@ -14,11 +14,11 @@ import za.co.neroland.nerolandcore.trophy.TrophyTrigger;
 
 import za.co.neroland.nerotrophies.TestDefs;
 
-/** Catalogues for the gallery tests: the shipped shape (22 Book categories, 214 trophies, 21 collections) or any size. */
+/** Catalogues for the gallery tests: the shipped shape (22 Book categories, 218 trophies, 21 collections) or any size. */
 final class GalleryFixtures {
 
     /** Trophies per category in the shipped catalogue, in rail order. */
-    static final int[] SHIPPED = {5, 6, 17, 7, 9, 6, 10, 20, 12, 7, 8, 10, 14, 11, 11, 21, 9, 9, 7, 5, 8, 2};
+    static final int[] SHIPPED = {5, 6, 17, 7, 13, 6, 10, 20, 12, 7, 8, 10, 14, 11, 11, 21, 9, 9, 7, 5, 8, 2};
 
     private GalleryFixtures() {
     }
