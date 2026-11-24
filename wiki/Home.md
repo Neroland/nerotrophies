@@ -5,13 +5,12 @@ mod, awards **trophies** defined in JSON, and gives you trophy blocks, pedestals
 record of what you have done across the whole family. Every genuine trophy carries the name of the player who earned
 it.
 
-**Current version: 0.1.0-beta.1.**
-
 ## Requirements
 
 - Minecraft 26.3 (also built for 26.2, 26.1.2, 1.21.11, 1.21.10, 1.21.8, 1.21.5, 1.21.4 and 1.21.1)
 - NeoForge, Forge or Fabric (Fabric also needs Fabric API)
-- **Neroland Core 1.20.0 or newer** (below 2.0). Core is the only required mod.
+- Minecraft 1.20.5 on Fabric, and 1.20.6 on all three loaders
+- **Neroland Core 1.23.0 or newer** (below 2.0). Core is the only required mod.
 - Optional: any other Nero mod, whose trophies light up when it is installed, and the NeroLink bridge mod for the
   companion app
 

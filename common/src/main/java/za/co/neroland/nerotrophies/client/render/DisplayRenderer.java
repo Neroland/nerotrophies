@@ -195,12 +195,22 @@ public abstract class DisplayRenderer<T extends DisplayBlockEntity, S extends Di
 
     private static void vertex(VertexConsumer c, PoseStack.Pose pose, float x, float y, float z, float u, float v,
             int argb, int light, float nz) {
+        //? if >=1.21 {
         c.addVertex(pose, x, y, z)
                 .setColor((argb >> 16) & 0xFF, (argb >> 8) & 0xFF, argb & 0xFF, (argb >>> 24) & 0xFF)
                 .setUv(u, v)
                 .setOverlay(OverlayTexture.NO_OVERLAY)
                 .setLight(light)
                 .setNormal(pose, 0.0F, 0.0F, nz);
+        //?} else {
+        /*c.vertex(pose.pose(), x, y, z)
+                .color((argb >> 16) & 0xFF, (argb >> 8) & 0xFF, argb & 0xFF, (argb >>> 24) & 0xFF)
+                .uv(u, v)
+                .overlayCoords(OverlayTexture.NO_OVERLAY)
+                .uv2(light)
+                .normal(pose, 0.0F, 0.0F, nz)
+                .endVertex();
+        *///?}
     }
 
     /**

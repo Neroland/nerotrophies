@@ -6,8 +6,6 @@
 every Nero mod, awards trophies defined in JSON, and gives you trophy blocks, pedestals and cabinets so your base
 becomes a record of what you have done across the whole family.
 
-> **Status: 0.1.0-beta.1 in development.** Not released yet; it needs Neroland Core 1.20.0, which ships first.
-
 ## Features
 
 - **A data-driven trophy engine.** Trophies and collections are JSON in Neroland Core's trophy format, earned by
@@ -31,7 +29,8 @@ Full documentation is in the [wiki](https://github.com/Neroland/nerotrophies/wik
 - Minecraft 26.3 (also built for 26.2, 26.1.2 and 1.21.1 / 1.21.4 / 1.21.5 / 1.21.7-1.21.8 / 1.21.9-1.21.10 /
   1.21.11)
 - Fabric (with Fabric API), NeoForge or Forge
-- [Neroland Core](https://github.com/Neroland/neroland-core) 1.20.0 or newer (below 2.0)
+- Minecraft 1.20.5 on Fabric, and 1.20.6 on all three loaders
+- [Neroland Core](https://github.com/Neroland/neroland-core) 1.23.0 or newer (below 2.0)
 
 NeroTrophies depends on Neroland Core and nothing else. Trophies never gate gameplay: they are a record and a
 cosmetic.
