@@ -12,7 +12,6 @@ plugins {
 
 // MC version comes from the Stonecutter node (e.g. :neoforge:26.1.2), not a global property.
 def mc = stonecutter.current.version
-def preComponents = stonecutter.eval(mc, '<1.20.5')
 // Upper bound of this cell's Minecraft range: the next minor line (26.1.2 -> 26.2, 26.2 -> 26.3), same
 // expression as Neroland Core. Without it a jar built for one line loads on the next and fails on a changed
 // signature at runtime instead of a clean loader message.
@@ -21,7 +20,7 @@ def mcCeiling = project.findProperty("mc_ceiling_${mc}") ?: mc.tokenize('.').wit
 // 1.21.x cells spell out their [floor, ceiling) range there (mc_floor_<v> / mc_ceiling_<v>).
 def mcFloor = project.findProperty("mc_floor_${mc}") ?: mc
 def neoVersion = project.findProperty("neo_version_${mc}")
-def nerolandcoreVersion = project.findProperty(mc == '1.20.5' ? 'nerolandcore_version_neoforge_1.20.5' : 'nerolandcore_version')
+def nerolandcoreVersion = rootProject.property('nerolandcore_version')
 
 // This node's projectDir is <loader>/versions/<v>; the authoritative loader source +
 // templates live in the BRANCH root (neoforge/). Resolve branch-root paths via the parent.

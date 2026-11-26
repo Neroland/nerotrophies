@@ -29,8 +29,8 @@ Full documentation is in the [wiki](https://github.com/Neroland/nerotrophies/wik
 - Minecraft 26.3 (also built for 26.2, 26.1.2 and 1.21.1 / 1.21.4 / 1.21.5 / 1.21.7-1.21.8 / 1.21.9-1.21.10 /
   1.21.11)
 - Fabric (with Fabric API), NeoForge or Forge
-- Minecraft 1.20 through 1.20.6 on Fabric, 1.20 through 1.20.4 and 1.20.6 on Forge, and 1.20.4 through 1.20.6 on NeoForge. Minecraft 1.20.5 on NeoForge requires loader 20.5.21-beta and Core 1.24.0 or newer. NeoForge 1.20.1 uses the Forge 1.20.1 jar.
-- [Neroland Core](https://github.com/Neroland/neroland-core) 1.23.0 or newer (below 2.0)
+- Minecraft 1.20 through 1.20.6 on Fabric, 1.20 through 1.20.4 and 1.20.6 on Forge, and 1.20.4 through 1.20.6 on NeoForge. Minecraft 1.20.5 on NeoForge requires loader 20.5.21-beta. NeoForge 1.20.1 uses the Forge 1.20.1 jar.
+- [Neroland Core](https://github.com/Neroland/neroland-core) 1.24.0 or newer (below 2.0)
 
 NeroTrophies depends on Neroland Core and nothing else. Trophies never gate gameplay: they are a record and a
 cosmetic.
