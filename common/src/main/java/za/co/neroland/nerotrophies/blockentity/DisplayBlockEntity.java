@@ -17,7 +17,9 @@ import net.minecraft.core.NonNullList;
 //? if >=1.21.5 {
 import net.minecraft.core.component.DataComponentGetter;
 //?}
+//? if >=1.20.5 {
 import net.minecraft.core.component.DataComponentMap;
+//?}
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtOps;
@@ -432,11 +434,16 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-    //?} else {
+    //?} else if >=1.20.5 {
     /*@Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         ValueOutput output = ValueOutput.of(tag, registries);
+    *///?} else {
+    /*@Override
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        ValueOutput output = ValueOutput.of(tag, net.minecraft.core.RegistryAccess.EMPTY);
     *///?}
         output.store(SAVE_KEY, DisplaySave.CODEC, this.toSave());
         List<OtherItem> others = this.others();
@@ -449,11 +456,16 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     @Override
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-    //?} else {
+    //?} else if >=1.20.5 {
     /*@Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         ValueInput input = ValueInput.of(tag, registries);
+    *///?} else {
+    /*@Override
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        ValueInput input = ValueInput.of(tag, net.minecraft.core.RegistryAccess.EMPTY);
     *///?}
         DisplaySave save = input.read(SAVE_KEY, DisplaySave.CODEC).orElse(DisplaySave.empty());
         List<OtherItem> others = input.read(OTHERS_KEY, OtherItem.LIST_CODEC).orElse(List.of());
@@ -472,20 +484,36 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     }
 
     /** Client-only fields written into the update tag; the base has none. */
+    //? if >=1.20.5 {
     protected void writeClientExtra(CompoundTag tag, HolderLookup.Provider registries) {
+    //?} else {
+    /*protected void writeClientExtra(CompoundTag tag) {
+    *///?}
     }
 
     @Override
+    //? if >=1.20.5 {
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+    //?} else {
+    /*public CompoundTag getUpdateTag() {
+    *///?}
         CompoundTag tag = new CompoundTag();
+        //? if >=1.20.5 {
         var ops = registries.createSerializationContext(NbtOps.INSTANCE);
+        //?} else {
+        /*var ops = NbtOps.INSTANCE;
+        *///?}
         DisplaySave.CODEC.encodeStart(ops, this.toSave()).result().ifPresent(t -> tag.put(SAVE_KEY, t));
         List<OtherItem> others = this.others();
         if (!others.isEmpty()) {
             tag.put(OTHERS_KEY, syncTag(others, ops));
         }
         SlotView.CODEC.listOf().encodeStart(ops, this.views).result().ifPresent(t -> tag.put(VIEWS_KEY, t));
+        //? if >=1.20.5 {
         this.writeClientExtra(tag, registries);
+        //?} else {
+        /*this.writeClientExtra(tag);
+        *///?}
         return tag;
     }
 
@@ -523,25 +551,38 @@ public abstract class DisplayBlockEntity extends BlockEntity {
     // Item components: a broken display keeps its finish
     // ============================================================================================
 
+    //? if >=1.20.5 {
     @Override
     protected void collectImplicitComponents(DataComponentMap.Builder components) {
         super.collectImplicitComponents(components);
         this.finish.ifPresent(f -> components.set(ModDataComponents.FINISH.get(), f));
     }
+    //?}
 
-    //? if >=1.21.5 {
+    //? if >=1.21.5 && >=1.20.5 {
     @Override
     protected void applyImplicitComponents(DataComponentGetter components) {
         super.applyImplicitComponents(components);
         this.finish = Optional.ofNullable(components.get(ModDataComponents.FINISH.get()));
         this.applyItemComponents(components.get(ModDataComponents.TROPHY.get()));
     }
-    //?} else {
+    //?} else if >=1.20.5 {
     /*@Override
     protected void applyImplicitComponents(BlockEntity.DataComponentInput components) {
         super.applyImplicitComponents(components);
         this.finish = Optional.ofNullable(components.get(ModDataComponents.FINISH.get()));
         this.applyItemComponents(components.get(ModDataComponents.TROPHY.get()));
+    }
+    *///?}
+
+    //? if <1.20.5 {
+    /*public void writeItemData(ItemStack stack) {
+        this.finish.ifPresent(finish -> ModDataComponents.FINISH.write(stack, finish));
+    }
+
+    public void readItemData(ItemStack stack) {
+        this.finish = Optional.ofNullable(ModDataComponents.FINISH.read(stack));
+        this.applyItemComponents(ModDataComponents.TROPHY.read(stack));
     }
     *///?}
 

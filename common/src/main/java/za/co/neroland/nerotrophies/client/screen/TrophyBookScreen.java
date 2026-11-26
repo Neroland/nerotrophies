@@ -824,7 +824,11 @@ public class TrophyBookScreen extends Screen {
     }
 
     @Override
+    //? if >=1.20.2 {
     public boolean mouseScrolled(double mx, double my, double scrollX, double scrollY) {
+    //?} else {
+    /*public boolean mouseScrolled(double mx, double my, double scrollY) {
+    *///?}
         this.scroll = Math.max(0, this.scroll + (scrollY > 0 ? -1 : 1));
         return true;
     }

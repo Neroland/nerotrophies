@@ -97,9 +97,15 @@ public class TrophyBookItem extends Item {
         super.appendHoverText(stack, context, display, out, flag);
         selectionLine(stack, out);
     }
-    //?} else {
+    //?} else if >=1.20.5 {
     /*@Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
+        super.appendHoverText(stack, context, lines, flag);
+        selectionLine(stack, lines::add);
+    }
+    *///?} else {
+    /*@Override
+    public void appendHoverText(ItemStack stack, net.minecraft.world.level.Level context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
         selectionLine(stack, lines::add);
     }

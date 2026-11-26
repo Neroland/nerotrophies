@@ -89,7 +89,11 @@ class PayloadRoundTripTest {
 
     @Test
     void oversizedListIsRejectedOnDecode() {
+        //? if >=1.20.5 {
         RegistryFriendlyByteBuf buf = new RegistryFriendlyByteBuf(Unpooled.buffer(), RegistryAccess.EMPTY);
+        //?} else {
+        /*FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
+        *///?}
         buf.writeVarInt(NamesDropPayload.MAX + 1);
         assertThrows(RuntimeException.class, () -> NamesDropPayload.CODEC.decode(buf));
     }

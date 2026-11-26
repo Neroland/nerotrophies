@@ -2,7 +2,7 @@
 
 ## 1. Install
 
-Put **Neroland Core** (1.20.0 or newer) and **NeroTrophies** in your `mods` folder, plus Fabric API on Fabric. That is
+Put **Neroland Core** (1.23.0 or newer) and **NeroTrophies** in your `mods` folder, plus Fabric API on Fabric. That is
 all you need. Every other Nero mod you install adds its own trophies automatically; nothing has to be configured.
 
 ## 2. Earn something

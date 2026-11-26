@@ -1,6 +1,8 @@
 package za.co.neroland.nerotrophies.registry;
 
+//? if >=1.20.5 {
 import net.minecraft.core.component.DataComponentType;
+//?}
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 
@@ -16,6 +18,7 @@ import za.co.neroland.nerotrophies.component.TrophyStamp;
  */
 public final class ModDataComponents {
 
+    //? if >=1.20.5 {
     public static final RegistrationProvider<DataComponentType<?>> COMPONENTS =
             RegistrationProvider.get(Registries.DATA_COMPONENT_TYPE, NeroTrophiesCommon.MOD_ID);
 
@@ -39,6 +42,32 @@ public final class ModDataComponents {
                     .persistent(Identifier.CODEC)
                     .networkSynchronized(Identifier.STREAM_CODEC)
                     .build());
+    //?} else {
+    /*public static final LegacyComponent<TrophyStamp> TROPHY = new LegacyComponent<>(
+            "nerotrophies:trophy", TrophyStamp.CODEC);
+    public static final LegacyComponent<Identifier> FINISH = new LegacyComponent<>(
+            "nerotrophies:finish", Identifier.CODEC);
+    public static final LegacyComponent<Identifier> BOOK_SELECTION = new LegacyComponent<>(
+            "nerotrophies:book_selection", Identifier.CODEC);
+
+    public record LegacyComponent<T>(String key, com.mojang.serialization.Codec<T> codec) {
+        public T read(net.minecraft.world.item.ItemStack stack) {
+            var tag = stack.getTag();
+            var value = tag == null ? null : tag.get(key);
+            return value == null ? null : codec.parse(net.minecraft.nbt.NbtOps.INSTANCE, value).result().orElse(null);
+        }
+
+        public void write(net.minecraft.world.item.ItemStack stack, T value) {
+            var tag = codec.encodeStart(net.minecraft.nbt.NbtOps.INSTANCE, value).result()
+                    .orElseThrow(() -> new IllegalArgumentException("Cannot write item key " + key));
+            stack.getOrCreateTag().put(key, tag);
+        }
+
+        public void clear(net.minecraft.world.item.ItemStack stack) {
+            stack.removeTagKey(key);
+        }
+    }
+    *///?}
 
     private ModDataComponents() {
     }

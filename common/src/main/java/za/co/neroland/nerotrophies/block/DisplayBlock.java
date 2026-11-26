@@ -128,9 +128,14 @@ public abstract class DisplayBlock extends BaseEntityBlock {
         return this.useWith(stack, state, level, pos, player, hand);
     }
 
+    //? if >=1.20.5 {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
             BlockHitResult hit) {
+    //?} else {
+    /*private InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
+            BlockHitResult hit) {
+    *///?}
         if (player.isShiftKeyDown() && this.tintable()) {
             if (!level.isClientSide() && level.getBlockEntity(pos) instanceof DisplayBlockEntity display
                     && display.finish().isPresent()) {
@@ -156,7 +161,7 @@ public abstract class DisplayBlock extends BaseEntityBlock {
             default -> InteractionResult.TRY_WITH_EMPTY_HAND;
         };
     }
-    //?} else {
+    //?} else if >=1.20.5 {
     /*@Override
     protected net.minecraft.world.ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level,
             BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
@@ -165,6 +170,37 @@ public abstract class DisplayBlock extends BaseEntityBlock {
             case CONSUME -> net.minecraft.world.ItemInteractionResult.CONSUME;
             default -> net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         };
+    }
+    *///?} else {
+    /*@Override
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player,
+            InteractionHand hand, BlockHitResult hit) {
+        return switch (this.handleItem(player.getItemInHand(hand), state, level, pos, player, hand)) {
+            case SUCCESS -> InteractionResult.SUCCESS;
+            case CONSUME -> InteractionResult.CONSUME;
+            default -> hand == InteractionHand.MAIN_HAND
+                    ? this.useWithoutItem(state, level, pos, player, hit)
+                    : InteractionResult.PASS;
+        };
+    }
+
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state,
+            net.minecraft.world.entity.LivingEntity by, ItemStack stack) {
+        super.setPlacedBy(level, pos, state, by, stack);
+        if (level.getBlockEntity(pos) instanceof DisplayBlockEntity display) {
+            display.readItemData(stack);
+        }
+    }
+
+    @Override
+    public java.util.List<ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder loot) {
+        var drops = super.getDrops(state, loot);
+        if (loot.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY)
+                instanceof DisplayBlockEntity display) {
+            drops.forEach(display::writeItemData);
+        }
+        return drops;
     }
     *///?}
 

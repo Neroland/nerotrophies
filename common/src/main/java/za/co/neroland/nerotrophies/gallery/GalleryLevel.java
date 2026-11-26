@@ -110,8 +110,10 @@ public final class GalleryLevel implements GalleryWorld {
         //? if >=1.21.6 {
         be.loadWithComponents(net.minecraft.world.level.storage.TagValueInput.create(
                 net.minecraft.util.ProblemReporter.DISCARDING, level.registryAccess(), tag));
-        //?} else {
+        //?} else if >=1.20.5 {
         /*be.loadWithComponents(tag, level.registryAccess());
+        *///?} else {
+        /*be.load(tag);
         *///?}
     }
 
@@ -123,36 +125,47 @@ public final class GalleryLevel implements GalleryWorld {
     }
 
     BlockState stateOf(GalleryPiece piece, GalleryFrame frame) {
-        return switch (piece) {
-            case GalleryPiece.Solid solid -> switch (solid.mat()) {
+        if (piece instanceof GalleryPiece.Solid solid) {
+            return switch (solid.mat()) {
                 case AIR -> Blocks.AIR.defaultBlockState();
                 case FLOOR, BAND -> Blocks.POLISHED_DEEPSLATE.defaultBlockState();
                 case RUNNER, CEILING -> Blocks.DEEPSLATE_TILES.defaultBlockState();
                 case WALL -> Blocks.DEEPSLATE_BRICKS.defaultBlockState();
                 case BASE -> Blocks.CHISELED_DEEPSLATE.defaultBlockState();
             };
-            case GalleryPiece.Spotlight light ->
-                    ModBlocks.TROPHY_SPOTLIGHT.get().defaultBlockState()
-                            .setValue(DisplayProps.SPOT_FACING, frame.world(light.face()));
-            case GalleryPiece.Plate plate -> plateBlock(plate);
-            case Sign sign -> sign.wall()
+        }
+        if (piece instanceof GalleryPiece.Spotlight light) {
+            return ModBlocks.TROPHY_SPOTLIGHT.get().defaultBlockState()
+                    .setValue(DisplayProps.SPOT_FACING, frame.world(light.face()));
+        }
+        if (piece instanceof GalleryPiece.Plate plate) return plateBlock(plate);
+        if (piece instanceof Sign sign) {
+            return sign.wall()
                     ? Blocks.WARPED_WALL_SIGN.defaultBlockState()
                             .setValue(BlockStateProperties.HORIZONTAL_FACING, frame.world(sign.face()))
                     : Blocks.WARPED_SIGN.defaultBlockState()
                             .setValue(BlockStateProperties.ROTATION_16, frame.world(sign.face()).get2DDataValue() * 4);
-            case GalleryPiece.Trophy trophy -> ModBlocks.TROPHY.get().defaultBlockState()
+        }
+        if (piece instanceof GalleryPiece.Trophy trophy) {
+            return ModBlocks.TROPHY.get().defaultBlockState()
                     .setValue(DisplayProps.FACING, frame.world(trophy.face()))
                     .setValue(DisplayProps.TIER, this.tierOf(trophy.stamp()))
                     .setValue(DisplayProps.REPLICA, trophy.stamp().token() == TrophyStamp.UNSTAMPED);
-            case Pedestal pedestal -> ModBlocks.DISPLAY_PEDESTAL.get().defaultBlockState()
+        }
+        if (piece instanceof Pedestal pedestal) {
+            return ModBlocks.DISPLAY_PEDESTAL.get().defaultBlockState()
                     .setValue(DisplayProps.FACING, frame.world(pedestal.face()));
-            case Cabinet cabinet -> (cabinet.wall() ? ModBlocks.WALL_CABINET : ModBlocks.TROPHY_CABINET).get()
-                    .defaultBlockState()
-                    .setValue(DisplayProps.FACING, frame.world(cabinet.face()))
+        }
+        if (piece instanceof Cabinet cabinet) {
+            return (cabinet.wall() ? ModBlocks.WALL_CABINET : ModBlocks.TROPHY_CABINET).get()
+                    .defaultBlockState().setValue(DisplayProps.FACING, frame.world(cabinet.face()))
                     .setValue(DisplayProps.TRIM, Trims.byId(cabinet.trim()).style());
-            case GalleryPiece.Plaque plaque -> ModBlocks.TROPHY_PLAQUE.get().defaultBlockState()
+        }
+        if (piece instanceof GalleryPiece.Plaque plaque) {
+            return ModBlocks.TROPHY_PLAQUE.get().defaultBlockState()
                     .setValue(DisplayProps.FACING, frame.world(plaque.face()));
-        };
+        }
+        throw new IllegalArgumentException("Unsupported gallery piece");
     }
 
     /** Every demo plate is the same block; which award it plays is kept in the snapshot, not the world. */
@@ -169,50 +182,51 @@ public final class GalleryLevel implements GalleryWorld {
     @Override
     public void fill(BlockPos pos, GalleryPiece piece, GalleryFrame frame) {
         BlockEntity be = this.level.getBlockEntity(pos);
-        switch (piece) {
-            case Sign sign -> {
-                if (be instanceof SignBlockEntity entity) {
-                    writeSign(entity, sign.lines());
-                    entity.setWaxed(true);
+        if (piece instanceof Sign sign) {
+            if (be instanceof SignBlockEntity entity) {
+                writeSign(entity, sign.lines());
+                entity.setWaxed(true);
+            }
+            return;
+        }
+        if (piece instanceof GalleryPiece.Trophy trophy) {
+            if (be instanceof DisplayBlockEntity display) {
+                display.setItem(0, DisplayContents.stack(trophy.stamp()));
+            }
+            return;
+        }
+        if (piece instanceof GalleryPiece.Plaque plaque) {
+            if (be instanceof DisplayBlockEntity display) {
+                display.setItem(0, DisplayContents.stack(plaque.stamp()));
+            }
+            return;
+        }
+        if (piece instanceof Pedestal pedestal) {
+            if (be instanceof PedestalBlockEntity display) {
+                display.setFinish(known(pedestal.finish()));
+                if (pedestal.stamp().isPresent()) {
+                    display.setItem(0, DisplayContents.stack(pedestal.stamp().get()));
+                } else if (pedestal.showpiece()) {
+                    display.setItem(0, showpiece());
                 }
             }
-            case GalleryPiece.Trophy trophy -> {
-                if (be instanceof DisplayBlockEntity display) {
-                    display.setItem(0, DisplayContents.stack(trophy.stamp()));
+            return;
+        }
+        if (piece instanceof Cabinet cabinet) {
+            if (be instanceof CabinetBlockEntity display) {
+                display.setDisplayOnly(cabinet.displayOnly());
+                if (cabinet.collection().isPresent()) {
+                    display.bindPool(cabinet.collection());
                 }
-            }
-            case GalleryPiece.Plaque plaque -> {
-                if (be instanceof DisplayBlockEntity display) {
-                    display.setItem(0, DisplayContents.stack(plaque.stamp()));
+                display.trimPool(Trims.byId(cabinet.trim()).id());
+                display.setFinish(known(cabinet.finish()));
+                List<TrophyStamp> contents = cabinet.contents();
+                for (int slot = 0; slot < contents.size() && slot < display.size(); slot++) {
+                    display.setItem(slot, DisplayContents.stack(contents.get(slot)));
                 }
+                display.refreshRow();
             }
-            case Pedestal pedestal -> {
-                if (be instanceof PedestalBlockEntity display) {
-                    display.setFinish(known(pedestal.finish()));
-                    if (pedestal.stamp().isPresent()) {
-                        display.setItem(0, DisplayContents.stack(pedestal.stamp().get()));
-                    } else if (pedestal.showpiece()) {
-                        display.setItem(0, showpiece());
-                    }
-                }
-            }
-            case Cabinet cabinet -> {
-                if (be instanceof CabinetBlockEntity display) {
-                    display.setDisplayOnly(cabinet.displayOnly());
-                    if (cabinet.collection().isPresent()) {
-                        display.bindPool(cabinet.collection());
-                    }
-                    display.trimPool(Trims.byId(cabinet.trim()).id());
-                    display.setFinish(known(cabinet.finish()));
-                    List<TrophyStamp> contents = cabinet.contents();
-                    for (int slot = 0; slot < contents.size() && slot < display.size(); slot++) {
-                        display.setItem(slot, DisplayContents.stack(contents.get(slot)));
-                    }
-                    display.refreshRow();
-                }
-            }
-            default -> {
-            }
+            return;
         }
     }
 

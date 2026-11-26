@@ -61,24 +61,24 @@ public final class TrophyRenderClient {
     static void tooltip(ItemStack stack, Consumer<Component> out) {
         TrophyStamp stamp = stack.get(ModDataComponents.TROPHY.get());
         if (stamp == null) {
-            out.accept(Component.translatable("tooltip.nerotrophies.replica").withColor((TrophyColours.REPLICA_TEXT) & 0xFFFFFF));
+            out.accept(Component.translatable("tooltip.nerotrophies.replica").withStyle(style -> style.withColor((TrophyColours.REPLICA_TEXT) & 0xFFFFFF)));
             return;
         }
         TrophyLook.Look look = TrophyLook.of(stamp, Optional.empty());
         if (look.tier() != null) {
             out.accept(Component.translatable("tooltip.nerotrophies.tier",
                     Component.translatable("nerotrophies.tier." + look.tier().getSerializedName()))
-                    .withColor((TrophyColours.TEXT_2) & 0xFFFFFF));
+                    .withStyle(style -> style.withColor((TrophyColours.TEXT_2) & 0xFFFFFF)));
         }
         if (look.replica()) {
-            out.accept(Component.translatable("tooltip.nerotrophies.replica").withColor((TrophyColours.REPLICA_TEXT) & 0xFFFFFF));
+            out.accept(Component.translatable("tooltip.nerotrophies.replica").withStyle(style -> style.withColor((TrophyColours.REPLICA_TEXT) & 0xFFFFFF)));
             return;
         }
         if ((look.plate() == PlateState.NAMED || look.plate() == PlateState.GALLERY) && look.name() != null) {
             out.accept(Component.translatable("tooltip.nerotrophies.earned_by", look.name())
-                    .withColor((TrophyColours.TEXT) & 0xFFFFFF));
+                    .withStyle(style -> style.withColor((TrophyColours.TEXT) & 0xFFFFFF)));
         }
         out.accept(Component.translatable("tooltip.nerotrophies.genuine")
-                .withColor(TrophyColours.ink(look.tier()) & 0xFFFFFF));
+                .withStyle(style -> style.withColor(TrophyColours.ink(look.tier()) & 0xFFFFFF)));
     }
 }

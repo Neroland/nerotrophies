@@ -20,9 +20,18 @@ public final class NeroTrophiesNeoForge {
         // to our mod event bus.
         RegistrationProvider.attach(modEventBus);
         NeoForgeTrophyNetwork.register(modEventBus);
+        //? if >=1.20.5 {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(
                 (net.neoforged.neoforge.event.tick.ServerTickEvent.Post event) ->
                         NeroTrophiesCommon.onServerTick(event.getServer()));
+        //?} else {
+        /*net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(
+                (net.neoforged.neoforge.event.TickEvent.ServerTickEvent event) -> {
+                    if (event.phase == net.neoforged.neoforge.event.TickEvent.Phase.END) {
+                        NeroTrophiesCommon.onServerTick(event.getServer());
+                    }
+                });
+        *///?}
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(
                 (net.neoforged.neoforge.event.RegisterCommandsEvent event) ->
                         NeroTrophiesCommon.registerCommands(event.getDispatcher()));

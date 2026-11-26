@@ -1,7 +1,9 @@
 package za.co.neroland.nerotrophies.neoforge;
 
 import net.neoforged.bus.api.IEventBus;
+//? if >=1.20.5 {
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+//?}
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
@@ -58,6 +60,12 @@ public final class NeoForgeTrophyClientContent {
                         ModBlocks.WALL_CABINET.get(), ModBlocks.TROPHY_PLAQUE.get()));
         *///?}
         modBus.addListener((RegisterKeyMappingsEvent event) -> TrophyKeys.all().forEach(event::register));
+        //? if >=1.20.5 {
         NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post event) -> TrophyRenderClient.tick());
+        //?} else {
+        /*NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.TickEvent.ClientTickEvent event) -> {
+            if (event.phase == net.neoforged.neoforge.event.TickEvent.Phase.END) TrophyRenderClient.tick();
+        });
+        *///?}
     }
 }

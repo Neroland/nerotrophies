@@ -12,7 +12,12 @@ import za.co.neroland.nerotrophies.client.TrophyClient;
 @Mod(NeroTrophiesCommon.MOD_ID)
 public final class NeroTrophiesForge {
 
+    //? if >=1.20.5 {
     public NeroTrophiesForge(FMLJavaModLoadingContext context) {
+    //?} else {
+    /*public NeroTrophiesForge() {
+        FMLJavaModLoadingContext context = FMLJavaModLoadingContext.get();
+    *///?}
         NeroTrophiesCommon.LOGGER.info("[NeroTrophies] Forge bootstrap");
         NeroTrophiesCommon.init();
         // Common init created NeroTrophies' deferred registers through Core's registration seam; this attaches them
@@ -38,9 +43,18 @@ public final class NeroTrophiesForge {
         net.minecraftforge.event.server.ServerStoppedEvent.BUS.addListener(
                 event -> NeroTrophiesCommon.onServerStopped());
         *///?} else {
-        /*net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
+        /*//? if >=1.20.5 {
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
                 (net.minecraftforge.event.TickEvent.ServerTickEvent.Post event) ->
                         NeroTrophiesCommon.onServerTick(event.getServer()));
+        //?} else {
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
+                (net.minecraftforge.event.TickEvent.ServerTickEvent event) -> {
+                    if (event.phase == net.minecraftforge.event.TickEvent.Phase.END) {
+                        NeroTrophiesCommon.onServerTick(event.getServer());
+                    }
+                });
+        //?}
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
                 (net.minecraftforge.event.RegisterCommandsEvent event) ->
                         NeroTrophiesCommon.registerCommands(event.getDispatcher()));

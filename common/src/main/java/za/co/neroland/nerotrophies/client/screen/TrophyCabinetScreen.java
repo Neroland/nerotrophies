@@ -305,13 +305,21 @@ public class TrophyCabinetScreen extends AbstractContainerScreen<CabinetMenu> {
     }
 
     @Override
+    //? if >=1.20.2 {
     public boolean mouseScrolled(double mx, double my, double scrollX, double scrollY) {
+    //?} else {
+    /*public boolean mouseScrolled(double mx, double my, double scrollY) {
+    *///?}
         if (this.listOpen) {
             int max = Math.max(0, collections().size() + 1 - ROWS_VISIBLE);
             this.listScroll = Math.max(0, Math.min(max, this.listScroll + (scrollY > 0 ? -1 : 1)));
             return true;
         }
+        //? if >=1.20.2 {
         return super.mouseScrolled(mx, my, scrollX, scrollY);
+        //?} else {
+        /*return super.mouseScrolled(mx, my, scrollY);
+        *///?}
     }
 
     //? if >=1.21.9 {

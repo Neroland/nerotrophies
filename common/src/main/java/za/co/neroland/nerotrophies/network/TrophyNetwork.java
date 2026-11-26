@@ -45,9 +45,15 @@ public final class TrophyNetwork {
     }
 
     /** A payload type {@code nerotrophies:<name>}. */
+    //? if >=1.20.5 {
     public static <T extends CustomPacketPayload> CustomPacketPayload.Type<T> type(String name) {
         return new CustomPacketPayload.Type<>(TrophyIds.id(name));
     }
+    //?} else {
+    /*public static <T extends CustomPacketPayload> CustomPacketPayload.Type<T> type(String name, Class<T> payload) {
+        return new CustomPacketPayload.Type<>(TrophyIds.id(name), payload);
+    }
+    *///?}
 
     public static <T extends CustomPacketPayload> void clientbound(CustomPacketPayload.Type<T> type,
             StreamCodec<? super RegistryFriendlyByteBuf, T> codec, Consumer<T> handler) {

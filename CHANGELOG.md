@@ -6,6 +6,13 @@ All notable changes to NeroTrophies are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.3.1]
+
+### Added
+
+- Minecraft 1.20 through 1.20.4 on Fabric and Forge, and 1.20.4 on NeoForge.
+- Minecraft 1.20.5 on NeoForge 20.5.21-beta, with Neroland Core 1.24.0 or newer.
+
 ## [0.3.0] — 2026-11-26
 
 ### Added

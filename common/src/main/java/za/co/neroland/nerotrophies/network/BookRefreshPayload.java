@@ -13,7 +13,7 @@ public record BookRefreshPayload() implements CustomPacketPayload {
 
     public static final CustomPacketPayload.Type<BookRefreshPayload> TYPE = TrophyNetwork.type(TrophyIds.PAYLOAD_BOOK_REFRESH);
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, BookRefreshPayload> CODEC = StreamCodec.unit(INSTANCE);
+    public static final StreamCodec<RegistryFriendlyByteBuf, BookRefreshPayload> CODEC = StreamCodec.of((buf, ignored) -> { }, buf -> INSTANCE);
 
     @Override
     public CustomPacketPayload.Type<BookRefreshPayload> type() {

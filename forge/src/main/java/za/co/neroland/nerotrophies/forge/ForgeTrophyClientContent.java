@@ -78,8 +78,15 @@ public final class ForgeTrophyClientContent {
         modBus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(ForgeTrophyClientContent::screens));
         modBus.addListener(ForgeTrophyClientContent::colours);
         modBus.addListener((RegisterKeyMappingsEvent event) -> TrophyKeys.all().forEach(event::register));
+        //? if >=1.20.5 {
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
                 (TickEvent.ClientTickEvent.Post event) -> TrophyRenderClient.tick());
+        //?} else {
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
+                (TickEvent.ClientTickEvent event) -> {
+                    if (event.phase == TickEvent.Phase.END) TrophyRenderClient.tick();
+                });
+        //?}
     }
     *///?} else {
     /*public static void init(net.minecraftforge.eventbus.api.IEventBus modBus) {
@@ -88,8 +95,15 @@ public final class ForgeTrophyClientContent {
         modBus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(ForgeTrophyClientContent::screens));
         modBus.addListener(ForgeTrophyClientContent::colours);
         modBus.addListener((RegisterKeyMappingsEvent event) -> TrophyKeys.all().forEach(event::register));
+        //? if >=1.20.5 {
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
                 (TickEvent.ClientTickEvent.Post event) -> TrophyRenderClient.tick());
+        //?} else {
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
+                (TickEvent.ClientTickEvent event) -> {
+                    if (event.phase == TickEvent.Phase.END) TrophyRenderClient.tick();
+                });
+        //?}
         modBus.addListener((RegisterColorHandlersEvent.Item event) ->
                 event.register((stack, tintIndex) -> DisplayTints.itemColour(tintIndex),
                         ModBlocks.DISPLAY_PEDESTAL.get(), ModBlocks.TROPHY_CABINET.get(),

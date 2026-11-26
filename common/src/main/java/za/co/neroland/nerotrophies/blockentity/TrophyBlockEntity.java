@@ -1,7 +1,9 @@
 package za.co.neroland.nerotrophies.blockentity;
 
 import net.minecraft.core.BlockPos;
+//? if >=1.20.5 {
 import net.minecraft.core.component.DataComponentMap;
+//?}
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
@@ -70,6 +72,7 @@ public class TrophyBlockEntity extends DisplayBlockEntity {
         return false;
     }
 
+    //? if >=1.20.5 {
     @Override
     protected void collectImplicitComponents(DataComponentMap.Builder components) {
         super.collectImplicitComponents(components);
@@ -78,6 +81,16 @@ public class TrophyBlockEntity extends DisplayBlockEntity {
             components.set(ModDataComponents.TROPHY.get(), stamp);
         }
     }
+    //?} else {
+    /*@Override
+    public void writeItemData(net.minecraft.world.item.ItemStack stack) {
+        super.writeItemData(stack);
+        TrophyStamp stamp = this.stamp();
+        if (stamp != null) {
+            ModDataComponents.TROPHY.write(stack, stamp);
+        }
+    }
+    *///?}
 
     @Override
     protected void applyItemComponents(@Nullable TrophyStamp stamp) {

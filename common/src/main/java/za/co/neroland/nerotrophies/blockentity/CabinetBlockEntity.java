@@ -299,7 +299,11 @@ public class CabinetBlockEntity extends DisplayBlockEntity {
     }
 
     @Override
+    //? if >=1.20.5 {
     protected void writeClientExtra(CompoundTag tag, HolderLookup.Provider registries) {
+    //?} else {
+    /*protected void writeClientExtra(CompoundTag tag) {
+    *///?}
         tag.putLongArray(PIPS_KEY, new long[] {this.mask, this.memberCount, this.poolIndex, this.poolLength});
     }
 

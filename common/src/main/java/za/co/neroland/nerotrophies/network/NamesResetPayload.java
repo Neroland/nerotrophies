@@ -13,7 +13,7 @@ public record NamesResetPayload() implements CustomPacketPayload {
 
     public static final CustomPacketPayload.Type<NamesResetPayload> TYPE = TrophyNetwork.type(TrophyIds.PAYLOAD_NAMES_RESET);
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, NamesResetPayload> CODEC = StreamCodec.unit(INSTANCE);
+    public static final StreamCodec<RegistryFriendlyByteBuf, NamesResetPayload> CODEC = StreamCodec.of((buf, ignored) -> { }, buf -> INSTANCE);
 
     @Override
     public CustomPacketPayload.Type<NamesResetPayload> type() {

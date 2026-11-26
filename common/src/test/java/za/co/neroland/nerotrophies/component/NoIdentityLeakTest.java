@@ -51,7 +51,11 @@ class NoIdentityLeakTest {
             assertFalse(nbt.toString().contains(Integer.toString(part)), "int-array UUID part");
         }
 
+        //? if >=1.20.5 {
         ByteBuf buf = Unpooled.buffer();
+        //?} else {
+        /*var buf = new net.minecraft.network.FriendlyByteBuf(Unpooled.buffer());
+        *///?}
         TrophyStamp.STREAM_CODEC.encode(buf, stamp);
         byte[] wire = new byte[buf.readableBytes()];
         buf.getBytes(0, wire);

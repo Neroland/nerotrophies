@@ -16,11 +16,19 @@ final class PayloadIo {
     }
 
     static void writeId(FriendlyByteBuf buf, Identifier id) {
+        //? if >=1.20.5 {
         Identifier.STREAM_CODEC.encode(buf, id);
+        //?} else {
+        /*buf.writeResourceLocation(id);
+        *///?}
     }
 
     static Identifier readId(FriendlyByteBuf buf) {
+        //? if >=1.20.5 {
         return Identifier.STREAM_CODEC.decode(buf);
+        //?} else {
+        /*return buf.readResourceLocation();
+        *///?}
     }
 
     static int readCount(FriendlyByteBuf buf, int max) {

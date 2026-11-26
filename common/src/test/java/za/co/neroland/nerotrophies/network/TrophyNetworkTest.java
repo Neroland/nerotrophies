@@ -14,8 +14,7 @@ class TrophyNetworkTest {
 
     @Test
     void payloadTypesAreNamespaced() {
-        assertEquals("nerotrophies:" + TrophyIds.PAYLOAD_RECORD,
-                TrophyNetwork.type(TrophyIds.PAYLOAD_RECORD).id().toString());
+        assertEquals("nerotrophies:" + TrophyIds.PAYLOAD_RECORD, RecordPayload.TYPE.id().toString());
         assertEquals("main", TrophyNetwork.CHANNEL);
     }
 

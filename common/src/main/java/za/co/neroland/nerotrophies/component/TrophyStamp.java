@@ -4,7 +4,11 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import io.netty.buffer.ByteBuf;
+//? if >=1.20.5 {
 import net.minecraft.network.codec.ByteBufCodecs;
+//?} else {
+/*import net.minecraft.network.FriendlyByteBuf;
+*///?}
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
 
@@ -32,10 +36,19 @@ public record TrophyStamp(Identifier trophy, long token) {
             Identifier.CODEC.fieldOf("trophy").forGetter(TrophyStamp::trophy),
             Codec.LONG.fieldOf("token").forGetter(TrophyStamp::token)).apply(i, TrophyStamp::new));
 
+    //? if >=1.20.5 {
     public static final StreamCodec<ByteBuf, TrophyStamp> STREAM_CODEC = StreamCodec.composite(
             Identifier.STREAM_CODEC, TrophyStamp::trophy,
             ByteBufCodecs.VAR_LONG, TrophyStamp::token,
             TrophyStamp::new);
+    //?} else {
+    /*public static final StreamCodec<FriendlyByteBuf, TrophyStamp> STREAM_CODEC = StreamCodec.of(
+            (buf, stamp) -> {
+                buf.writeResourceLocation(stamp.trophy());
+                buf.writeVarLong(stamp.token());
+            },
+            buf -> new TrophyStamp(buf.readResourceLocation(), buf.readVarLong()));
+    *///?}
 
     /** Whether {@code token} is one of the reserved values that are never minted or indexed. */
     public static boolean isReserved(long token) {

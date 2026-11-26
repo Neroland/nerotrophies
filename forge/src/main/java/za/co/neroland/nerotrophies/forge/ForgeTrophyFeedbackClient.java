@@ -29,8 +29,15 @@ public final class ForgeTrophyFeedbackClient {
         ClientPlayerNetworkEvent.LoggingOut.BUS.addListener(event -> TrophyParticles.clear());
         *///?} else {
         /*context.getModEventBus().addListener(ForgeTrophyFeedbackClient::particles);
+        //? if >=1.20.5 {
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
                 (TickEvent.ClientTickEvent.Post event) -> AwardFeedback.tick());
+        //?} else {
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
+                (TickEvent.ClientTickEvent event) -> {
+                    if (event.phase == TickEvent.Phase.END) AwardFeedback.tick();
+                });
+        //?}
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(
                 (ClientPlayerNetworkEvent.LoggingOut event) -> TrophyParticles.clear());
         *///?}

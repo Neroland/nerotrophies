@@ -12,6 +12,7 @@ plugins {
 
 // MC version comes from the Stonecutter node (e.g. :neoforge:26.1.2), not a global property.
 def mc = stonecutter.current.version
+def preComponents = stonecutter.eval(mc, '<1.20.5')
 // Upper bound of this cell's Minecraft range: the next minor line (26.1.2 -> 26.2, 26.2 -> 26.3), same
 // expression as Neroland Core. Without it a jar built for one line loads on the next and fails on a changed
 // signature at runtime instead of a clean loader message.
@@ -20,7 +21,7 @@ def mcCeiling = project.findProperty("mc_ceiling_${mc}") ?: mc.tokenize('.').wit
 // 1.21.x cells spell out their [floor, ceiling) range there (mc_floor_<v> / mc_ceiling_<v>).
 def mcFloor = project.findProperty("mc_floor_${mc}") ?: mc
 def neoVersion = project.findProperty("neo_version_${mc}")
-def nerolandcoreVersion = project.findProperty('nerolandcore_version')
+def nerolandcoreVersion = project.findProperty(mc == '1.20.5' ? 'nerolandcore_version_neoforge_1.20.5' : 'nerolandcore_version')
 
 // This node's projectDir is <loader>/versions/<v>; the authoritative loader source +
 // templates live in the BRANCH root (neoforge/). Resolve branch-root paths via the parent.
@@ -118,6 +119,13 @@ def generateModMetadata = tasks.register('generateModMetadata', ProcessResources
     inputs.properties(props)
     expand(props)
     from "${branchDir}/src/main/templates"
+    if (stonecutter.eval(mc, '<1.20.5')) {
+        filesMatching('META-INF/neoforge.mods.toml') {
+            name = 'mods.toml'
+            filter { line -> line.replace('type = "required"', 'mandatory = true')
+                                 .replace('type = "optional"', 'mandatory = false') }
+        }
+    }
     into layout.buildDirectory.dir('generated/sources/modMetadata')
 }
 sourceSets.main.resources.srcDir generateModMetadata
@@ -156,6 +164,31 @@ def generateWikiResources = tasks.register('generateWikiResources', Copy) {
     }
 }
 sourceSets.main.resources.srcDir generateWikiResources
+
+// NeoForge 20.5's POM predates the ModDevGradle variants. The original userdev jar supplies the
+// game patches and the original POM supplies dependencies for the compile and test classpaths.
+if (mc == '1.20.5') {
+    dependencies.components.withModule('net.neoforged:neoforge') { details ->
+        if (details.id.version == neoVersion) {
+            details.withVariant('sources') {
+                withDependencies { clear() }
+            }
+            details.addVariant('legacyModDevBundle') {
+                withCapabilities { addCapability('net.neoforged', 'neoforge-moddev-bundle', neoVersion) }
+                withFiles { addFile("neoforge-${neoVersion}-userdev.jar") }
+            }
+            ['compile', 'runtime'].each { pomVariant ->
+                details.addVariant("legacyModDev-${pomVariant}", pomVariant) {
+                    withCapabilities {
+                        removeCapability('net.neoforged', 'neoforge')
+                        addCapability('net.neoforged', 'neoforge-dependencies', neoVersion)
+                    }
+                    withFiles { removeAllFiles() }
+                }
+            }
+        }
+    }
+}
 
 neoForge {
     version = neoVersion

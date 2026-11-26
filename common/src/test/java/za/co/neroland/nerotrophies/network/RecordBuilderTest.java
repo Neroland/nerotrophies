@@ -121,8 +121,12 @@ class RecordBuilderTest {
 
         RecordPayload p = RecordBuilder.build(s, A, defs, RecordBuilder.ProgressSource.NONE, 5_000L, 600_000L);
         io.netty.buffer.ByteBuf raw = io.netty.buffer.Unpooled.buffer();
+        //? if >=1.20.5 {
         RecordPayload.CODEC.encode(new net.minecraft.network.RegistryFriendlyByteBuf(raw,
                 net.minecraft.core.RegistryAccess.EMPTY), p);
+        //?} else {
+        /*RecordPayload.CODEC.encode(new net.minecraft.network.FriendlyByteBuf(raw), p);
+        *///?}
         assertTrue(raw.writerIndex() <= RecordBuilder.RECORD_BUDGET_BYTES, raw.writerIndex() + " bytes");
         assertTrue(raw.writerIndex() < 1_048_576, "under the 1 MiB clientbound custom payload limit");
         assertTrue(p.collections().size() < 512, "collections are truncated by bytes");

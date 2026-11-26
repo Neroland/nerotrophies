@@ -15,7 +15,11 @@ public final class PayloadCodecs {
     }
 
     public static <T> T roundTrip(StreamCodec<? super RegistryFriendlyByteBuf, T> codec, T value) {
+        //? if >=1.20.5 {
         RegistryFriendlyByteBuf buf = new RegistryFriendlyByteBuf(Unpooled.buffer(), RegistryAccess.EMPTY);
+        //?} else {
+        /*FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
+        *///?}
         codec.encode(buf, value);
         T back = codec.decode(buf);
         if (buf.readableBytes() != 0) {

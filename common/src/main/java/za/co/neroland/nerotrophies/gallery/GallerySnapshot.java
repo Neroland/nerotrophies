@@ -58,7 +58,7 @@ public record GallerySnapshot(Identifier dimension, BlockPos origin, Direction f
             BlockEntityData.CODEC.listOf().xmap(GallerySnapshot::toMap, GallerySnapshot::toList)
                     .fieldOf("block_entities").forGetter(GallerySnapshot::blockEntities),
             Plate.CODEC.listOf().fieldOf("plates").forGetter(GallerySnapshot::plates))
-            .apply(i, GallerySnapshot::new)).validate(GallerySnapshot::validate);
+            .apply(i, GallerySnapshot::new)).flatXmap(GallerySnapshot::validate, GallerySnapshot::validate);
 
     public GallerySnapshot {
         palette = List.copyOf(palette);
