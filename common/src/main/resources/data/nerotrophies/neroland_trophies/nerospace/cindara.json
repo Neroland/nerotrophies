@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "icon": "nerospace:cindrite",
+  "icon": "nerolandcore:cindrite",
   "tier": "silver",
   "trigger": {
     "type": "advancement",

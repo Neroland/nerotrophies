@@ -33,10 +33,11 @@ Common packages so far:
 
 ## Build
 
-Stonecutter produces 27 cells: three loaders x nine Minecraft lines (1.21.1, 1.21.4, 1.21.5, 1.21.8, 1.21.10,
-1.21.11, 26.1.2, 26.2, 26.3). Source is written for 26.x (26.3 is the target); older lines use `//?` blocks,
+Stonecutter produces 54 cells, the same matrix as Neroland Core: Fabric on every `mc_versions` line (1.20 through
+1.20.6, 1.21.1, 1.21.3, 1.21.4, 1.21.5, 1.21.8, 1.21.10, 1.21.11, 26.1, 26.1.1, 26.1.2, 26.2, 26.3), Forge on all but
+1.20.5, and NeoForge from 1.20.2. Source is written for 26.x (26.3 is the target); older lines use `//?` blocks,
 `legacyRenames` in `stonecutter.gradle` or `common/src/main/resources-<mc>` overlays. Java 25 for 26.x, Java 21
-bytecode for 1.21.x.
+bytecode for 1.20.5-1.21.x, Java 17 for 1.20-1.20.4.
 
 Never run a plain `build`: the root `:fabric`, `:forge` and `:neoforge` projects are vestigial containers. Build
 the cells explicitly, 26.x first, then 1.21.11 down to 1.21.1:
@@ -47,7 +48,7 @@ the cells explicitly, 26.x first, then 1.21.11 down to 1.21.1:
 ./gradlew :fabric:26.3:ecjCheck
 ```
 
-All 27 cells must build and `:fabric:26.3:ecjCheck` must pass at every gate. `ecjCheck` runs the Eclipse
+All 54 cells must build and `:fabric:26.3:ecjCheck` must pass at every gate. `ecjCheck` runs the Eclipse
 analyzer with `tools/ecj.prefs` (the same settings VS Code uses) and fails only on errors. Any unit tests in
 `common/src/test/java` run as part of every NeoForge cell build.
 

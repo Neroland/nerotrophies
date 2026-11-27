@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "icon": "nerospace:glacite",
+  "icon": "nerolandcore:glacite",
   "tier": "silver",
   "trigger": {
     "type": "advancement",

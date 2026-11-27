@@ -85,6 +85,13 @@ dependencies {
 
 tasks.named('test', Test) {
     useJUnitPlatform()
+    // Minecraft 1.20.2's registries refuse to initialise without a game bootstrap, which these plain-JVM tests
+    // do not run. The suites that build registry keys or blocks run on every other cell.
+    if (mc == '1.20.2') {
+        filter {
+            excludeTestsMatching 'za.co.neroland.nerotrophies.block.FinishRulesTest'
+        }
+    }
 }
 
 dependencies {
@@ -103,6 +110,7 @@ dependencies {
 // neoForge.ideSyncTask runs this on IDE sync so bin/main gets the EXPANDED manifest
 // and Run & Debug works — values stay dynamic (from gradle.properties).
 def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def legacyMixins = stonecutter.eval(mc, '<1.20.4')
     def props = [
         mod_id                 : rootProject.mod_id,
         mod_version            : rootProject.mod_version,
@@ -123,6 +131,10 @@ def generateModMetadata = tasks.register('generateModMetadata', ProcessResources
             name = 'mods.toml'
             filter { line -> line.replace('type = "required"', 'mandatory = true')
                                  .replace('type = "optional"', 'mandatory = false') }
+            // NeoForge before 20.4 has no [[mixins]] table: the config is declared in the jar manifest instead.
+            if (legacyMixins) {
+                filter { line -> line == '[[mixins]]' || line == 'config = "nerotrophies-common.mixins.json"' ? '' : line }
+            }
         }
     }
     into layout.buildDirectory.dir('generated/sources/modMetadata')
@@ -164,9 +176,15 @@ def generateWikiResources = tasks.register('generateWikiResources', Copy) {
 }
 sourceSets.main.resources.srcDir generateWikiResources
 
-// NeoForge 20.5's POM predates the ModDevGradle variants. The original userdev jar supplies the
-// game patches and the original POM supplies dependencies for the compile and test classpaths.
-if (mc == '1.20.5') {
+if (stonecutter.eval(mc, '<1.20.4')) {
+    tasks.named('jar', Jar) {
+        manifest.attributes('MixinConfigs': 'nerotrophies-common.mixins.json')
+    }
+}
+
+// These NeoForge POMs (20.2, 20.3, 20.5) predate the ModDevGradle variants. The original userdev jar supplies
+// the game patches and the original POM supplies dependencies for the compile and test classpaths.
+if (mc in ['1.20.2', '1.20.3', '1.20.5']) {
     dependencies.components.withModule('net.neoforged:neoforge') { details ->
         if (details.id.version == neoVersion) {
             details.withVariant('sources') {

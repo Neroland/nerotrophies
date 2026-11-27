@@ -6,6 +6,19 @@ All notable changes to NeroTrophies are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-27
+
+### Added
+
+- Builds for Minecraft 1.21.3, 26.1 and 26.1.1 on Fabric, Forge and NeoForge, and for NeoForge 1.20.2 and 1.20.3,
+  matching Neroland Core's cells.
+
+### Changed
+
+- The Cindara, Glacira, Big Cheese and Stargazer trophies use the Neroland Core ids for their ore icons and
+  the mined-block stat (`nerolandcore:`), since every Nero ore moved to Core 1.25.0.
+- Requires Neroland Core 1.25.0 or newer.
+
 ## [0.3.1]
 
 ### Added

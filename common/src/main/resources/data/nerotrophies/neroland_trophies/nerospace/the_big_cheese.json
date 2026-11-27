@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "icon": "nerospace:moon_cheese",
+  "icon": "nerolandcore:moon_cheese",
   "tier": "bronze",
   "trigger": {
     "type": "advancement",

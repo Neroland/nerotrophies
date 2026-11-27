@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "icon": "neroevents:embedded_meteor_ore",
+  "icon": "nerolandcore:embedded_meteor_ore",
   "tier": "bronze",
   "trigger": {
     "type": "stat",
     "stat_type": "minecraft:mined",
-    "stat": "neroevents:embedded_meteor_ore",
+    "stat": "nerolandcore:embedded_meteor_ore",
     "at_least": 1
   },
   "hidden": false,

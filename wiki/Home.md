@@ -9,7 +9,7 @@ it.
 
 - Minecraft 26.3 (also built for 26.2, 26.1.2, 1.21.11, 1.21.10, 1.21.8, 1.21.5, 1.21.4 and 1.21.1)
 - NeoForge, Forge or Fabric (Fabric also needs Fabric API)
-- Minecraft 1.20 through 1.20.6 on Fabric, 1.20 through 1.20.4 and 1.20.6 on Forge, and 1.20.4 through 1.20.6 on NeoForge. Minecraft 1.20.5 on NeoForge requires loader 20.5.21-beta. NeoForge 1.20.1 uses the Forge 1.20.1 jar.
+- Minecraft 1.20 through 1.20.6 on Fabric, 1.20 through 1.20.4 and 1.20.6 on Forge, and 1.20.2 through 1.20.6 on NeoForge, then 1.21.1, 1.21.3, 1.21.4, 1.21.5, 1.21.8, 1.21.10, 1.21.11, 26.1, 26.1.1, 26.1.2, 26.2 and 26.3 on all three loaders. Minecraft 1.20.5 on NeoForge requires loader 20.5.21-beta. NeoForge 1.20.1 uses the Forge 1.20.1 jar.
 - **Neroland Core 1.24.0 or newer** (below 2.0). Core is the only required mod.
 - Optional: any other Nero mod, whose trophies light up when it is installed, and the NeroLink bridge mod for the
   companion app

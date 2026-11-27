@@ -7,7 +7,9 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+//? if >=1.20.4 {
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+//?}
 import net.neoforged.neoforge.common.NeoForge;
 
 import za.co.neroland.nerotrophies.client.render.CabinetRenderer;
@@ -42,10 +44,18 @@ public final class NeoForgeTrophyClientContent {
             event.registerBlockEntityRenderer(ModBlockEntities.WALL_CABINET.get(), ctx -> new CabinetRenderer());
             event.registerBlockEntityRenderer(ModBlockEntities.TROPHY_PLAQUE.get(), ctx -> new PlaqueRenderer());
         });
+        //? if >=1.20.4 {
         modBus.addListener((RegisterMenuScreensEvent event) -> {
             event.register(ModMenuTypes.TROPHY_CABINET.get(), TrophyCabinetScreen::new);
             event.register(ModMenuTypes.WALL_CABINET.get(), TrophyCabinetScreen::new);
         });
+        //?} else {
+        /*// NeoForge 20.2 / 20.3 have no RegisterMenuScreensEvent: screens go through vanilla MenuScreens in client setup.
+        modBus.addListener((net.neoforged.fml.event.lifecycle.FMLClientSetupEvent event) -> event.enqueueWork(() -> {
+            net.minecraft.client.gui.screens.MenuScreens.register(ModMenuTypes.TROPHY_CABINET.get(), TrophyCabinetScreen::new);
+            net.minecraft.client.gui.screens.MenuScreens.register(ModMenuTypes.WALL_CABINET.get(), TrophyCabinetScreen::new);
+        }));
+        *///?}
         //? if >=26.1 {
         modBus.addListener((RegisterColorHandlersEvent.BlockTintSources event) ->
                 event.register(java.util.List.copyOf(DisplayTints.sources()), DisplayTints.blocks()));
